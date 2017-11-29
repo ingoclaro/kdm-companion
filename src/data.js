@@ -454,6 +454,96 @@ export default {
         }
       ]
     },
+    counterweighted_axe: {
+      name: 'Counterweighted Axe',
+      recipes: [
+        {
+          location: 'weapon_crafter',
+          innovations: [],
+          resources: {'bone': 2, 'hide': 1, 'organ': 1},
+        }
+      ]
+    },
+    whistling_mace: {
+      name: 'Whistling Mace',
+      recipes: [
+        {
+          location: 'weapon_crafter',
+          innovations: [],
+          resources: {'bone': 2, 'organ': 1},
+        }
+      ]
+    },
+    zanbato: {
+      name: 'Zanbato',
+      recipes: [
+        {
+          location: 'weapon_crafter',
+          innovations: [],
+          resources: {'great cat bone': 1, 'hide': 2},
+        }
+      ]
+    },
+    blood_sheath: {
+      name: 'Blood Sheath',
+      recipes: [
+        {
+          location: 'weapon_crafter',
+          innovations: [],
+          resources: {'organ': 5, 'hollow wing bone': 1, 'muculent droppings': 1},
+        }
+      ]
+    },
+    rainbow_katana: {
+      name: 'Rainbow Katana',
+      recipes: [
+        {
+          location: 'weapon_crafter',
+          innovations: ['heat'],
+          resources: {'phoenix beak': 1, 'rainbow droppings': 1, 'iron': 1, 'bone': 6},
+        }
+      ]
+    },
+    skullcap_hammer: {
+      name: 'Skullcap Hammer',
+      recipes: [
+        {
+          location: 'weapon_crafter',
+          innovations: [],
+          resources: {'bone': 2, 'scrap': 1},
+        }
+      ]
+    },
+    scrap_sword: {
+      name: 'Scrap Sword',
+      recipes: [
+        {
+          location: 'weapon_crafter',
+          innovations: ['heat'],
+          resources: {'bone': 2, 'scrap': 1},
+        }
+      ]
+    },
+    scrap_dagger: {
+      name: 'Scrap Dagger',
+      recipes: [
+        {
+          location: 'weapon_crafter',
+          innovations: ['heat'],
+          resources: {'bone': 1, 'scrap': 1},
+        }
+      ]
+    },
+    finger_of_god: {
+      name: 'Finger Of God',
+      recipes: [
+        {
+          location: 'weapon_crafter',
+          innovations: [],
+          resources: {'phoenix finger': 1, 'bone': 4},
+        }
+      ]
+    },
   },
   resources: {
     'sinew': {
