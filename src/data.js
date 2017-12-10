@@ -544,6 +544,76 @@ export default {
         }
       ]
     },
+    leather_mask: {
+      name: 'Leather Mask',
+      recipes: [
+        {
+          location: 'leather_worker',
+          innovations: [],
+          resources: {'leather': 1, 'scrap': 1},
+        }
+      ]
+    },
+    leather_bracers: {
+      name: 'Leather Bracers',
+      recipes: [
+        {
+          location: 'leather_worker',
+          innovations: [],
+          resources: {'leather': 1, 'hide': 1},
+        }
+      ]
+    },
+    leather_curiass: {
+      name: 'Leather Curiass',
+      recipes: [
+        {
+          location: 'leather_worker',
+          innovations: [],
+          resources: {'leather': 1, 'bone': 1},
+        }
+      ]
+    },
+    leather_skirt: {
+      name: 'Leather Skirt',
+      recipes: [
+        {
+          location: 'leather_worker',
+          innovations: [],
+          resources: {'leather': 1},
+        }
+      ]
+    },
+    leather_boots: {
+      name: 'Leather Boots',
+      recipes: [
+        {
+          location: 'leather_worker',
+          innovations: [],
+          resources: {'leather': 1, 'hide': 1},
+        }
+      ]
+    },
+    round_leather_shield: {
+      name: 'Round Leather Shield',
+      recipes: [
+        {
+          location: 'leather_worker',
+          innovations: [],
+          resources: {'leather': 1, 'bone': 1, 'hide': 1},
+        }
+      ]
+    },
+    hunter_whip: {
+      name: 'Hunter Whip',
+      recipes: [
+        {
+          location: 'leather_worker',
+          innovations: [],
+          resources: {'leather': 2, 'bone': 1},
+        }
+      ]
+    },
   },
   resources: {
     'sinew': {
