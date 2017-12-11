@@ -1,5 +1,7 @@
 import React from 'react'
+import { Platform } from 'react-native'
 import { TabNavigator } from 'react-navigation'
+import Expo from 'expo'
 import { Screen } from '@shoutem/ui'
 import { StyleProvider } from '@shoutem/theme'
 
@@ -29,6 +31,8 @@ const App = TabNavigator(
       // showIcon: true, // looks quite ugly in Android, seems that sizes aren't taken into account or it needs different ones.
       style: {
         backgroundColor: 'black',
+        paddingTop:
+          Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
       },
     },
   }
