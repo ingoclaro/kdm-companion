@@ -1,34 +1,9 @@
 import React from 'react'
 import { FlatList } from 'react-native'
-import { View, Text, Icon, TouchableOpacity } from '@shoutem/ui'
-import { connectStyle } from '@shoutem/theme'
 
-class DefaultListItem extends React.PureComponent {
-  _onPress = () => {
-    this.props.onPressItem(this.props.id)
-  }
+import CheckboxListItem from './CheckboxListItem'
 
-  styles = this.props.style
-
-  render() {
-    const styleName = this.props.selected ? 'selected' : ''
-    const Checkbox = this.props.selected ? (
-      <Icon name="checkbox-on" style={styles.checkbox} />
-    ) : (
-      <Icon name="checkbox-off" style={styles.checkbox} />
-    )
-    return (
-      <TouchableOpacity onPress={this._onPress}>
-        <View styleName={styleName} style={styles.row}>
-          {Checkbox}
-          <Text styleName="md-gutter">{this.props.title}</Text>
-        </View>
-      </TouchableOpacity>
-    )
-  }
-}
-
-class MultiSelectList extends React.PureComponent {
+export default class MultiSelectList extends React.PureComponent {
   state = { selected: (new Map(): Map<string, boolean>) }
 
   _keyExtractor = (item, index) => item.id
@@ -44,7 +19,7 @@ class MultiSelectList extends React.PureComponent {
   }
 
   _renderItem = ({ item }) => (
-    <DefaultListItem
+    <CheckboxListItem
       id={item.id}
       onPressItem={this._onPressItem}
       selected={!!this.state.selected.get(item.id)}
@@ -64,22 +39,3 @@ class MultiSelectList extends React.PureComponent {
     )
   }
 }
-
-const styles = {
-  checkbox: {
-    marginRight: 5,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  selectedRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    text: {
-      color: 'red',
-    },
-  },
-}
-
-export default connectStyle('kdm-companion.SettlementScreen', styles)(MultiSelectList)

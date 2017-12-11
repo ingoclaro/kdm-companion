@@ -1,9 +1,14 @@
 import React from 'react'
-import { Screen, View, Text } from '@shoutem/ui'
+import { Screen, View, Text, Image } from '@shoutem/ui'
+
+import buildImage from '../images/build.png'
 
 export default class BuildScreen extends React.Component {
   static navigationOptions = {
     tabBarLabel: 'Build',
+    tabBarIcon: ({ tintColor }) => {
+      return <Image source={buildImage} style={styles.menuImage} />
+    },
   }
 
   render() {
@@ -21,4 +26,11 @@ export default class BuildScreen extends React.Component {
       </Screen>
     )
   }
+}
+
+const styles = {
+  menuImage: {
+    width: 100,
+    height: 50,
+  },
 }

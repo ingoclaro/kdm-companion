@@ -23,18 +23,36 @@ export default class App extends React.Component {
   }
 
   async _cacheResourcesAsync() {
-    await Expo.Font.loadAsync({
-      'rubicon-icon-font': require('@shoutem/ui/fonts/rubicon-icon-font.ttf'),
-      'Rubik-Black': require('@shoutem/ui/fonts/Rubik-Black.ttf'),
-      'Rubik-BlackItalic': require('@shoutem/ui/fonts/Rubik-BlackItalic.ttf'),
-      'Rubik-Bold': require('@shoutem/ui/fonts/Rubik-Bold.ttf'),
-      'Rubik-BoldItalic': require('@shoutem/ui/fonts/Rubik-BoldItalic.ttf'),
-      'Rubik-Italic': require('@shoutem/ui/fonts/Rubik-Italic.ttf'),
-      'Rubik-Light': require('@shoutem/ui/fonts/Rubik-Light.ttf'),
-      'Rubik-LightItalic': require('@shoutem/ui/fonts/Rubik-LightItalic.ttf'),
-      'Rubik-Medium': require('@shoutem/ui/fonts/Rubik-Medium.ttf'),
-      'Rubik-MediumItalic': require('@shoutem/ui/fonts/Rubik-MediumItalic.ttf'),
-      'Rubik-Regular': require('@shoutem/ui/fonts/Rubik-Regular.ttf'),
-    })
+    await Promise.all([
+      Expo.Font.loadAsync({
+        'rubicon-icon-font': require('@shoutem/ui/fonts/rubicon-icon-font.ttf'),
+        'Rubik-Black': require('@shoutem/ui/fonts/Rubik-Black.ttf'),
+        'Rubik-BlackItalic': require('@shoutem/ui/fonts/Rubik-BlackItalic.ttf'),
+        'Rubik-Bold': require('@shoutem/ui/fonts/Rubik-Bold.ttf'),
+        'Rubik-BoldItalic': require('@shoutem/ui/fonts/Rubik-BoldItalic.ttf'),
+        'Rubik-Italic': require('@shoutem/ui/fonts/Rubik-Italic.ttf'),
+        'Rubik-Light': require('@shoutem/ui/fonts/Rubik-Light.ttf'),
+        'Rubik-LightItalic': require('@shoutem/ui/fonts/Rubik-LightItalic.ttf'),
+        'Rubik-Medium': require('@shoutem/ui/fonts/Rubik-Medium.ttf'),
+        'Rubik-MediumItalic': require('@shoutem/ui/fonts/Rubik-MediumItalic.ttf'),
+        'Rubik-Regular': require('@shoutem/ui/fonts/Rubik-Regular.ttf'),
+      }),
+      cacheImages([
+        // menu images
+        require('./images/build.png'),
+        require('./images/resources.jpg'),
+        require('./images/settlement.jpg'),
+      ]),
+    ])
   }
+}
+
+function cacheImages(images) {
+  return images.map(image => {
+    if (typeof image === 'string') {
+      return Expo.Image.prefetch(image)
+    } else {
+      return Expo.Asset.fromModule(image).downloadAsync()
+    }
+  })
 }

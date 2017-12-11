@@ -1,66 +1,28 @@
 import React from 'react'
-import { Screen, View, Text } from '@shoutem/ui'
-import { connectStyle } from '@shoutem/theme'
-import MultiSelectList from '../components/MultiSelectList'
+import { Screen, View, Image } from '@shoutem/ui'
 
-import R from 'ramda'
-import gameData from '../src/data'
+import Innovations from '../components/Innovations'
+import Locations from '../components/Locations'
+
+import settlementImage from '../images/settlement.jpg'
 
 class SettlementScreen extends React.Component {
   static navigationOptions = {
     tabBarLabel: 'Settlement',
-  }
-
-  state = {
-    selectedLocationItems: [],
-    selectedInnovationItems: [],
-  }
-
-  styles = this.props.style
-
-  onSelectedItemsChange = key => selectedItems => {
-    this.setState({ key: selectedItems })
+    tabBarIcon: ({ tintColor }) => {
+      return <Image source={settlementImage} style={styles.menuImage} />
+    },
   }
 
   render() {
-    const locations = gameData.settlement_locations
-    const locationList = Object.keys(locations)
-      .sort()
-      .map(key => {
-        return { id: key, title: locations[key].name }
-      })
-
-    let innovations = []
-    R.forEachObjIndexed(gear => {
-      gear.recipes.forEach(recipe => {
-        innovations = innovations.concat(recipe.innovations)
-      })
-    }, gameData.gear)
-
-    const innovationList = Array.from(new Set(innovations)).map(key => {
-      return { id: key, title: key }
-    })
-
     return (
       <Screen style={{ flex: 1 }}>
         <View style={styles.container}>
           <View style={styles.locations}>
-            <View>
-              <Text>Locations:</Text>
-              <MultiSelectList
-                data={locationList}
-                onSelectedItemsChange={this.onSelectedItemsChange('selectedLocationItems')}
-              />
-            </View>
+            <Locations />
           </View>
           <View style={styles.innovations}>
-            <View>
-              <Text>Innovations:</Text>
-              <MultiSelectList
-                data={innovationList}
-                onSelectedItemsChange={this.onSelectedItemsChange('selectedInnovationItems')}
-              />
-            </View>
+            <Innovations />
           </View>
         </View>
       </Screen>
@@ -82,6 +44,10 @@ const styles = {
     flex: 1,
     justifyContent: 'center',
   },
+  menuImage: {
+    width: 100,
+    height: 50,
+  },
 }
 
-export default connectStyle('kdm-companion.SettlementScreen', styles)(SettlementScreen)
+export default SettlementScreen
