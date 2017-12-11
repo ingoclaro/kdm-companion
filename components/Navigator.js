@@ -20,12 +20,13 @@ const App = TabNavigator(
     },
   },
   {
-    tabBarPosition: 'bottom',
+    // tabBarPosition: 'bottom',
     animationEnabled: true,
     swipeEnabled: true,
     tabBarOptions: {
       activeTintColor: 'white',
       inactiveTintColor: 'grey',
+      // showIcon: true, // looks quite ugly in Android, seems that sizes aren't taken into account or it needs different ones.
       style: {
         backgroundColor: 'black',
       },

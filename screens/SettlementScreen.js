@@ -9,7 +9,7 @@ import settlementImage from '../images/settlement.jpg'
 class SettlementScreen extends React.Component {
   static navigationOptions = {
     tabBarLabel: 'Settlement',
-    tabBarIcon: ({ tintColor }) => {
+    tabBarIcon: ({ focused }) => {
       return <Image source={settlementImage} style={styles.menuImage} />
     },
   }
