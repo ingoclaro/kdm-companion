@@ -18,14 +18,16 @@ class Innovations extends React.Component {
   }
 
   render() {
-    let innovations = []
+    let innovations = new Set()
     R.forEachObjIndexed(gear => {
       gear.recipes.forEach(recipe => {
-        innovations = innovations.concat(recipe.innovations)
+        recipe.innovations.forEach(innovation => {
+          innovations.add(innovation)
+        })
       })
     }, gameData.gear)
 
-    const innovationList = Array.from(new Set(innovations)).map(key => {
+    const innovationList = Array.from(innovations).map(key => {
       return { id: key, title: key }
     })
 

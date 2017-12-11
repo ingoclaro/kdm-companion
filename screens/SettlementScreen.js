@@ -41,7 +41,7 @@ const styles = {
     justifyContent: 'center',
   },
   innovations: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'center',
   },
   menuImage: {
