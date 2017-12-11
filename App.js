@@ -1,4 +1,5 @@
 import React from 'react'
+import { Platform } from 'react-native'
 import Expo, { AppLoading } from 'expo'
 
 import Navigator from './components/Navigator'
@@ -23,6 +24,16 @@ export default class App extends React.Component {
   }
 
   async _cacheResourcesAsync() {
+    let images = []
+    // menu images for ios
+    if (Platform.OS === 'ios') {
+      images = images.concat([
+        require('./images/build.png'),
+        require('./images/resources.jpg'),
+        require('./images/settlement.jpg'),
+      ])
+    }
+
     await Promise.all([
       Expo.Font.loadAsync({
         'rubicon-icon-font': require('@shoutem/ui/fonts/rubicon-icon-font.ttf'),
@@ -37,12 +48,7 @@ export default class App extends React.Component {
         'Rubik-MediumItalic': require('@shoutem/ui/fonts/Rubik-MediumItalic.ttf'),
         'Rubik-Regular': require('@shoutem/ui/fonts/Rubik-Regular.ttf'),
       }),
-      cacheImages([
-        // menu images
-        require('./images/build.png'),
-        require('./images/resources.jpg'),
-        require('./images/settlement.jpg'),
-      ]),
+      cacheImages(images),
     ])
   }
 }
