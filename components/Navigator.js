@@ -7,40 +7,51 @@ import SettlementScreen from '../screens/SettlementScreen'
 import ResourcesScreen from '../screens/ResourcesScreen'
 import BuildScreen from '../screens/BuildScreen'
 
-
-const App = TabNavigator({
-  Build: {
-    screen: BuildScreen
+const App = TabNavigator(
+  {
+    Build: {
+      screen: BuildScreen,
+    },
+    Resources: {
+      screen: ResourcesScreen,
+    },
+    Settlement: {
+      screen: SettlementScreen,
+    },
   },
-  Resources: {
-    screen: ResourcesScreen
-  },
-  Settlement: {
-    screen: SettlementScreen
+  {
+    tabBarPosition: 'bottom',
+    animationEnabled: true,
+    swipeEnabled: true,
+    tabBarOptions: {
+      activeTintColor: 'white',
+      inactiveTintColor: 'grey',
+      style: {
+        backgroundColor: 'black',
+      },
+    },
   }
-},
-{
-  tabBarPosition: 'bottom',
-  animationEnabled: true,
-})
+)
 
 class ThemedApp extends React.Component {
-
   render() {
     return (
-    <StyleProvider style={theme}>
-        <App/>
-    </StyleProvider>
+      <StyleProvider style={theme}>
+        <App />
+      </StyleProvider>
     )
   }
 }
 
 const theme = {
   'shoutem.ui.Screen': {
-    // backgroundColor: 'black',
+    backgroundColor: 'black',
   },
   'shoutem.ui.Text': {
-    // color: 'white',
+    color: 'white',
+  },
+  'shoutem.ui.Icon': {
+    color: 'white',
   },
 }
 export default ThemedApp

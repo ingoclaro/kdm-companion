@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "jest-expo": "^22.0.0",
+    "prettier": "^1.9.1",
     "react-native-scripts": "1.7.0",
     "react-test-renderer": "16.0.0-beta.5"
   },

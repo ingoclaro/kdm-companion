@@ -1,7 +1,5 @@
 import React from 'react'
-import { Text, View } from 'react-native'
-
-import styles from './styles'
+import { Screen, View, Text } from '@shoutem/ui'
 
 export default class BuildScreen extends React.Component {
   static navigationOptions = {
@@ -10,13 +8,17 @@ export default class BuildScreen extends React.Component {
 
   render() {
     return (
-      <View style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-        <Text>Build something</Text>
-      </View>
+      <Screen style={{ flex: 1 }}>
+        <View
+          style={{
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Text>Build something</Text>
+        </View>
+      </Screen>
     )
   }
 }

@@ -1,7 +1,9 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Screen, View, Text } from '@shoutem/ui'
 
-import styles from './styles'
+import MultiSelectList from '../components/MultiSelectList'
+
+import gameData from '../src/data'
 
 export default class ResourcesScreen extends React.Component {
   static navigationOptions = {
@@ -9,10 +11,20 @@ export default class ResourcesScreen extends React.Component {
   }
 
   render() {
+    let resources = gameData.resources
+
     return (
-      <View style={styles.container}>
-        <Text>Choose Resources</Text>
-      </View>
+      <Screen style={{ flex: 1 }}>
+        <View
+          style={{
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Text>Choose Resources</Text>
+        </View>
+      </Screen>
     )
   }
 }
