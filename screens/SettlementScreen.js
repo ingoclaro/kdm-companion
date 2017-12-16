@@ -1,5 +1,5 @@
 import React from 'react'
-import { Screen, View, Image } from '@shoutem/ui'
+import { Screen, View, Image, Divider } from '@shoutem/ui'
 
 import Innovations from '../components/Innovations'
 import Locations from '../components/Locations'
@@ -21,6 +21,7 @@ class SettlementScreen extends React.Component {
           <View style={styles.locations}>
             <Locations />
           </View>
+          <Divider />
           <View style={styles.innovations}>
             <Innovations />
           </View>

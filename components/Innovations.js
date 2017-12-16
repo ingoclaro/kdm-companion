@@ -1,6 +1,5 @@
 import React from 'react'
 import { Screen, View, Text, Image } from '@shoutem/ui'
-import { connectStyle } from '@shoutem/theme'
 import MultiSelectList from '../components/MultiSelectList'
 
 import innovationImage from '../images/innovations.jpg'

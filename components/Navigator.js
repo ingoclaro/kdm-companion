@@ -2,7 +2,7 @@ import React from 'react'
 import { Platform } from 'react-native'
 import { TabNavigator } from 'react-navigation'
 import Expo from 'expo'
-import { Screen } from '@shoutem/ui'
+import { getTheme, defaultThemeVariables } from '@shoutem/ui'
 import { StyleProvider } from '@shoutem/theme'
 
 import SettlementScreen from '../screens/SettlementScreen'
@@ -48,15 +48,71 @@ class ThemedApp extends React.Component {
   }
 }
 
-const theme = {
-  'shoutem.ui.Screen': {
-    backgroundColor: 'black',
-  },
-  'shoutem.ui.Text': {
+const themeVariables = {
+  ...defaultThemeVariables,
+  backgroundColor: 'black',
+  navBarIconsColor: 'white',
+  text: {
     color: 'white',
   },
-  'shoutem.ui.Icon': {
+  paperColor: 'black',
+  navBarBorderColor: 'grey',
+  featuredNavBarIconsColor: 'white',
+  subtitle: {
+    color: 'grey',
+  },
+  title: {
     color: 'white',
   },
+  lineColor: 'grey',
+  // featuredColor: '#659CEC',
+  // shadowColor: 'rgba(0, 0, 0, 0.1)',
+  //
+  // heading: {
+  //   color: '#222222',
+  // },
+  //
+  // caption: {
+  //   color: '#666666',
+  // },
+  //
+  // imageOverlayColor: 'rgba(0, 0, 0, 0.2)',
+  // imageOverlayTextColor: '#FFFFFF',
+  // tagOverlayColor: 'rgba(0, 0, 0, 0.7)',
+  // tagOverlayTextColor: '#FFFFFF',
+  //
+  // navBarBackground: '#FFFFFF',
+  //
+  // navBarText: {
+  //   color: '#222222',
+  // },
+  //
+  // featuredNavBarTitleColor: '#ffffff',
+  //
+  // mainNavBackground: '#FFFFFF',
+  // mainNavItemColor: 'rgba(50, 50, 50, 0.4)',
+  // mainNavItemBackground: 'rgba(0, 0, 0, 0)',
+  // mainNavSelectedItemBackground: '#FFFFFF',
+  // mainNavSelectedItemColor: '#222222',
+  // mainNavSelectedItemBorderColor: '#659CEC',
+  // mainNavBorderColor: '#e0e0e0',
+  //
+  // subNavItemColor: '#666666',
+  // subNavItemBackground: 'rgba(0, 0, 0, 0)',
+  // subNavListBorderColor: '#e0e0e0',
+  //
+  // primaryButtonText: {
+  //   color: '#222222',
+  // },
+  // primaryButtonBackgroundColor: '#ffffff',
+  // primaryButtonBorderColor: '#ffffff',
+  // secondaryButtonTextColor: '#ffffff',
+  // secondaryButtonBackgroundColor: '#2c2c2c',
+  // secondaryButtonBorderColor: '#2c2c2c',
+  //
+  // sectionHeaderBackgroundColor: '#F2F2F2',
+  // indicatorColor: '#222222',
 }
+const theme = getTheme(themeVariables)
+
 export default ThemedApp

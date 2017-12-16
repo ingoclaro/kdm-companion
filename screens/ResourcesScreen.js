@@ -3,6 +3,7 @@ import { Screen, View, Text, Image } from '@shoutem/ui'
 
 import MultiSelectList from '../components/MultiSelectList'
 import resourcesImage from '../images/resources.jpg'
+import Resources from '../components/Resources'
 
 export default class ResourcesScreen extends React.Component {
   static navigationOptions = {
@@ -15,14 +16,10 @@ export default class ResourcesScreen extends React.Component {
   render() {
     return (
       <Screen style={{ flex: 1 }}>
-        <View
-          style={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Text>Choose Resources</Text>
+        <View style={styles.container}>
+          <View style={styles.resources}>
+            <Resources />
+          </View>
         </View>
       </Screen>
     )
@@ -30,6 +27,15 @@ export default class ResourcesScreen extends React.Component {
 }
 
 const styles = {
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    left: 10,
+  },
+  resources: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   menuImage: {
     width: 100,
     height: 50,
