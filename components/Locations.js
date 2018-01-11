@@ -23,13 +23,10 @@ class Locations extends React.Component {
       })
 
     return (
-      <View>
-        <Text>Locations</Text>
-        <MultiSelectList
-          data={locationList}
-          onSelectedItemsChange={this.onSelectedItemsChange}
-        />
-      </View>
+      <MultiSelectList
+        data={locationList}
+        onSelectedItemsChange={this.onSelectedItemsChange}
+      />
     )
   }
 }

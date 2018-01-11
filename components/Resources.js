@@ -1,70 +1,97 @@
 import React from 'react'
-import { Screen, View, Text, Title, Image, DropDownMenu } from '@shoutem/ui'
-import ItemCounter from '../components/ItemCounter'
-
-import gameData from '../src/data'
+import {
+  Screen,
+  View,
+  Text,
+  Title,
+  Image,
+  DropDownMenu,
+  Row,
+} from '@shoutem/ui'
+import Accordion from 'react-native-collapsible/Accordion'
+import SimpleStepper from 'react-native-simple-stepper'
 
 class Resources extends React.Component {
   constructor(props) {
     super(props)
-
-    const resources = gameData.resources
-    const resourcesList = Object.keys(resources)
-      .sort()
-      .map(key => {
-        return { id: key, title: key }
-      })
-    resourcesList.unshift({ id: 'select', title: 'Add Resource' })
-    this.state = {
-      resourcesList,
-      selectedList: [],
-    }
-
-    this.onOptionSelected = this.onOptionSelected.bind(this)
-    this.noItem = this.noItem.bind(this)
   }
 
-  onOptionSelected(option) {
-    this.setState(prevState => {
-      return {
-        selectedList: [...prevState.selectedList, option],
-      }
-    })
-  }
+  sections = [
+    {
+      title: 'Basic',
+      content: ['???', 'Broken Lantern'],
+    },
+    {
+      title: 'Varmin',
+      content: ['vermin 1', 'vermin 2'],
+    },
+    {
+      title: 'Strange',
+      content: ['strange 1', 'strange 2'],
+    },
+    {
+      title: 'White Lion',
+      content: ['lion 1', 'lion 2'],
+    },
+    {
+      title: 'Screaming Antelope',
+      content: ['ante 1', 'ante 2'],
+    },
+    {
+      title: 'Phoenix',
+      content: ['phoenix 1', 'phoenix 2'],
+    },
+  ]
 
-  noItem(id) {
-    this.setState(prevState => {
-      return {
-        selectedList: prevState.selectedList.filter(e => e.id !== id),
-      }
-    })
-  }
-
-  render() {
+  _renderHeader(section) {
     return (
-      <View>
-        <Title>Resources</Title>
-        <DropDownMenu
-          styleName="horizontal"
-          options={this.state.resourcesList}
-          titleProperty="title"
-          valueProperty="id"
-          selectedOption={this.state.resourcesList[0]}
-          onOptionSelected={this.onOptionSelected}
-        />
-        {this.state.selectedList.map(item => {
+      <Row>
+        <Title>
+          {2} - {section.title}
+        </Title>
+        <Text>vv</Text>
+      </Row>
+    )
+  }
+
+  _renderContent(section) {
+    return (
+      <View style={styles.content}>
+        {section.content.map(item => {
           return (
-            <ItemCounter
-              key={item.id}
-              id={item.id}
-              name={item.title}
-              noItem={this.noItem}
-            />
+            <View
+              key={item}
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}
+            >
+              <Text style={{ paddingRight: 5 }}>* {item}</Text>
+              <SimpleStepper tintColor="white" />
+            </View>
           )
         })}
       </View>
     )
   }
+
+  render() {
+    return (
+      <Accordion
+        sections={this.sections}
+        renderHeader={this._renderHeader}
+        renderContent={this._renderContent}
+        initiallyActiveSection={0}
+      />
+    )
+  }
+}
+
+const styles = {
+  header: {},
+  headerText: {},
+  content: {},
 }
 
 export default Resources

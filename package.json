@@ -32,6 +32,9 @@
     "ramda": "^0.25.0",
     "react": "16.0.0",
     "react-native": "^0.50.0",
+    "react-native-collapsible": "^0.10.0",
+    "react-native-modal": "^4.1.1",
+    "react-native-simple-stepper": "^1.18.0",
     "react-navigation": "^1.0.0-beta.21"
   }
 }

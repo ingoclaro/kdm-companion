@@ -33,7 +33,6 @@ class Innovations extends React.Component {
     return (
       <View>
         <Image style={styles.image} source={innovationImage} />
-        <Text>Innovations</Text>
         <MultiSelectList
           data={innovationList}
           onSelectedItemsChange={this.onSelectedItemsChange}

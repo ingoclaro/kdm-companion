@@ -1,16 +1,25 @@
 import React from 'react'
-import { Screen, View, Text, Image } from '@shoutem/ui'
+import { Screen, View, Text, Image, Button } from '@shoutem/ui'
+import Modal from 'react-native-modal'
 
-import MultiSelectList from '../components/MultiSelectList'
-import resourcesImage from '../images/resources.jpg'
+import Craft from '../components/Craft'
 import Resources from '../components/Resources'
 
 export default class ResourcesScreen extends React.Component {
   static navigationOptions = {
     tabBarLabel: 'Resources',
-    tabBarIcon: ({ tintColor }) => {
-      return <Image source={resourcesImage} style={styles.menuImage} />
-    },
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.state = { craftVisible: false }
+
+    this.craft = this.craft.bind(this)
+  }
+
+  craft() {
+    this.setState({ craftVisible: true })
   }
 
   render() {
@@ -19,7 +28,16 @@ export default class ResourcesScreen extends React.Component {
         <View style={styles.container}>
           <View style={styles.resources}>
             <Resources />
+            <Modal
+              isVisible={this.state.craftVisible}
+              onBackdropPress={() => this.setState({ craftVisible: false })}
+            >
+              <Craft />
+            </Modal>
           </View>
+          <Button onPress={this.craft}>
+            <Text>Craft</Text>
+          </Button>
         </View>
       </Screen>
     )
@@ -35,9 +53,5 @@ const styles = {
   resources: {
     flex: 1,
     justifyContent: 'center',
-  },
-  menuImage: {
-    width: 100,
-    height: 50,
   },
 }

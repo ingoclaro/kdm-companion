@@ -1,30 +1,91 @@
 import React from 'react'
 import { Platform } from 'react-native'
-import { TabNavigator } from 'react-navigation'
+import { TabNavigator, StackNavigator } from 'react-navigation'
 import Expo from 'expo'
 import { getTheme, defaultThemeVariables } from '@shoutem/ui'
 import { StyleProvider } from '@shoutem/theme'
 
-import SettlementScreen from '../screens/SettlementScreen'
+// Settlement
+import SummaryScreen from '../screens/SummaryScreen'
+import LocationsScreen from '../screens/LocationsScreen'
+import InnovationsScreen from '../screens/InnovationsScreen'
+import PrinciplesScreen from '../screens/PrinciplesScreen'
+import BonusesScreen from '../screens/BonusesScreen'
+import EndeavorsScreen from '../screens/EndeavorsScreen'
 import ResourcesScreen from '../screens/ResourcesScreen'
-import BuildScreen from '../screens/BuildScreen'
 
-const App = TabNavigator(
+import HuntScreen from '../screens/HuntScreen'
+import ShowdownScreen from '../screens/ShowdownScreen'
+
+const SummaryNavigatior = StackNavigator({
+  Summary: {
+    screen: SummaryScreen,
+  },
+  Locations: {
+    screen: LocationsScreen,
+  },
+  Innovations: {
+    screen: InnovationsScreen,
+  },
+  Principles: {
+    screen: PrinciplesScreen,
+  },
+})
+
+const SettlementNavigator = TabNavigator(
   {
-    Build: {
-      screen: BuildScreen,
+    Summary: {
+      screen: SummaryNavigatior,
+      navigationOptions: {
+        tabBarLabel: 'Settlement',
+      },
+    },
+    Bonuses: {
+      screen: BonusesScreen,
+    },
+    Endeavors: {
+      screen: EndeavorsScreen,
     },
     Resources: {
       screen: ResourcesScreen,
     },
+  },
+  {
+    tabBarPosition: 'top',
+    animationEnabled: true,
+    swipeEnabled: true,
+    tabBarOptions: {
+      activeTintColor: 'white',
+      inactiveTintColor: 'grey',
+      // showIcon: true, // looks quite ugly in Android, seems that sizes aren't taken into account or it needs different ones.
+      style: {
+        backgroundColor: 'black',
+        paddingTop:
+          Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
+      },
+    },
+  }
+)
+
+const App = TabNavigator(
+  {
     Settlement: {
-      screen: SettlementScreen,
+      screen: SettlementNavigator,
+      navigationOptions: {
+        tabBarLabel: 'Settlement',
+      },
+    },
+    Hunt: {
+      screen: HuntScreen,
+    },
+    Showdown: {
+      screen: ShowdownScreen,
     },
   },
   {
-    // tabBarPosition: 'bottom',
+    tabBarPosition: 'bottom',
     animationEnabled: true,
-    swipeEnabled: true,
+    swipeEnabled: false,
     tabBarOptions: {
       activeTintColor: 'white',
       inactiveTintColor: 'grey',
