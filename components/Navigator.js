@@ -7,35 +7,49 @@ import { StyleProvider } from '@shoutem/theme'
 
 // Settlement
 import SummaryScreen from '../screens/SummaryScreen'
-import LocationsScreen from '../screens/LocationsScreen'
-import InnovationsScreen from '../screens/InnovationsScreen'
-import PrinciplesScreen from '../screens/PrinciplesScreen'
 import BonusesScreen from '../screens/BonusesScreen'
 import EndeavorsScreen from '../screens/EndeavorsScreen'
 import ResourcesScreen from '../screens/ResourcesScreen'
 
 import HuntScreen from '../screens/HuntScreen'
-import ShowdownScreen from '../screens/ShowdownScreen'
 
-const SummaryNavigatior = StackNavigator({
-  Summary: {
-    screen: SummaryScreen,
+import TerrainScreen from '../screens/TerrainScreen'
+import FightScreen from '../screens/FightScreen'
+import ResultScreen from '../screens/ResultScreen'
+
+const ShowdownNavigator = TabNavigator(
+  {
+    Terrain: {
+      screen: TerrainScreen,
+    },
+    Fight: {
+      screen: FightScreen,
+    },
+    Result: {
+      screen: ResultScreen,
+    },
   },
-  Locations: {
-    screen: LocationsScreen,
-  },
-  Innovations: {
-    screen: InnovationsScreen,
-  },
-  Principles: {
-    screen: PrinciplesScreen,
-  },
-})
+  {
+    tabBarPosition: 'top',
+    animationEnabled: true,
+    swipeEnabled: true,
+    tabBarOptions: {
+      activeTintColor: 'white',
+      inactiveTintColor: 'grey',
+      // showIcon: true, // looks quite ugly in Android, seems that sizes aren't taken into account or it needs different ones.
+      style: {
+        backgroundColor: 'black',
+        paddingTop:
+          Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
+      },
+    },
+  }
+)
 
 const SettlementNavigator = TabNavigator(
   {
     Summary: {
-      screen: SummaryNavigatior,
+      screen: SummaryScreen,
       navigationOptions: {
         tabBarLabel: 'Settlement',
       },
@@ -79,7 +93,10 @@ const App = TabNavigator(
       screen: HuntScreen,
     },
     Showdown: {
-      screen: ShowdownScreen,
+      screen: ShowdownNavigator,
+      navigationOptions: {
+        tabBarLabel: 'Showdown',
+      },
     },
   },
   {
@@ -102,7 +119,7 @@ const App = TabNavigator(
 class ThemedApp extends React.Component {
   render() {
     return (
-      <StyleProvider style={theme}>
+      <StyleProvider style={darkTheme}>
         <App />
       </StyleProvider>
     )
@@ -120,12 +137,14 @@ const themeVariables = {
   navBarBorderColor: 'grey',
   featuredNavBarIconsColor: 'white',
   subtitle: {
-    color: 'grey',
+    color: 'white',
   },
   title: {
     color: 'white',
   },
   lineColor: 'grey',
+  tagOverlayTextColor: 'white',
+  imageOverlayTextColor: 'white',
   // featuredColor: '#659CEC',
   // shadowColor: 'rgba(0, 0, 0, 0.1)',
   //
@@ -138,9 +157,7 @@ const themeVariables = {
   // },
   //
   // imageOverlayColor: 'rgba(0, 0, 0, 0.2)',
-  // imageOverlayTextColor: '#FFFFFF',
   // tagOverlayColor: 'rgba(0, 0, 0, 0.7)',
-  // tagOverlayTextColor: '#FFFFFF',
   //
   // navBarBackground: '#FFFFFF',
   //
@@ -174,6 +191,6 @@ const themeVariables = {
   // sectionHeaderBackgroundColor: '#F2F2F2',
   // indicatorColor: '#222222',
 }
-const theme = getTheme(themeVariables)
+const darkTheme = getTheme(themeVariables)
 
 export default ThemedApp

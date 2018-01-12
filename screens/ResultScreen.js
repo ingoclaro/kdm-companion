@@ -1,9 +1,9 @@
 import React from 'react'
-import { Screen, View, Text, Image } from '@shoutem/ui'
+import { Screen, View, Text, Image, Button, Row } from '@shoutem/ui'
 
-export default class ShowdownScreen extends React.Component {
+export default class ResultScreen extends React.Component {
   static navigationOptions = {
-    tabBarLabel: 'Showdown',
+    tabBarLabel: 'Result',
   }
 
   render() {
@@ -16,7 +16,7 @@ export default class ShowdownScreen extends React.Component {
             justifyContent: 'center',
           }}
         >
-          <Text>Showdown</Text>
+          <Text>Result</Text>
         </View>
       </Screen>
     )

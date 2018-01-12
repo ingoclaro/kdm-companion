@@ -31,6 +31,9 @@ export default class ResourcesScreen extends React.Component {
             <Modal
               isVisible={this.state.craftVisible}
               onBackdropPress={() => this.setState({ craftVisible: false })}
+              onBackButtonPress={() => this.setState({ craftVisible: false })}
+              useNativeDriver={true}
+              backdropColor="grey"
             >
               <Craft />
             </Modal>
