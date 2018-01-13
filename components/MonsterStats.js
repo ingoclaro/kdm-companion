@@ -1,6 +1,5 @@
 import React from 'react'
-import { Text } from 'react-native'
-import { Screen, View, Title, Row } from '@shoutem/ui'
+import { Screen, View, Title, Row, Button } from '@shoutem/ui'
 import SimpleStepper from 'react-native-simple-stepper'
 
 export default class MonsterStats extends React.Component {
@@ -8,8 +7,7 @@ export default class MonsterStats extends React.Component {
     return (
       <View>
         <Row>
-          {/* TODO: mega hack so text shows up white */}
-          <Text style={{ color: 'white' }}>Thoughness</Text>
+          <Title>Thoughness</Title>
           <SimpleStepper tintColor={style.stepperTintColor} />
         </Row>
         <Row>

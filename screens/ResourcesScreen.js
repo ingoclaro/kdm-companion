@@ -14,12 +14,6 @@ export default class ResourcesScreen extends React.Component {
     super(props)
 
     this.state = { craftVisible: false }
-
-    this.craft = this.craft.bind(this)
-  }
-
-  craft() {
-    this.setState({ craftVisible: true })
   }
 
   render() {
@@ -38,7 +32,7 @@ export default class ResourcesScreen extends React.Component {
               <Craft />
             </Modal>
           </View>
-          <Button onPress={this.craft}>
+          <Button onPress={() => this.setState({ craftVisible: true })}>
             <Text>Craft</Text>
           </Button>
         </View>
