@@ -41,6 +41,9 @@ class SummaryScreen extends React.Component {
             backdropColor="grey"
           >
             <Locations />
+            <Button onPress={() => this.setState({ locationsVisible: false })}>
+              <Text>Close</Text>
+            </Button>
           </Modal>
 
           <Divider />
@@ -67,6 +70,11 @@ class SummaryScreen extends React.Component {
             backdropColor="grey"
           >
             <Innovations />
+            <Button
+              onPress={() => this.setState({ innovationsVisible: false })}
+            >
+              <Text>Close</Text>
+            </Button>
           </Modal>
 
           <Divider />
@@ -93,6 +101,9 @@ class SummaryScreen extends React.Component {
             backdropColor="grey"
           >
             <Principles />
+            <Button onPress={() => this.setState({ principlesVisible: false })}>
+              <Text>Close</Text>
+            </Button>
           </Modal>
 
           <Divider />

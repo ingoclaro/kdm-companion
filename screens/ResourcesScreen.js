@@ -19,34 +19,30 @@ export default class ResourcesScreen extends React.Component {
   render() {
     return (
       <Screen style={{ flex: 1 }}>
-        <View style={styles.container}>
-          <View style={styles.resources}>
-            <Resources />
-            <Modal
-              isVisible={this.state.craftVisible}
-              onBackdropPress={() => this.setState({ craftVisible: false })}
-              onBackButtonPress={() => this.setState({ craftVisible: false })}
-              useNativeDriver={true}
-              backdropColor="grey"
-            >
-              <Craft />
-            </Modal>
-          </View>
-          <Button onPress={() => this.setState({ craftVisible: true })}>
-            <Text>Craft</Text>
-          </Button>
+        <View style={styles.resources}>
+          <Resources />
         </View>
+        <Button onPress={() => this.setState({ craftVisible: true })}>
+          <Text>Craft</Text>
+        </Button>
+        <Modal
+          isVisible={this.state.craftVisible}
+          onBackdropPress={() => this.setState({ craftVisible: false })}
+          onBackButtonPress={() => this.setState({ craftVisible: false })}
+          useNativeDriver={true}
+          backdropColor="grey"
+        >
+          <Craft />
+          <Button onPress={() => this.setState({ craftVisible: false })}>
+            <Text>Close</Text>
+          </Button>
+        </Modal>
       </Screen>
     )
   }
 }
 
 const styles = {
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    left: 10,
-  },
   resources: {
     flex: 1,
     justifyContent: 'center',
