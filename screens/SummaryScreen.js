@@ -20,15 +20,13 @@ class SummaryScreen extends React.Component {
   render() {
     return (
       <Screen>
-        <Title>
-          Locations{'  '}
-          <Button
-            style={{ width: 22, height: 14 }}
-            onPress={() => this.setState({ locationsVisible: true })}
-          >
-            <Text>>></Text>
-          </Button>
-        </Title>
+        <Title>Locations</Title>
+        <Button
+          style={{ width: 22, height: 14 }}
+          onPress={() => this.setState({ locationsVisible: true })}
+        >
+          <Text>>></Text>
+        </Button>
         <Text>Lantern Hoard</Text>
         <Text>Skinnery</Text>
 
@@ -47,15 +45,13 @@ class SummaryScreen extends React.Component {
 
         <Divider />
 
-        <Title>
-          Innovations{' '}
-          <Button
-            style={{ width: 22, height: 14 }}
-            onPress={() => this.setState({ innovationsVisible: true })}
-          >
-            <Text>>></Text>
-          </Button>
-        </Title>
+        <Title>Innovations</Title>
+        <Button
+          style={{ width: 22, height: 14 }}
+          onPress={() => this.setState({ innovationsVisible: true })}
+        >
+          <Text>>></Text>
+        </Button>
         <Text>Language</Text>
         <Text>Drums</Text>
 
@@ -74,15 +70,13 @@ class SummaryScreen extends React.Component {
 
         <Divider />
 
-        <Title>
-          Principles{' '}
-          <Button
-            style={{ width: 22, height: 14 }}
-            onPress={() => this.setState({ principlesVisible: true })}
-          >
-            <Text>>></Text>
-          </Button>
-        </Title>
+        <Title>Principles</Title>
+        <Button
+          style={{ width: 22, height: 14 }}
+          onPress={() => this.setState({ principlesVisible: true })}
+        >
+          <Text>>></Text>
+        </Button>
         <Text>Graves</Text>
         <Text>Survival of the fittest</Text>
 
