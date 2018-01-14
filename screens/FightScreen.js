@@ -21,7 +21,7 @@ export default class FightScreen extends React.Component {
 
   render() {
     return (
-      <Screen style={{ flex: 1 }}>
+      <Screen>
         <MonsterSelector />
         <MonsterStats />
 

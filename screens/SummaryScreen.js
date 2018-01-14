@@ -19,116 +19,92 @@ class SummaryScreen extends React.Component {
 
   render() {
     return (
-      <Screen style={{ flex: 1 }}>
-        <View style={styles.container}>
-          <Title>
-            Locations{'  '}
-            <Button
-              style={{ width: 22, height: 14 }}
-              onPress={() => this.setState({ locationsVisible: true })}
-            >
-              <Text>>></Text>
-            </Button>
-          </Title>
-          <Text>Lantern Hoard</Text>
-          <Text>Skinnery</Text>
-
-          <Modal
-            isVisible={this.state.locationsVisible}
-            onBackdropPress={() => this.setState({ locationsVisible: false })}
-            onBackButtonPress={() => this.setState({ locationsVisible: false })}
-            useNativeDriver={true}
-            backdropColor="grey"
+      <Screen>
+        <Title>
+          Locations{'  '}
+          <Button
+            style={{ width: 22, height: 14 }}
+            onPress={() => this.setState({ locationsVisible: true })}
           >
-            <Locations />
-            <Button onPress={() => this.setState({ locationsVisible: false })}>
-              <Text>Close</Text>
-            </Button>
-          </Modal>
+            <Text>>></Text>
+          </Button>
+        </Title>
+        <Text>Lantern Hoard</Text>
+        <Text>Skinnery</Text>
 
-          <Divider />
+        <Modal
+          isVisible={this.state.locationsVisible}
+          onBackdropPress={() => this.setState({ locationsVisible: false })}
+          onBackButtonPress={() => this.setState({ locationsVisible: false })}
+          useNativeDriver={true}
+          backdropColor="grey"
+        >
+          <Locations />
+          <Button onPress={() => this.setState({ locationsVisible: false })}>
+            <Text>Close</Text>
+          </Button>
+        </Modal>
 
-          <Title>
-            Innovations{' '}
-            <Button
-              style={{ width: 22, height: 14 }}
-              onPress={() => this.setState({ innovationsVisible: true })}
-            >
-              <Text>>></Text>
-            </Button>
-          </Title>
-          <Text>Language</Text>
-          <Text>Drums</Text>
+        <Divider />
 
-          <Modal
-            isVisible={this.state.innovationsVisible}
-            onBackdropPress={() => this.setState({ innovationsVisible: false })}
-            onBackButtonPress={() =>
-              this.setState({ innovationsVisible: false })
-            }
-            useNativeDriver={true}
-            backdropColor="grey"
+        <Title>
+          Innovations{' '}
+          <Button
+            style={{ width: 22, height: 14 }}
+            onPress={() => this.setState({ innovationsVisible: true })}
           >
-            <Innovations />
-            <Button
-              onPress={() => this.setState({ innovationsVisible: false })}
-            >
-              <Text>Close</Text>
-            </Button>
-          </Modal>
+            <Text>>></Text>
+          </Button>
+        </Title>
+        <Text>Language</Text>
+        <Text>Drums</Text>
 
-          <Divider />
+        <Modal
+          isVisible={this.state.innovationsVisible}
+          onBackdropPress={() => this.setState({ innovationsVisible: false })}
+          onBackButtonPress={() => this.setState({ innovationsVisible: false })}
+          useNativeDriver={true}
+          backdropColor="grey"
+        >
+          <Innovations />
+          <Button onPress={() => this.setState({ innovationsVisible: false })}>
+            <Text>Close</Text>
+          </Button>
+        </Modal>
 
-          <Title>
-            Principles{' '}
-            <Button
-              style={{ width: 22, height: 14 }}
-              onPress={() => this.setState({ principlesVisible: true })}
-            >
-              <Text>>></Text>
-            </Button>
-          </Title>
-          <Text>Graves</Text>
-          <Text>Survival of the fittest</Text>
+        <Divider />
 
-          <Modal
-            isVisible={this.state.principlesVisible}
-            onBackdropPress={() => this.setState({ principlesVisible: false })}
-            onBackButtonPress={() =>
-              this.setState({ principlesVisible: false })
-            }
-            useNativeDriver={true}
-            backdropColor="grey"
+        <Title>
+          Principles{' '}
+          <Button
+            style={{ width: 22, height: 14 }}
+            onPress={() => this.setState({ principlesVisible: true })}
           >
-            <Principles />
-            <Button onPress={() => this.setState({ principlesVisible: false })}>
-              <Text>Close</Text>
-            </Button>
-          </Modal>
+            <Text>>></Text>
+          </Button>
+        </Title>
+        <Text>Graves</Text>
+        <Text>Survival of the fittest</Text>
 
-          <Divider />
+        <Modal
+          isVisible={this.state.principlesVisible}
+          onBackdropPress={() => this.setState({ principlesVisible: false })}
+          onBackButtonPress={() => this.setState({ principlesVisible: false })}
+          useNativeDriver={true}
+          backdropColor="grey"
+        >
+          <Principles />
+          <Button onPress={() => this.setState({ principlesVisible: false })}>
+            <Text>Close</Text>
+          </Button>
+        </Modal>
 
-          <Title>Survival Limit: 2</Title>
-        </View>
+        <Divider />
+
+        <Title>Survival Limit: 2</Title>
       </Screen>
     )
   }
-}
-
-const styles = {
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    left: 10,
-  },
-  locations: {
-    flex: 3,
-    justifyContent: 'center',
-  },
-  innovations: {
-    flex: 2,
-    justifyContent: 'center',
-  },
 }
 
 export default SummaryScreen

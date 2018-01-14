@@ -8,16 +8,13 @@ export default class ResultScreen extends React.Component {
 
   render() {
     return (
-      <Screen style={{ flex: 1 }}>
-        <View
-          style={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Text>Result</Text>
-        </View>
+      <Screen
+        style={{
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Text>Result</Text>
       </Screen>
     )
   }

@@ -12,18 +12,15 @@ export default class TerrainScreen extends React.Component {
 
   render() {
     return (
-      <Screen style={{ flex: 1 }}>
-        <View
-          style={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <MonsterSelector />
-          <Terrain />
-          <Ai />
-        </View>
+      <Screen
+        style={{
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <MonsterSelector />
+        <Terrain />
+        <Ai />
       </Screen>
     )
   }

@@ -8,16 +8,13 @@ export default class EndeavorsScreen extends React.Component {
 
   render() {
     return (
-      <Screen style={{ flex: 1 }}>
-        <View
-          style={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Text>Endeavors</Text>
-        </View>
+      <Screen
+        style={{
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Text>Endeavors</Text>
       </Screen>
     )
   }

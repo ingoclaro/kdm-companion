@@ -6,7 +6,7 @@
     "icon": "./images/logo.png",
     "version": "0.0.2",
     "android": {
-      "package": "com.ingo.kdm-companion"
+      "package": "com.ingo.kdm"
     },
     "ios": {
       "loadJSInBackgroundExperimental": true

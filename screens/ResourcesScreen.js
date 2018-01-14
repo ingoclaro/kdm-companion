@@ -18,7 +18,7 @@ export default class ResourcesScreen extends React.Component {
 
   render() {
     return (
-      <Screen style={{ flex: 1 }}>
+      <Screen>
         <View style={styles.resources}>
           <Resources />
         </View>
