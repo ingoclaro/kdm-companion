@@ -39,8 +39,7 @@ const ShowdownNavigator = TabNavigator(
       // showIcon: true, // looks quite ugly in Android, seems that sizes aren't taken into account or it needs different ones.
       style: {
         backgroundColor: 'black',
-        paddingTop:
-          Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
+        // paddingTop: Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
       },
     },
   }
@@ -74,8 +73,7 @@ const SettlementNavigator = TabNavigator(
       // showIcon: true, // looks quite ugly in Android, seems that sizes aren't taken into account or it needs different ones.
       style: {
         backgroundColor: 'black',
-        paddingTop:
-          Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
+        // paddingTop: Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
       },
     },
   }
@@ -109,8 +107,8 @@ const App = TabNavigator(
       // showIcon: true, // looks quite ugly in Android, seems that sizes aren't taken into account or it needs different ones.
       style: {
         backgroundColor: 'black',
-        paddingTop:
-          Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
+        // paddingTop:
+        //   Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
       },
     },
   }
