@@ -34,6 +34,7 @@ const ShowdownNavigator = TabNavigator(
     animationEnabled: true,
     swipeEnabled: true,
     tabBarOptions: {
+      upperCaseLabel: false,
       activeTintColor: 'white',
       inactiveTintColor: 'grey',
       // showIcon: true, // looks quite ugly in Android, seems that sizes aren't taken into account or it needs different ones.
@@ -68,6 +69,7 @@ const SettlementNavigator = TabNavigator(
     animationEnabled: true,
     swipeEnabled: true,
     tabBarOptions: {
+      upperCaseLabel: false,
       activeTintColor: 'white',
       inactiveTintColor: 'grey',
       // showIcon: true, // looks quite ugly in Android, seems that sizes aren't taken into account or it needs different ones.
@@ -99,7 +101,7 @@ const App = TabNavigator(
   },
   {
     tabBarPosition: 'bottom',
-    animationEnabled: true,
+    animationEnabled: false,
     swipeEnabled: false,
     tabBarOptions: {
       activeTintColor: 'white',
