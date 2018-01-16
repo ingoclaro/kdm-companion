@@ -1,5 +1,13 @@
 import React from 'react'
-import { Screen, View, Text, Title, Subtitle, Divider } from '@shoutem/ui'
+import {
+  Screen,
+  View,
+  Text,
+  Title,
+  Caption,
+  Subtitle,
+  Divider,
+} from '@shoutem/ui'
 
 import Hunt from '../components/Hunt'
 
@@ -18,8 +26,8 @@ export default class HuntScreen extends React.Component {
       >
         <Title>Survival</Title>
         <Subtitle>Departing: +2. Limit: 3</Subtitle>
-        <Text>+1 for Language</Text>
-        <Text>+1 for YYYY</Text>
+        <Caption>+1 for Language</Caption>
+        <Caption>+1 for YYYY</Caption>
         <Divider />
         <Hunt />
       </Screen>

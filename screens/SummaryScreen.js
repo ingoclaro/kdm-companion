@@ -6,6 +6,7 @@ import {
   Image,
   Divider,
   Title,
+  Caption,
   Text,
   Row,
   Icon,
@@ -30,7 +31,7 @@ class SummaryScreen extends React.Component {
 
   render() {
     return (
-      <Screen>
+      <Screen style={{ paddingTop: 5, paddingLeft: 5 }}>
         <Button
           styleName="textual"
           style={{ alignSelf: 'flex-start' }}
@@ -39,6 +40,8 @@ class SummaryScreen extends React.Component {
           <Title>Locations</Title>
           <Icon name="right-arrow" />
         </Button>
+        <Divider styleName="line" />
+
         <Text>Lantern Hoard</Text>
         <Text>Skinnery</Text>
 
@@ -74,6 +77,7 @@ class SummaryScreen extends React.Component {
           <Title>Innovations</Title>
           <Icon name="right-arrow" />
         </Button>
+        <Divider styleName="line" />
         <Text>Language</Text>
         <Text>Drums</Text>
 
@@ -111,8 +115,8 @@ class SummaryScreen extends React.Component {
           <Title>Principles</Title>
           <Icon name="right-arrow" />
         </Button>
-        <Text>Graves</Text>
-        <Text>Survival of the fittest</Text>
+        <Divider styleName="line" />
+        <Caption>Tap title to add principles...</Caption>
 
         <Modal
           isVisible={this.state.principlesVisible}

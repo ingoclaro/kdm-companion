@@ -18,7 +18,10 @@ export default class TerrainScreen extends React.Component {
           justifyContent: 'center',
         }}
       >
-        <MonsterSelector />
+        <View styleName="horizontal v-center">
+          <Text>Monster:</Text>
+          <MonsterSelector />
+        </View>
         <Terrain />
         <Ai />
       </Screen>

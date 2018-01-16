@@ -7,7 +7,10 @@ class Hunt extends React.Component {
   render() {
     return (
       <View>
-        <MonsterSelector />
+        <View styleName="horizontal v-center">
+          <Text>Monster:</Text>
+          <MonsterSelector />
+        </View>
         <Text>[M]->[M]->[R]->[L]->[H]->[D]->[M]->[H]</Text>
         <Text>M: Monster hunt event</Text>
         <Text>H: Regular hunt event</Text>

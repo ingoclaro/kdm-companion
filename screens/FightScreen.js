@@ -23,7 +23,10 @@ export default class FightScreen extends React.Component {
   render() {
     return (
       <Screen>
-        <MonsterSelector />
+        <View styleName="horizontal v-center">
+          <Text>Monster:</Text>
+          <MonsterSelector />
+        </View>
         <MonsterStats />
 
         <Button onPress={() => this.setState({ basicActionVisible: true })}>

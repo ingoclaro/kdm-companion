@@ -91,7 +91,6 @@ class Resources extends React.Component {
         sections={this.sections}
         renderHeader={this._renderHeader}
         renderContent={this._renderContent}
-        initiallyActiveSection={0}
       />
     )
   }

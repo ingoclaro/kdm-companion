@@ -12,8 +12,10 @@ import BonusesScreen from '../screens/BonusesScreen'
 import EndeavorsScreen from '../screens/EndeavorsScreen'
 import ResourcesScreen from '../screens/ResourcesScreen'
 
+// Hunt
 import HuntScreen from '../screens/HuntScreen'
 
+// Showdown
 import TerrainScreen from '../screens/TerrainScreen'
 import FightScreen from '../screens/FightScreen'
 import ResultScreen from '../screens/ResultScreen'
@@ -37,7 +39,7 @@ const ShowdownNavigator = TabNavigator(
     tabBarOptions: {
       upperCaseLabel: false,
       activeTintColor: colors.grey50,
-      inactiveTintColor: colors.grey300,
+      inactiveTintColor: colors.grey600,
       style: {
         backgroundColor: colors.black,
         paddingTop:
@@ -51,9 +53,6 @@ const SettlementNavigator = TabNavigator(
   {
     Summary: {
       screen: SummaryScreen,
-      // navigationOptions: {
-      //   tabBarLabel: 'Settlement',
-      // },
     },
     Bonuses: {
       screen: BonusesScreen,
@@ -72,7 +71,7 @@ const SettlementNavigator = TabNavigator(
     tabBarOptions: {
       upperCaseLabel: false,
       activeTintColor: colors.grey50,
-      inactiveTintColor: colors.grey300,
+      inactiveTintColor: colors.grey600,
       style: {
         backgroundColor: colors.black,
         paddingTop:
@@ -106,12 +105,9 @@ const App = TabNavigator(
     swipeEnabled: false,
     tabBarOptions: {
       activeTintColor: colors.grey50,
-      inactiveTintColor: colors.grey300,
-      // showIcon: true, // looks quite ugly in Android, seems that sizes aren't taken into account or it needs different ones.
+      inactiveTintColor: colors.grey600,
       style: {
         backgroundColor: colors.black,
-        // paddingTop:
-        //   Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
       },
     },
   }
