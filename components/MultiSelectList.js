@@ -1,27 +1,39 @@
 import React from 'react'
 import { FlatList } from 'react-native'
+import { kea } from 'kea'
+import PropTypes from 'prop-types'
+
 import CheckboxListItem from './CheckboxListItem'
 
-export default class MultiSelectList extends React.PureComponent {
-  state = { selected: (new Map(): Map<string, boolean>) }
+const keaOptions = {
+  key: props => props.name,
+  path: key => ['scenes', 'multiselect', key],
+  actions: () => ({
+    toggleItem: id => ({ id }),
+  }),
+  reducers: ({ actions, key, props }) => ({
+    selected: [
+      {},
+      PropTypes.object,
+      {
+        [actions.toggleItem]: (state, payload) => {
+          return payload.key === key
+            ? { ...state, [payload.id]: !state[payload.id] }
+            : state
+        },
+      },
+    ],
+  }),
+}
 
+class MultiSelectList extends React.PureComponent {
   _keyExtractor = (item, index) => item.id
-
-  _onPressItem = (id: string) => {
-    // updater functions are preferred for transactional updates
-    this.setState(state => {
-      // copy the map rather than modifying state.
-      const selected = new Map(state.selected)
-      selected.set(id, !selected.get(id)) // toggle
-      return { selected }
-    })
-  }
 
   _renderItem = ({ item }) => (
     <CheckboxListItem
       id={item.id}
-      onPressItem={this._onPressItem}
-      selected={!!this.state.selected.get(item.id)}
+      onPressItem={() => this.actions.toggleItem(item.id)}
+      selected={!!this.props.selected[item.id]}
       title={item.title}
     />
   )
@@ -30,7 +42,7 @@ export default class MultiSelectList extends React.PureComponent {
     return (
       <FlatList
         data={this.props.data}
-        extraData={this.state}
+        extraData={this.props}
         keyExtractor={this._keyExtractor}
         renderItem={this._renderItem}
         disableVirtualization
@@ -38,3 +50,5 @@ export default class MultiSelectList extends React.PureComponent {
     )
   }
 }
+
+export default kea(keaOptions)(MultiSelectList)

@@ -30,6 +30,7 @@ class Innovations extends React.Component {
 
     return (
       <MultiSelectList
+        name="innovations"
         data={innovationList}
         onSelectedItemsChange={this.onSelectedItemsChange}
       />

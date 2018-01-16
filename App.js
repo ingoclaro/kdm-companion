@@ -1,6 +1,8 @@
 import React from 'react'
 import { Platform } from 'react-native'
 import Expo, { AppLoading } from 'expo'
+import { Provider } from 'react-redux'
+import store from './src/store'
 
 import Navigator from './components/Navigator'
 
@@ -20,7 +22,11 @@ export default class App extends React.Component {
       )
     }
 
-    return <Navigator />
+    return (
+      <Provider store={store}>
+        <Navigator />
+      </Provider>
+    )
   }
 
   async _cacheResourcesAsync() {

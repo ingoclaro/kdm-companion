@@ -24,6 +24,7 @@ class Locations extends React.Component {
 
     return (
       <MultiSelectList
+        name="locations"
         data={locationList}
         onSelectedItemsChange={this.onSelectedItemsChange}
       />
