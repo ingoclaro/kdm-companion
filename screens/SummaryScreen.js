@@ -1,6 +1,17 @@
 import React from 'react'
-import { Screen, View, Button, Image, Divider, Title, Text } from '@shoutem/ui'
+import {
+  Screen,
+  View,
+  Button,
+  Image,
+  Divider,
+  Title,
+  Text,
+  Row,
+  Icon,
+} from '@shoutem/ui'
 import Modal from 'react-native-modal'
+import colors from '../src/colors'
 
 import Innovations from '../components/Innovations'
 import Locations from '../components/Locations'
@@ -20,12 +31,13 @@ class SummaryScreen extends React.Component {
   render() {
     return (
       <Screen>
-        <Title>Locations</Title>
         <Button
-          style={{ width: 22, height: 14 }}
+          styleName="textual"
+          style={{ alignSelf: 'flex-start' }}
           onPress={() => this.setState({ locationsVisible: true })}
         >
-          <Text>>></Text>
+          <Title>Locations</Title>
+          <Icon name="right-arrow" />
         </Button>
         <Text>Lantern Hoard</Text>
         <Text>Skinnery</Text>
@@ -35,22 +47,32 @@ class SummaryScreen extends React.Component {
           onBackdropPress={() => this.setState({ locationsVisible: false })}
           onBackButtonPress={() => this.setState({ locationsVisible: false })}
           useNativeDriver={true}
-          backdropColor="grey"
+          backdropColor={colors.black}
         >
-          <Locations />
-          <Button onPress={() => this.setState({ locationsVisible: false })}>
-            <Text>Close</Text>
-          </Button>
+          <View
+            style={{
+              backgroundColor: colors.grey900,
+              paddingHorizontal: 15,
+              paddingVertical: 15,
+            }}
+          >
+            <Locations />
+            <Divider />
+            <Button onPress={() => this.setState({ locationsVisible: false })}>
+              <Text>Close</Text>
+            </Button>
+          </View>
         </Modal>
 
         <Divider />
 
-        <Title>Innovations</Title>
         <Button
-          style={{ width: 22, height: 14 }}
+          styleName="textual"
+          style={{ alignSelf: 'flex-start' }}
           onPress={() => this.setState({ innovationsVisible: true })}
         >
-          <Text>>></Text>
+          <Title>Innovations</Title>
+          <Icon name="right-arrow" />
         </Button>
         <Text>Language</Text>
         <Text>Drums</Text>
@@ -60,22 +82,34 @@ class SummaryScreen extends React.Component {
           onBackdropPress={() => this.setState({ innovationsVisible: false })}
           onBackButtonPress={() => this.setState({ innovationsVisible: false })}
           useNativeDriver={true}
-          backdropColor="grey"
+          backdropColor={colors.black}
         >
-          <Innovations />
-          <Button onPress={() => this.setState({ innovationsVisible: false })}>
-            <Text>Close</Text>
-          </Button>
+          <View
+            style={{
+              backgroundColor: colors.grey900,
+              paddingHorizontal: 15,
+              paddingVertical: 15,
+            }}
+          >
+            <Innovations />
+            <Divider />
+            <Button
+              onPress={() => this.setState({ innovationsVisible: false })}
+            >
+              <Text>Close</Text>
+            </Button>
+          </View>
         </Modal>
 
         <Divider />
 
-        <Title>Principles</Title>
         <Button
-          style={{ width: 22, height: 14 }}
+          styleName="textual"
+          style={{ alignSelf: 'flex-start' }}
           onPress={() => this.setState({ principlesVisible: true })}
         >
-          <Text>>></Text>
+          <Title>Principles</Title>
+          <Icon name="right-arrow" />
         </Button>
         <Text>Graves</Text>
         <Text>Survival of the fittest</Text>
@@ -85,12 +119,15 @@ class SummaryScreen extends React.Component {
           onBackdropPress={() => this.setState({ principlesVisible: false })}
           onBackButtonPress={() => this.setState({ principlesVisible: false })}
           useNativeDriver={true}
-          backdropColor="grey"
+          backdropColor={colors.black}
         >
-          <Principles />
-          <Button onPress={() => this.setState({ principlesVisible: false })}>
-            <Text>Close</Text>
-          </Button>
+          <View style={{ backgroundColor: colors.grey900 }}>
+            <Principles />
+            <Divider />
+            <Button onPress={() => this.setState({ principlesVisible: false })}>
+              <Text>Close</Text>
+            </Button>
+          </View>
         </Modal>
 
         <Divider />

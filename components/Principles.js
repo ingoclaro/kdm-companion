@@ -3,10 +3,11 @@ import {
   Screen,
   View,
   Text,
-  Title,
+  Subtitle,
   Image,
   DropDownMenu,
   Divider,
+  Row,
 } from '@shoutem/ui'
 
 class Principles extends React.Component {
@@ -16,7 +17,7 @@ class Principles extends React.Component {
       { title: 'Graves', value: 'graves' },
       { title: 'Cannibalism', value: 'cannibalism' },
     ],
-    children: [
+    newlife: [
       { title: 'None', value: 'none' },
       { title: 'Protect the Young', value: 'pty' },
       { title: 'Survival of the Fittest', value: 'sotf' },
@@ -26,43 +27,71 @@ class Principles extends React.Component {
   render() {
     return (
       <View>
-        <Title>Death</Title>
-        <DropDownMenu
-          options={this.state.death}
-          selectedOption={
-            this.state.selectedDeath
-              ? this.state.selectedDeath
-              : this.state.death[0]
-          }
-          onOptionSelected={death => this.setState({ selectedDeath: death })}
-          titleProperty="title"
-          valueProperty="value"
-        />
+        <Row>
+          <Subtitle>Death:</Subtitle>
+          <DropDownMenu
+            options={this.state.death}
+            selectedOption={
+              this.state.selectedDeath
+                ? this.state.selectedDeath
+                : this.state.death[0]
+            }
+            onOptionSelected={death => this.setState({ selectedDeath: death })}
+            titleProperty="title"
+            valueProperty="value"
+          />
+        </Row>
 
-        <Divider />
+        <Row>
+          <Subtitle>New Life:</Subtitle>
+          <DropDownMenu
+            options={this.state.newlife}
+            selectedOption={
+              this.state.selectedNewlife
+                ? this.state.selectedNewlife
+                : this.state.newlife[0]
+            }
+            onOptionSelected={newlife =>
+              this.setState({ selectedNewlife: newlife })
+            }
+            titleProperty="title"
+            valueProperty="value"
+          />
+        </Row>
 
-        <Title>New Life</Title>
-        <DropDownMenu
-          options={this.state.children}
-          selectedOption={
-            this.state.selectedChild
-              ? this.state.selectedChild
-              : this.state.children[0]
-          }
-          onOptionSelected={children =>
-            this.setState({ selectedChild: children })
-          }
-          titleProperty="title"
-          valueProperty="value"
-        />
+        <Row>
+          <Subtitle>Society:</Subtitle>
+          <DropDownMenu
+            options={this.state.newlife}
+            selectedOption={
+              this.state.selectedNewlife
+                ? this.state.selectedNewlife
+                : this.state.newlife[0]
+            }
+            onOptionSelected={newlife =>
+              this.setState({ selectedNewlife: newlife })
+            }
+            titleProperty="title"
+            valueProperty="value"
+          />
+        </Row>
 
-        <Divider />
-
-        <Title>Society</Title>
-
-        <Divider />
-
-        <Title>Conviction</Title>
+        <Row>
+          <Subtitle>Conviction:</Subtitle>
+          <DropDownMenu
+            options={this.state.newlife}
+            selectedOption={
+              this.state.selectedNewlife
+                ? this.state.selectedNewlife
+                : this.state.newlife[0]
+            }
+            onOptionSelected={newlife =>
+              this.setState({ selectedNewlife: newlife })
+            }
+            titleProperty="title"
+            valueProperty="value"
+          />
+        </Row>
       </View>
     )
   }

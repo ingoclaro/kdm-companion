@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, Icon, TouchableOpacity } from '@shoutem/ui'
 import { connectStyle } from '@shoutem/theme'
+import colors from '../src/colors'
 
 export default class CheckboxListItem extends React.PureComponent {
   _onPress = () => {
@@ -30,16 +31,17 @@ export default class CheckboxListItem extends React.PureComponent {
 const styles = {
   checkbox: {
     marginRight: 5,
-    fontSize: 15,
+    fontSize: 19,
+    color: colors.grey300,
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
     'shoutem.ui.Text': {
-      color: 'grey',
-      fontSize: 20,
+      color: colors.grey300,
+      fontSize: 24,
       '.selected': {
-        color: 'white',
+        color: colors.grey100,
       },
     },
   },

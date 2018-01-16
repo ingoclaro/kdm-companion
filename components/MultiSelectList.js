@@ -1,6 +1,5 @@
 import React from 'react'
 import { FlatList } from 'react-native'
-
 import CheckboxListItem from './CheckboxListItem'
 
 export default class MultiSelectList extends React.PureComponent {

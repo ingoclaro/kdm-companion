@@ -1,15 +1,19 @@
 import React from 'react'
 import {
   Screen,
+  Button,
   View,
   Text,
   Title,
   Image,
   DropDownMenu,
   Row,
+  Icon,
 } from '@shoutem/ui'
 import Accordion from 'react-native-collapsible/Accordion'
 import SimpleStepper from 'react-native-simple-stepper'
+
+import colors from '../src/colors'
 
 class Resources extends React.Component {
   constructor(props) {
@@ -43,13 +47,18 @@ class Resources extends React.Component {
     },
   ]
 
-  _renderHeader(section) {
+  _renderHeader(section, index, isActive, sections) {
+    let icon = isActive ? (
+      <Icon name="up-arrow" style={{ color: colors.grey100 }} />
+    ) : (
+      <Icon name="down-arrow" style={{ color: colors.grey100 }} />
+    )
     return (
       <Row>
         <Title>
           {2} - {section.title}
         </Title>
-        <Text>vv</Text>
+        {icon}
       </Row>
     )
   }
