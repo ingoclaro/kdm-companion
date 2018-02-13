@@ -12,11 +12,19 @@ import {
   Icon,
 } from '@shoutem/ui'
 import Modal from 'react-native-modal'
+import { kea } from 'kea'
+
 import colors from '../src/colors'
 
-import Innovations from '../components/Innovations'
-import Locations from '../components/Locations'
+import Innovations, { InnovationsItems } from '../components/Innovations'
+import Locations, { LocationItems } from '../components/Locations'
 import Principles from '../components/Principles'
+
+const keaOptions = {
+  selectors: ({ path, constants, actions, selectors }) => ({
+    locations: [],
+  }),
+}
 
 class SummaryScreen extends React.Component {
   static navigationOptions = {
@@ -42,8 +50,7 @@ class SummaryScreen extends React.Component {
         </Button>
         <Divider styleName="line" />
 
-        <Text>Lantern Hoard</Text>
-        <Text>Skinnery</Text>
+        <LocationItems />
 
         <Modal
           isVisible={this.state.locationsVisible}
@@ -78,8 +85,7 @@ class SummaryScreen extends React.Component {
           <Icon name="right-arrow" />
         </Button>
         <Divider styleName="line" />
-        <Text>Language</Text>
-        <Text>Drums</Text>
+        <InnovationsItems />
 
         <Modal
           isVisible={this.state.innovationsVisible}

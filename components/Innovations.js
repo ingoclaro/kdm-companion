@@ -1,19 +1,14 @@
 import React from 'react'
 import { Screen, View, Text, Image } from '@shoutem/ui'
-import MultiSelectList from '../components/MultiSelectList'
+import MultiSelectList, {
+  MultiSelectItems,
+} from '../components/MultiSelectList'
+import { kea } from 'kea'
+import PropTypes from 'prop-types'
 
 import R from 'ramda'
-import gameData from '../src/data'
 
 class Innovations extends React.Component {
-  state = {
-    selectedItems: [],
-  }
-
-  onSelectedItemsChange = selectedItems => {
-    this.setState({ selectedItems })
-  }
-
   render() {
     let innovations = new Set()
     R.forEachObjIndexed(gear => {
@@ -22,20 +17,36 @@ class Innovations extends React.Component {
           innovations.add(innovation)
         })
       })
-    }, gameData.gear)
+    }, this.props.gear)
 
     const innovationList = Array.from(innovations).map(key => {
       return { id: key, title: key }
     })
 
+    return <MultiSelectList name="innovations" data={innovationList} />
+  }
+}
+Innovations.propTypes = {
+  gear: PropTypes.object.isRequired,
+}
+
+// get props from the store
+const connectedInnovations = kea({
+  connect: {
+    props: [state => state, ['gear']],
+  },
+})(Innovations)
+
+class InnovationsItems extends React.Component {
+  render() {
     return (
-      <MultiSelectList
+      <MultiSelectItems
         name="innovations"
-        data={innovationList}
-        onSelectedItemsChange={this.onSelectedItemsChange}
+        emptyText="Tap title to add Innovations..."
       />
     )
   }
 }
 
-export default Innovations
+export default connectedInnovations
+export { InnovationsItems }

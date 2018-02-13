@@ -1,35 +1,45 @@
 import React from 'react'
 import { Screen, View, Text, Image } from '@shoutem/ui'
 import { connectStyle } from '@shoutem/theme'
-import MultiSelectList from '../components/MultiSelectList'
+import MultiSelectList, {
+  MultiSelectItems,
+} from '../components/MultiSelectList'
+import { kea } from 'kea'
+import PropTypes from 'prop-types'
 
-import gameData from '../src/data'
-
-class Locations extends React.Component {
-  state = {
-    selectedItems: [],
-  }
-
-  onSelectedItemsChange = selectedItems => {
-    this.setState({ selectedItems })
-  }
-
+class Locations extends React.PureComponent {
   render() {
-    const locations = gameData.settlement_locations
-    const locationList = Object.keys(locations)
+    console.log('props', this.props)
+    const locationList = Object.keys(this.props.locations || {})
       .sort()
       .map(key => {
-        return { id: key, title: locations[key].name }
+        return { id: key, title: this.props.locations[key].name }
       })
 
+    return <MultiSelectList name="locations" data={locationList} />
+  }
+}
+Locations.propTypes = {
+  locations: PropTypes.object.isRequired,
+}
+
+// get props from the store
+const connectedLocations = kea({
+  connect: {
+    props: [state => state, ['settlement_locations as locations']],
+  },
+})(Locations)
+
+class LocationItems extends React.Component {
+  render() {
     return (
-      <MultiSelectList
+      <MultiSelectItems
         name="locations"
-        data={locationList}
-        onSelectedItemsChange={this.onSelectedItemsChange}
+        emptyText="Tap title to add Locations..."
       />
     )
   }
 }
 
-export default Locations
+export default connectedLocations
+export { LocationItems }

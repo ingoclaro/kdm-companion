@@ -1,5 +1,7 @@
 import { getStore } from 'kea'
+import gameData from './data'
 
 export default getStore({
-  // additional options (e.g. middleware, reducers, ...)
+  paths: ['kea', 'scenes', 'settlement_locations', 'gear', 'resources'],
+  preloadedState: gameData,
 })

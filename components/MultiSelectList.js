@@ -2,6 +2,7 @@ import React from 'react'
 import { FlatList } from 'react-native'
 import { kea } from 'kea'
 import PropTypes from 'prop-types'
+import { View, Text, Caption } from '@shoutem/ui'
 
 import CheckboxListItem from './CheckboxListItem'
 
@@ -25,6 +26,7 @@ const keaOptions = {
     ],
   }),
 }
+export const logic = kea(keaOptions)
 
 class MultiSelectList extends React.PureComponent {
   _keyExtractor = (item, index) => item.id
@@ -50,5 +52,43 @@ class MultiSelectList extends React.PureComponent {
     )
   }
 }
+MultiSelectList.propTypes = {
+  data: PropTypes.array.isRequired,
+}
+const connectedMultiSelectList = logic(MultiSelectList)
+connectedMultiSelectList.propTypes = {
+  name: PropTypes.string.isRequired,
+}
 
-export default kea(keaOptions)(MultiSelectList)
+class MultiSelectItems extends React.PureComponent {
+  render() {
+    let keys = Object.keys(this.props.items || {})
+    let items = keys
+      .filter(item => this.props.items[item])
+      .map(item => <Text key={item}>{item}</Text>)
+
+    return (
+      <View>
+        {items.length > 0 ? items : <Caption>{this.props.emptyText}</Caption>}
+      </View>
+    )
+  }
+}
+const itemsLogic = kea({
+  connect: {
+    props: [logic.withKey(props => props.name), ['selected as items']],
+  },
+})
+
+const connectedMultiSelectItems = itemsLogic(MultiSelectItems)
+
+MultiSelectItems.propTypes = {
+  items: PropTypes.object,
+}
+
+connectedMultiSelectItems.propTypes = {
+  name: PropTypes.string.isRequired,
+}
+
+export default connectedMultiSelectList
+export { connectedMultiSelectItems as MultiSelectItems }
