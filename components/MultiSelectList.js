@@ -2,7 +2,7 @@ import React from 'react'
 import { FlatList } from 'react-native'
 import { kea } from 'kea'
 import PropTypes from 'prop-types'
-import { View, Text, Caption } from '@shoutem/ui'
+import { View, Row, Text, Caption } from '@shoutem/ui'
 
 import CheckboxListItem from './CheckboxListItem'
 
@@ -63,13 +63,18 @@ connectedMultiSelectList.propTypes = {
 class MultiSelectItems extends React.PureComponent {
   render() {
     let keys = Object.keys(this.props.items || {})
-    let items = keys
-      .filter(item => this.props.items[item])
-      .map(item => <Text key={item}>{item}</Text>)
+    let items = keys.filter(item => this.props.items[item])
+    // .map(item => <Text key={item}>{item}</Text>)
 
     return (
       <View>
-        {items.length > 0 ? items : <Caption>{this.props.emptyText}</Caption>}
+        <Row>
+          {items.length > 0 ? (
+            <Caption>{items.join(', ')}</Caption>
+          ) : (
+            <Caption>{this.props.emptyText}</Caption>
+          )}
+        </Row>
       </View>
     )
   }

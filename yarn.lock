@@ -3563,9 +3563,9 @@ jws@^3.1.4:
     jwa "^1.1.4"
     safe-buffer "^5.0.1"
 
-kea@^0.28.1:
-  version "0.28.1"
-  resolved "https://registry.yarnpkg.com/kea/-/kea-0.28.1.tgz#0a1d59bb6e2014a49e85f3ad43b487b115a1ac18"
+kea@^0.28.2:
+  version "0.28.2"
+  resolved "https://registry.yarnpkg.com/kea/-/kea-0.28.2.tgz#3c2103dcf4bdd9fe8bf48c4facf09d774e2d254b"
   dependencies:
     opencollective "^1.0.3"
 
@@ -4957,7 +4957,7 @@ react-native-gesture-responder@0.1.1:
   dependencies:
     react-timer-mixin "^0.13.3"
 
-"react-native-lightbox@github:shoutem/react-native-lightbox#v0.7.1":
+react-native-lightbox@shoutem/react-native-lightbox#v0.7.1:
   version "0.7.1"
   resolved "https://codeload.github.com/shoutem/react-native-lightbox/tar.gz/bfecd1829abb8dfdcee5829c4e9a701a69d82a87"
   dependencies:
@@ -4983,7 +4983,7 @@ react-native-modal@^4.1.1:
     prop-types "15.5.10"
     react-native-animatable "^1.2.3"
 
-"react-native-navigation-experimental-compat@github:shoutem/react-native-navigation-experimental-compat#fbce4b9e478f808634a98dac48901ec6ed4ee9fd":
+react-native-navigation-experimental-compat@shoutem/react-native-navigation-experimental-compat#fbce4b9e478f808634a98dac48901ec6ed4ee9fd:
   version "1.1.1"
   resolved "https://codeload.github.com/shoutem/react-native-navigation-experimental-compat/tar.gz/fbce4b9e478f808634a98dac48901ec6ed4ee9fd"
   dependencies:
@@ -5044,7 +5044,7 @@ react-native-tab-view@^0.0.74:
   dependencies:
     prop-types "^15.6.0"
 
-"react-native-transformable-image@github:shoutem/react-native-transformable-image#v0.0.20":
+react-native-transformable-image@shoutem/react-native-transformable-image#v0.0.20:
   version "0.0.20"
   resolved "https://codeload.github.com/shoutem/react-native-transformable-image/tar.gz/ef2e93fa9425bbb479bccec64d165ec85e76e949"
   dependencies:
