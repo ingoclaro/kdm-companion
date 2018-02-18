@@ -1205,7 +1205,7 @@ export default {
       name: 'Romantic',
     },
   },
-  // kea.endeavors: {
+  // endeavors: {
   //   // This will be filled with data when selecting locations or innovations, structure:
   //   endeavors: {
   //     build_weapon_crafter: {
@@ -1224,5 +1224,13 @@ export default {
   // },
   // bonuses: {
   //   // This will be filled with data when selecting principles or others, see graves for example.
+  //   graves: { // id
+  //     name: 'Graves', // name to display
+  //     description: [ // list of free form text with rules
+  //       'All new survivors gain +1 understanding',
+  //       'When a survivor dies during hunt or showdown phase, gain +2 endeavors',
+  //       'When a survivor dies during settlement phase, gain +1 endeavors',
+  //     ],
+  //   },
   // },
 }
