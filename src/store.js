@@ -12,8 +12,6 @@ export default getStore({
     'innovations',
     'monsters',
     'principles',
-    'endeavors',
-    'bonuses',
   ],
   plugins: [thunkPlugin],
   preloadedState: gameData,

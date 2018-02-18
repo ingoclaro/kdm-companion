@@ -1,32 +1,35 @@
 import React from 'react'
 import { FlatList } from 'react-native'
-import { kea } from 'kea'
+// import { kea } from 'kea'
 import PropTypes from 'prop-types'
 import { View, Row, Text, Caption } from '@shoutem/ui'
 
 import CheckboxListItem from './CheckboxListItem'
 
-const keaOptions = {
-  key: props => props.name,
-  path: key => ['scenes', 'multiselect', key],
-  actions: () => ({
-    toggleItem: id => ({ id }),
-  }),
-  reducers: ({ actions, key, props }) => ({
-    selected: [
-      {},
-      PropTypes.object,
-      {
-        [actions.toggleItem]: (state, payload) => {
-          return payload.key === key
-            ? { ...state, [payload.id]: !state[payload.id] }
-            : state
-        },
-      },
-    ],
-  }),
-}
-export const logic = kea(keaOptions)
+// const keaOptions = {
+//   key: props => props.name,
+//   path: key => ['scenes', 'multiselect', key],
+//   actions: () => ({
+//     toggleItem: id => {
+//       console.log('multi select toggle', id)
+//       return { id }
+//     },
+//   }),
+//   reducers: ({ actions, key, props }) => ({
+//     selected: [
+//       {},
+//       PropTypes.object,
+//       {
+//         [actions.toggleItem]: (state, payload) => {
+//           return payload.key === key
+//             ? { ...state, [payload.id]: !state[payload.id] }
+//             : state
+//         },
+//       },
+//     ],
+//   }),
+// }
+// export const logic = kea(keaOptions)
 
 class MultiSelectList extends React.PureComponent {
   _keyExtractor = (item, index) => item.id
@@ -34,7 +37,7 @@ class MultiSelectList extends React.PureComponent {
   _renderItem = ({ item }) => (
     <CheckboxListItem
       id={item.id}
-      onPressItem={() => this.actions.toggleItem(item.id)}
+      onPressItem={() => this.props.toggle(item)}
       selected={!!this.props.selected[item.id]}
       title={item.title}
     />
@@ -54,10 +57,8 @@ class MultiSelectList extends React.PureComponent {
 }
 MultiSelectList.propTypes = {
   data: PropTypes.array.isRequired,
-}
-const connectedMultiSelectList = logic(MultiSelectList)
-connectedMultiSelectList.propTypes = {
-  name: PropTypes.string.isRequired,
+  toggle: PropTypes.func.isRequired,
+  selected: PropTypes.object,
 }
 
 class MultiSelectItems extends React.PureComponent {
@@ -79,21 +80,9 @@ class MultiSelectItems extends React.PureComponent {
     )
   }
 }
-const itemsLogic = kea({
-  connect: {
-    props: [logic.withKey(props => props.name), ['selected as items']],
-  },
-})
-
-const connectedMultiSelectItems = itemsLogic(MultiSelectItems)
-
 MultiSelectItems.propTypes = {
-  items: PropTypes.object,
+  items: PropTypes.object.isRequired,
 }
 
-connectedMultiSelectItems.propTypes = {
-  name: PropTypes.string.isRequired,
-}
-
-export default connectedMultiSelectList
-export { connectedMultiSelectItems as MultiSelectItems }
+export default MultiSelectList
+export { MultiSelectItems }

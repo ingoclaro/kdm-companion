@@ -125,13 +125,11 @@ export default {
           build_weapon_crafter: {
             name: 'Build - Weapon Crafter',
             expansion: 'core',
-            recipies: [
-              {
-                location: 'bone_smith',
-                not_location: 'weapon_crafter',
-                resources: { endeavor: 1, bone: 3, hide: 1 },
-              },
-            ],
+            recipe: {
+              location: 'bone_smith',
+              not_location: 'weapon_crafter',
+              resources: { endeavor: 1, bone: 3, hide: 1 },
+            },
           },
         },
       },
@@ -168,13 +166,11 @@ export default {
           build_leather_worker: {
             name: 'Build - Leather Worker',
             expansion: 'core',
-            recipies: [
-              {
-                location: 'skinnery',
-                not_location: 'leather_worker',
-                resources: { endeavor: 1, organ: 1, hide: 3 },
-              },
-            ],
+            recipe: {
+              location: 'skinnery',
+              not_location: 'leather_worker',
+              resources: { endeavor: 1, organ: 1, hide: 3 },
+            },
           },
         },
       },
@@ -938,12 +934,10 @@ export default {
           bone_beats: {
             name: 'Bone Beats',
             expansion: 'core',
-            recipes: [
-              {
-                innovation: 'drums',
-                resources: { endeavor: 1 },
-              },
-            ],
+            recipe: {
+              innovation: 'drums',
+              resources: { endeavor: 1 },
+            },
           },
         },
       },
@@ -1211,24 +1205,24 @@ export default {
       name: 'Romantic',
     },
   },
-  endeavors: {
-    // This will be filled with data when selecting locations or innovations, structure:
-    endeavors: {
-      build_weapon_crafter: {
-        // id
-        name: 'Build - Weapon Crafter', // name to show in the UI
-        expansion: 'core', // which expansion it belongs to
-        recipe:
-          // what is needed to build this
-          {
-            location: 'bone_smith', // which location it needs
-            not_location: 'weapon_crafter', // which location it doesn't need (eg: if it's already built, don't show this)
-            resources: { endeavor: 1, bone: 3, hide: 1 }, // what resources are needed
-          },
-      },
-    },
-  },
-  bonuses: {
-    // This will be filled with data when selecting principles or others, see graves for example.
-  },
+  // kea.endeavors: {
+  //   // This will be filled with data when selecting locations or innovations, structure:
+  //   endeavors: {
+  //     build_weapon_crafter: {
+  //       // id
+  //       name: 'Build - Weapon Crafter', // name to show in the UI
+  //       expansion: 'core', // which expansion it belongs to
+  //       recipe:
+  //         // what is needed to build this
+  //         {
+  //           location: 'bone_smith', // which location it needs
+  //           not_location: 'weapon_crafter', // which location it doesn't need (eg: if it's already built, don't show this)
+  //           resources: { endeavor: 1, bone: 3, hide: 1 }, // what resources are needed
+  //         },
+  //     },
+  //   },
+  // },
+  // bonuses: {
+  //   // This will be filled with data when selecting principles or others, see graves for example.
+  // },
 }
