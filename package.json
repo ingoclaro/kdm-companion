@@ -30,6 +30,7 @@
     "@shoutem/ui": "^0.22.0",
     "expo": "^24.0.0",
     "kea": "^0.28.2",
+    "kea-thunk": "^0.3.2",
     "prop-types": "^15.6.0",
     "ramda": "^0.25.0",
     "react": "16.0.0",
@@ -41,6 +42,7 @@
     "react-navigation": "^1.0.0-beta.21",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1"
   }
 }

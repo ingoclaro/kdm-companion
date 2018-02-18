@@ -117,7 +117,8 @@ class ThemedApp extends React.Component {
   render() {
     return (
       <StyleProvider style={theme}>
-        <App />
+        {/*}<App />{*/}
+        <SettlementNavigator />
       </StyleProvider>
     )
   }

@@ -6,34 +6,24 @@ import MultiSelectList, {
 import { kea } from 'kea'
 import PropTypes from 'prop-types'
 
-import R from 'ramda'
-
 class Innovations extends React.Component {
   render() {
-    let innovations = new Set()
-    R.forEachObjIndexed(gear => {
-      gear.recipes.forEach(recipe => {
-        recipe.innovations.forEach(innovation => {
-          innovations.add(innovation)
-        })
-      })
-    }, this.props.gear)
-
-    const innovationList = Array.from(innovations).map(key => {
-      return { id: key, title: key }
-    })
+    const innovationList = Array.from(
+      Object.entries(this.props.innovations),
+      v => ({ id: v[0], title: v[1].name })
+    )
 
     return <MultiSelectList name="innovations" data={innovationList} />
   }
 }
 Innovations.propTypes = {
-  gear: PropTypes.object.isRequired,
+  innovations: PropTypes.object.isRequired,
 }
 
 // get props from the store
 const connectedInnovations = kea({
   connect: {
-    props: [state => state, ['gear']],
+    props: [state => state, ['innovations']],
   },
 })(Innovations)
 

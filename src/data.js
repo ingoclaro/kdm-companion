@@ -19,7 +19,7 @@ export default {
         'lion_headdress',
         'lion_skin_cloak',
         'frenzy_drink',
-      ]
+      ],
     },
     stone_circle: {
       name: 'Stone Circle',
@@ -38,7 +38,7 @@ export default {
         'green_charm',
         'blue_charm',
         'lance_of_longinus',
-      ]
+      ],
     },
     weapon_crafter: {
       name: 'Weapon Crafter',
@@ -53,7 +53,7 @@ export default {
         'scrap_sword',
         'scrap_dagger',
         'finger_of_god',
-      ]
+      ],
     },
     leather_worker: {
       name: 'Leather Worker',
@@ -66,7 +66,7 @@ export default {
         'leather_boots',
         'round_leather_shield',
         'hunter_whip',
-      ]
+      ],
     },
     plumery: {
       name: 'Plumery',
@@ -87,7 +87,7 @@ export default {
         'hours_ring',
         'crest_crown',
         'hollowpoint_arrow',
-      ]
+      ],
     },
     blacksmith: {
       name: 'Blacksmith',
@@ -106,7 +106,7 @@ export default {
         'scrap_shield',
         'beacon_shield',
         'ring_whip',
-      ]
+      ],
     },
     bone_smith: {
       name: 'Bone Smith',
@@ -119,7 +119,22 @@ export default {
         'skull_helm',
         'bone_pickaxe',
         'bone_sickle',
-      ]
+      ],
+      expand: {
+        endeavors: {
+          build_weapon_crafter: {
+            name: 'Build - Weapon Crafter',
+            expansion: 'core',
+            recipies: [
+              {
+                location: 'bone_smith',
+                not_location: 'weapon_crafter',
+                resources: { endeavor: 1, bone: 3, hide: 1 },
+              },
+            ],
+          },
+        },
+      },
     },
     barber_surgeon: {
       name: 'Barber Surgeon',
@@ -132,8 +147,8 @@ export default {
         'scavenger_kit',
         'bug_trap',
         'speed_powder',
-        'almanac'
-      ]
+        'almanac',
+      ],
     },
     skinnery: {
       name: 'Skinnery',
@@ -147,7 +162,22 @@ export default {
         'bandages',
         'rawhide_drum',
         'rawhide_whip',
-      ]
+      ],
+      expand: {
+        endeavors: {
+          build_leather_worker: {
+            name: 'Build - Leather Worker',
+            expansion: 'core',
+            recipies: [
+              {
+                location: 'skinnery',
+                not_location: 'leather_worker',
+                resources: { endeavor: 1, organ: 1, hide: 3 },
+              },
+            ],
+          },
+        },
+      },
     },
     organ_grinder: {
       name: 'Organ Grinder',
@@ -158,7 +188,36 @@ export default {
         'dried_acanthus',
         'lucky_charm',
         'monster_tooth_necklace',
-      ]
+      ],
+      expand: {
+        endeavors: {
+          augury: {
+            name: 'Augury',
+            expansion: 'core',
+            recipe: {
+              location: 'organ_grinder',
+              resources: { endeavor: 1 },
+            },
+          },
+          stone_noses: {
+            name: 'Stone Noses',
+            expansion: 'core',
+            recipe: {
+              location: 'organ_grinder',
+              resources: { endeavor: 1 },
+            },
+          },
+          build_stone_circle: {
+            name: 'Build - Stone Circle',
+            expansion: 'core',
+            recipe: {
+              location: 'organ_grinder',
+              not_location: 'stone_circle',
+              resources: { endeavor: 1, organ: 3, hide: 3 },
+            },
+          },
+        },
+      },
     },
     mask_maker: {
       name: 'Mask Maker',
@@ -169,569 +228,1007 @@ export default {
         'phoenix_mask',
         'death_mask',
         'man_mask',
-        'god_mask'
-      ]
-    }
+        'god_mask',
+      ],
+    },
+    lantern_hoard: {
+      name: 'Lantern Hoard',
+      expansion: 'core',
+      expand: {
+        endeavors: {
+          innovate: {
+            name: 'Innovate',
+            expansion: 'core',
+            recipe: {
+              location: 'lantern_hoard',
+              resources: { endeavor: 1, bone: 1, organ: 1, hide: 1 },
+            },
+          },
+          shared_experience: {
+            name: 'Shared Experience',
+            expansion: 'core',
+            recipe: {
+              location: 'lantern_hoard',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
+    },
   },
   gear: {
     white_lion_helm: {
       name: 'White Lion Helm',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'white fur': 1, 'great cat bone': 1},
-        }
-      ]
+          resources: { 'white fur': 1, 'great cat bone': 1 },
+        },
+      ],
     },
     white_lion_gauntlets: {
       name: 'White Lion Gauntlets',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'white fur': 1, 'bone': 1},
-        }
-      ]
+          resources: { 'white fur': 1, bone: 1 },
+        },
+      ],
     },
     white_lion_coat: {
       name: 'White Lion Coat',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'white fur': 1, 'hide': 1},
-        }
-      ]
+          resources: { 'white fur': 1, hide: 1 },
+        },
+      ],
     },
     white_lion_skirt: {
       name: 'White Lion Coat',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'white fur': 1, 'hide': 1},
-        }
-      ]
+          resources: { 'white fur': 1, hide: 1 },
+        },
+      ],
     },
     white_lion_boots: {
       name: 'White Lion Boots',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'white fur': 1, 'hide': 1},
-        }
-      ]
+          resources: { 'white fur': 1, hide: 1 },
+        },
+      ],
     },
     lion_beast_katar: {
       name: 'Lion Beast Katar',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'lion claw': 1, 'hide': 1},
-        }
-      ]
+          resources: { 'lion claw': 1, hide: 1 },
+        },
+      ],
     },
     claw_head_arrow: {
       name: 'Claw Head Arrow',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'lion claw': 1},
-        }
-      ]
+          resources: { 'lion claw': 1 },
+        },
+      ],
     },
     king_spear: {
       name: 'King Spear',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'lion claw': 1, 'great cat bone': 1},
-        }
-      ]
+          resources: { 'lion claw': 1, 'great cat bone': 1 },
+        },
+      ],
     },
     cat_gut_bow: {
       name: 'Cat Gut Bow',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'sinew': 1, 'bone': 1},
-        }
-      ]
+          resources: { sinew: 1, bone: 1 },
+        },
+      ],
     },
     cat_fang_knife: {
       name: 'Cat Fang Knife',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'elder cat teeth': 1, 'organ': 4},
-        }
-      ]
+          resources: { 'elder cat teeth': 1, organ: 4 },
+        },
+      ],
     },
     cat_eye_circlet: {
       name: 'Cat Eye Circlet',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'eye of cat': 1},
-        }
-      ]
+          resources: { 'eye of cat': 1 },
+        },
+      ],
     },
     whisker_harp: {
       name: 'Whisker Harp',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'golden whiskers': 1, 'bone': 1},
-        }
-      ]
+          resources: { 'golden whiskers': 1, bone: 1 },
+        },
+      ],
     },
     lion_headdress: {
       name: 'Lion Headdress',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'shimmering mane': 1},
-        }
-      ]
+          resources: { 'shimmering mane': 1 },
+        },
+      ],
     },
     lion_skin_cloak: {
       name: 'Lion Skin Cloak',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'white fur': 2},
-        }
-      ]
+          resources: { 'white fur': 2 },
+        },
+      ],
     },
     frenzy_drink: {
       name: 'Frenzy Drink',
+      expansion: 'core',
       recipes: [
         {
           location: 'catarium',
           innovations: [],
-          resources: {'lion testes': 1},
-        }
-      ]
+          resources: { 'lion testes': 1 },
+        },
+      ],
     },
     screaming_horns: {
       name: 'Screaming Horns',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: [],
-          resources: {'spiral horn': 1, 'scrap': 1},
-        }
-      ]
+          resources: { 'spiral horn': 1, scrap: 1 },
+        },
+      ],
     },
     screaming_bracers: {
       name: 'Screaming Bracers',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: [],
-          resources: {'pelt': 1, 'hide': 1},
-        }
-      ]
+          resources: { pelt: 1, hide: 1 },
+        },
+      ],
     },
     screaming_coat: {
       name: 'Screaming Coat',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: [],
-          resources: {'pelt': 1, 'bone': 1},
-        }
-      ]
+          resources: { pelt: 1, bone: 1 },
+        },
+      ],
     },
     screaming_skirt: {
       name: 'Screaming Skirt',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: [],
-          resources: {'pelt': 1},
-        }
-      ]
+          resources: { pelt: 1 },
+        },
+      ],
     },
     screaming_leg_warmers: {
       name: 'Screaming Leg Warmers',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: [],
-          resources: {'pelt': 1, 'hide': 1},
-        }
-      ]
+          resources: { pelt: 1, hide: 1 },
+        },
+      ],
     },
     boss_mehndi: {
       name: 'Boss Mehndi',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: [],
-          resources: {'golden whiskers': 1, 'bone': 1},
-        }
-      ]
+          resources: { 'golden whiskers': 1, bone: 1 },
+        },
+      ],
     },
     beast_knuckle: {
       name: 'Beast Knuckle',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: [],
-          resources: {'large flat tooth': 1, 'pelt': 1},
-        }
-      ]
+          resources: { 'large flat tooth': 1, pelt: 1 },
+        },
+      ],
     },
     red_charm: {
       name: 'Red Charm',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: [],
-          resources: {'organ': 3},
-        }
-      ]
+          resources: { organ: 3 },
+        },
+      ],
     },
     blood_paint: {
       name: 'Blood Paint',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: ['paint'],
-          resources: {'bladder': 1, 'organ': 1},
-        }
-      ]
+          resources: { bladder: 1, organ: 1 },
+        },
+      ],
     },
     bone_earrings: {
       name: 'Bone Earrings',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: [],
-          resources: {'shank bone': 1, 'bone': 1},
-        }
-      ]
+          resources: { 'shank bone': 1, bone: 1 },
+        },
+      ],
     },
     green_charm: {
       name: 'Green Charm',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: [],
-          resources: {'organ': 3},
-        }
-      ]
+          resources: { organ: 3 },
+        },
+      ],
     },
     blue_charm: {
       name: 'Blue Charm',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: [],
-          resources: {'organ': 3},
-        }
-      ]
+          resources: { organ: 3 },
+        },
+      ],
     },
     lance_of_longinus: {
       name: 'Lance of Longinus',
+      expansion: 'core',
       recipes: [
         {
           location: 'stone_circle',
           innovations: [],
-          resources: {'legendary horns': 1, 'organ': 6},
-        }
-      ]
+          resources: { 'legendary horns': 1, organ: 6 },
+        },
+      ],
     },
     counterweighted_axe: {
       name: 'Counterweighted Axe',
+      expansion: 'core',
       recipes: [
         {
           location: 'weapon_crafter',
           innovations: [],
-          resources: {'bone': 2, 'hide': 1, 'organ': 1},
-        }
-      ]
+          resources: { bone: 2, hide: 1, organ: 1 },
+        },
+      ],
     },
     whistling_mace: {
       name: 'Whistling Mace',
+      expansion: 'core',
       recipes: [
         {
           location: 'weapon_crafter',
           innovations: [],
-          resources: {'bone': 2, 'organ': 1},
-        }
-      ]
+          resources: { bone: 2, organ: 1 },
+        },
+      ],
     },
     zanbato: {
       name: 'Zanbato',
+      expansion: 'core',
       recipes: [
         {
           location: 'weapon_crafter',
           innovations: [],
-          resources: {'great cat bone': 1, 'hide': 2},
-        }
-      ]
+          resources: { 'great cat bone': 1, hide: 2 },
+        },
+      ],
     },
     blood_sheath: {
       name: 'Blood Sheath',
+      expansion: 'core',
       recipes: [
         {
           location: 'weapon_crafter',
           innovations: [],
-          resources: {'organ': 5, 'hollow wing bone': 1, 'muculent droppings': 1},
-        }
-      ]
+          resources: {
+            organ: 5,
+            'hollow wing bone': 1,
+            'muculent droppings': 1,
+          },
+        },
+      ],
     },
     rainbow_katana: {
       name: 'Rainbow Katana',
+      expansion: 'core',
       recipes: [
         {
           location: 'weapon_crafter',
           innovations: ['heat'],
-          resources: {'phoenix beak': 1, 'rainbow droppings': 1, 'iron': 1, 'bone': 6},
-        }
-      ]
+          resources: {
+            'phoenix beak': 1,
+            'rainbow droppings': 1,
+            iron: 1,
+            bone: 6,
+          },
+        },
+      ],
     },
     skullcap_hammer: {
       name: 'Skullcap Hammer',
+      expansion: 'core',
       recipes: [
         {
           location: 'weapon_crafter',
           innovations: [],
-          resources: {'bone': 2, 'scrap': 1},
-        }
-      ]
+          resources: { bone: 2, scrap: 1 },
+        },
+      ],
     },
     scrap_sword: {
       name: 'Scrap Sword',
+      expansion: 'core',
       recipes: [
         {
           location: 'weapon_crafter',
           innovations: ['heat'],
-          resources: {'bone': 2, 'scrap': 1},
-        }
-      ]
+          resources: { bone: 2, scrap: 1 },
+        },
+      ],
     },
     scrap_dagger: {
       name: 'Scrap Dagger',
+      expansion: 'core',
       recipes: [
         {
           location: 'weapon_crafter',
           innovations: ['heat'],
-          resources: {'bone': 1, 'scrap': 1},
-        }
-      ]
+          resources: { bone: 1, scrap: 1 },
+        },
+      ],
     },
     finger_of_god: {
       name: 'Finger Of God',
+      expansion: 'core',
       recipes: [
         {
           location: 'weapon_crafter',
           innovations: [],
-          resources: {'phoenix finger': 1, 'bone': 4},
-        }
-      ]
+          resources: { 'phoenix finger': 1, bone: 4 },
+        },
+      ],
     },
     leather_mask: {
       name: 'Leather Mask',
+      expansion: 'core',
       recipes: [
         {
           location: 'leather_worker',
           innovations: [],
-          resources: {'leather': 1, 'scrap': 1},
-        }
-      ]
+          resources: { leather: 1, scrap: 1 },
+        },
+      ],
     },
     leather_bracers: {
       name: 'Leather Bracers',
+      expansion: 'core',
       recipes: [
         {
           location: 'leather_worker',
           innovations: [],
-          resources: {'leather': 1, 'hide': 1},
-        }
-      ]
+          resources: { leather: 1, hide: 1 },
+        },
+      ],
     },
     leather_curiass: {
       name: 'Leather Curiass',
+      expansion: 'core',
       recipes: [
         {
           location: 'leather_worker',
           innovations: [],
-          resources: {'leather': 1, 'bone': 1},
-        }
-      ]
+          resources: { leather: 1, bone: 1 },
+        },
+      ],
     },
     leather_skirt: {
       name: 'Leather Skirt',
+      expansion: 'core',
       recipes: [
         {
           location: 'leather_worker',
           innovations: [],
-          resources: {'leather': 1},
-        }
-      ]
+          resources: { leather: 1 },
+        },
+      ],
     },
     leather_boots: {
       name: 'Leather Boots',
+      expansion: 'core',
       recipes: [
         {
           location: 'leather_worker',
           innovations: [],
-          resources: {'leather': 1, 'hide': 1},
-        }
-      ]
+          resources: { leather: 1, hide: 1 },
+        },
+      ],
     },
     round_leather_shield: {
       name: 'Round Leather Shield',
+      expansion: 'core',
       recipes: [
         {
           location: 'leather_worker',
           innovations: [],
-          resources: {'leather': 1, 'bone': 1, 'hide': 1},
-        }
-      ]
+          resources: { leather: 1, bone: 1, hide: 1 },
+        },
+      ],
     },
     hunter_whip: {
       name: 'Hunter Whip',
+      expansion: 'core',
       recipes: [
         {
           location: 'leather_worker',
           innovations: [],
-          resources: {'leather': 2, 'bone': 1},
-        }
-      ]
+          resources: { leather: 2, bone: 1 },
+        },
+      ],
     },
   },
   resources: {
-    'sinew': {
-      keywords: ['organ']
+    sinew: {
+      keywords: ['organ'],
+      monster: 'white_lion',
     },
     'white fur': {
-      keywords: ['hide']
+      keywords: ['hide'],
+      monster: 'white_lion',
     },
     'great cat bone': {
-      keywords: ['bone']
+      keywords: ['bone'],
+      monster: 'white_lion',
     },
     'lion claw': {
-      keywords: ['bone']
+      keywords: ['bone'],
+      monster: 'white_lion',
     },
     'elder cat teeth': {
-      keywords: ['bone']
+      keywords: ['bone'],
+      type: 'strange',
     },
     'eye of cat': {
-      keywords: ['organ', 'consumable']
+      keywords: ['organ', 'consumable'],
+      monster: 'white_lion',
     },
     'golden whiskers': {
-      keywords: ['organ']
+      keywords: ['organ'],
+      monster: 'white_lion',
     },
     'shimmering mane': {
-      keywords: ['hide']
+      keywords: ['hide'],
+      monster: 'white_lion',
     },
     'lion testes': {
-      keywords: ['organ', 'consumable']
+      keywords: ['organ', 'consumable'],
+      monster: 'white_lion',
     },
     'lion tail': {
-      keywords: ['hide']
+      keywords: ['hide'],
+      monster: 'white_lion',
     },
     'curious hand': {
-      keywords: ['hide']
+      keywords: ['hide'],
+      monster: 'white_lion',
     },
-    'whishbone': {
-      keywords: ['bone']
+    whishbone: {
+      keywords: ['bone'],
+      monster: 'phoenix',
     },
     'tail feathers': {
-      keywords: ['hide']
+      keywords: ['hide'],
+      monster: 'phoenix',
     },
     'shimmering halo': {
-      keywords: ['organ']
+      keywords: ['organ'],
+      monster: 'phoenix',
     },
     'small hand parasites': {
-      keywords: ['organ']
+      keywords: ['organ'],
+      monster: 'phoenix',
     },
     'small feathers': {
-      keywords: ['hide']
+      keywords: ['hide'],
+      monster: 'phoenix',
     },
     'rainbow droppings': {
-      keywords: ['organ', 'consumable']
+      keywords: ['organ', 'consumable'],
+      monster: 'phoenix',
     },
-    'bladder': {
-      keywords: ['organ', 'consumable']
+    bladder: {
+      keywords: ['organ', 'consumable'],
+      monster: 'screaming_antelope',
     },
     'bird beak': {
-      keywords: ['bone']
+      keywords: ['bone'],
+      monster: 'phoenix',
     },
     'black skull': {
-      keywords: ['iron','skull','bone']
+      keywords: ['iron', 'skull', 'bone'],
+      monster: 'phoenix',
     },
-    'hollow wing bones': {
-      keywords: ['bone']
+    'hollow wing bone': {
+      keywords: ['bone'],
+      monster: 'phoenix',
     },
     'muculent droppings': {
-      keywords: ['organ']
+      keywords: ['organ'],
+      monster: 'phoenix',
     },
     'phoenix eye': {
-      keywords: ['organ','scrap']
+      keywords: ['organ', 'scrap'],
+      monster: 'phoenix',
     },
     'phoenix finger': {
-      keywords: ['bone']
+      keywords: ['bone'],
+      monster: 'phoenix',
     },
     'phoenix whisker': {
-      keywords: ['hide']
+      keywords: ['hide'],
+      monster: 'phoenix',
     },
-    'pustules': {
-      keywords: ['organ','consumable']
+    pustules: {
+      keywords: ['organ', 'consumable'],
+      monster: 'phoenix',
     },
     'large flat tooth': {
-      keywords: ['bone']
+      keywords: ['bone'],
+      monster: 'screaming_antelope',
     },
     'muscly gums': {
-      keywords: ['organ', 'consumable']
+      keywords: ['organ', 'consumable'],
+      monster: 'screaming_antelope',
     },
     'spiral horn': {
-      keywords: ['bone']
+      keywords: ['bone'],
+      monster: 'screaming_antelope',
     },
     'shank bone': {
-      keywords: ['bone']
+      keywords: ['bone'],
+      monster: 'screaming_antelope',
     },
     'screaming brain': {
-      keywords: ['organ','consumable']
+      keywords: ['organ', 'consumable'],
+      monster: 'screaming_antelope',
     },
-    'pelt': {
-      keywords: ['hide']
+    pelt: {
+      keywords: ['hide'],
+      monster: 'screaming_antelope',
     },
     'second heart': {
-      keywords: ['organ', 'bone']
+      keywords: ['organ', 'bone'],
+      type: 'strange',
     },
     'phoenix crest': {
-      keywords: ['organ']
+      keywords: ['organ'],
+      type: 'strange',
     },
     'perfect crucible': {
-      keywords: ['iron']
+      keywords: ['iron'],
+      type: 'strange',
     },
     'legendary horns': {
-      keywords: ['bone', 'scrap']
+      keywords: ['bone', 'scrap'],
+      type: 'strange',
     },
-    'leather': {
-      keywords: ['hide']
+    leather: {
+      keywords: ['hide'],
+      type: 'strange',
     },
-    'iron': {
-      keywords: ['scrap']
+    iron: {
+      keywords: ['scrap'],
+      type: 'strange',
     },
     'fresh acanthus': {
-      keywords: ['herb']
+      keywords: ['herb'],
+      type: 'strange',
     },
-  }
+  },
+  innovations: {
+    ammonia: {
+      name: 'Ammonia',
+      expansion: 'core',
+    },
+    bed: {
+      name: 'Bed',
+      expansion: 'core',
+    },
+    bloodletting: {
+      name: 'Blooletting',
+      expansion: 'core',
+    },
+    clan_of_death: {
+      name: 'Clan of Death',
+      expansion: 'core',
+    },
+    cooking: {
+      name: 'Cooking',
+      expansion: 'core',
+    },
+    drums: {
+      name: 'Drums',
+      expansion: 'core',
+      expand: {
+        endeavors: {
+          bone_beats: {
+            name: 'Bone Beats',
+            expansion: 'core',
+            recipes: [
+              {
+                innovation: 'drums',
+                resources: { endeavor: 1 },
+              },
+            ],
+          },
+        },
+      },
+    },
+    destiny: {
+      name: 'Destiny',
+      expansion: 'core',
+    },
+    face_painting: {
+      name: 'Face Painting',
+      expansion: 'core',
+    },
+    family: {
+      name: 'Family',
+      expansion: 'core',
+    },
+    final_fighting_art: {
+      name: 'Final Fighting Art',
+      expansion: 'core',
+    },
+    forbidden_dance: {
+      name: 'Forbidden Dance',
+      expansion: 'core',
+    },
+    guidepost: {
+      name: 'Guidepost',
+      expansion: 'core',
+    },
+    heart_flute: {
+      name: 'Heart Flute',
+      expansion: 'core',
+    },
+    hovel: {
+      name: 'Hovel',
+      expansion: 'core',
+    },
+    inner_lantern: {
+      name: 'Inner Lantern',
+      expansion: 'core',
+    },
+    language: {
+      name: 'Language',
+      expansion: 'core',
+    },
+    lantern_oven: {
+      name: 'Lantern Oven',
+      expansion: 'core',
+    },
+    mastery_axe: {
+      name: 'Mastery - Axe',
+      expansion: 'core',
+    },
+    mastery_bow: {
+      name: 'Mastery - Bow',
+      expansion: 'core',
+    },
+    mastery_club: {
+      name: 'Mastery - Club',
+      expansion: 'core',
+    },
+    mastery_dagger: {
+      name: 'Mastery - Dagger',
+      expansion: 'core',
+    },
+    mastery_fist_and_tooth: {
+      name: 'Mastery - Fist & Tooth',
+      expansion: 'core',
+    },
+    mastery_grand_weapon: {
+      name: 'Mastery - Grand Weapon',
+      expansion: 'core',
+    },
+    mastery_katar: {
+      name: 'Mastery - Katar',
+      expansion: 'core',
+    },
+    mastery_shield: {
+      name: 'Mastery - Shield',
+      expansion: 'core',
+    },
+    mastery_spear: {
+      name: 'Mastery - Spear',
+      expansion: 'core',
+    },
+    mastery_sword: {
+      name: 'Mastery - Sword',
+      expansion: 'core',
+    },
+    mastery_twilight_sword: {
+      name: 'Mastery - Twilight Sword',
+      expansion: 'core',
+    },
+    mastery_whip: {
+      name: 'Mastery - Whip',
+      expansion: 'core',
+    },
+    momento_mori: {
+      name: 'Momento Mori',
+      expansion: 'core',
+    },
+    nightmare_training: {
+      name: 'Nightmare Training',
+      expansion: 'core',
+    },
+    paint: {
+      name: 'Paint',
+      expansion: 'core',
+    },
+    partnership: {
+      name: 'Partnership',
+      expansion: 'core',
+    },
+    pictograph: {
+      name: 'Pictograph',
+      expansion: 'core',
+    },
+    pottery: {
+      name: 'Pottery',
+      expansion: 'core',
+    },
+    records: {
+      name: 'Records',
+      expansion: 'core',
+    },
+    sacrification: {
+      name: 'Sacrification',
+      expansion: 'core',
+    },
+    scrap_melting: {
+      name: 'Scrap Melting',
+      expansion: 'core',
+    },
+    sculpture: {
+      name: 'Sculpture',
+      expansion: 'core',
+    },
+    shirne: {
+      name: 'Shrine',
+      expansion: 'core',
+    },
+    song_of_the_brave: {
+      name: 'Song of the Brave',
+      expansion: 'core',
+    },
+    storytelling: {
+      name: 'Storytelling',
+      expansion: 'core',
+    },
+    symposium: {
+      name: 'Symposium',
+      expansion: 'core',
+    },
+    ultimate_weapon: {
+      name: 'Ultimate Weapon',
+      expansion: 'core',
+    },
+  },
+  monsters: {
+    white_lion: {
+      name: 'White Lion',
+      expansion: 'core',
+      resources: [
+        'curious hand',
+        'eye of cat',
+        'golden whiskers',
+        'great cat bone',
+        'lion claw',
+        'lion tail',
+        'lion testes',
+        'shimmering mane',
+        'sinew',
+        'white fur',
+      ],
+    },
+    screaming_antelope: {
+      name: 'Screaming Antelope',
+      expansion: 'core',
+      resources: [
+        'beast steak',
+        'bladder',
+        'large flat tooth',
+        'muscly gums',
+        'pelt',
+        'screaming brain',
+        'shank bone',
+        'spiral horn',
+      ],
+    },
+    phoenix: {
+      name: 'Phoenix',
+      expansion: 'core',
+      resources: [
+        'bird beak',
+        'black skull',
+        'hollow wing bone',
+        'muculent droppings',
+        'phoenix eye',
+        'phoenix finger',
+        'phoenix whisker',
+        'pustules',
+        'rainbow droppings',
+        'shimmering halo',
+        'small feathers',
+        'small hand parasites',
+        'tail feather',
+        'whishbone',
+      ],
+    },
+  },
+  principles: {
+    survival_of_the_fittest: {
+      name: 'Survival of the Fittests',
+      expand: {
+        bonuses: {
+          survival_of_the_fittest: {
+            name: 'Survival of the Fittests',
+            description: [
+              'When rolling on intimacy table, roll twice and keep lowest result',
+              'All current and newborn survivors gain +1 strength and evasion',
+              'Once per lifetime, a survivor may reroll a single roll result',
+            ],
+          },
+        },
+      },
+    },
+    protect_the_young: {
+      name: 'Protect the Young',
+    },
+    graves: {
+      name: 'Graves',
+      expand: {
+        bonuses: {
+          graves: {
+            name: 'Graves',
+            description: [
+              'All new survivors gain +1 understanding',
+              'When a survivor dies during hunt or showdown phase, gain +2 endeavors',
+              'When a survivor dies during settlement phase, gain +1 endeavors',
+            ],
+          },
+        },
+      },
+    },
+    cannibalize: {
+      name: 'Cannibalize',
+    },
+    accept_darkness: {
+      name: 'Accept Darkness',
+      expand: {
+        bonuses: {
+          accept_darkness: {
+            name: 'Accept Darkness',
+            description: ['Add +2 to all Brain Trauma Rolls.'],
+          },
+        },
+      },
+    },
+    collective_toil: {
+      name: 'Collective Toil',
+    },
+    barbaric: {
+      name: 'Barbaric',
+    },
+    romantic: {
+      name: 'Romantic',
+    },
+  },
+  endeavors: {
+    // This will be filled with data when selecting locations or innovations, structure:
+    endeavors: {
+      build_weapon_crafter: {
+        // id
+        name: 'Build - Weapon Crafter', // name to show in the UI
+        expansion: 'core', // which expansion it belongs to
+        recipe:
+          // what is needed to build this
+          {
+            location: 'bone_smith', // which location it needs
+            not_location: 'weapon_crafter', // which location it doesn't need (eg: if it's already built, don't show this)
+            resources: { endeavor: 1, bone: 3, hide: 1 }, // what resources are needed
+          },
+      },
+    },
+  },
+  bonuses: {
+    // This will be filled with data when selecting principles or others, see graves for example.
+  },
 }

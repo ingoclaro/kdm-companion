@@ -1,5 +1,6 @@
 import React from 'react'
 import { Screen, View, Text, Image } from '@shoutem/ui'
+import Endeavors from '../components/Endeavors'
 
 export default class EndeavorsScreen extends React.Component {
   static navigationOptions = {
@@ -14,7 +15,7 @@ export default class EndeavorsScreen extends React.Component {
           justifyContent: 'center',
         }}
       >
-        <Text>Endeavors</Text>
+        <Endeavors />
       </Screen>
     )
   }

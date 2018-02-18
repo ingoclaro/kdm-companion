@@ -98,7 +98,7 @@ class SummaryScreen extends React.Component {
             style={{
               backgroundColor: colors.grey900,
               paddingHorizontal: 15,
-              paddingVertical: 15,
+              paddingVertical: 40,
             }}
           >
             <Innovations />
@@ -111,6 +111,7 @@ class SummaryScreen extends React.Component {
           </View>
         </Modal>
 
+        {/*}
         <Divider />
 
         <Button
@@ -143,6 +144,7 @@ class SummaryScreen extends React.Component {
         <Divider />
 
         <Title>Survival Limit: 2</Title>
+        {*/}
       </Screen>
     )
   }
