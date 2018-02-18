@@ -79,7 +79,8 @@ class LocationItems extends React.Component {
       <MultiSelectItems
         name="locations"
         emptyText="Tap title to add Locations..."
-        items={this.props.selectedItems}
+        selectedItems={this.props.selectedItems}
+        items={this.props.locations}
       />
     )
   }
@@ -87,7 +88,12 @@ class LocationItems extends React.Component {
 
 const itemsLogic = kea({
   connect: {
-    props: [locationLogic, ['selectedItems']],
+    props: [
+      state => state,
+      ['settlement_locations as locations'],
+      locationLogic,
+      ['selectedItems'],
+    ],
   },
 })
 const connectedLocationItems = itemsLogic(LocationItems)

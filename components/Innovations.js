@@ -78,14 +78,20 @@ class InnovationsItems extends React.Component {
       <MultiSelectItems
         name="innovations"
         emptyText="Tap title to add Innovations..."
-        items={this.props.selectedItems}
+        selectedItems={this.props.selectedItems}
+        items={this.props.innovations}
       />
     )
   }
 }
 const itemsLogic = kea({
   connect: {
-    props: [innovationLogic, ['selectedItems']],
+    props: [
+      state => state,
+      ['innovations'],
+      innovationLogic,
+      ['selectedItems'],
+    ],
   },
 })
 const connectedInnovationsItems = itemsLogic(InnovationsItems)

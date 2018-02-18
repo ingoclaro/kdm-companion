@@ -5,7 +5,7 @@ class Craft extends React.Component {
   render() {
     return (
       <Text>
-        With the locations and resources you have, you can carft the following
+        With the locations and resources you have, you can craft the following
         gear:
       </Text>
     )
