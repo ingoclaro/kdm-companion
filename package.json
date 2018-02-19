@@ -4,11 +4,11 @@
   "private": true,
   "devDependencies": {
     "husky": "^0.14.3",
-    "jest-expo": "^24.0.0",
+    "jest-expo": "^25.1.0",
     "lint-staged": "^6.0.0",
     "prettier": "^1.9.1",
-    "react-native-scripts": "1.7.0",
-    "react-test-renderer": "16.0.0-beta.5"
+    "react-native-scripts": "1.11.1",
+    "react-test-renderer": "16.2.0"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -27,19 +27,19 @@
   },
   "dependencies": {
     "@shoutem/theme": "^0.11.0",
-    "@shoutem/ui": "^0.22.0",
-    "expo": "^24.0.0",
+    "@shoutem/ui": "^0.23.4",
+    "expo": "^25.0.0",
     "kea": "^0.28.2",
     "kea-thunk": "^0.3.2",
     "prop-types": "^15.6.0",
     "ramda": "^0.25.0",
-    "react": "16.0.0",
+    "react": "16.2.0",
     "react-native":
-      "https://github.com/expo/react-native/archive/sdk-24.0.0.tar.gz",
+      "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
     "react-native-collapsible": "^0.10.0",
-    "react-native-modal": "^4.1.1",
+    "react-native-modal": "^5.0.0",
     "react-native-simple-stepper": "^1.18.0",
-    "react-navigation": "^1.0.0-beta.21",
+    "react-navigation": "^1.0.0-beta.27",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",

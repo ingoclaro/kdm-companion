@@ -1,10 +1,10 @@
 {
   "expo": {
-    "sdkVersion": "24.0.0",
+    "sdkVersion": "25.0.0",
     "name": "Kingdom Death: Monster Companion",
     "slug": "kdm-companion",
     "icon": "./images/logo.png",
-    "version": "0.0.2",
+    "version": "0.0.5",
     "android": {
       "package": "com.ingo.kdm"
     },
