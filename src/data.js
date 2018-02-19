@@ -904,6 +904,10 @@ export default {
       keywords: ['herb'],
       type: 'strange',
     },
+    'broken lantern': {
+      keywords: ['scrap'],
+      type: 'basic',
+    },
   },
   innovations: {
     ammonia: {

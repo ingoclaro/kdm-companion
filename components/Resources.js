@@ -12,72 +12,93 @@ import {
 } from '@shoutem/ui'
 import Accordion from 'react-native-collapsible/Accordion'
 import SimpleStepper from 'react-native-simple-stepper'
+import { kea } from 'kea'
+import PropTypes from 'prop-types'
+import R from 'ramda'
 
 import colors from '../src/colors'
 
-class Resources extends React.Component {
+class Resources extends React.PureComponent {
   constructor(props) {
     super(props)
+    this._renderContent = this._renderContent.bind(this) // so that we can access this.props from within the function
+    this._renderHeader = this._renderHeader.bind(this)
   }
 
   sections = [
     {
+      id: 'basic',
       title: 'Basic',
-      content: ['???', 'Broken Lantern'],
     },
     {
-      title: 'Varmin',
-      content: ['vermin 1', 'vermin 2'],
+      id: 'vermin',
+      title: 'Vermin',
     },
     {
+      id: 'strange',
       title: 'Strange',
-      content: ['strange 1', 'strange 2'],
     },
     {
+      id: 'white_lion',
       title: 'White Lion',
-      content: ['lion 1', 'lion 2'],
     },
     {
+      id: 'screaming_antelope',
       title: 'Screaming Antelope',
-      content: ['ante 1', 'ante 2'],
     },
     {
+      id: 'phoenix',
       title: 'Phoenix',
-      content: ['phoenix 1', 'phoenix 2'],
     },
   ]
 
   _renderHeader(section, index, isActive, sections) {
     let icon = isActive ? (
-      <Icon name="up-arrow" style={{ color: colors.grey100 }} />
+      <Icon name="up-arrow" style={styles.headerArrow} />
     ) : (
-      <Icon name="down-arrow" style={{ color: colors.grey100 }} />
+      <Icon name="down-arrow" style={styles.headerArrow} />
     )
+    let items = R.filter(resource => {
+      return resource.monster === section.id || resource.type === section.id
+    })(this.props.resources)
+
+    let number_of_resources = R.reduce(
+      (acc, id) => acc + this.props.stored_resources[id],
+      0,
+      Object.keys(items)
+    )
+
     return (
       <Row>
         <Title>
-          {2} - {section.title}
+          {number_of_resources} - {section.title}
         </Title>
         {icon}
       </Row>
     )
   }
 
-  _renderContent(section) {
+  _renderContent(section, index, isActive, sections) {
+    let items = R.filter(resource => {
+      return resource.monster === section.id || resource.type === section.id
+    })(this.props.resources)
+
     return (
-      <View style={styles.content}>
-        {section.content.map(item => {
+      <View>
+        {Object.keys(items).map(item_key => {
+          const { change } = this.actions
+          const quantity = this.props.stored_resources[item_key]
           return (
-            <View
-              key={item}
-              style={{
-                flex: 1,
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}
-            >
-              <Text style={{ paddingRight: 5 }}>* {item}</Text>
-              <SimpleStepper tintColor="white" />
+            <View key={item_key} style={styles.resourceRow}>
+              <Text style={styles.resourceText}>
+                {quantity} - {item_key}
+              </Text>
+              <SimpleStepper
+                tintColor="white"
+                valueChanged={value => {
+                  change(item_key, value)
+                }}
+              />
             </View>
           )
         })}
@@ -95,11 +116,50 @@ class Resources extends React.Component {
     )
   }
 }
+Resources.propTypes = {
+  resources: PropTypes.object.isRequired,
+}
+
+const resourcesLogic = kea({
+  connect: {
+    props: [state => state, ['resources']],
+  },
+  actions: () => ({
+    change: (id, value) => {
+      return { id, value }
+    },
+  }),
+  reducers: ({ actions }) => ({
+    stored_resources: [
+      {},
+      PropTypes.object,
+      {
+        [actions.change]: (state, payload) => {
+          return {
+            ...state,
+            [payload.id]: payload.value,
+          }
+        },
+      },
+    ],
+  }),
+})
+
+const connectedResources = resourcesLogic(Resources)
 
 const styles = {
   header: {},
+  headerArrow: {
+    color: colors.grey100,
+  },
   headerText: {},
+  resourceRow: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  resourceText: { paddingRight: 5 },
   content: {},
 }
 
-export default Resources
+export default connectedResources
