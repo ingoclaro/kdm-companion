@@ -11,6 +11,10 @@ import {
   Icon,
 } from '@shoutem/ui'
 import Accordion from 'react-native-collapsible/Accordion'
+// TODO try:
+// https://github.com/ercpereda/react-native-accordion
+// https://github.com/metinalim/react-native-accordion-met
+// Submit an issue against https://github.com/oblador/react-native-collapsible
 import SimpleStepper from 'react-native-simple-stepper'
 import { kea } from 'kea'
 import PropTypes from 'prop-types'
@@ -18,7 +22,7 @@ import R from 'ramda'
 
 import colors from '../src/colors'
 
-class Resources extends React.PureComponent {
+class Resources extends React.Component {
   constructor(props) {
     super(props)
     this._renderContent = this._renderContent.bind(this) // so that we can access this.props from within the function
@@ -87,7 +91,7 @@ class Resources extends React.PureComponent {
       <View>
         {Object.keys(items).map(item_key => {
           const { change } = this.actions
-          const quantity = this.props.stored_resources[item_key]
+          const quantity = this.props.stored_resources[item_key] // TODO something weird happens then the row is re-rendered, the stepper is messed up.
           return (
             <View key={item_key} style={styles.resourceRow}>
               <Text style={styles.resourceText}>
@@ -118,6 +122,7 @@ class Resources extends React.PureComponent {
 }
 Resources.propTypes = {
   resources: PropTypes.object.isRequired,
+  stored_resources: PropTypes.object.isRequired,
 }
 
 const resourcesLogic = kea({
