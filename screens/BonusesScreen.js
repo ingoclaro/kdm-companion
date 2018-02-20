@@ -1,5 +1,5 @@
 import React from 'react'
-import { Screen, View, Text, Image, Title } from '@shoutem/ui'
+import { Screen } from '@shoutem/ui'
 import Bonuses from '../components/Bonuses'
 
 export default class BonusesScreen extends React.Component {

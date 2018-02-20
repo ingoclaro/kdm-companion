@@ -10,15 +10,11 @@ import { constants } from '../src/reducers'
 class Innovations extends React.Component {
   render() {
     const { toggle } = this.actions
-    const innovationList = Array.from(
-      Object.entries(this.props.innovations),
-      v => ({ id: v[0], title: v[1].name })
-    )
 
     return (
       <MultiSelectList
         name="innovations"
-        data={innovationList}
+        data={this.props.innovationList}
         toggle={toggle}
         selected={this.props.selectedItems}
       />
@@ -26,7 +22,7 @@ class Innovations extends React.Component {
   }
 }
 Innovations.propTypes = {
-  innovations: PropTypes.object.isRequired,
+  innovationList: PropTypes.array.isRequired,
 }
 
 const innovationLogic = kea({
@@ -66,6 +62,18 @@ const innovationLogic = kea({
 
       actions.toggleItem(innovation.id)
     },
+  }),
+  selectors: ({ selectors }) => ({
+    innovationList: [
+      () => [selectors.innovations],
+      innovations => {
+        return Array.from(Object.entries(innovations), v => ({
+          id: v[0],
+          title: v[1].name,
+        }))
+      },
+      PropTypes.array,
+    ],
   }),
 })
 

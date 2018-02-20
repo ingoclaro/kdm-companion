@@ -27,6 +27,7 @@ class Resources extends React.Component {
     super(props)
     this._renderContent = this._renderContent.bind(this) // so that we can access this.props from within the function
     this._renderHeader = this._renderHeader.bind(this)
+    this.sectionResources = this.sectionResources.bind(this)
   }
 
   sections = [
@@ -56,15 +57,19 @@ class Resources extends React.Component {
     },
   ]
 
+  sectionResources(section_id) {
+    return R.filter(resource => {
+      return resource.monster === section_id || resource.type === section_id
+    })(this.props.resources)
+  }
+
   _renderHeader(section, index, isActive, sections) {
     let icon = isActive ? (
       <Icon name="up-arrow" style={styles.headerArrow} />
     ) : (
       <Icon name="down-arrow" style={styles.headerArrow} />
     )
-    let items = R.filter(resource => {
-      return resource.monster === section.id || resource.type === section.id
-    })(this.props.resources)
+    let items = this.sectionResources(section.id)
 
     let number_of_resources = R.reduce(
       (acc, id) => acc + this.props.stored_resources[id],
@@ -83,9 +88,7 @@ class Resources extends React.Component {
   }
 
   _renderContent(section, index, isActive, sections) {
-    let items = R.filter(resource => {
-      return resource.monster === section.id || resource.type === section.id
-    })(this.props.resources)
+    let items = this.sectionResources(section.id)
 
     return (
       <View>

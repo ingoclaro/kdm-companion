@@ -11,16 +11,11 @@ import { constants } from '../src/reducers'
 class Locations extends React.PureComponent {
   render() {
     const { toggle } = this.actions
-    const locationList = Object.keys(this.props.locations || {})
-      .sort()
-      .map(key => {
-        return { id: key, title: this.props.locations[key].name }
-      })
 
     return (
       <MultiSelectList
         name="locations"
-        data={locationList}
+        data={this.props.locationList}
         toggle={toggle}
         selected={this.props.selectedItems}
       />
@@ -28,7 +23,7 @@ class Locations extends React.PureComponent {
   }
 }
 Locations.propTypes = {
-  locations: PropTypes.object.isRequired,
+  locationList: PropTypes.array.isRequired,
 }
 
 const locationLogic = kea({
@@ -68,6 +63,19 @@ const locationLogic = kea({
 
       actions.toggleItem(location.id)
     },
+  }),
+  selectors: ({ selectors }) => ({
+    locationList: [
+      () => [selectors.locations],
+      locations => {
+        return Object.keys(locations || {})
+          .sort()
+          .map(key => {
+            return { id: key, title: locations[key].name }
+          })
+      },
+      PropTypes.array,
+    ],
   }),
 })
 

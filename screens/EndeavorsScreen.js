@@ -1,5 +1,5 @@
 import React from 'react'
-import { Screen, View, Title } from '@shoutem/ui'
+import { Screen } from '@shoutem/ui'
 import Endeavors from '../components/Endeavors'
 
 export default class EndeavorsScreen extends React.Component {
