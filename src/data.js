@@ -949,10 +949,37 @@ export default {
     bed: {
       name: 'Bed',
       expansion: 'core',
+      keywords: ['home', 'hovel consequence'],
+      expand: {
+        settlement: {
+          survival_limit: 1,
+        },
+        endeavors: {
+          bed: {
+            name: 'Rest',
+            recipe: {
+              innovation: 'bed',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
     },
     bloodletting: {
       name: 'Blooletting',
       expansion: 'core',
+      keywords: ['science', 'ammonia consequence'],
+      expand: {
+        endeavors: {
+          bloodletting: {
+            name: 'Braething a Vein',
+            recipe: {
+              innovation: 'bloodletting',
+              resources: { endeavor: 1, resource: 1 },
+            },
+          },
+        },
+      },
     },
     clan_of_death: {
       name: 'Clan of Death',
@@ -1058,10 +1085,40 @@ export default {
     family: {
       name: 'Family',
       expansion: 'core',
+      keywords: ['home', 'hovel consequence'],
+      expand: {
+        settlement: {
+          departing: {
+            survival: 1,
+          },
+        },
+        bonuses: {
+          family: {
+            name: 'Family',
+            description: [
+              'A newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency',
+            ],
+          },
+        },
+      },
     },
     final_fighting_art: {
       name: 'Final Fighting Art',
       expansion: 'core',
+      keywords: ['education'],
+      expand: {
+        settlement: {
+          survival_limit: 1,
+        },
+        bonuses: {
+          final_fighting_art: {
+            name: 'Final Fighting Art',
+            description: [
+              'Once per showdown you may select an AI card from the discard or wound pile and put it on top of AI deck',
+            ],
+          },
+        },
+      },
     },
     forbidden_dance: {
       name: 'Forbidden Dance',
@@ -1091,10 +1148,47 @@ export default {
     guidepost: {
       name: 'Guidepost',
       expansion: 'core',
+      keywords: ['other'],
+      expand: {
+        settlement: {
+          departing: {
+            survival: 1,
+          },
+        },
+        endeavors: {
+          guidepost: {
+            name: 'Guidepost',
+            recipe: {
+              innovation: 'guidepost',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
     },
     heart_flute: {
       name: 'Heart Flute',
       expansion: 'core',
+      keywords: ['music', 'forbidden dance consequence'],
+      expand: {
+        bonuses: {
+          heart_flute: {
+            name: 'Heart Flute',
+            description: [
+              "When using Synchronized Strike FA, the attack assist may spend 1 survival to change a monster's R to R Failure before any wound attempts",
+            ],
+          },
+        },
+        endeavors: {
+          heart_flute: {
+            name: "Devil's Melody",
+            recipe: {
+              innovation: 'heart_flute',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
     },
     hovel: {
       name: 'Hovel',
@@ -1239,10 +1333,44 @@ export default {
     pictograph: {
       name: 'Pictograph',
       expansion: 'core',
+      keywords: ['art', 'paint consequence'],
+      expand: {
+        bonuses: {
+          pictograph: {
+            name: 'Pictograph',
+            description: [
+              "At the start of a survivor's act, they may decide to skip their act and Run Away",
+              'After a hunt event is resolved, a survivor may Run Away',
+            ],
+          },
+        },
+      },
     },
     pottery: {
       name: 'Pottery',
       expansion: 'core',
+      keywords: ['art', 'sculpture consequence'],
+      expand: {
+        settlement: {
+          survival_limit: 1,
+        },
+        endeavors: {
+          fermentation: {
+            name: 'Fermentation',
+            recipe: {
+              innovation: 'pottery',
+              resources: { endeavor: 1, organ: 1 },
+            },
+          },
+          ret: {
+            name: 'Ret',
+            recipe: {
+              innovation: 'pottery',
+              resources: { endeavor: 1, herb: 1 },
+            },
+          },
+        },
+      },
     },
     records: {
       name: 'Records',
@@ -1299,9 +1427,44 @@ export default {
         },
       },
     },
-    scrap_melting: {
-      name: 'Scrap Melting',
+    saga: {
+      name: 'Saga',
       expansion: 'core',
+      keywords: ['music', 'song of the brave consequence'],
+      expand: {
+        bonuses: {
+          saga: {
+            name: 'Saga',
+            description: [
+              'All newborn survivors gain +2 Courage, Understanding and Hunt XP',
+            ],
+          },
+        },
+      },
+    },
+    scrap_smelting: {
+      name: 'Scrap Smelting',
+      expansion: 'core',
+      keywords: ['science', 'lantern oven consequence'],
+      expand: {
+        endeavors: {
+          purification: {
+            name: 'Purification',
+            recipe: {
+              innovation: 'scrap_smelting',
+              resources: { endeavor: 1 },
+            },
+          },
+          build_blacksmith: {
+            name: 'Build - Blacksmith',
+            recipe: {
+              innovation: 'scrap_smelting',
+              not_location: 'blacksmith',
+              resources: { endeavor: 1, bone: 6, scrap: 3 },
+            },
+          },
+        },
+      },
     },
     sculpture: {
       name: 'Sculpture',
@@ -1395,6 +1558,20 @@ export default {
     ultimate_weapon: {
       name: 'Ultimate Weapon',
       expansion: 'core',
+      keywords: ['science'],
+      expand: {
+        settlement: {
+          survival_limit: 1,
+        },
+        bonuses: {
+          ultimate_weapon: {
+            name: 'Ultimate Weapon',
+            description: [
+              'When you defeat a monster, gain 1 monster resource of your choice',
+            ],
+          },
+        },
+      },
     },
   },
   monsters: {
@@ -1495,6 +1672,19 @@ export default {
     },
     cannibalize: {
       name: 'Cannibalize',
+      expand: {
+        settlement: {
+          survival_limit: 1,
+        },
+        bonuses: {
+          cannibalize: {
+            name: 'Cannibalize',
+            description: [
+              'Whenever a survivor dies, gain 1 random basic resource',
+            ],
+          },
+        },
+      },
     },
     accept_darkness: {
       name: 'Accept Darkness',
@@ -1509,12 +1699,48 @@ export default {
     },
     collective_toil: {
       name: 'Collective Toil',
+      expand: {
+        bonuses: {
+          collective_toil: {
+            name: 'Collective Toil',
+            description: [
+              'At the start of the settlement phase gain +1 endeavor for every 10 population',
+            ],
+          },
+        },
+      },
     },
     barbaric: {
       name: 'Barbaric',
+      expand: {
+        settlement: {
+          survival_limit: 1,
+        },
+        bonuses: {
+          barbaric: {
+            name: 'Barbaric',
+            description: [
+              'All current and newborn survivors gain +1 permanent strength',
+            ],
+          },
+        },
+      },
     },
     romantic: {
       name: 'Romantic',
+      expand: {
+        settlement: {
+          survival_limit: 1,
+        },
+        bonuses: {
+          romantic: {
+            name: 'Romantic',
+            description: [
+              'When you gain a random FA, draw 3 cards and select one',
+            ],
+          },
+        },
+      },
     },
   },
   // endeavors: {
