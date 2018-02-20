@@ -1078,7 +1078,7 @@ export default {
         },
         endeavors: {
           forbidden_dance: {
-            name: 'Forbidden Dance - once per lifetime',
+            name: 'Forbidden Dance',
             expansion: 'core',
             recipe: {
               innovation: 'forbidden_dance',
@@ -1191,7 +1191,7 @@ export default {
       expand: {
         endeavors: {
           momento_mori: {
-            name: 'Momento Mori - once per phase',
+            name: 'Momento Mori',
             expansion: 'core',
             recipe: { innovation: 'momento_mori', resources: { endeavor: 1 } },
           },
@@ -1226,7 +1226,7 @@ export default {
       expand: {
         endeavors: {
           partnership: {
-            name: 'Partnership - once per lifetime',
+            name: 'Partnership',
             expansion: 'core',
             recipe: {
               innovation: 'partnership',
@@ -1251,7 +1251,7 @@ export default {
       expand: {
         endeavors: {
           records_fa: {
-            name: 'gain Scholar of Death SFA',
+            name: 'Gain Scholar of Death SFA',
             recipe: {
               innovation: 'records',
               resources: { endeavor: 1 },
@@ -1290,7 +1290,7 @@ export default {
       expand: {
         endeavors: {
           sacrification: {
-            name: 'Initiation - once per lifetime',
+            name: 'Initiation',
             recipe: {
               innovation: 'sacrification',
               resources: { endeavor: 1 },
@@ -1333,7 +1333,7 @@ export default {
       expand: {
         endeavors: {
           shrine: {
-            name: 'Armor Ritual - once per phase',
+            name: 'Armor Ritual',
             recipe: {
               innovation: 'shrine',
               resources: { endeavor: 1 },
@@ -1351,8 +1351,8 @@ export default {
           song_of_the_brave: {
             name: 'Song of the Brave',
             description: [
-              'on arrival each non-deaf survivor may remove 1 negative attribute token',
-              'during Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave',
+              'On arrival each non-deaf survivor may remove 1 negative attribute token',
+              'During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave',
             ],
           },
         },

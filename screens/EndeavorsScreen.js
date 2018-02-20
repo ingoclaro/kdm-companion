@@ -1,5 +1,5 @@
 import React from 'react'
-import { Screen, View, Text, Image } from '@shoutem/ui'
+import { Screen, View, Title } from '@shoutem/ui'
 import Endeavors from '../components/Endeavors'
 
 export default class EndeavorsScreen extends React.Component {
@@ -11,8 +11,9 @@ export default class EndeavorsScreen extends React.Component {
     return (
       <Screen
         style={{
-          alignItems: 'center',
-          justifyContent: 'center',
+          alignItems: 'flex-start',
+          justifyContent: 'flex-start',
+          paddingHorizontal: 5,
         }}
       >
         <Endeavors />

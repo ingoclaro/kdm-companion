@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Row, Title, Subtitle } from '@shoutem/ui'
+import { View, Text, Row, Title, Subtitle, ListView } from '@shoutem/ui'
 import { kea } from 'kea'
 import PropTypes from 'prop-types'
 import { constants } from '../src/reducers'
@@ -8,46 +8,38 @@ import { locationLogic } from './Locations'
 import R from 'ramda'
 
 class Endeavors extends React.Component {
-  render() {
-    const endeavorsList = Array.from(
-      Object.entries(this.props.validEndeavors),
-      v => ({ id: v[0], name: v[1].name, recipe: v[1].recipe })
-    )
+  _header() {
+    return <Title>Endeavors</Title>
+  }
 
-    const elements = endeavorsList.map(endeavor => {
-      let recipeText = Object.entries(endeavor.recipe.resources)
-        .map(item => `${item[1]} x ${item[0]}`)
-        .join(', ')
-
-      let source = 'custom'
-      if (endeavor.recipe.innovation) {
-        source = this.props.innovations[endeavor.recipe.innovation].name
-      }
-      if (endeavor.recipe.location) {
-        source = this.props.settlement_locations[endeavor.recipe.location].name
-      }
-
-      return (
-        <View key={endeavor.id} style={styles.endeavor}>
-          <Subtitle>
-            {endeavor.name} ({source})
-          </Subtitle>
-          <Text style={styles.recipe}>{recipeText}</Text>
-        </View>
-      )
-    })
-
+  _row(item) {
     return (
-      <View>
-        <Title>Endeavors</Title>
-        {elements}
+      <View key={item.key} style={styles.endeavor}>
+        <Subtitle>{item.title}</Subtitle>
+        <Text style={styles.recipe}>{item.recipe}</Text>
       </View>
+    )
+  }
+
+  render() {
+    return (
+      <ListView
+        data={this.props.data}
+        renderRow={this._row}
+        renderHeader={this._header}
+        autoHideHeader={false}
+      />
     )
   }
 }
 Endeavors.propTypes = {
-  validEndeavors: PropTypes.object.isRequired,
-  settlement_locations: PropTypes.object.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      recipe: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 }
 
 // get props from the store
@@ -70,7 +62,7 @@ const connectedEndeavors = kea({
         },
         [constants.REMOVE_DATA]: (state, payload) => {
           let next = Object.assign({}, state)
-          Object.keys(payload.endeavors).forEach(key => delete next[key])
+          Object.keys(payload.endeavors || {}).forEach(key => delete next[key])
           return next
         },
       },
@@ -90,6 +82,43 @@ const connectedEndeavors = kea({
           }
           return true
         })(endeavors)
+      },
+      PropTypes.object,
+    ],
+    data: [
+      () => [
+        selectors.validEndeavors,
+        selectors.innovations,
+        selectors.settlement_locations,
+      ],
+      (validEndeavors, innovations, settlement_locations) => {
+        const endeavorsList = Array.from(Object.entries(validEndeavors), v => ({
+          id: v[0],
+          name: v[1].name,
+          recipe: v[1].recipe,
+        }))
+
+        const elements = endeavorsList.map(endeavor => {
+          let recipeText = Object.entries(endeavor.recipe.resources)
+            .map(item => `${item[1]} x ${item[0]}`)
+            .join(', ')
+
+          let source = 'custom'
+          if (endeavor.recipe.innovation) {
+            source = innovations[endeavor.recipe.innovation].name
+          }
+          if (endeavor.recipe.location) {
+            source = settlement_locations[endeavor.recipe.location].name
+          }
+
+          return {
+            key: endeavor.id,
+            title: `${endeavor.name} (${source})`,
+            recipe: recipeText,
+          }
+        })
+
+        return elements
       },
       PropTypes.object,
     ],

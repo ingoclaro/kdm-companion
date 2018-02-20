@@ -1,5 +1,6 @@
 import React from 'react'
-import { Screen, View, Text, Image } from '@shoutem/ui'
+import { Screen, View, Text, Image, Title } from '@shoutem/ui'
+import Bonuses from '../components/Bonuses'
 
 export default class BonusesScreen extends React.Component {
   static navigationOptions = {
@@ -10,11 +11,12 @@ export default class BonusesScreen extends React.Component {
     return (
       <Screen
         style={{
-          alignItems: 'center',
-          justifyContent: 'center',
+          alignItems: 'flex-start',
+          justifyContent: 'flex-start',
+          paddingHorizontal: 5,
         }}
       >
-        <Text>Bonuses</Text>
+        <Bonuses />
       </Screen>
     )
   }
