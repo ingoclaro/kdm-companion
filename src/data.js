@@ -828,6 +828,30 @@ export default {
       keywords: ['iron', 'skull', 'bone'],
       monster: 'phoenix',
     },
+    skull: {
+      keywords: ['bone'],
+      type: 'basic',
+    },
+    'monster bone': {
+      keywords: ['bone'],
+      type: 'basic',
+    },
+    '???': {
+      keywords: ['organ', 'hide', 'bone', 'consumable'],
+      type: 'basic',
+    },
+    'love juice': {
+      keywords: ['organ', 'consumable'],
+      type: 'basic',
+    },
+    'monster hide': {
+      keywords: ['hide'],
+      type: 'basic',
+    },
+    'monster organ': {
+      keywords: ['organ', 'consumable'],
+      type: 'basic',
+    },
     'hollow wing bone': {
       keywords: ['bone'],
       monster: 'phoenix',
@@ -913,6 +937,14 @@ export default {
     ammonia: {
       name: 'Ammonia',
       expansion: 'core',
+      keywords: ['science', 'language consequence'],
+      expand: {
+        settlement: {
+          departing: {
+            survival: 1,
+          },
+        },
+      },
     },
     bed: {
       name: 'Bed',
@@ -925,14 +957,56 @@ export default {
     clan_of_death: {
       name: 'Clan of Death',
       expansion: 'core',
+      keywords: ['home', 'family consequence'],
+      expand: {
+        bonuses: {
+          clan_of_death: {
+            name: 'Clan of Death',
+            description: [
+              'All newborn survivors gain +1 accurancy, strength and evasion',
+            ],
+          },
+        },
+      },
     },
     cooking: {
       name: 'Cooking',
       expansion: 'core',
+      keywords: ['science', 'lantern oven consequence'],
+      expand: {
+        bonuses: {
+          cooking: {
+            name: 'Cooking',
+            description: [
+              'At the start of the Settlement phase gain +1 endeavor',
+            ],
+          },
+        },
+        settlement: {
+          survival_limit: 1,
+        },
+        endeavors: {
+          cooking: {
+            name: 'Cooking',
+            recipe: {
+              innovation: 'cooking',
+              resources: { endeavor: 1 },
+            },
+          },
+          cooking_meal: {
+            name: 'Cook stone nose gruel',
+            recipe: {
+              innovation: 'cooking',
+              resources: { endeavor: 1, organ: 1, bone: 1 },
+            },
+          },
+        },
+      },
     },
     drums: {
       name: 'Drums',
       expansion: 'core',
+      keywords: ['music', 'language consequence'],
       expand: {
         endeavors: {
           bone_beats: {
@@ -949,10 +1023,37 @@ export default {
     destiny: {
       name: 'Destiny',
       expansion: 'core',
+      keywords: ['faith'],
+      expand: {
+        settlement: {
+          survival_limit: 1,
+        },
+      },
     },
     face_painting: {
       name: 'Face Painting',
       expansion: 'core',
+      keywords: ['art', 'paint consequence'],
+      expand: {
+        endeavors: {
+          battle_paint: {
+            name: 'Battle Paint',
+            expansion: 'core',
+            recipe: {
+              innovation: 'face_painting',
+              resources: { endeavor: 1 },
+            },
+          },
+          founders_eye: {
+            name: "Founder's Eye",
+            expansion: 'core',
+            recipe: {
+              innovation: 'face_painting',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
     },
     family: {
       name: 'Family',
@@ -965,6 +1066,27 @@ export default {
     forbidden_dance: {
       name: 'Forbidden Dance',
       expansion: 'core',
+      keywords: ['music', 'drums consequence'],
+      expand: {
+        bonuses: {
+          forbidden_dance: {
+            name: 'Forbidden Dance',
+            description: [
+              'When a survivor uses the Synchronized Strike SFA, reroll missed attack rolls once',
+            ],
+          },
+        },
+        endeavors: {
+          forbidden_dance: {
+            name: 'Forbidden Dance - once per lifetime',
+            expansion: 'core',
+            recipe: {
+              innovation: 'forbidden_dance',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
     },
     guidepost: {
       name: 'Guidepost',
@@ -977,18 +1099,42 @@ export default {
     hovel: {
       name: 'Hovel',
       expansion: 'core',
+      keywords: ['home', 'language consequence'],
+      expand: {
+        settlement: {
+          survival: 1,
+          departing: {
+            survival: 1,
+          },
+        },
+      },
     },
     inner_lantern: {
       name: 'Inner Lantern',
       expansion: 'core',
+      keywords: ['faith', 'language consequence'],
     },
     language: {
       name: 'Language',
       expansion: 'core',
+      keywords: ['starting innovation'],
+      expand: {
+        settlement: {
+          survival_limit: 1,
+        },
+      },
     },
     lantern_oven: {
       name: 'Lantern Oven',
       expansion: 'core',
+      keywords: ['science', 'heat', 'ammonia consequence'],
+      expand: {
+        settlement: {
+          departing: {
+            survival: 1,
+          },
+        },
+      },
     },
     mastery_axe: {
       name: 'Mastery - Axe',
@@ -1041,18 +1187,54 @@ export default {
     momento_mori: {
       name: 'Momento Mori',
       expansion: 'core',
+      keywords: ['art', 'pictograph consequence'],
+      expand: {
+        endeavors: {
+          momento_mori: {
+            name: 'Momento Mori - once per phase',
+            expansion: 'core',
+            recipe: { innovation: 'momento_mori', resources: { endeavor: 1 } },
+          },
+        },
+      },
     },
     nightmare_training: {
       name: 'Nightmare Training',
       expansion: 'core',
+      keywords: ['education', 'symposium consequence'],
+      expand: {
+        endeavors: {
+          nightmare_training: {
+            name: 'Train',
+            recipe: {
+              innovation: 'nightmare_training',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
     },
     paint: {
       name: 'Paint',
       expansion: 'core',
+      keywords: ['art', 'language consequence'],
     },
     partnership: {
       name: 'Partnership',
       expansion: 'core',
+      keywords: ['home', 'hovel consequence'],
+      expand: {
+        endeavors: {
+          partnership: {
+            name: 'Partnership - once per lifetime',
+            expansion: 'core',
+            recipe: {
+              innovation: 'partnership',
+              resources: { endeavor: 2 },
+            },
+          },
+        },
+      },
     },
     pictograph: {
       name: 'Pictograph',
@@ -1065,10 +1247,57 @@ export default {
     records: {
       name: 'Records',
       expansion: 'core',
+      keywords: ['education', 'storytelling consequence'],
+      expand: {
+        endeavors: {
+          records_fa: {
+            name: 'gain Scholar of Death SFA',
+            recipe: {
+              innovation: 'records',
+              resources: { endeavor: 1 },
+            },
+          },
+          records: {
+            name: 'Create monster Volume',
+            recipe: {
+              innovation: 'records',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
+    },
+    sacrifice: {
+      name: 'Sacrifice',
+      expansion: 'core',
+      keywords: ['faith', 'shrine consequence'],
+      expand: {
+        endeavors: {
+          sacrifice: {
+            name: 'Death Ritual',
+            recipe: {
+              innovation: 'sacrifice',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
     },
     sacrification: {
       name: 'Sacrification',
       expansion: 'core',
+      keywords: ['faith', 'inner lantern consequence'],
+      expand: {
+        endeavors: {
+          sacrification: {
+            name: 'Initiation - once per lifetime',
+            recipe: {
+              innovation: 'sacrification',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
     },
     scrap_melting: {
       name: 'Scrap Melting',
@@ -1077,22 +1306,91 @@ export default {
     sculpture: {
       name: 'Sculpture',
       expansion: 'core',
+      keywords: ['art', 'paint consequence'],
+      expand: {
+        endeavors: {
+          sculpture_statue: {
+            name: 'Sculpt Statue',
+            recipe: {
+              innovation: 'sculpture',
+              resources: { endeavor: 1 },
+            },
+          },
+          sculpture_study_statue: {
+            name: 'Study Statue',
+            recipe: {
+              innovation: 'sculpture',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
     },
-    shirne: {
+    shrine: {
       name: 'Shrine',
       expansion: 'core',
+      keywords: ['faith', 'inner lantern consequence'],
+      expand: {
+        endeavors: {
+          shrine: {
+            name: 'Armor Ritual - once per phase',
+            recipe: {
+              innovation: 'shrine',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
     },
     song_of_the_brave: {
       name: 'Song of the Brave',
       expansion: 'core',
+      keywords: ['music', 'drums consequence'],
+      expand: {
+        bonuses: {
+          song_of_the_brave: {
+            name: 'Song of the Brave',
+            description: [
+              'on arrival each non-deaf survivor may remove 1 negative attribute token',
+              'during Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave',
+            ],
+          },
+        },
+      },
     },
     storytelling: {
       name: 'Storytelling',
       expansion: 'core',
+      keywords: ['education', 'symposium consequence'],
+      expand: {
+        settlement: {
+          survival_limit: 1,
+        },
+        endeavors: {
+          storytelling: {
+            name: 'Story Time',
+            recipe: { innovation: 'storytelling', resources: { endeavor: 2 } },
+          },
+        },
+      },
     },
     symposium: {
       name: 'Symposium',
       expansion: 'core',
+      keywords: ['education', 'language consequence'],
+      expand: {
+        settlement: {
+          survival: 1,
+        },
+        bonuses: {
+          symposium: {
+            name: 'Symposium',
+            description: [
+              'When a survivor innovates, draw an additional 2 innovation cards to choose from',
+            ],
+          },
+        },
+      },
     },
     ultimate_weapon: {
       name: 'Ultimate Weapon',
@@ -1169,6 +1467,16 @@ export default {
     },
     protect_the_young: {
       name: 'Protect the Young',
+      expand: {
+        bonuses: {
+          protect_the_young: {
+            name: 'Protect the Young',
+            description: [
+              'When rolling on intimacy table, roll twice and pick 1 result',
+            ],
+          },
+        },
+      },
     },
     graves: {
       name: 'Graves',
