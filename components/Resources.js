@@ -18,12 +18,24 @@ import R from 'ramda'
 
 import colors from '../src/colors'
 
+const capitalize = R.replace(/^./, R.toUpper)
+const types = {
+  basic: {
+    name: 'Basic',
+  },
+  strange: {
+    name: 'Strange',
+  },
+  vermin: {
+    name: 'Vermin',
+  },
+}
+
 class Resources extends React.Component {
   constructor(props) {
     super(props)
     this._renderContent = this._renderContent.bind(this) // so that we can access this.props from within the function
     this._renderHeader = this._renderHeader.bind(this)
-    // this.sectionResources = this.sectionResources.bind(this)
   }
 
   sections = {
@@ -47,26 +59,14 @@ class Resources extends React.Component {
     },
   }
 
-  // sectionResources(section_id) {
-  //   return R.filter(resource => {
-  //     return resource.monster === section_id || resource.type === section_id
-  //   })(this.props.resources)
-  // }
-
   _renderHeader(section, isActive) {
     let icon = isActive ? (
       <Icon name="up-arrow" style={styles.headerArrow} />
     ) : (
       <Icon name="down-arrow" style={styles.headerArrow} />
     )
-    // let items = this.sectionResources(section_id)
 
-    // let number_of_resources = R.reduce(
-    //   (acc, id) => acc + this.props.stored_resources[id],
-    //   0,
-    //   Object.keys(items)
-    // )
-    let number_of_resources = 1
+    let number_of_resources = this.props.section_resource_count[section.id]
 
     return (
       <Row>
@@ -111,12 +111,13 @@ class Resources extends React.Component {
 Resources.propTypes = {
   resources: PropTypes.array.isRequired,
   stored_resources: PropTypes.object.isRequired,
+  section_resource_count: PropTypes.object.isRequired,
 }
 
 const resourcesLogic = kea({
   path: () => ['scenes', 'resources'],
   connect: {
-    props: [state => state, ['resources as global_resources']],
+    props: [state => state, ['resources as global_resources', 'monsters']],
   },
   actions: () => ({
     change: (id, value) => {
@@ -139,23 +140,60 @@ const resourcesLogic = kea({
   }),
   selectors: ({ selectors }) => ({
     resources: [
-      () => [selectors.global_resources],
-      global_resources => {
+      () => [selectors.global_resources, selectors.monsters],
+      (global_resources, monsters) => {
         let items = R.groupBy(R.prop('section'))(
           Array.from(Object.entries(global_resources), v => ({
             id: v[0],
-            name: v[0],
+            name: capitalize(v[0]),
             section: v[1].monster || v[1].type,
           }))
         )
         items = Array.from(Object.entries(items), v => ({
           id: v[0],
-          title: v[0],
+          title: monsters[v[0]] ? monsters[v[0]]['name'] : types[v[0]].name,
           data: v[1],
         }))
         return items
       },
       PropTypes.array,
+      // Structure:
+      // [
+      //   {
+      //     id: 'basic', // id of section/type
+      //     title: 'Basic', // title of type
+      //     data: [ //array of items
+      //       {
+      //         id: 'skull', // id of resource
+      //         name: 'skull', // name of resource
+      //         section: 'basic' // id of section
+      //       }
+      //     ]
+      //   },
+      // ],
+    ],
+    section_resource_count: [
+      () => [selectors.stored_resources, selectors.resources],
+      (stored_resources, resources) => {
+        let counts = resources.map(resource => {
+          return {
+            [resource.id]: R.reduce(
+              (acc, value) => {
+                return acc + (stored_resources[value.id] || 0)
+              },
+              0,
+              resource.data
+            ),
+          }
+        })
+        return R.mergeAll(counts)
+      },
+      PropTypes.object,
+      // Structure:
+      // {
+      //   'basic': 12, // id of section/type : number of resources
+      //   // ...
+      // }
     ],
   }),
 })
