@@ -93,6 +93,9 @@ class Resources extends React.Component {
           valueChanged={value => {
             change(data.item.id, value)
           }}
+          style={{
+            alignSelf: 'end',
+          }}
         />
       </View>
     )
@@ -210,6 +213,8 @@ const styles = {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 5,
   },
   resourceText: { paddingRight: 5 },
   content: {},
