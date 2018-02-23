@@ -10,11 +10,7 @@ import {
   Row,
   Icon,
 } from '@shoutem/ui'
-import Accordion from 'react-native-collapsible/Accordion'
-// TODO try:
-// https://github.com/ercpereda/react-native-accordion
-// https://github.com/metinalim/react-native-accordion-met
-// Submit an issue against https://github.com/oblador/react-native-collapsible
+import Accordion from './Accordion'
 import SimpleStepper from 'react-native-simple-stepper'
 import { kea } from 'kea'
 import PropTypes from 'prop-types'
@@ -27,55 +23,50 @@ class Resources extends React.Component {
     super(props)
     this._renderContent = this._renderContent.bind(this) // so that we can access this.props from within the function
     this._renderHeader = this._renderHeader.bind(this)
-    this.sectionResources = this.sectionResources.bind(this)
+    // this.sectionResources = this.sectionResources.bind(this)
   }
 
-  sections = [
-    {
-      id: 'basic',
+  sections = {
+    basic: {
       title: 'Basic',
     },
-    {
-      id: 'vermin',
+    vermin: {
       title: 'Vermin',
     },
-    {
-      id: 'strange',
+    strange: {
       title: 'Strange',
     },
-    {
-      id: 'white_lion',
+    white_lion: {
       title: 'White Lion',
     },
-    {
-      id: 'screaming_antelope',
+    screaming_antelope: {
       title: 'Screaming Antelope',
     },
-    {
-      id: 'phoenix',
+    phoenix: {
       title: 'Phoenix',
     },
-  ]
-
-  sectionResources(section_id) {
-    return R.filter(resource => {
-      return resource.monster === section_id || resource.type === section_id
-    })(this.props.resources)
   }
 
-  _renderHeader(section, index, isActive, sections) {
+  // sectionResources(section_id) {
+  //   return R.filter(resource => {
+  //     return resource.monster === section_id || resource.type === section_id
+  //   })(this.props.resources)
+  // }
+
+  _renderHeader(section, isActive) {
     let icon = isActive ? (
       <Icon name="up-arrow" style={styles.headerArrow} />
     ) : (
       <Icon name="down-arrow" style={styles.headerArrow} />
     )
-    let items = this.sectionResources(section.id)
+    // let items = this.sectionResources(section_id)
 
-    let number_of_resources = R.reduce(
-      (acc, id) => acc + this.props.stored_resources[id],
-      0,
-      Object.keys(items)
-    )
+    // let number_of_resources = R.reduce(
+    //   (acc, id) => acc + this.props.stored_resources[id],
+    //   0,
+    //   Object.keys(items)
+    // )
+    let number_of_resources = 1
 
     return (
       <Row>
@@ -87,28 +78,22 @@ class Resources extends React.Component {
     )
   }
 
-  _renderContent(section, index, isActive, sections) {
-    let items = this.sectionResources(section.id)
+  _renderContent(data) {
+    const { change } = this.actions
+    const quantity = this.props.stored_resources[data.item.id]
 
     return (
-      <View>
-        {Object.keys(items).map(item_key => {
-          const { change } = this.actions
-          const quantity = this.props.stored_resources[item_key] // TODO something weird happens then the row is re-rendered, the stepper is messed up.
-          return (
-            <View key={item_key} style={styles.resourceRow}>
-              <Text style={styles.resourceText}>
-                {quantity} - {item_key}
-              </Text>
-              <SimpleStepper
-                tintColor="white"
-                valueChanged={value => {
-                  change(item_key, value)
-                }}
-              />
-            </View>
-          )
-        })}
+      <View style={styles.resourceRow}>
+        <Text style={styles.resourceText}>
+          {quantity} - {data.item.name}
+        </Text>
+        <SimpleStepper
+          tintColor="white"
+          initialValue={quantity}
+          valueChanged={value => {
+            change(data.item.id, value)
+          }}
+        />
       </View>
     )
   }
@@ -116,7 +101,7 @@ class Resources extends React.Component {
   render() {
     return (
       <Accordion
-        sections={this.sections}
+        data={this.props.resources}
         renderHeader={this._renderHeader}
         renderContent={this._renderContent}
       />
@@ -124,13 +109,14 @@ class Resources extends React.Component {
   }
 }
 Resources.propTypes = {
-  resources: PropTypes.object.isRequired,
+  resources: PropTypes.array.isRequired,
   stored_resources: PropTypes.object.isRequired,
 }
 
 const resourcesLogic = kea({
+  path: () => ['scenes', 'resources'],
   connect: {
-    props: [state => state, ['resources']],
+    props: [state => state, ['resources as global_resources']],
   },
   actions: () => ({
     change: (id, value) => {
@@ -149,6 +135,27 @@ const resourcesLogic = kea({
           }
         },
       },
+    ],
+  }),
+  selectors: ({ selectors }) => ({
+    resources: [
+      () => [selectors.global_resources],
+      global_resources => {
+        let items = R.groupBy(R.prop('section'))(
+          Array.from(Object.entries(global_resources), v => ({
+            id: v[0],
+            name: v[0],
+            section: v[1].monster || v[1].type,
+          }))
+        )
+        items = Array.from(Object.entries(items), v => ({
+          id: v[0],
+          title: v[0],
+          data: v[1],
+        }))
+        return items
+      },
+      PropTypes.array,
     ],
   }),
 })

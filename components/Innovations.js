@@ -26,6 +26,7 @@ Innovations.propTypes = {
 }
 
 const innovationLogic = kea({
+  path: () => ['scenes', 'innovations'],
   connect: {
     props: [state => state, ['innovations']],
   },

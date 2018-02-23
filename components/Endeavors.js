@@ -44,6 +44,7 @@ Endeavors.propTypes = {
 
 // get props from the store
 const connectedEndeavors = kea({
+  path: () => ['scenes', 'endeavors'],
   connect: {
     props: [
       state => state,

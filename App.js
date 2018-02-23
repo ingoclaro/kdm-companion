@@ -34,9 +34,9 @@ export default class App extends React.Component {
     // menu images for ios
     if (Platform.OS === 'ios') {
       images = images.concat([
-        require('./images/build.png'),
-        require('./images/resources.jpg'),
-        require('./images/settlement.jpg'),
+        // require('./images/build.png'),
+        // require('./images/resources.jpg'),
+        // require('./images/settlement.jpg'),
       ])
     }
 

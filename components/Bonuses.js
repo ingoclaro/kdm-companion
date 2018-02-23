@@ -54,6 +54,7 @@ Bonuses.propTypes = {
 }
 
 const connectedBonuses = kea({
+  path: () => ['scenes', 'bonuses'],
   reducers: ({ actions }) => ({
     bonuses: [
       {},

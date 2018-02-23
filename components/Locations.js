@@ -27,6 +27,7 @@ Locations.propTypes = {
 }
 
 const locationLogic = kea({
+  path: () => ['scenes', 'locations'],
   connect: {
     props: [state => state, ['settlement_locations as locations']],
   },
