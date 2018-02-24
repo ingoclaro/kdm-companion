@@ -1,9 +1,7 @@
 import React from 'react'
 import { Screen, View, Text, Image } from '@shoutem/ui'
 import { connectStyle } from '@shoutem/theme'
-import MultiSelectList, {
-  MultiSelectItems,
-} from '../components/MultiSelectList'
+import MultiSelectList, { MultiSelectItems } from './MultiSelectList'
 import { kea } from 'kea'
 import PropTypes from 'prop-types'
 import { constants } from '../src/reducers'

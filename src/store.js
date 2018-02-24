@@ -1,8 +1,20 @@
 import thunkPlugin from 'kea-thunk'
 import { getStore } from 'kea'
+import { constants } from './reducers'
+
 import gameData from './data'
 
-export default getStore({
+// import * as storage from 'redux-storage'
+// import createEngine from 'redux-storage-engine-reactnativeasyncstorage'
+// const engine = createEngine('kdm-manager-state')
+// const storageMiddleware = storage.createMiddleware(
+//   engine,
+//   [],
+//   [constants.SAVE_STATE]
+// )
+// export const loadState = storage.createLoader(engine)
+
+const store = getStore({
   paths: [
     'kea',
     'scenes',
@@ -15,4 +27,7 @@ export default getStore({
   ],
   plugins: [thunkPlugin],
   preloadedState: gameData,
+  // middleware: [storageMiddleware],
 })
+
+export default store

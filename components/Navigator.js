@@ -2,8 +2,6 @@ import React from 'react'
 import { Platform } from 'react-native'
 import { TabNavigator, StackNavigator } from 'react-navigation'
 import Expo from 'expo'
-import { StyleProvider } from '@shoutem/theme'
-import theme from '../src/theme'
 import colors from '../src/colors'
 
 // Settlement
@@ -81,7 +79,7 @@ const SettlementNavigator = TabNavigator(
   }
 )
 
-const App = TabNavigator(
+const MainNavigator = TabNavigator(
   {
     Settlement: {
       screen: SettlementNavigator,
@@ -113,15 +111,5 @@ const App = TabNavigator(
   }
 )
 
-class ThemedApp extends React.Component {
-  render() {
-    return (
-      <StyleProvider style={theme}>
-        {/*}<App />{*/}
-        <SettlementNavigator />
-      </StyleProvider>
-    )
-  }
-}
-
-export default ThemedApp
+// export default MainNavigator
+export default SettlementNavigator
