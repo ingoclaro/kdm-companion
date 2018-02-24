@@ -3,25 +3,12 @@ import { AppState } from 'react-native'
 import { StyleProvider } from '@shoutem/theme'
 import theme from '../src/theme'
 import { Provider } from 'react-redux'
-import store from '../src/store'
 import { constants } from '../src/reducers'
 import Navigator from './Navigator'
 
 class ThemedApp extends React.Component {
   constructor(props) {
     super(props)
-    // loadState(store)
-    //   .then(newState => {
-    //     console.log('Loaded state scenes:', newState.scenes)
-    //     if (!newState.settlement_locations) {
-    //       console.log('empty!')
-    //     }
-    //   })
-    //   .catch(() => {
-    //     console.log(
-    //       'Failed to load previous state. TODO, load state from static data file or remote one?'
-    //     )
-    //   })
   }
   state = {
     appState: AppState.currentState,
@@ -47,7 +34,7 @@ class ThemedApp extends React.Component {
       nextAppState.match(/inactive|background/)
     ) {
       console.log('App has come to the background!')
-      store.dispatch({ type: constants.SAVE_STATE })
+      this.props.store.dispatch({ type: constants.SAVE_STATE })
     }
 
     this.setState({ appState: nextAppState })
@@ -56,7 +43,7 @@ class ThemedApp extends React.Component {
   render() {
     return (
       <StyleProvider style={theme}>
-        <Provider store={store}>
+        <Provider store={this.props.store}>
           <Navigator />
         </Provider>
       </StyleProvider>

@@ -1,13 +1,25 @@
 import React from 'react'
 import { Platform } from 'react-native'
 import Expo, { AppLoading } from 'expo'
-import Application from './components/App'
-import { loadState } from './src/store'
+import configureStore, { loadState } from './src/store'
+// import Application from './components/App' must be required after the store is created, see createApp()
+
+let store = configureStore()
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this._cacheResourcesAsync = this._cacheResourcesAsync.bind(this)
+  }
+
   state = {
     isReady: false,
-    data: {},
+    store: null,
+  }
+
+  createApp() {
+    const Application = require('./components/App').default
+    return <Application store={this.state.store} />
   }
 
   render() {
@@ -21,7 +33,7 @@ export default class App extends React.Component {
       )
     }
 
-    return <Application />
+    return this.createApp()
   }
 
   async _cacheResourcesAsync() {
@@ -51,6 +63,22 @@ export default class App extends React.Component {
       }),
       cacheImages(images),
     ])
+
+    await loadState(store)
+      .then(newState => {
+        if (!newState.settlement_locations) {
+          console.log('State is empty, loading default data')
+          const data = require('./src/data').default
+          this.setState({ store: configureStore(data) })
+        } else {
+          this.setState({ store: configureStore(newState) })
+        }
+      })
+      .catch(e => {
+        console.log('Failed to load previous state.', e)
+        const data = require('./src/data').default
+        this.setState({ store: configureStore(data) })
+      })
   }
 }
 
