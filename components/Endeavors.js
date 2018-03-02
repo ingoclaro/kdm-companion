@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { constants } from '../src/reducers'
 import colors from '../src/colors'
 import { locationLogic } from './Locations'
+import { innovationLogic } from './Innovations'
 import R from 'ramda'
 
 class Endeavors extends React.Component {
@@ -51,6 +52,8 @@ const connectedEndeavors = kea({
       ['settlement_locations', 'innovations'],
       locationLogic,
       ['selectedItems as selectedLocations'],
+      innovationLogic,
+      ['selectedItems as selectedInnovations'],
     ],
   },
   reducers: ({ actions }) => ({
@@ -71,13 +74,21 @@ const connectedEndeavors = kea({
   }),
   selectors: ({ selectors }) => ({
     validEndeavors: [
-      () => [selectors.endeavors, selectors.selectedLocations],
-      (endeavors, selectedLocations) => {
+      () => [
+        selectors.endeavors,
+        selectors.selectedLocations,
+        selectors.selectedInnovations,
+      ],
+      (endeavors, selectedLocations, selectedInnovations) => {
         return R.filter(endeavor => {
           if (
             // filter out build endeavors when the building alredy exists
-            endeavor.recipe.not_location &&
-            selectedLocations[endeavor.recipe.not_location]
+            (endeavor.recipe.not_location &&
+              selectedLocations[endeavor.recipe.not_location]) ||
+            (endeavor.recipe.not_innovation &&
+              selectedInnovations[endeavor.recipe.not_innovation]) ||
+            (endeavor.recipe.innovation &&
+              !selectedInnovations[endeavor.recipe.innovation])
           ) {
             return false
           }

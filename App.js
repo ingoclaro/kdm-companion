@@ -2,6 +2,7 @@ import React from 'react'
 import { Platform } from 'react-native'
 import Expo, { AppLoading } from 'expo'
 import configureStore, { loadState } from './src/store'
+import initialGameData from '../src/data'
 // import Application from './components/App' must be required after the store is created, see createApp()
 
 let store = configureStore()
@@ -68,10 +69,11 @@ export default class App extends React.Component {
       .then(newState => {
         if (!newState.settlement_locations) {
           console.log('State is empty, loading default data')
-          const data = require('./src/data').default
-          this.setState({ store: configureStore(data) })
+          this.setState({ store: configureStore(initialGameData) })
         } else {
-          this.setState({ store: configureStore(newState) })
+          console.log('Merging new data')
+          const state = Object.assign(newState, initialGameData)
+          this.setState({ store: configureStore(state) })
         }
       })
       .catch(e => {

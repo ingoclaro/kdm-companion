@@ -6,6 +6,7 @@ import MultiSelectList, {
 import { kea } from 'kea'
 import PropTypes from 'prop-types'
 import { constants } from '../src/reducers'
+import { logic as settlementLogic } from './Settlements'
 
 class Innovations extends React.Component {
   render() {
@@ -28,10 +29,15 @@ Innovations.propTypes = {
 const innovationLogic = kea({
   path: () => ['scenes', 'innovations'],
   connect: {
-    props: [state => state, ['innovations']],
+    props: [
+      state => state,
+      ['innovations'],
+      settlementLogic,
+      ['selected as settlementId'],
+    ],
   },
-  actions: () => ({
-    toggleItem: id => ({ id }),
+  actions: ({ selectors }) => ({
+    toggleItem: id => ({ id, settlementId: selectors.settlementId }),
   }),
   reducers: ({ actions }) => ({
     selectedItems: [
@@ -106,4 +112,4 @@ const itemsLogic = kea({
 const connectedInnovationsItems = itemsLogic(InnovationsItems)
 
 export default connectedInnovations
-export { connectedInnovationsItems as InnovationsItems }
+export { connectedInnovationsItems as InnovationsItems, innovationLogic }
