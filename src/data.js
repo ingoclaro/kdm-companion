@@ -39,6 +39,19 @@ export default {
         'blue_charm',
         'lance_of_longinus',
       ],
+      expand: {
+        endeavors: {
+          harvest_ritual: {
+            name: 'Harvest Ritual',
+            expansion: 'core',
+            recipe: {
+              location: 'stone_circle',
+              innovation: 'forbidden_dance',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
     },
     weapon_crafter: {
       name: 'Weapon Crafter',
@@ -54,6 +67,27 @@ export default {
         'scrap_dagger',
         'finger_of_god',
       ],
+      expand: {
+        endeavors: {
+          scrap_scavenge: {
+            name: 'Scrap Scavenge',
+            expansion: 'core',
+            recipe: {
+              location: 'weapon_crafter',
+              resources: { endeavor: 1 },
+            },
+          },
+          innovate_scrap_smelting: {
+            name: 'Innovate Scrap Smelting',
+            expansion: 'core',
+            recipe: {
+              location: 'weapon_crafter',
+              not_innovation: 'scrap_smelting',
+              resources: { endeavor: 1, scrap: 2, bone: 5, organ: 5 },
+            },
+          },
+        },
+      },
     },
     leather_worker: {
       name: 'Leather Worker',
@@ -67,6 +101,19 @@ export default {
         'round_leather_shield',
         'hunter_whip',
       ],
+      expand: {
+        endeavors: {
+          leather_making: {
+            name: 'Leather Making',
+            expansion: 'core',
+            recipe: {
+              location: 'leather_worker',
+              innovation: 'ammonia',
+              resources: { endeavor: 1, hide: 1 },
+            },
+          },
+        },
+      },
     },
     plumery: {
       name: 'Plumery',
@@ -147,6 +194,21 @@ export default {
         'speed_powder',
         'almanac',
       ],
+      expand: {
+        endeavors: {
+          trepanning: {
+            name: 'Trepanning',
+            expansion: 'core',
+            recipes: [
+              {
+                location: 'barber_surgeon',
+                innovations: [],
+                resources: { endeavor: 1 },
+              },
+            ],
+          },
+        },
+      },
     },
     skinnery: {
       name: 'Skinnery',
@@ -209,7 +271,7 @@ export default {
             recipe: {
               location: 'organ_grinder',
               not_location: 'stone_circle',
-              resources: { endeavor: 1, organ: 3, hide: 3 },
+              resources: { endeavor: 1, organ: 3, hide: 1 },
             },
           },
         },
@@ -226,6 +288,74 @@ export default {
         'man_mask',
         'god_mask',
       ],
+      expand: {
+        endeavors: {
+          great_golden_cat: {
+            name: 'Hunt the Great Golden Cat',
+            expansion: 'core',
+            recipe: {
+              location: 'mask_maker',
+              resources: { endeavor: 1, white_lion_mask: 1 },
+            },
+          },
+          mad_steed: {
+            name: 'Hunt the Mad Streed',
+            expansion: 'core',
+            recipe: {
+              location: 'mask_maker',
+              resources: { endeavor: 1, antelope_mask: 1 },
+            },
+          },
+          golden_eyed_king: {
+            name: 'Hunt the Golden Eyed King',
+            expansion: 'core',
+            recipe: {
+              location: 'mask_maker',
+              resources: { endeavor: 1, phoenix_mask: 1 },
+            },
+          },
+        },
+      },
+    },
+    exhausted_lantern_hoard: {
+      name: 'Exhausted Lantern Hoard',
+      expansion: 'core',
+      expand: {
+        endeavors: {
+          lantern_research: {
+            name: 'Lantern Research - Pulse Discoveries',
+            expansion: 'core',
+            recipe: {
+              location: 'exhausted_lantern_hoard',
+              resources: { endeavor: 2, final_lantern: 1 },
+            },
+          },
+          oxidation: {
+            name: 'Oxidation',
+            expansion: 'core',
+            recipe: {
+              location: 'exhausted_lantern_hoard',
+              resources: { endeavor: 1 },
+            },
+          },
+          survivors_lantern: {
+            name: "Survivor's Lantern",
+            expansion: 'core',
+            recipe: {
+              location: 'exhausted_lantern_hoard',
+              resources: { endeavor: 1, final_lantern: 1 },
+            },
+          },
+          investigate: {
+            name: 'Investigate',
+            expansion: 'core',
+            recipe: {
+              location: 'exhausted_lantern_hoard',
+              resources: { endeavor: 1 },
+            },
+          },
+        },
+      },
     },
     lantern_hoard: {
       name: 'Lantern Hoard',
@@ -248,11 +378,110 @@ export default {
               resources: { endeavor: 1 },
             },
           },
+          build_bone_smith: {
+            name: 'Build - Bone Smith',
+            expansion: 'core',
+            recipe: {
+              location: 'lantern_hoard',
+              not_location: 'bone_smith',
+              resources: { endeavor: 1 },
+            },
+          },
+          build_skinnery: {
+            name: 'Build - Skinnery',
+            expansion: 'core',
+            recipe: {
+              location: 'lantern_hoard',
+              not_location: 'skinnery',
+              resources: { endeavor: 1 },
+            },
+          },
+          build_organ_grinder: {
+            name: 'Build - Organ Grinder',
+            expansion: 'core',
+            recipe: {
+              location: 'lantern_hoard',
+              not_location: 'organ_grinder',
+              resources: { endeavor: 1 },
+            },
+          },
         },
       },
     },
   },
   gear: {
+    final_lantern: {
+      //TODO: is this a reasource or an innovation?
+      name: 'Final Lantern',
+      expansion: 'core',
+      recipes: [],
+    },
+    white_lion_mask: {
+      name: 'White Lion Mask',
+      expansion: 'core',
+      recipes: [
+        {
+          location: 'mask_maker',
+          innovations: [],
+          resources: { endeavor: 1, 'shimmering mane': 1, bone: 6, organ: 4 },
+        },
+      ],
+    },
+    antelope_mask: {
+      name: 'Antelope Mask',
+      expansion: 'core',
+      recipes: [
+        {
+          location: 'mask_maker',
+          innovations: [],
+          resources: { endeavor: 1, pelt: 1, bone: 6, organ: 4 },
+        },
+      ],
+    },
+    phoenix_mask: {
+      name: 'Phoenix Mask',
+      expansion: 'core',
+      recipes: [
+        {
+          location: 'mask_maker',
+          innovations: [],
+          resources: { endeavor: 1, 'small feather': 1, bone: 6, organ: 4 },
+        },
+      ],
+    },
+    death_mask: {
+      name: 'Death Mask',
+      expansion: 'core',
+      recipes: [
+        {
+          location: 'mask_maker',
+          innovations: [],
+          resources: { endeavor: 1, bone: 6, organ: 4 },
+        },
+      ],
+    },
+    man_mask: {
+      name: 'Man Mask',
+      expansion: 'core',
+      recipes: [
+        {
+          location: 'mask_maker',
+          innovations: [],
+          resources: { endeavor: 1, skull: 1, bone: 6, organ: 4 },
+        },
+      ],
+    },
+    god_mask: {
+      name: 'God Mask',
+      expansion: 'core',
+      recipes: [
+        {
+          location: 'mask_maker',
+          innovations: [],
+          resources: { endeavor: 1, 'founding stone': 1, bone: 6, organ: 4 },
+        },
+      ],
+    },
     white_lion_helm: {
       name: 'White Lion Helm',
       expansion: 'core',
@@ -932,6 +1161,30 @@ export default {
       keywords: ['scrap'],
       type: 'basic',
     },
+    'nightmare tick': {
+      keywords: ['vermin', 'consumable'],
+      type: 'vermin',
+    },
+    'hissing cockroach': {
+      keywords: ['vermin', 'consumable'],
+      type: 'vermin',
+    },
+    'crab spider': {
+      keywords: ['vermin', 'consumable'],
+      type: 'vermin',
+    },
+    'sword beetle': {
+      keywords: ['vermin', 'consumable'],
+      type: 'vermin',
+    },
+    'cyclops fly': {
+      keywords: ['vermin', 'consumable'],
+      type: 'vermin',
+    },
+    'lonely ant': {
+      keywords: ['vermin', 'consumable'],
+      type: 'vermin',
+    },
   },
   innovations: {
     ammonia: {
@@ -990,7 +1243,7 @@ export default {
           clan_of_death: {
             name: 'Clan of Death',
             description: [
-              'All newborn survivors gain +1 accurancy, strength and evasion',
+              'All newborn survivors gain +1 accuracy, strength and evasion',
             ],
           },
         },
@@ -1590,6 +1843,55 @@ export default {
         'sinew',
         'white fur',
       ],
+      instinct: {
+        name: 'Sniff',
+        description:
+          "The White Lion sniffs and ends it's turn. Until the end of the next round, all survivors are now threats. At level 3+ gain +1 accuracy token.",
+      },
+      levels: {
+        prologue: {
+          movement: 6,
+          toughness: 6,
+          speed: 0,
+          damage: 0,
+          deck: 'custom', // TODO: get list of cards
+        },
+        1: {
+          movement: 6,
+          toughness: 8,
+          speed: 0,
+          damage: 0,
+          deck: {
+            B: 7,
+            A: 3,
+          },
+        },
+        2: {
+          movement: 7,
+          toughness: 10,
+          speed: 1,
+          damage: 1,
+          deck: {
+            B: 10,
+            A: 5,
+            S: ['Cunning'],
+          },
+        },
+        3: {
+          movement: 8,
+          toughness: 14,
+          speed: 2,
+          damage: 2,
+          accuracy: 2,
+          luck: 1,
+          deck: {
+            B: 10,
+            A: 9,
+            L: 2,
+            S: ['Cunning', 'Merciless'],
+          },
+        },
+      },
     },
     screaming_antelope: {
       name: 'Screaming Antelope',
@@ -1604,6 +1906,48 @@ export default {
         'shank bone',
         'spiral horn',
       ],
+      instinct: {
+        name: 'Graze',
+        description:
+          "The monster full moves to the closest Acanthus plant and ends it's turn. If the monster is on or adjacent to an Acanthus plant, archive it and heal 1 wound. If there are no Acanthus plants, full move forward in a straight line.",
+      },
+      levels: {
+        1: {
+          movement: 6,
+          toughness: 8,
+          speed: 0,
+          damage: 0,
+          deck: {
+            B: 7,
+            A: 3,
+            S: ['Trample'],
+          },
+        },
+        2: {
+          movement: 8,
+          toughness: 10,
+          speed: 1,
+          damage: 1,
+          deck: {
+            B: 10,
+            A: 5,
+            S: ['Trample', 'Diabolical'],
+          },
+        },
+        3: {
+          movement: 8,
+          toughness: 12,
+          speed: 2,
+          damage: 2,
+          evasion: 1,
+          deck: {
+            B: 12,
+            A: 8,
+            L: 2,
+            S: ['Trample', 'Diabolical', 'Hypermetabolism'],
+          },
+        },
+      },
     },
     phoenix: {
       name: 'Phoenix',
@@ -1624,6 +1968,63 @@ export default {
         'tail feather',
         'whishbone',
       ],
+    },
+    instinct: {
+      name: 'Disdain',
+      description:
+        'Place the Phoenix at the center of the Nightmare Tree. It emits a hissing moan. All non-deaf survivors suffer brain damage equal to monster level. Perform Spiral Age.',
+    },
+    levels: {
+      1: {
+        movement: 8,
+        toughness: 10,
+        speed: 0,
+        damage: 0,
+        deck: {
+          B: 8,
+          A: 3,
+          L: 1,
+          S: ['Materialize', 'Spiral Age', 'Zeal', 'Dreaded Decade'],
+        },
+      },
+      2: {
+        movement: 8,
+        toughness: 12,
+        speed: 1,
+        damage: 1,
+        deck: {
+          B: 10,
+          A: 6,
+          L: 1,
+          S: [
+            'Materialize',
+            'Spiral Age',
+            'Zeal',
+            'Dreaded Decade',
+            'Top of the Food Chain',
+          ],
+        },
+      },
+      3: {
+        movement: 8,
+        toughness: 16,
+        speed: 2,
+        damage: 3,
+        evasion: 1,
+        luck: 1,
+        deck: {
+          B: 13,
+          A: 7,
+          L: 2,
+          S: [
+            'Materialize',
+            'Spiral Age',
+            'Zeal',
+            'Dreaded Decade',
+            'Top of the Food Chain',
+          ],
+        },
+      },
     },
   },
   principles: {
