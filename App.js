@@ -2,7 +2,7 @@ import React from 'react'
 import { Platform } from 'react-native'
 import Expo, { AppLoading } from 'expo'
 import configureStore, { loadState } from './src/store'
-import initialGameData from '../src/data'
+import initialGameData from './src/data'
 // import Application from './components/App' must be required after the store is created, see createApp()
 
 let store = configureStore()
@@ -40,13 +40,12 @@ export default class App extends React.Component {
   async _cacheResourcesAsync() {
     let images = []
     // menu images for ios
-    if (Platform.OS === 'ios') {
-      images = images.concat([
-        // require('./images/build.png'),
-        // require('./images/resources.jpg'),
-        // require('./images/settlement.jpg'),
-      ])
-    }
+    images = images.concat([
+      require('./images/icon_hunt.png'),
+      require('./images/icon_lantern.png'),
+      require('./images/icon_monster.png'),
+      require('./images/icon_settlement.png'),
+    ])
 
     await Promise.all([
       Expo.Font.loadAsync({
