@@ -29,29 +29,9 @@ class Settlements extends React.Component {
     super(props)
   }
 
-  selectSettlement() {
+  create() {
     return (
       <View>
-        <Title>Select a Settlement:</Title>
-        <DropDownMenu
-          options={this.props.settlements}
-          selectedOption={this.props.selectedObject}
-          onOptionSelected={selected => this.actions.select(selected)}
-          titleProperty="name"
-          valueProperty="id"
-        />
-      </View>
-    )
-  }
-
-  render() {
-    let selector = null
-    if (this.props.settlements.length > 0) {
-      selector = this.selectSettlement()
-    }
-    return (
-      <View>
-        {selector}
         <Title>Create new Settlement:</Title>
         <TextInput
           placeholder={'Settlement name'}
@@ -62,6 +42,43 @@ class Settlements extends React.Component {
         <Button onPress={() => this.actions.create(this.props.name)}>
           <Text>Create</Text>
         </Button>
+      </View>
+    )
+  }
+
+  update() {
+    return (
+      <View>
+        <Title>Update Name:</Title>
+        <TextInput
+          placeholder={'Settlement name'}
+          onChangeText={name => this.actions.settlementName(name)}
+          value={this.props.name}
+        />
+        <Divider />
+        <Button
+          onPress={() =>
+            this.actions.update(this.props.selected, this.props.name)
+          }
+        >
+          <Text>Update</Text>
+        </Button>
+      </View>
+    )
+  }
+
+  render() {
+    return (
+      <View>
+        <Title>Select a Settlement:</Title>
+        <DropDownMenu
+          options={this.props.settlements}
+          selectedOption={this.props.selectedObject}
+          onOptionSelected={selected => this.actions.select(selected)}
+          titleProperty="name"
+          valueProperty="id"
+        />
+        {this.props.selected === 'new' ? this.create() : this.update()}
       </View>
     )
   }
@@ -76,24 +93,40 @@ const settlementsLogic = kea({
   path: () => ['scenes', 'settlements'],
   actions: () => ({
     create: name => ({ id: uuid(), name }),
+    update: (id, name) => ({ id, name }),
     select: settlement => settlement,
     settlementName: name => ({ name }),
   }),
   reducers: ({ actions }) => ({
     settlements: [
-      [],
+      [{ id: 'new', name: 'new' }],
       PropTypes.array,
       {
         [actions.create]: (state, payload) => {
           return [...state, { id: payload.id, name: payload.name }]
         },
+        [actions.update]: (state, payload) => {
+          return state.map(item => {
+            if (item.id === payload.id) {
+              return { id: payload.id, name: payload.name }
+            } else {
+              return item
+            }
+          })
+        },
       },
     ],
     selected: [
-      '',
+      'new',
       PropTypes.string,
       {
         [actions.select]: (state, payload) => {
+          return payload.id
+        },
+        [actions.create]: (state, payload) => {
+          return payload.id
+        },
+        [actions.update]: (state, payload) => {
           return payload.id
         },
       },
@@ -105,7 +138,8 @@ const settlementsLogic = kea({
         [actions.settlementName]: (state, payload) => {
           return payload.name
         },
-        [actions.create]: (state, payload) => '',
+        [actions.select]: (state, payload) =>
+          payload.id === 'new' ? '' : payload.name,
       },
     ],
   }),

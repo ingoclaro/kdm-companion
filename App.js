@@ -45,6 +45,7 @@ export default class App extends React.Component {
       require('./images/icon_lantern.png'),
       require('./images/icon_monster.png'),
       require('./images/icon_settlement.png'),
+      require('./images/icon_survivors.png'),
     ])
 
     await Promise.all([

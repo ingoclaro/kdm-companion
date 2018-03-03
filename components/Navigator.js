@@ -5,7 +5,11 @@ import { View, Button, Icon, Image, Text, NavigationBar } from '@shoutem/ui'
 import Expo from 'expo'
 import colors from '../src/colors'
 
+// Campaign
 import SettlementsScreen from '../screens/SettlementsScreen'
+
+// Survivors
+import BlankScreen from '../screens/BlankScreen'
 
 // Settlement
 import SummaryScreen from '../screens/SummaryScreen'
@@ -161,75 +165,39 @@ const MainNavigator = TabNavigator(
       screen: SettlementsScreen,
       navigationOptions: {
         tabBarLabel: 'Campaign',
-        tabBarIcon: ({ focused }) => {
-          let opacity = focused ? 0.7 : 0.4
-          return (
-            <Image
-              source={require('../images/icon_lantern.png')}
-              styleName="small"
-              resizeMode="contain"
-              tintColor={colors.grey400}
-              opacity={opacity}
-            />
-          )
-        },
+        tabBarIcon: icon(require('../images/icon_lantern.png')),
+      },
+    },
+    Survivors: {
+      screen: BlankScreen,
+      navigationOptions: {
+        tabBarLabel: 'Survivors',
+        tabBarIcon: icon(require('../images/icon_survivors.png')),
       },
     },
     Settlement: {
       screen: SettlementNavigator,
       navigationOptions: {
         tabBarLabel: 'Settlement',
-        tabBarIcon: ({ focused }) => {
-          let opacity = focused ? 0.7 : 0.4
-          return (
-            <Image
-              source={require('../images/icon_settlement.png')}
-              styleName="small"
-              resizeMode="cover"
-              tintColor={colors.grey400}
-              opacity={opacity}
-            />
-          )
-        },
+        tabBarIcon: icon(require('../images/icon_settlement.png')),
       },
     },
     Hunt: {
       screen: HuntScreen,
       navigationOptions: {
-        tabBarIcon: ({ focused }) => {
-          let opacity = focused ? 0.7 : 0.4
-          return (
-            <Image
-              source={require('../images/icon_hunt.png')}
-              styleName="small"
-              resizeMode="contain"
-              tintColor={colors.grey400}
-              opacity={opacity}
-            />
-          )
-        },
+        tabBarIcon: icon(require('../images/icon_hunt.png')),
       },
     },
     Showdown: {
       screen: ShowdownNavigator,
       navigationOptions: {
         tabBarLabel: 'Showdown',
-        tabBarIcon: ({ focused }) => {
-          let opacity = focused ? 0.7 : 0.4
-          return (
-            <Image
-              source={require('../images/icon_monster.png')}
-              styleName="small"
-              resizeMode="contain"
-              tintColor={colors.grey400}
-              opacity={opacity}
-            />
-          )
-        },
+        tabBarIcon: icon(require('../images/icon_monster.png')),
       },
     },
   },
   {
+    initialRouteName: 'Settlement',
     tabBarPosition: 'bottom',
     animationEnabled: false, //Platform.OS === 'android' ? false : true,
     swipeEnabled: false,
@@ -243,16 +211,39 @@ const MainNavigator = TabNavigator(
         backgroundColor: 'transparent',
       },
       iconStyle: {
-        width: 65,
-        height: 65,
+        width: 40,
+        height: 40,
         bottom: -10,
       },
       style: {
         backgroundColor: colors.black,
+        height: 75,
+      },
+      tabStyle: {
+        // width: 85,
+        paddingHorizontal: 0,
       },
     },
   }
 )
+
+function icon(image) {
+  return ({ focused }) => {
+    let opacity = focused ? 0.7 : 0.4
+    return (
+      <Image
+        source={image}
+        style={{
+          width: 40,
+          height: 40,
+        }}
+        resizeMode="contain"
+        tintColor={colors.grey400}
+        opacity={opacity}
+      />
+    )
+  }
+}
 
 const styles = {
   // headerLeftButton: {
