@@ -4,6 +4,8 @@ import { StyleProvider } from '@shoutem/theme'
 import theme from '../src/theme'
 import { Provider } from 'react-redux'
 import { constants } from '../src/reducers'
+import { kea } from 'kea'
+import PropTypes from 'prop-types'
 import Navigator from './Navigator'
 
 class ThemedApp extends React.Component {

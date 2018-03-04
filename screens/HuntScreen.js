@@ -12,10 +12,6 @@ import {
 import Hunt from '../components/Hunt'
 
 export default class HuntScreen extends React.Component {
-  static navigationOptions = {
-    tabBarLabel: 'Hunt',
-  }
-
   render() {
     return (
       <Screen

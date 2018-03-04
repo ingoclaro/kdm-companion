@@ -5,6 +5,11 @@
     "slug": "kdm-companion",
     "icon": "./images/logo.png",
     "version": "0.0.5",
+    "orientation": "portrait",
+    "primaryColor": "#212121",
+    "androidStatusBar": {
+      "barStyle": "light-content"
+    },
     "android": {
       "package": "com.ingo.kdm"
     },

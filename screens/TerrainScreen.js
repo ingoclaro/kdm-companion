@@ -6,10 +6,6 @@ import Terrain from '../components/Terrain'
 import Ai from '../components/Ai'
 
 export default class TerrainScreen extends React.Component {
-  static navigationOptions = {
-    tabBarLabel: 'Terrain',
-  }
-
   render() {
     return (
       <Screen

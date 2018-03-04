@@ -1,15 +1,15 @@
 import React from 'react'
-import { Platform } from 'react-native'
+import { Platform, StatusBar } from 'react-native'
 import { TabNavigator, StackNavigator, DrawerNavigator } from 'react-navigation'
 import { View, Button, Icon, Image, Text, NavigationBar } from '@shoutem/ui'
 import Expo from 'expo'
 import colors from '../src/colors'
 
+//tmp
+import BlankScreen from '../screens/BlankScreen'
+
 // Campaign
 import SettlementsScreen from '../screens/SettlementsScreen'
-
-// Survivors
-import BlankScreen from '../screens/BlankScreen'
 
 // Settlement
 import SummaryScreen from '../screens/SummaryScreen'
@@ -28,13 +28,22 @@ import ResultScreen from '../screens/ResultScreen'
 const ShowdownNavigator = TabNavigator(
   {
     Terrain: {
-      screen: TerrainScreen,
+      screen: BlankScreen, //TerrainScreen,
+      navigationOptions: {
+        tabBarLabel: 'Terrain',
+      },
     },
     Fight: {
-      screen: FightScreen,
+      screen: BlankScreen, //FightScreen,
+      navigationOptions: {
+        tabBarLabel: 'Fight',
+      },
     },
     Result: {
-      screen: ResultScreen,
+      screen: BlankScreen, //ResultScreen,
+      navigationOptions: {
+        tabBarLabel: 'Result',
+      },
     },
   },
   {
@@ -48,8 +57,9 @@ const ShowdownNavigator = TabNavigator(
       inactiveTintColor: colors.grey600,
       style: {
         backgroundColor: colors.black,
-        // paddingTop:
-        //   Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
+        height: 40,
+        // paddingTop: 4,
+        // Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
       },
     },
   }
@@ -82,87 +92,38 @@ const SettlementNavigator = TabNavigator(
       inactiveTintColor: colors.grey600,
       style: {
         backgroundColor: colors.black,
-        // height: 30,
+        height: 40,
+        // paddingTop: 4,
+        //   Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
       },
     },
   }
 )
 
-// const ConfigurationContainer = StackNavigator(
-//   {
-//     Configuration: {
-//       screen: ConfigurationScreen,
-//     },
-//   },
-//   {
-//     navigationOptions: ({ navigation }) => ({
-//       title: 'Configuration',
-//       gesturesEnabled: false,
-//       headerLeft: (
-//         <Button
-//           style={styles.headerLeftButton}
-//           onPress={() => navigation.navigate('DrawerOpen')}
-//         >
-//           <Icon style={styles.headerLeftIcon} name="sidebar" />
-//         </Button>
-//       ),
-//     }),
-//   }
-// )
-
-// const SettlementContainer = StackNavigator(
-//   {
-//     Settlement: {
-//       screen: SettlementNavigator,
-//     },
-//   },
-//   {
-//     navigationOptions: ({ navigation }) => ({
-//       title: 'Settlement',
-//       gesturesEnabled: false,
-//       headerLeft: (
-//         <Button
-//           style={styles.headerLeftButton}
-//           onPress={() => navigation.navigate('DrawerOpen')}
-//         >
-//           <Icon style={styles.headerLeftIcon} name="sidebar" />
-//         </Button>
-//       ),
-//       style: {
-//         backgroundColor: colors.black,
-//       },
-//     }),
-//   }
-// )
-
-// const MainNavigator = DrawerNavigator(
-//   {
-//     Configuration: {
-//       screen: ConfigurationContainer,
-//     },
-//     Settlement: {
-//       screen: SettlementContainer,
-//     },
-//     Hunt: {
-//       screen: HuntScreen,
-//     },
-//     Showdown: {
-//       screen: ShowdownNavigator,
-//       navigationOptions: {
-//         title: 'Showdown',
-//       },
-//     },
-//   },
-//   {
-//     // drawerBackgroundColor: colors.grey600,
-//     // drawerWidth: 200,
-//   }
-// )
+const CampaignNavigator = StackNavigator(
+  {
+    Settlements: {
+      screen: SettlementsScreen,
+      navigationOptions: {
+        title: 'Settlement Name',
+      },
+    },
+  },
+  {
+    navigationOptions: {
+      gesturesEnabled: false,
+      headerStyle: {
+        backgroundColor: colors.black,
+      },
+      headerTintColor: colors.grey50,
+    },
+  }
+)
 
 const MainNavigator = TabNavigator(
   {
     Campaign: {
-      screen: SettlementsScreen,
+      screen: CampaignNavigator,
       navigationOptions: {
         tabBarLabel: 'Campaign',
         tabBarIcon: icon(require('../images/icon_lantern.png')),
@@ -183,8 +144,9 @@ const MainNavigator = TabNavigator(
       },
     },
     Hunt: {
-      screen: HuntScreen,
+      screen: BlankScreen, //HuntScreen,
       navigationOptions: {
+        tabBarLabel: 'Hunt',
         tabBarIcon: icon(require('../images/icon_hunt.png')),
       },
     },
@@ -220,7 +182,6 @@ const MainNavigator = TabNavigator(
         height: 75,
       },
       tabStyle: {
-        // width: 85,
         paddingHorizontal: 0,
       },
     },

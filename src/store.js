@@ -4,7 +4,10 @@ import { constants } from './reducers'
 
 import * as storage from 'redux-storage'
 import createEngine from 'redux-storage-engine-reactnativeasyncstorage'
-const engine = createEngine('kdm-manager-state')
+import filter from 'redux-storage-decorator-filter'
+
+const engine = filter(createEngine('kdm-manager-state'), ['scenes'])
+
 const storageMiddleware = storage.createMiddleware(
   engine,
   [],

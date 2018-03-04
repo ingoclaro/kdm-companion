@@ -8,7 +8,7 @@ export default class SettlementsScreen extends React.Component {
   render() {
     return (
       <Screen style={{ paddingTop: 5, paddingLeft: 5 }}>
-        <Settlements navigation={this.props.navigation} />
+        <Settlements />
       </Screen>
     )
   }

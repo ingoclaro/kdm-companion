@@ -1,5 +1,5 @@
 import React from 'react'
-import { Platform } from 'react-native'
+import { Platform, StatusBar } from 'react-native'
 import Expo, { AppLoading } from 'expo'
 import configureStore, { loadState } from './src/store'
 import initialGameData from './src/data'
@@ -10,6 +10,8 @@ let store = configureStore()
 export default class App extends React.Component {
   constructor(props) {
     super(props)
+    // StatusBar.setBarStyle('light-content')
+    // StatusBar.setHidden(false)
     this._cacheResourcesAsync = this._cacheResourcesAsync.bind(this)
   }
 
@@ -67,19 +69,12 @@ export default class App extends React.Component {
 
     await loadState(store)
       .then(newState => {
-        if (!newState.settlement_locations) {
-          console.log('State is empty, loading default data')
-          this.setState({ store: configureStore(initialGameData) })
-        } else {
-          console.log('Merging new data')
-          const state = Object.assign(newState, initialGameData)
-          this.setState({ store: configureStore(state) })
-        }
+        const state = Object.assign(newState, initialGameData)
+        this.setState({ store: configureStore(state) })
       })
       .catch(e => {
         console.log('Failed to load previous state.', e)
-        const data = require('./src/data').default
-        this.setState({ store: configureStore(data) })
+        this.setState({ store: configureStore(initialGameData) })
       })
   }
 }
