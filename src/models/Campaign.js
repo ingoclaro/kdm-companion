@@ -1,7 +1,8 @@
 //TODO
-import { types } from 'mobx-state-tree'
+import { types, getSnapshot } from 'mobx-state-tree'
 import { SettlementLocation } from './SettlementLocation'
 import { Innovation } from './Innovation'
+import { Bonus } from './Bonus'
 // import { Endeavor } from './Endeavor'
 
 const Settlement = types
@@ -23,9 +24,9 @@ export const Campaign = types
       {}
     ),
     innovations: types.optional(types.map(types.reference(Innovation)), {}),
+    bonuses: types.optional(types.map(Bonus), {}),
     // endeavors: types.array(Endeavor),
     // expansions: types.array(Expansion),
-    // bonuses: types.array(Bonus),
     // survivors: types.array(Survivor),
   })
   .actions(self => ({
@@ -38,10 +39,22 @@ export const Campaign = types
     },
     selectInnovation(innovation) {
       if (self.innovations.has(innovation.id)) {
+        self.innovations.get(innovation.id).providesBonuses.forEach(bonus => {
+          self.removeBonus(getSnapshot(bonus))
+        })
         self.innovations.delete(innovation.id)
       } else {
         self.innovations.set(innovation.id, innovation.id)
+        self.innovations.get(innovation.id).providesBonuses.forEach(bonus => {
+          self.addBonus(getSnapshot(bonus))
+        })
       }
+    },
+    addBonus(bonus) {
+      self.bonuses.put(bonus)
+    },
+    removeBonus(bonus) {
+      self.bonuses.delete(bonus.id)
     },
   }))
   .views(self => ({

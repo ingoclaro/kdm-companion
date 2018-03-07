@@ -54,16 +54,15 @@ export default {
     name: 'Clan of Death',
     expansion: 'core',
     keywords: ['home', 'family consequence'],
-    expand: {
-      bonuses: {
-        clan_of_death: {
-          name: 'Clan of Death',
-          description: [
-            'All newborn survivors gain +1 accuracy, strength and evasion',
-          ],
-        },
+    providesBonuses: [
+      {
+        id: 'clan_of_death',
+        name: 'Clan of Death',
+        description: [
+          'All newborn survivors gain +1 accuracy, strength and evasion',
+        ],
       },
-    },
+    ],
   },
   cooking: {
     id: 'cooking',
