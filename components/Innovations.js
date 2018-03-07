@@ -1,109 +1,59 @@
 import React from 'react'
-import { Screen, View, Text, Image } from '@shoutem/ui'
-import MultiSelectList, {
-  MultiSelectItems,
-} from '../components/MultiSelectList'
-import { kea } from 'kea'
+import { Screen, View, Text, Image, Row, Caption } from '@shoutem/ui'
+import MultiSelectList from '../components/MultiSelectList'
 import PropTypes from 'prop-types'
-import { constants } from '../src/reducers'
+import { observer, inject } from 'mobx-react/native'
 
-class Innovations extends React.Component {
+@inject(({ store }) => ({
+  //TODO: could this sort be moved to insertion time? probably needs to be moved to the store anyways because needs to be filtered by expansion.
+  innovations: store.innovations.values().sort((a, b) => {
+    if (a.name < b.name) {
+      return -1
+    } else {
+      return 1
+    }
+  }),
+  selectedItems: store.selectedCampaign
+    ? store.selectedCampaign.innovations.toJS()
+    : {},
+  toggle: store.selectedCampaign
+    ? store.selectedCampaign.selectInnovation
+    : () => null,
+}))
+@observer
+export default class Innovations extends React.Component {
   render() {
-    const { toggle } = this.actions
-
     return (
       <MultiSelectList
         name="innovations"
-        data={this.props.innovationList}
-        toggle={toggle}
+        data={this.props.innovations}
+        toggle={this.props.toggle}
         selected={this.props.selectedItems}
       />
     )
   }
 }
-Innovations.propTypes = {
-  innovationList: PropTypes.array.isRequired,
-}
 
-const innovationLogic = kea({
-  path: () => ['scenes', 'innovations'],
-  connect: {
-    props: [state => state, ['innovations']],
-  },
-  actions: ({ path }) => ({
-    toggleItem: id => ({ id }),
-  }),
-  reducers: ({ actions, path }) => ({
-    selectedItems: [
-      {},
-      PropTypes.object,
-      {
-        [actions.toggleItem]: (state, payload) => {
-          return { ...state, [payload.id]: !state[payload.id] }
-        },
-      },
-    ],
-  }),
-  thunks: ({ actions, get, fetch, dispatch, getState }) => ({
-    toggle: innovation => {
-      let selectedItems = get('selectedItems')
-      let isSelected = selectedItems[innovation.id]
-      let action = isSelected ? constants.REMOVE_DATA : constants.ADD_DATA
-      let state = getState()
-      let hasExpand =
-        state.innovations[innovation.id] &&
-        state.innovations[innovation.id]['expand']
-
-      if (hasExpand) {
-        dispatch({
-          type: action,
-          payload: state.innovations[innovation.id]['expand'],
-        })
-      }
-
-      actions.toggleItem(innovation.id)
-    },
-  }),
-  selectors: ({ path, actions, selectors }) => ({
-    innovationList: [
-      () => [selectors.innovations],
-      innovations => {
-        return Array.from(Object.entries(innovations), v => ({
-          id: v[0],
-          title: v[1].name,
-        }))
-      },
-      PropTypes.array,
-    ],
-  }),
-})
-
-// get props from the store
-const connectedInnovations = innovationLogic(Innovations)
-
-class InnovationsItems extends React.Component {
+@inject(({ store }) => ({
+  selectedItems: store.selectedCampaign
+    ? store.selectedCampaign.innovations.values()
+    : [],
+}))
+@observer
+export class InnovationsItems extends React.Component {
   render() {
     return (
-      <MultiSelectItems
-        name="innovations"
-        emptyText="Tap title to add Innovations..."
-        selectedItems={this.props.selectedItems}
-        items={this.props.innovations}
-      />
+      <View>
+        <Row>
+          {this.props.selectedItems.length > 0 ? (
+            <Caption>
+              {this.props.selectedItems.map(item => item.name).join(', ')}
+            </Caption>
+          ) : (
+            <Caption>Tap title to add Innovations...</Caption>
+          )}
+        </Row>
+      </View>
     )
   }
 }
-const itemsLogic = kea({
-  connect: {
-    props: [
-      state => state,
-      ['innovations'],
-      innovationLogic,
-      ['selectedItems'],
-    ],
-  },
-})
-const connectedInnovationsItems = itemsLogic(InnovationsItems)
-
-export default connectedInnovations
-export { connectedInnovationsItems as InnovationsItems, innovationLogic }

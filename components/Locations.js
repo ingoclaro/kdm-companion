@@ -1,109 +1,65 @@
 import React from 'react'
-import { Screen, View, Text, Image } from '@shoutem/ui'
+import { Screen, View, Text, Image, Row, Caption } from '@shoutem/ui'
 import { connectStyle } from '@shoutem/theme'
-import MultiSelectList, { MultiSelectItems } from './MultiSelectList'
-import { kea } from 'kea'
+import MultiSelectList from './MultiSelectList'
 import PropTypes from 'prop-types'
-import { constants } from '../src/reducers'
+import { observer, inject } from 'mobx-react/native'
 
-class Locations extends React.PureComponent {
+@inject(({ store }) => ({
+  //TODO: could this sort be moved to insertion time? probably needs to be moved to the store anyways because needs to be filtered by expansion.
+  locations: store.locations.values().sort((a, b) => {
+    if (a.name < b.name) {
+      return -1
+    } else {
+      return 1
+    }
+  }),
+  selectedItems: store.selectedCampaign
+    ? store.selectedCampaign.locations.toJS()
+    : {},
+  toggle: store.selectedCampaign
+    ? store.selectedCampaign.selectLocation
+    : () => null,
+}))
+@observer
+export default class Locations extends React.Component {
   render() {
-    const { toggle } = this.actions
-
     return (
       <MultiSelectList
         name="locations"
-        data={this.props.locationList}
-        toggle={toggle}
+        data={this.props.locations}
+        toggle={this.props.toggle}
         selected={this.props.selectedItems}
       />
     )
   }
 }
-Locations.propTypes = {
-  locationList: PropTypes.array.isRequired,
+Locations.wrappedComponent.propTypes = {
+  locations: PropTypes.array.isRequired,
+  selectedItems: PropTypes.object.isRequired,
+  toggle: PropTypes.func.isRequired,
 }
 
-const locationLogic = kea({
-  path: () => ['scenes', 'locations'],
-  connect: {
-    props: [state => state, ['settlement_locations as locations']],
-  },
-  actions: () => ({
-    toggleItem: id => ({ id }),
-  }),
-  reducers: ({ actions }) => ({
-    selectedItems: [
-      {},
-      PropTypes.object,
-      {
-        [actions.toggleItem]: (state, payload) => {
-          return { ...state, [payload.id]: !state[payload.id] }
-        },
-      },
-    ],
-  }),
-  thunks: ({ actions, get, fetch, dispatch, getState }) => ({
-    toggle: location => {
-      let selectedItems = get('selectedItems')
-      let isSelected = selectedItems[location.id]
-      let action = isSelected ? constants.REMOVE_DATA : constants.ADD_DATA
-      let state = getState()
-      let hasExpand =
-        state.settlement_locations[location.id] &&
-        state.settlement_locations[location.id]['expand']
-
-      if (hasExpand) {
-        dispatch({
-          type: action,
-          payload: state.settlement_locations[location.id]['expand'],
-        })
-      }
-
-      actions.toggleItem(location.id)
-    },
-  }),
-  selectors: ({ selectors }) => ({
-    locationList: [
-      () => [selectors.locations],
-      locations => {
-        return Object.keys(locations || {})
-          .sort()
-          .map(key => {
-            return { id: key, title: locations[key].name }
-          })
-      },
-      PropTypes.array,
-    ],
-  }),
-})
-
-const connectedLocations = locationLogic(Locations)
-
-class LocationItems extends React.Component {
+@inject(({ store }) => ({
+  selectedItems: store.selectedCampaign
+    ? store.selectedCampaign.locations.values()
+    : [],
+}))
+@observer
+export class LocationItems extends React.Component {
   render() {
     return (
-      <MultiSelectItems
-        name="locations"
-        emptyText="Tap title to add Locations..."
-        selectedItems={this.props.selectedItems}
-        items={this.props.locations}
-      />
+      <View>
+        <Row>
+          {this.props.selectedItems.length > 0 ? (
+            <Caption>
+              {this.props.selectedItems.map(item => item.name).join(', ')}
+            </Caption>
+          ) : (
+            <Caption>Tap title to add Locations...</Caption>
+          )}
+        </Row>
+      </View>
     )
   }
 }
-
-const itemsLogic = kea({
-  connect: {
-    props: [
-      state => state,
-      ['settlement_locations as locations'],
-      locationLogic,
-      ['selectedItems'],
-    ],
-  },
-})
-const connectedLocationItems = itemsLogic(LocationItems)
-
-export default connectedLocations
-export { connectedLocationItems as LocationItems, locationLogic }

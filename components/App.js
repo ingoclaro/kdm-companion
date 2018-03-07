@@ -2,9 +2,7 @@ import React from 'react'
 import { AppState } from 'react-native'
 import { StyleProvider } from '@shoutem/theme'
 import theme from '../src/theme'
-import { Provider } from 'react-redux'
-import { constants } from '../src/reducers'
-import { kea } from 'kea'
+import { Provider } from 'mobx-react'
 import PropTypes from 'prop-types'
 import Navigator from './Navigator'
 
@@ -36,7 +34,7 @@ class ThemedApp extends React.Component {
       nextAppState.match(/inactive|background/)
     ) {
       console.log('App has come to the background!')
-      this.props.store.dispatch({ type: constants.SAVE_STATE })
+      //TODO: save store to disk
     }
 
     this.setState({ appState: nextAppState })

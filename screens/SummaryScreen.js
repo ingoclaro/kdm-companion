@@ -12,7 +12,7 @@ import {
   Icon,
 } from '@shoutem/ui'
 import Modal from 'react-native-modal'
-import { kea } from 'kea'
+import { observer, inject } from 'mobx-react/native'
 
 import colors from '../src/colors'
 
@@ -20,12 +20,7 @@ import Innovations, { InnovationsItems } from '../components/Innovations'
 import Locations, { LocationItems } from '../components/Locations'
 import Principles from '../components/Principles'
 
-const keaOptions = {
-  selectors: ({ path, constants, actions, selectors }) => ({
-    locations: [],
-  }),
-}
-
+@observer
 class SummaryScreen extends React.Component {
   static navigationOptions = {
     tabBarLabel: 'Summary',

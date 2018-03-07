@@ -1,47 +1,25 @@
 import React from 'react'
 import { FlatList } from 'react-native'
-// import { kea } from 'kea'
 import PropTypes from 'prop-types'
 import { View, Row, Text, Caption } from '@shoutem/ui'
 
 import CheckboxListItem from './CheckboxListItem'
 
-// const keaOptions = {
-//   key: props => props.name,
-//   path: key => ['scenes', 'multiselect', key],
-//   actions: () => ({
-//     toggleItem: id => {
-//       console.log('multi select toggle', id)
-//       return { id }
-//     },
-//   }),
-//   reducers: ({ actions, key, props }) => ({
-//     selected: [
-//       {},
-//       PropTypes.object,
-//       {
-//         [actions.toggleItem]: (state, payload) => {
-//           return payload.key === key
-//             ? { ...state, [payload.id]: !state[payload.id] }
-//             : state
-//         },
-//       },
-//     ],
-//   }),
-// }
-// export const logic = kea(keaOptions)
-
 class MultiSelectList extends React.PureComponent {
   _keyExtractor = (item, index) => item.id
 
-  _renderItem = ({ item }) => (
-    <CheckboxListItem
-      id={item.id}
-      onPressItem={() => this.props.toggle(item)}
-      selected={!!this.props.selected[item.id]}
-      title={item.title}
-    />
-  )
+  _renderItem = ({ item }) => {
+    const selected = this.props.selected ? this.props.selected : {}
+    const toggle = this.props.toggle ? this.props.toggle : () => {}
+    return (
+      <CheckboxListItem
+        id={item.id}
+        onPressItem={() => toggle(item)}
+        selected={!!selected[item.id]}
+        title={item.name}
+      />
+    )
+  }
 
   render() {
     return (

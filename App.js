@@ -1,28 +1,23 @@
 import React from 'react'
 import { Platform, StatusBar } from 'react-native'
 import Expo, { AppLoading } from 'expo'
-import configureStore, { loadState } from './src/store'
-import initialGameData from './src/data'
-// import Application from './components/App' must be required after the store is created, see createApp()
+import Application from './components/App'
 
-let store = configureStore()
+// import initialGameData from './src/mobx_data' //TODO: provide initial json
+import { RootStore } from './src/models/RootStore'
 
 export default class App extends React.Component {
   constructor(props) {
     super(props)
     // StatusBar.setBarStyle('light-content')
     // StatusBar.setHidden(false)
+
     this._cacheResourcesAsync = this._cacheResourcesAsync.bind(this)
   }
 
   state = {
     isReady: false,
-    store: null,
-  }
-
-  createApp() {
-    const Application = require('./components/App').default
-    return <Application store={this.state.store} />
+    store: RootStore.create(),
   }
 
   render() {
@@ -36,7 +31,7 @@ export default class App extends React.Component {
       )
     }
 
-    return this.createApp()
+    return <Application store={this.state.store} />
   }
 
   async _cacheResourcesAsync() {
@@ -67,15 +62,16 @@ export default class App extends React.Component {
       cacheImages(images),
     ])
 
-    await loadState(store)
-      .then(newState => {
-        const state = Object.assign(newState, initialGameData)
-        this.setState({ store: configureStore(state) })
-      })
-      .catch(e => {
-        console.log('Failed to load previous state.', e)
-        this.setState({ store: configureStore(initialGameData) })
-      })
+    //TODO hydrate the store
+    // await loadState(store)
+    //   .then(newState => {
+    //     const state = Object.assign(newState, initialGameData)
+    //     this.setState({ store: configureStore(state) })
+    //   })
+    //   .catch(e => {
+    //     console.log('Failed to load previous state.', e)
+    //     this.setState({ store: configureStore(initialGameData) })
+    //   })
   }
 }
 

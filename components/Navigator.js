@@ -13,9 +13,9 @@ import SettlementsScreen from '../screens/SettlementsScreen'
 
 // Settlement
 import SummaryScreen from '../screens/SummaryScreen'
-import BonusesScreen from '../screens/BonusesScreen'
-import EndeavorsScreen from '../screens/EndeavorsScreen'
-import ResourcesScreen from '../screens/ResourcesScreen'
+// import BonusesScreen from '../screens/BonusesScreen'
+// import EndeavorsScreen from '../screens/EndeavorsScreen'
+// import ResourcesScreen from '../screens/ResourcesScreen'
 
 // Hunt
 import HuntScreen from '../screens/HuntScreen'
@@ -70,15 +70,15 @@ const SettlementNavigator = TabNavigator(
     Summary: {
       screen: SummaryScreen,
     },
-    Bonuses: {
-      screen: BonusesScreen,
-    },
-    Endeavors: {
-      screen: EndeavorsScreen,
-    },
-    Resources: {
-      screen: ResourcesScreen,
-    },
+    // Bonuses: {
+    //   screen: BonusesScreen,
+    // },
+    // Endeavors: {
+    //   screen: EndeavorsScreen,
+    // },
+    // Resources: {
+    //   screen: ResourcesScreen,
+    // },
   },
   {
     tabBarPosition: 'top',
@@ -204,16 +204,6 @@ function icon(image) {
       />
     )
   }
-}
-
-const styles = {
-  // headerLeftButton: {
-  //   backgroundColor: 'transparent',
-  //   borderColor: 'transparent',
-  // },
-  // headerLeftIcon: {
-  //   color: colors.grey600,
-  // },
 }
 
 export default MainNavigator
