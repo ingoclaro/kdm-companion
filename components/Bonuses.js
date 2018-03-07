@@ -16,8 +16,10 @@ export default class Bonuses extends React.Component {
   }
 
   _row(item) {
-    let text = item.description.map(e => (
-      <Text style={styles.bonusText}>{e}</Text>
+    let text = item.description.map((e, idx) => (
+      <Text key={item.id + idx} style={styles.bonusText}>
+        {e}
+      </Text>
     ))
     return (
       <View style={styles.bonus}>

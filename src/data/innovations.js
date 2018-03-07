@@ -69,15 +69,14 @@ export default {
     name: 'Cooking',
     expansion: 'core',
     keywords: ['science', 'lantern oven consequence'],
-    expand: {
-      bonuses: {
-        cooking: {
-          name: 'Cooking',
-          description: [
-            'At the start of the Settlement phase gain +1 endeavor',
-          ],
-        },
+    providesBonuses: [
+      {
+        id: 'cooking',
+        name: 'Cooking',
+        description: ['At the start of the Settlement phase gain +1 endeavor'],
       },
+    ],
+    expand: {
       settlement: {
         survival_limit: 1,
       },
@@ -159,18 +158,19 @@ export default {
     name: 'Family',
     expansion: 'core',
     keywords: ['home', 'hovel consequence'],
+    providesBonuses: [
+      {
+        id: 'family',
+        name: 'Family',
+        description: [
+          'A newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency',
+        ],
+      },
+    ],
     expand: {
       settlement: {
         departing: {
           survival: 1,
-        },
-      },
-      bonuses: {
-        family: {
-          name: 'Family',
-          description: [
-            'A newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency',
-          ],
         },
       },
     },
@@ -180,17 +180,18 @@ export default {
     name: 'Final Fighting Art',
     expansion: 'core',
     keywords: ['education'],
+    providesBonuses: [
+      {
+        id: 'final_fighting_art',
+        name: 'Final Fighting Art',
+        description: [
+          'Once per showdown you may select an AI card from the discard or wound pile and put it on top of AI deck',
+        ],
+      },
+    ],
     expand: {
       settlement: {
         survival_limit: 1,
-      },
-      bonuses: {
-        final_fighting_art: {
-          name: 'Final Fighting Art',
-          description: [
-            'Once per showdown you may select an AI card from the discard or wound pile and put it on top of AI deck',
-          ],
-        },
       },
     },
   },
@@ -199,15 +200,16 @@ export default {
     name: 'Forbidden Dance',
     expansion: 'core',
     keywords: ['music', 'drums consequence'],
-    expand: {
-      bonuses: {
-        forbidden_dance: {
-          name: 'Forbidden Dance',
-          description: [
-            'When a survivor uses the Synchronized Strike SFA, reroll missed attack rolls once',
-          ],
-        },
+    providesBonuses: [
+      {
+        id: 'forbidden_dance',
+        name: 'Forbidden Dance',
+        description: [
+          'When a survivor uses the Synchronized Strike SFA, reroll missed attack rolls once',
+        ],
       },
+    ],
+    expand: {
       endeavors: {
         forbidden_dance: {
           name: 'Forbidden Dance',
@@ -247,15 +249,16 @@ export default {
     name: 'Heart Flute',
     expansion: 'core',
     keywords: ['music', 'forbidden dance consequence'],
-    expand: {
-      bonuses: {
-        heart_flute: {
-          name: 'Heart Flute',
-          description: [
-            "When using Synchronized Strike FA, the attack assist may spend 1 survival to change a monster's R to R Failure before any wound attempts",
-          ],
-        },
+    providesBonuses: [
+      {
+        id: 'heart_flute',
+        name: 'Heart Flute',
+        description: [
+          "When using Synchronized Strike FA, the attack assist may spend 1 survival to change a monster's R to R Failure before any wound attempts",
+        ],
       },
+    ],
+    expand: {
       endeavors: {
         heart_flute: {
           name: "Devil's Melody",
@@ -432,17 +435,16 @@ export default {
     name: 'Pictograph',
     expansion: 'core',
     keywords: ['art', 'paint consequence'],
-    expand: {
-      bonuses: {
-        pictograph: {
-          name: 'Pictograph',
-          description: [
-            "At the start of a survivor's act, they may decide to skip their act and Run Away",
-            'After a hunt event is resolved, a survivor may Run Away',
-          ],
-        },
+    providesBonuses: [
+      {
+        id: 'pictograph',
+        name: 'Pictograph',
+        description: [
+          "At the start of a survivor's act, they may decide to skip their act and Run Away",
+          'After a hunt event is resolved, a survivor may Run Away',
+        ],
       },
-    },
+    ],
   },
   pottery: {
     id: 'pottery',
@@ -534,16 +536,15 @@ export default {
     name: 'Saga',
     expansion: 'core',
     keywords: ['music', 'song of the brave consequence'],
-    expand: {
-      bonuses: {
-        saga: {
-          name: 'Saga',
-          description: [
-            'All newborn survivors gain +2 Courage, Understanding and Hunt XP',
-          ],
-        },
+    providesBonuses: [
+      {
+        id: 'saga',
+        name: 'Saga',
+        description: [
+          'All newborn survivors gain +2 Courage, Understanding and Hunt XP',
+        ],
       },
-    },
+    ],
   },
   scrap_smelting: {
     id: 'scrap_smelting',
@@ -616,17 +617,16 @@ export default {
     name: 'Song of the Brave',
     expansion: 'core',
     keywords: ['music', 'drums consequence'],
-    expand: {
-      bonuses: {
-        song_of_the_brave: {
-          name: 'Song of the Brave',
-          description: [
-            'On arrival each non-deaf survivor may remove 1 negative attribute token',
-            'During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave',
-          ],
-        },
+    providesBonuses: [
+      {
+        id: 'song_of_the_brave',
+        name: 'Song of the Brave',
+        description: [
+          'On arrival each non-deaf survivor may remove 1 negative attribute token',
+          'During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave',
+        ],
       },
-    },
+    ],
   },
   storytelling: {
     id: 'storytelling',
@@ -650,17 +650,18 @@ export default {
     name: 'Symposium',
     expansion: 'core',
     keywords: ['education', 'language consequence'],
+    providesBonuses: [
+      {
+        id: 'symposium',
+        name: 'Symposium',
+        description: [
+          'When a survivor innovates, draw an additional 2 innovation cards to choose from',
+        ],
+      },
+    ],
     expand: {
       settlement: {
         survival: 1,
-      },
-      bonuses: {
-        symposium: {
-          name: 'Symposium',
-          description: [
-            'When a survivor innovates, draw an additional 2 innovation cards to choose from',
-          ],
-        },
       },
     },
   },
@@ -669,17 +670,18 @@ export default {
     name: 'Ultimate Weapon',
     expansion: 'core',
     keywords: ['science'],
+    providesBonuses: [
+      {
+        id: 'ultimate_weapon',
+        name: 'Ultimate Weapon',
+        description: [
+          'When you defeat a monster, gain 1 monster resource of your choice',
+        ],
+      },
+    ],
     expand: {
       settlement: {
         survival_limit: 1,
-      },
-      bonuses: {
-        ultimate_weapon: {
-          name: 'Ultimate Weapon',
-          description: [
-            'When you defeat a monster, gain 1 monster resource of your choice',
-          ],
-        },
       },
     },
   },
