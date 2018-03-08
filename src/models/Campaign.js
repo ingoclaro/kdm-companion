@@ -4,6 +4,7 @@ import { SettlementLocation } from './SettlementLocation'
 import { Innovation } from './Innovation'
 import { Bonus } from './Bonus'
 import { Endeavor } from './Endeavor'
+import { Resource } from './Resource'
 
 const Settlement = types
   .model('Settlement', {
@@ -14,6 +15,12 @@ const Settlement = types
       self.name = name
     },
   }))
+
+const StoredResource = types.model('StoredResource', {
+  id: types.identifier(types.string),
+  resource: types.reference(Resource),
+  quantity: 0,
+})
 
 export const Campaign = types
   .model('Campaign', {
@@ -26,6 +33,7 @@ export const Campaign = types
     innovations: types.optional(types.map(types.reference(Innovation)), {}),
     bonuses: types.optional(types.map(Bonus), {}),
     endeavors: types.optional(types.map(Endeavor), {}),
+    stored_resources: types.optional(types.map(StoredResource), {}),
     // expansions: types.array(Expansion),
     // survivors: types.array(Survivor),
   })
@@ -67,6 +75,18 @@ export const Campaign = types
     },
     removeEndeavor(endeavor) {
       self.endeavors.delete(endeavor.id)
+    },
+    setResourceCount(resource, count) {
+      if (self.stored_resources.get(resource.id)) {
+        self.stored_resources.get(resource.id).quantity = count
+      } else {
+        // create a new entry
+        self.stored_resources.put({
+          id: resource.id,
+          resource: resource.id,
+          quantity: count,
+        })
+      }
     },
   }))
   .views(self => ({

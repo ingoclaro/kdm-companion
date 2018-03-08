@@ -104,7 +104,6 @@ export default class Accordion extends React.Component {
 Accordion.propTypes = {
   data: PropTypes.array.isRequired,
   title: PropTypes.string,
-  sections: PropTypes.object, // this is only required if no renderHeader is provided
   renderContent: PropTypes.func, // @params: item
   renderHeader: PropTypes.func, // @params: section_id, isActive
 }
