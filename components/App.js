@@ -3,6 +3,7 @@ import { AppState } from 'react-native'
 import { StyleProvider } from '@shoutem/theme'
 import theme from '../src/theme'
 import { Provider } from 'mobx-react'
+import { getSnapshot } from 'mobx-state-tree'
 import PropTypes from 'prop-types'
 import Navigator from './Navigator'
 

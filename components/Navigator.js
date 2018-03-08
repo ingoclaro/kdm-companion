@@ -14,7 +14,7 @@ import SettlementsScreen from '../screens/SettlementsScreen'
 // Settlement
 import SummaryScreen from '../screens/SummaryScreen'
 import BonusesScreen from '../screens/BonusesScreen'
-// import EndeavorsScreen from '../screens/EndeavorsScreen'
+import EndeavorsScreen from '../screens/EndeavorsScreen'
 // import ResourcesScreen from '../screens/ResourcesScreen'
 
 // Hunt
@@ -73,9 +73,9 @@ const SettlementNavigator = TabNavigator(
     Bonuses: {
       screen: BonusesScreen,
     },
-    // Endeavors: {
-    //   screen: EndeavorsScreen,
-    // },
+    Endeavors: {
+      screen: EndeavorsScreen,
+    },
     // Resources: {
     //   screen: ResourcesScreen,
     // },

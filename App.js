@@ -3,7 +3,7 @@ import { Platform, StatusBar } from 'react-native'
 import Expo, { AppLoading } from 'expo'
 import Application from './components/App'
 
-import { RootStore } from './src/models/RootStore'
+import RootStore from './src/models/RootStore'
 
 export default class App extends React.Component {
   constructor(props) {

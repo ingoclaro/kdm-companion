@@ -7,10 +7,7 @@ export function lateSettlementLocation() {
     id: types.identifier(types.string),
     name: types.string,
     expansion: types.reference(Expansion),
-    providesEndeavors: types.optional(
-      types.array(types.late(lateEndeavor)),
-      []
-    ),
+    endeavors: types.optional(types.array(types.late(lateEndeavor)), []),
   })
 }
 

@@ -97,6 +97,8 @@ export default class Settlements extends React.Component {
       <View>
         {this.props.store.campaigns.length > 0 ? this.select() : null}
         {this.props.store.selectedCampaign ? this.update() : null}
+        <Divider />
+        <Divider />
         {this.create()}
       </View>
     )

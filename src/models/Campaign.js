@@ -3,11 +3,11 @@ import { types, getSnapshot } from 'mobx-state-tree'
 import { SettlementLocation } from './SettlementLocation'
 import { Innovation } from './Innovation'
 import { Bonus } from './Bonus'
-// import { Endeavor } from './Endeavor'
+import { Endeavor } from './Endeavor'
 
 const Settlement = types
   .model('Settlement', {
-    name: 'New Settlement',
+    name: types.string,
   })
   .actions(self => ({
     updateName(name) {
@@ -18,23 +18,29 @@ const Settlement = types
 export const Campaign = types
   .model('Campaign', {
     id: types.identifier(types.string),
-    settlement: Settlement,
+    settlement: types.optional(Settlement, { name: 'New Settlement' }),
     locations: types.optional(
       types.map(types.reference(SettlementLocation)),
       {}
     ),
     innovations: types.optional(types.map(types.reference(Innovation)), {}),
     bonuses: types.optional(types.map(Bonus), {}),
-    // endeavors: types.array(Endeavor),
+    endeavors: types.optional(types.map(Endeavor), {}),
     // expansions: types.array(Expansion),
     // survivors: types.array(Survivor),
   })
   .actions(self => ({
     selectLocation(location) {
       if (self.locations.has(location.id)) {
+        self.locations.get(locations.id).endeavors.forEach(endeavor => {
+          self.removeEndeavor(getSnapshot(endeavor))
+        })
         self.locations.delete(location.id)
       } else {
         self.locations.set(location.id, location.id)
+        self.locations.get(location.id).endeavors.forEach(endeavor => {
+          self.addEndeavor(getSnapshot(endeavor))
+        })
       }
     },
     selectInnovation(innovation) {
@@ -55,6 +61,12 @@ export const Campaign = types
     },
     removeBonus(bonus) {
       self.bonuses.delete(bonus.id)
+    },
+    addEndeavor(endeavor) {
+      self.endeavors.put(endeavor)
+    },
+    removeEndeavor(endeavor) {
+      self.endeavors.delete(endeavor.id)
     },
   }))
   .views(self => ({
