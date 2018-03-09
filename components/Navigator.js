@@ -27,10 +27,10 @@ import ResultScreen from '../screens/ResultScreen'
 
 const ShowdownNavigator = TabNavigator(
   {
-    Terrain: {
+    Setup: {
       screen: BlankScreen, //TerrainScreen,
       navigationOptions: {
-        tabBarLabel: 'Terrain',
+        tabBarLabel: 'Setup',
       },
     },
     Fight: {

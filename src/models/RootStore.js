@@ -4,12 +4,14 @@ import { Campaign } from './Campaign'
 import { Innovation } from './Innovation'
 import { Resource } from './Resource'
 import { Monster } from './Monster'
+import { Gear } from './Gear'
 import { uuid } from '../utils'
 
 import locationsData from '../data/settlement_locations'
 import innovationsData from '../data/innovations'
 import resourceData from '../data/resources'
 import monsterData from '../data/monsters'
+import gearData from '../data/gear'
 
 export default types
   .model({
@@ -17,7 +19,7 @@ export default types
     innovations: types.optional(types.map(Innovation), innovationsData),
     resources: types.optional(types.map(Resource), resourceData),
     monsters: types.optional(types.map(Monster), monsterData),
-    // gear: types.map(Gear),
+    gear: types.optional(types.map(Gear), gearData),
     // principles: types.map(Principle),
     // expansions: types.map(Expansion),
     campaigns: types.optional(types.array(Campaign), [
