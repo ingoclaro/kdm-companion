@@ -18,61 +18,79 @@ import R from 'ramda'
 
 import colors from '../src/colors'
 
-const types = {
-  basic: {
-    name: 'Basic',
-  },
-  strange: {
-    name: 'Strange',
-  },
-  vermin: {
-    name: 'Vermin',
-  },
-}
+function resources_structure(global_resources, settlement_resources) {
+  const sections = {
+    basic: {
+      id: 'basic',
+      title: 'Basic',
+      count: 0,
+      data: [],
+    },
+    strange: {
+      id: 'strange',
+      title: 'Strange',
+      count: 0,
+      data: [],
+    },
+    vermin: {
+      id: 'vermin',
+      title: 'Vermin',
+      count: 0,
+      data: [],
+    },
+    white_lion: {
+      id: 'white_lion',
+      title: 'White Lion',
+      count: 0,
+      data: [],
+    },
+    screaming_antelope: {
+      id: 'screaming_antelope',
+      title: 'Screaming Antelope',
+      count: 0,
+      data: [],
+    },
+    phoenix: {
+      id: 'phoenix',
+      title: 'Phoenix',
+      count: 0,
+      data: [],
+    },
+  }
 
-// function resources_structure(global_resources) {
-//   let items = R.groupBy(R.prop('section'))(global_resources.values())
-//   items = Array.from(Object.entries(items), v => ({
-//     id: v[0],
-//     title: types[v[0]] ? types[v[0]].name : v[0],
-//     data: v[1],
-//   }))
-//   return items
-// }
-
-function resources_structure(global_resources) {
-  let items = R.groupBy(R.prop('section'))(global_resources.values())
-  items = Array.from(Object.entries(items), v => ({
-    id: v[0],
-    title: types[v[0]] ? types[v[0]].name : v[0],
-    data: v[1],
-  }))
-  return items
-}
-
-function sectionCounts(stored_resources) {
-  return R.reduce(
+  const data = R.reduce(
     (acc, value) => {
+      if (!value.section_id || !sections[value.section_id]) {
+        return acc
+      }
+
+      let stored_resource = settlement_resources.get(value.id)
+      let amount = stored_resource ? stored_resource.quantity : 0
+      let key = value.section_id
+
       return {
         ...acc,
-        [value.resource.section]:
-          (acc[value.resource.section] || 0) + value.quantity,
+        [key]: {
+          ...acc[key],
+          count: acc[key].count + amount,
+          data: [...acc[key].data, value],
+        },
       }
     },
-    {},
-    stored_resources
+    sections,
+    global_resources.values()
   )
+
+  return Object.values(data)
 }
 
 @inject(({ store }) => ({
-  resources: resources_structure(store.resources),
-  stored_resources: store.selectedCampaign
-    ? store.selectedCampaign.stored_resources
-    : {},
-  setResourceCount: store.selectedCampaign.setResourceCount,
-  sectionCounts: sectionCounts(
-    store.selectedCampaign.stored_resources.values()
+  resources: resources_structure(
+    store.resources,
+    store.selectedCampaign.stored_resources
   ),
+  stored_resources: store.selectedCampaign.stored_resources,
+  setResourceCount: store.selectedCampaign.setResourceCount,
 }))
 @observer
 export default class Resources extends React.Component {
@@ -82,6 +100,7 @@ export default class Resources extends React.Component {
     this._renderHeader = this._renderHeader.bind(this)
   }
 
+  //TODO: this isn't re-rendered when counts change :(
   _renderHeader(section, isActive) {
     let icon = isActive ? (
       <Icon name="up-arrow" style={styles.headerArrow} />
@@ -89,7 +108,7 @@ export default class Resources extends React.Component {
       <Icon name="down-arrow" style={styles.headerArrow} />
     )
 
-    let number_of_resources = this.props.sectionCounts[section.id] || 0
+    let number_of_resources = section.count
 
     return (
       <Row>
@@ -153,12 +172,6 @@ Resources.wrappedComponent.propTypes = {
   //   },
   // ],
   stored_resources: PropTypes.object.isRequired,
-  section_resource_count: PropTypes.object.isRequired,
-  // Structure:
-  // {
-  //   'Basic': 12, // name of section/type : number of resources
-  //   // ...
-  // }
   setResourceCount: PropTypes.func.isRequired, // (resource, count)
 }
 

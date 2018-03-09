@@ -16,8 +16,14 @@ const Resource = types
     get name() {
       return capitalize(self.id)
     },
-    get section() {
-      return self.monster ? self.monster.name : self.type
+    get section_id() {
+      let id = null
+      if (self.monster) {
+        id = self.monster.id
+      } else if (self.type) {
+        id = self.type
+      }
+      return id
     },
   }))
 

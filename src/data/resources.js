@@ -1,17 +1,4 @@
 export default {
-  //TODO: check if this are resources or gear. Update Settlement Location accordingly for recipes to point to gear.
-  'white lion mask': {
-    id: 'white lion mask',
-  },
-  'antelope mask': {
-    id: 'antelope mask',
-  },
-  'phoenix mask': {
-    id: 'phoenix mask',
-  },
-  'final lantern': {
-    id: 'final lantern',
-  },
   endeavor: {
     id: 'endeavor',
     type: 'endeavor',
