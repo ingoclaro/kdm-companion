@@ -1,10 +1,9 @@
 export default {
   final_lantern: {
-    //TODO: is this a reasource or an innovation?
+    //TODO: is this a gear or an innovation?
     id: 'final_lantern',
     name: 'Final Lantern',
     expansion: 'core',
-    recipes: [],
   },
   white_lion_mask: {
     id: 'white_lion_mask',

@@ -42,6 +42,7 @@ class ThemedApp extends React.Component {
   }
 
   render() {
+    // console.log('store', getSnapshot(this.props.store))
     return (
       <StyleProvider style={theme}>
         <Provider store={this.props.store}>

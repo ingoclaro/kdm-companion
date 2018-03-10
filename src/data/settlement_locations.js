@@ -321,7 +321,7 @@ export default {
           location: 'mask_maker',
           items: [
             { resource: 'endeavor', quantity: 1 },
-            { resource: 'white lion mask', quantity: 1 },
+            { gear: 'white_lion_mask', quantity: 1 },
           ],
         },
       },
@@ -333,7 +333,7 @@ export default {
           location: 'mask_maker',
           items: [
             { resource: 'endeavor', quantity: 1 },
-            { resource: 'antelope mask', quantity: 1 },
+            { gear: 'antelope_mask', quantity: 1 },
           ],
         },
       },
@@ -345,7 +345,7 @@ export default {
           location: 'mask_maker',
           items: [
             { resource: 'endeavor', quantity: 1 },
-            { resource: 'phoenix mask', quantity: 1 },
+            { gear: 'phoenix_mask', quantity: 1 },
           ],
         },
       },
@@ -364,7 +364,7 @@ export default {
           location: 'exhausted_lantern_hoard',
           items: [
             { resource: 'endeavor', quantity: 2 },
-            { resource: 'final lantern', quantity: 1 },
+            { gear: 'final_lantern', quantity: 1 },
           ],
         },
       },
@@ -385,7 +385,7 @@ export default {
           location: 'exhausted_lantern_hoard',
           items: [
             { resource: 'endeavor', quantity: 1 },
-            { resource: 'final lantern', quantity: 1 },
+            { gear: 'final_lantern', quantity: 1 },
           ],
         },
       },

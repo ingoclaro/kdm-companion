@@ -21,8 +21,7 @@ export default class Endeavors extends React.Component {
         <Text style={styles.recipe}>
           {item.recipe.items
             .map(item => {
-              let name = item.resource ? item.resource.id : item.keyword
-              return `${item.quantity} x ${name}`
+              return `${item.quantity} x ${item.name}`
             })
             .join(', ')}
         </Text>
