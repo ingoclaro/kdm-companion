@@ -1,8 +1,11 @@
 import React from 'react'
 import { Screen, View, Text, Image, DropDownMenu } from '@shoutem/ui'
+import { observer, inject } from 'mobx-react/native'
 
 import MonsterSelector from './MonsterSelector'
 
+@inject(({ store }) => ({}))
+@observer
 class Hunt extends React.Component {
   render() {
     return (

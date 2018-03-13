@@ -10,6 +10,7 @@ import {
 } from '@shoutem/ui'
 
 import Hunt from '../components/Hunt'
+import Survival from '../components/Survival'
 
 export default class HuntScreen extends React.Component {
   render() {
@@ -20,10 +21,7 @@ export default class HuntScreen extends React.Component {
           justifyContent: 'center',
         }}
       >
-        <Title>Survival</Title>
-        <Subtitle>Departing: +2. Limit: 3</Subtitle>
-        <Caption>+1 for Language</Caption>
-        <Caption>+1 for YYYY</Caption>
+        <Survival />
         <Divider />
         <Hunt />
       </Screen>

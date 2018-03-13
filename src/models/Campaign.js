@@ -1,20 +1,10 @@
-//TODO
 import { types, getSnapshot } from 'mobx-state-tree'
 import { SettlementLocation } from './SettlementLocation'
 import { Innovation } from './Innovation'
 import { Bonus } from './Bonus'
 import { Endeavor } from './Endeavor'
 import { Resource } from './Resource'
-
-const Settlement = types
-  .model('Settlement', {
-    name: types.string,
-  })
-  .actions(self => ({
-    updateName(name) {
-      self.name = name
-    },
-  }))
+import { Settlement } from './Settlement'
 
 const StoredResource = types.model('StoredResource', {
   id: types.identifier(types.string),
@@ -40,28 +30,50 @@ export const Campaign = types
   .actions(self => ({
     selectLocation(location) {
       if (self.locations.has(location.id)) {
-        self.locations.get(locations.id).endeavors.forEach(endeavor => {
+        // process extensions
+        let loc = self.locations.get(location.id)
+        loc.endeavors.forEach(endeavor => {
           self.removeEndeavor(getSnapshot(endeavor))
         })
         self.locations.delete(location.id)
       } else {
         self.locations.set(location.id, location.id)
-        self.locations.get(location.id).endeavors.forEach(endeavor => {
+        // process extensions
+        let loc = self.locations.get(location.id)
+        loc.endeavors.forEach(endeavor => {
           self.addEndeavor(getSnapshot(endeavor))
         })
       }
     },
     selectInnovation(innovation) {
       if (self.innovations.has(innovation.id)) {
-        self.innovations.get(innovation.id).providesBonuses.forEach(bonus => {
+        // process extensions
+        let inno = self.innovations.get(innovation.id)
+        inno.providesBonuses.forEach(bonus => {
           self.removeBonus(getSnapshot(bonus))
         })
+        inno.endeavors.forEach(endeavor => {
+          self.removeEndeavor(getSnapshot(endeavor))
+        })
+        if (inno.providesSurvival) {
+          self.settlement.survival.remove(getSnapshot(inno.providesSurvival))
+        }
+
         self.innovations.delete(innovation.id)
       } else {
         self.innovations.set(innovation.id, innovation.id)
-        self.innovations.get(innovation.id).providesBonuses.forEach(bonus => {
+
+        // process extensions
+        let inno = self.innovations.get(innovation.id)
+        inno.providesBonuses.forEach(bonus => {
           self.addBonus(getSnapshot(bonus))
         })
+        inno.endeavors.forEach(endeavor => {
+          self.addEndeavor(getSnapshot(endeavor))
+        })
+        if (inno.providesSurvival) {
+          self.settlement.survival.add(getSnapshot(inno.providesSurvival))
+        }
       }
     },
     addBonus(bonus) {

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Platform, StatusBar } from 'react-native'
 import { TabNavigator, StackNavigator, DrawerNavigator } from 'react-navigation'
-import { View, Button, Icon, Image, Text, NavigationBar } from '@shoutem/ui'
+import TabBar from './TabBar'
+import { View, Button, Icon, Image, Text } from '@shoutem/ui'
 import Expo from 'expo'
 import colors from '../src/colors'
 
@@ -144,7 +145,7 @@ const MainNavigator = TabNavigator(
       },
     },
     Hunt: {
-      screen: BlankScreen, //HuntScreen,
+      screen: HuntScreen, //HuntScreen,
       navigationOptions: {
         tabBarLabel: 'Hunt',
         tabBarIcon: icon(require('../images/icon_hunt.png')),
@@ -163,6 +164,7 @@ const MainNavigator = TabNavigator(
     tabBarPosition: 'bottom',
     animationEnabled: false, //Platform.OS === 'android' ? false : true,
     swipeEnabled: false,
+    tabBarComponent: TabBar,
     tabBarOptions: {
       showIcon: true,
       showLabel: true,
