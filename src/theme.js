@@ -28,9 +28,10 @@ const themeVariables = {
     color: colors.grey900,
   },
 
-  // navBarText: {
-  //   color: '#222222',
-  // },
+  navBarText: {
+    color: colors.color50,
+  },
+  navBarBackground: colors.grey900,
 
   // featuredColor: '#659CEC',
   // shadowColor: 'rgba(0, 0, 0, 0.1)',
@@ -46,7 +47,7 @@ const themeVariables = {
   // imageOverlayColor: 'rgba(0, 0, 0, 0.2)',
   // tagOverlayColor: 'rgba(0, 0, 0, 0.7)',
   //
-  // navBarBackground: '#FFFFFF',
+
   //
   // featuredNavBarTitleColor: '#ffffff',
   //

@@ -2,9 +2,11 @@ import React from 'react'
 import { Platform, StatusBar } from 'react-native'
 import { TabNavigator, StackNavigator, DrawerNavigator } from 'react-navigation'
 import TabBar from './TabBar'
-import { View, Button, Icon, Image, Text } from '@shoutem/ui'
+import { Image } from '@shoutem/ui'
 import Expo from 'expo'
 import colors from '../src/colors'
+import { observer, inject } from 'mobx-react/native'
+import Header from './Header'
 
 //tmp
 import BlankScreen from '../screens/BlankScreen'
@@ -56,9 +58,9 @@ const ShowdownNavigator = TabNavigator(
     tabBarOptions: {
       upperCaseLabel: false,
       activeTintColor: colors.grey50,
-      inactiveTintColor: colors.grey600,
+      inactiveTintColor: colors.grey50,
       style: {
-        backgroundColor: colors.black,
+        backgroundColor: colors.grey900,
         height: 40,
         // paddingTop: 4,
         // Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
@@ -91,12 +93,18 @@ const SettlementNavigator = TabNavigator(
       showIcon: false,
       upperCaseLabel: false,
       activeTintColor: colors.grey50,
-      inactiveTintColor: colors.grey600,
+      inactiveTintColor: colors.grey50,
       style: {
-        backgroundColor: colors.black,
+        backgroundColor: colors.grey900,
         height: 40,
-        // paddingTop: 4,
+        // paddingTop: -20,
         //   Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
+      },
+      tabStyle: {
+        height: 30,
+      },
+      indicatorStyle: {
+        // paddingTop: -20,
       },
     },
   }
@@ -126,10 +134,10 @@ const CampaignNavigator = TabNavigator(
       showIcon: false,
       upperCaseLabel: false,
       activeTintColor: colors.grey50,
-      inactiveTintColor: colors.grey600,
+      inactiveTintColor: colors.grey50,
       style: {
-        backgroundColor: colors.black,
-        height: 40,
+        backgroundColor: colors.grey900,
+        // height: 40,
         // paddingTop: 4,
         //   Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
       },
@@ -139,13 +147,13 @@ const CampaignNavigator = TabNavigator(
 
 const MainNavigator = TabNavigator(
   {
-    Campaign: {
-      screen: CampaignNavigator,
-      navigationOptions: {
-        tabBarLabel: 'Campaign',
-        tabBarIcon: icon(require('../images/icon_lantern.png')),
-      },
-    },
+    // Campaign: {
+    //   screen: CampaignNavigator,
+    //   navigationOptions: {
+    //     tabBarLabel: 'Campaign',
+    //     tabBarIcon: icon(require('../images/icon_lantern.png')),
+    //   },
+    // },
     Survivors: {
       screen: BlankScreen,
       navigationOptions: {
@@ -196,13 +204,29 @@ const MainNavigator = TabNavigator(
         bottom: -10,
       },
       style: {
-        backgroundColor: colors.black,
+        backgroundColor: colors.grey900,
         height: 75,
       },
       tabStyle: {
         paddingHorizontal: 0,
       },
     },
+  }
+)
+
+const MainNavigatorHeader = StackNavigator(
+  {
+    Main: {
+      screen: MainNavigator,
+    },
+    Campaign: {
+      screen: CampaignNavigator,
+    },
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      header: <Header navigation={navigation} />,
+    }),
   }
 )
 
@@ -224,5 +248,5 @@ function icon(image) {
   }
 }
 
-export default MainNavigator
+export default MainNavigatorHeader
 // export default SettlementNavigator

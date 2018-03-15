@@ -2,7 +2,7 @@ import React from 'react'
 import { Platform, StatusBar } from 'react-native'
 import Expo, { AppLoading } from 'expo'
 import Application from './components/App'
-
+import colors from './src/colors'
 import RootStore from './src/models/RootStore'
 
 export default class App extends React.Component {
@@ -10,6 +10,7 @@ export default class App extends React.Component {
     super(props)
     // StatusBar.setBarStyle('light-content')
     // StatusBar.setHidden(false)
+    StatusBar.setBackgroundColor(colors.grey900)
 
     this._cacheResourcesAsync = this._cacheResourcesAsync.bind(this)
   }
