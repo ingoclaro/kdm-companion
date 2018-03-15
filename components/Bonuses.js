@@ -7,7 +7,7 @@ import colors from '../src/colors'
 import R from 'ramda'
 
 @inject(({ store }) => ({
-  data: store.selectedCampaign ? store.selectedCampaign.bonuses.values() : [],
+  data: store.selectedCampaign.bonuses.values(),
 }))
 @observer
 export default class Bonuses extends React.Component {

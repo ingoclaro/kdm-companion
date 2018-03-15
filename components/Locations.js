@@ -14,12 +14,8 @@ import { observer, inject } from 'mobx-react/native'
       return 1
     }
   }),
-  selectedItems: store.selectedCampaign
-    ? store.selectedCampaign.locations.toJS()
-    : {},
-  toggle: store.selectedCampaign
-    ? store.selectedCampaign.selectLocation
-    : () => null,
+  selectedItems: store.selectedCampaign.locations.toJS(),
+  toggle: store.selectedCampaign.selectLocation,
 }))
 @observer
 export default class Locations extends React.Component {

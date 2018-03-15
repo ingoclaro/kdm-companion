@@ -5,6 +5,7 @@ import { Bonus } from './Bonus'
 import { Endeavor } from './Endeavor'
 import { Resource } from './Resource'
 import { Settlement } from './Settlement'
+import { Expansion } from './Expansion'
 
 const StoredResource = types.model('StoredResource', {
   id: types.identifier(types.string),
@@ -24,7 +25,9 @@ export const Campaign = types
     bonuses: types.optional(types.map(Bonus), {}),
     endeavors: types.optional(types.map(Endeavor), {}),
     stored_resources: types.optional(types.map(StoredResource), {}),
-    // expansions: types.array(Expansion),
+    expansions: types.optional(types.map(types.reference(Expansion)), {
+      core: 'core',
+    }),
     // survivors: types.array(Survivor),
   })
   .actions(self => ({
@@ -74,6 +77,16 @@ export const Campaign = types
         if (inno.providesSurvival) {
           self.settlement.survival.add(getSnapshot(inno.providesSurvival))
         }
+      }
+    },
+    selectExpansion(expansion) {
+      if (expansion.id === 'core') {
+        return
+      }
+      if (self.expansions.has(expansion.id)) {
+        self.expansions.delete(expansion.id)
+      } else {
+        self.expansions.set(expansion.id, expansion.id)
       }
     },
     addBonus(bonus) {

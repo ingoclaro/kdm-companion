@@ -11,6 +11,7 @@ import BlankScreen from '../screens/BlankScreen'
 
 // Campaign
 import SettlementsScreen from '../screens/SettlementsScreen'
+import ExpansionsScreen from '../screens/ExpansionsScreen'
 
 // Settlement
 import SummaryScreen from '../screens/SummaryScreen'
@@ -101,7 +102,7 @@ const SettlementNavigator = TabNavigator(
   }
 )
 
-const CampaignNavigator = StackNavigator(
+const CampaignNavigator = TabNavigator(
   {
     Settlements: {
       screen: SettlementsScreen,
@@ -109,14 +110,29 @@ const CampaignNavigator = StackNavigator(
         title: 'Settlement Name',
       },
     },
+    Expansions: {
+      screen: ExpansionsScreen,
+      navigationOptions: {
+        title: 'Expansions',
+      },
+    },
   },
   {
-    navigationOptions: {
-      gesturesEnabled: false,
-      headerStyle: {
+    tabBarPosition: 'top',
+    animationEnabled: true,
+    swipeEnabled: true,
+    lazy: true,
+    tabBarOptions: {
+      showIcon: false,
+      upperCaseLabel: false,
+      activeTintColor: colors.grey50,
+      inactiveTintColor: colors.grey600,
+      style: {
         backgroundColor: colors.black,
+        height: 40,
+        // paddingTop: 4,
+        //   Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
       },
-      headerTintColor: colors.grey50,
     },
   }
 )

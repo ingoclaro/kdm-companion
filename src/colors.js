@@ -11,4 +11,6 @@ export default {
   grey900: '#212121',
   black: '#000000',
   white: '#FFFFFF',
+  red800: '#C62828',
+  red900: '#B71C1C',
 }

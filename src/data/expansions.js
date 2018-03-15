@@ -1,1 +1,15 @@
-export default { core: { id: 'core', name: 'core' } }
+export default {
+  core: { id: 'core', name: 'Core' },
+  dbk: { id: 'dbk', name: 'Dunk Bettle Knight' },
+  dk: { id: 'dk', name: 'Dragon King' },
+  fk: { id: 'fk', name: 'Flower Knight' },
+  gka: { id: 'gka', name: 'Green Knight Armor' },
+  gorm: { id: 'gorm', name: 'Gorm' },
+  lg: { id: 'lg', name: 'Lion God' },
+  lk: { id: 'lk', name: 'Lion Knight' },
+  lt: { id: 'lt', name: 'Lonely Tree' },
+  manhunter: { id: 'manhunter', name: 'Manhunter' },
+  slenderman: { id: 'slenderman', name: 'Slenderman' },
+  spidicules: { id: 'spidicules', name: 'Spidicules' },
+  sunstalker: { id: 'sunstalker', name: 'Sunstalker' },
+}

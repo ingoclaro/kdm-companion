@@ -13,12 +13,8 @@ import { observer, inject } from 'mobx-react/native'
       return 1
     }
   }),
-  selectedItems: store.selectedCampaign
-    ? store.selectedCampaign.innovations.toJS()
-    : {},
-  toggle: store.selectedCampaign
-    ? store.selectedCampaign.selectInnovation
-    : () => null,
+  selectedItems: store.selectedCampaign.innovations.toJS(),
+  toggle: store.selectedCampaign.selectInnovation,
 }))
 @observer
 export default class Innovations extends React.Component {

@@ -13,77 +13,29 @@ import {
   TextInput,
 } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
-
 import colors from '../src/colors'
 
-@inject('store')
+@inject(({ store }) => ({
+  campaigns: store.campaigns.peek(),
+  selectedCampaign: store.selectedCampaign,
+  selectCampaign: store.selectCampaign,
+  campaignName: store.selectedCampaign.name, // map it so that it redraws when renaming.
+}))
 @observer
-export default class Settlements extends React.Component {
+export class SettlementSelector extends React.Component {
   constructor(props) {
     super(props)
   }
 
-  state = {
-    createName: null,
-    editName: null,
-  }
-
-  create() {
-    return (
-      <View>
-        <Title>Create new Settlement:</Title>
-        <TextInput
-          placeholder={'Settlement name'}
-          onChangeText={name => this.setState({ createName: name })}
-          value={this.state.createName}
-        />
-        <Divider />
-        <Button
-          onPress={() => {
-            this.props.store.createCampaign(this.state.createName)
-            this.setState({ createName: null, editName: this.state.createName })
-          }}
-        >
-          <Text>Create</Text>
-        </Button>
-      </View>
-    )
-  }
-
-  update() {
-    return (
-      <View>
-        <Title>Update Name:</Title>
-        <TextInput
-          placeholder={'Settlement name'}
-          onChangeText={name => this.setState({ editName: name })}
-          value={this.state.editName}
-        />
-        <Divider />
-        <Button
-          onPress={() => {
-            this.props.store.selectedCampaign.settlement.updateName(
-              this.state.editName
-            )
-            this.forceUpdate()
-          }}
-        >
-          <Text>Update</Text>
-        </Button>
-      </View>
-    )
-  }
-
-  select() {
+  render() {
     return (
       <View>
         <Title>Select a Settlement:</Title>
         <DropDownMenu
-          options={this.props.store.campaigns.peek()}
-          selectedOption={this.props.store.selectedCampaign}
+          options={this.props.campaigns}
+          selectedOption={this.props.selectedCampaign}
           onOptionSelected={selected => {
-            this.props.store.selectCampaign(selected.id)
-            this.setState({ editName: selected.name })
+            this.props.selectCampaign(selected.id)
           }}
           titleProperty="name"
           valueProperty="id"
@@ -91,16 +43,95 @@ export default class Settlements extends React.Component {
       </View>
     )
   }
+}
+
+@inject(({ store }) => ({
+  updateName: store.selectedCampaign.settlement.updateName,
+  name: store.selectedCampaign.settlement.name,
+}))
+@observer
+export class EditSettlement extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state.editName = this.props.name
+  }
+
+  state = {
+    editName: null,
+  }
 
   render() {
     return (
       <View>
-        {this.props.store.campaigns.length > 0 ? this.select() : null}
-        {this.props.store.selectedCampaign ? this.update() : null}
+        <Title>Update Settlement Name:</Title>
+        <Divider styleName="line" />
         <Divider />
+        <TextInput
+          placeholder={'Settlement name'}
+          onChangeText={name => this.setState({ editName: name })}
+          value={this.state.editName}
+          style={styles.input}
+        />
         <Divider />
-        {this.create()}
+        <Button
+          onPress={() => {
+            this.props.updateName(this.state.editName)
+            if (this.props.onUpdate) {
+              this.props.onUpdate()
+            }
+          }}
+        >
+          <Text>Update</Text>
+        </Button>
       </View>
     )
   }
+}
+
+@inject(({ store }) => ({
+  createCampaign: store.createCampaign,
+}))
+@observer
+export class CreateSettlement extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  state = {
+    createName: null,
+  }
+
+  render() {
+    return (
+      <View>
+        <Title>Create new Settlement:</Title>
+        <Divider styleName="line" />
+        <Divider />
+        <TextInput
+          placeholder={'Settlement name'}
+          onChangeText={name => this.setState({ createName: name })}
+          value={this.state.createName}
+          style={styles.input}
+        />
+        <Divider />
+        <Button
+          onPress={() => {
+            this.props.createCampaign(this.state.createName)
+            this.setState({ createName: null })
+            if (this.props.onCreate) {
+              this.props.onCreate()
+            }
+          }}
+        >
+          <Text>Create</Text>
+        </Button>
+      </View>
+    )
+  }
+}
+
+const styles = {
+  input: {
+    backgroundColor: colors.grey800,
+  },
 }
