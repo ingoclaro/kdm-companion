@@ -130,8 +130,47 @@ export class CreateSettlement extends React.Component {
   }
 }
 
+@inject(({ store }) => ({
+  delete: store.deleteCampaign,
+  campaign: store.selectedCampaign,
+}))
+@observer
+export class DeleteSettlement extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+      <View>
+        <Title>Delete settlement?</Title>
+        <Divider styleName="line" />
+        <Divider />
+        <Text>
+          Are you sure you want to delete settlement "
+          {this.props.campaign.name}"?
+        </Text>
+        <Text>This will delete all data associated with that Settlement.</Text>
+        <Divider />
+        <Button
+          onPress={() => {
+            this.props.delete(this.props.campaign.id)
+            if (this.props.onDelete) {
+              this.props.onDelete()
+            }
+          }}
+          style={styles.delete}
+        >
+          <Text>DELETE</Text>
+        </Button>
+      </View>
+    )
+  }
+}
+
 const styles = {
-  input: {
-    backgroundColor: colors.grey800,
+  delete: {
+    backgroundColor: colors.red800,
+    borderColor: colors.red900,
   },
 }

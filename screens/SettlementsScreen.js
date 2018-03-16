@@ -6,6 +6,7 @@ import {
   SettlementSelector,
   EditSettlement,
   CreateSettlement,
+  DeleteSettlement,
 } from '../components/Settlements'
 import colors from '../src/colors'
 
@@ -13,6 +14,7 @@ export default class SettlementsScreen extends React.Component {
   state = {
     renameVisible: false,
     createVisible: false,
+    deleteVisible: false,
   }
 
   render() {
@@ -30,15 +32,15 @@ export default class SettlementsScreen extends React.Component {
         <Divider />
 
         <Button onPress={() => this.setState({ createVisible: true })}>
-          <Text>Create</Text>
+          <Text>Create Settlement</Text>
         </Button>
 
         <Divider />
         <Divider />
         <Divider />
 
-        <Button style={styles.delete} onPress={() => {}}>
-          <Text>Delete Campaign</Text>
+        <Button onPress={() => this.setState({ deleteVisible: true })}>
+          <Text>Delete Settlement</Text>
         </Button>
 
         <Modal
@@ -87,6 +89,34 @@ export default class SettlementsScreen extends React.Component {
             <Divider />
 
             <Button onPress={() => this.setState({ createVisible: false })}>
+              <Text>Cancel</Text>
+            </Button>
+          </View>
+        </Modal>
+
+        <Modal
+          isVisible={this.state.deleteVisible}
+          onBackdropPress={() => this.setState({ deleteVisible: false })}
+          onBackButtonPress={() => this.setState({ deleteVisible: false })}
+          useNativeDriver={true}
+          backdropColor={colors.black}
+        >
+          <View
+            style={{
+              backgroundColor: colors.grey900,
+              paddingHorizontal: 15,
+              paddingVertical: 15,
+            }}
+          >
+            <DeleteSettlement
+              onDelete={() => {
+                this.setState({ deleteVisible: false })
+              }}
+            />
+
+            <Divider />
+
+            <Button onPress={() => this.setState({ deleteVisible: false })}>
               <Text>Cancel</Text>
             </Button>
           </View>
