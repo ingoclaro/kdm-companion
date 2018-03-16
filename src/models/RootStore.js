@@ -58,7 +58,7 @@ export default types
     get data() {
       return {
         campaigns: getSnapshot(self.campaigns),
-        selectedCampaign: getSnapshot(self.selectedCampaign),
+        selectedCampaign: self.selectedCampaign.id,
       }
     },
   }))

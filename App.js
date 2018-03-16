@@ -4,6 +4,7 @@ import Expo, { AppLoading } from 'expo'
 import Application from './components/App'
 import colors from './src/colors'
 import RootStore from './src/models/RootStore'
+import { load } from './src/filesystem'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ export default class App extends React.Component {
     // menu images for ios
     images = images.concat([
       require('./images/icon_hunt.png'),
-      require('./images/icon_lantern.png'),
+      // require('./images/icon_lantern.png'),
       require('./images/icon_monster.png'),
       require('./images/icon_settlement.png'),
       require('./images/icon_survivors.png'),
@@ -62,16 +63,7 @@ export default class App extends React.Component {
       cacheImages(images),
     ])
 
-    //TODO hydrate the store
-    // await loadState(store)
-    //   .then(newState => {
-    //     const state = Object.assign(newState, initialGameData)
-    //     this.setState({ store: configureStore(state) })
-    //   })
-    //   .catch(e => {
-    //     console.log('Failed to load previous state.', e)
-    //     this.setState({ store: configureStore(initialGameData) })
-    //   })
+    load(this.state.store)
   }
 }
 

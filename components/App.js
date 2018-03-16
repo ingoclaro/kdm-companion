@@ -5,6 +5,7 @@ import theme from '../src/theme'
 import { Provider } from 'mobx-react'
 import { getSnapshot } from 'mobx-state-tree'
 import PropTypes from 'prop-types'
+import { save } from '../src/filesystem'
 import Navigator from './Navigator'
 
 class ThemedApp extends React.Component {
@@ -27,15 +28,13 @@ class ThemedApp extends React.Component {
       this.state.appState.match(/inactive|background/) &&
       nextAppState === 'active'
     ) {
-      console.log('App has come to the foreground!')
       // do nothing
     }
     if (
       this.state.appState === 'active' &&
       nextAppState.match(/inactive|background/)
     ) {
-      console.log('App has come to the background!')
-      //TODO: save store to disk
+      save(this.props.store)
     }
 
     this.setState({ appState: nextAppState })
