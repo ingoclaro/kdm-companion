@@ -29,7 +29,20 @@ export default class Bonuses extends React.Component {
     )
   }
 
+  empty() {
+    return (
+      <View>
+        <Title>Bonuses</Title>
+        <Text>Add some Innovations to see Bonuses.</Text>
+      </View>
+    )
+  }
+
   render() {
+    if (this.props.data.length === 0) {
+      return this.empty()
+    }
+
     return (
       <ListView
         data={this.props.data}

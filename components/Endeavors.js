@@ -40,14 +40,14 @@ export default class Endeavors extends React.Component {
   _row(item) {
     let source
     if (item.recipe.location) {
-      source = this.props.locations.get(item.recipe.location).name
+      source = `(${this.props.locations.get(item.recipe.location).name})`
     } else if (item.recipe.innovation) {
-      source = item.recipe.innovation.name
+      source = `(${item.recipe.innovation.name})`
     }
     return (
       <View style={styles.endeavor}>
         <Subtitle>
-          {item.name} ({source})
+          {item.name} {source}
         </Subtitle>
         <Text style={styles.recipe}>
           {item.recipe.items
@@ -60,7 +60,20 @@ export default class Endeavors extends React.Component {
     )
   }
 
+  empty() {
+    return (
+      <View>
+        <Title>Endeavors</Title>
+        <Text>Add some Locations or Innovations to see Endeavors.</Text>
+      </View>
+    )
+  }
+
   render() {
+    if (this.props.data.length === 0) {
+      return this.empty()
+    }
+
     return (
       <ListView
         data={this.props.data}
