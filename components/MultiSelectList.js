@@ -43,7 +43,6 @@ class MultiSelectItems extends React.PureComponent {
   render() {
     let keys = Object.keys(this.props.selectedItems || {})
     let selectedItems = keys.filter(item => this.props.selectedItems[item])
-    // .map(item => <Text key={item}>{item}</Text>)
 
     return (
       <View>

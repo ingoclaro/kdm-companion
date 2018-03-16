@@ -29,8 +29,6 @@
     "@shoutem/theme": "^0.11.0",
     "@shoutem/ui": "^0.23.4",
     "expo": "^25.0.0",
-    "kea": "^0.28.2",
-    "kea-thunk": "^0.3.2",
     "mobx": "^3.6.1",
     "mobx-react": "^4.4.2",
     "mobx-state-tree": "^1.3.1",
@@ -41,13 +39,6 @@
       "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
     "react-native-modal": "^5.0.0",
     "react-native-simple-stepper": "^1.18.0",
-    "react-navigation": "^1.2.1",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "redux-storage": "^4.1.2",
-    "redux-storage-decorator-filter": "^1.1.8",
-    "redux-storage-engine-reactnativeasyncstorage": "^1.0.5",
-    "redux-thunk": "^2.2.0",
-    "reselect": "^3.0.1"
+    "react-navigation": "^1.2.1"
   }
 }

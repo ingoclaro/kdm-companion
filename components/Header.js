@@ -24,12 +24,13 @@ export default class Header extends React.Component {
 
   render() {
     let back = this.props.navigation.state.routeName !== 'Main'
+    rightComponent = back ? null : this.button()
 
     return (
       <NavigationBar
         style={styles.header}
         title={this.props.title}
-        rightComponent={this.button()}
+        rightComponent={rightComponent}
         hasHistory={back}
         navigateBack={() => this.props.navigation.goBack()}
       />
@@ -40,7 +41,7 @@ const styles = {
   header: {
     container: {
       position: 'relative',
-      height: 30,
+      height: 35,
     },
   },
 }

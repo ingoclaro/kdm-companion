@@ -100,7 +100,6 @@ export default class Resources extends React.Component {
     this._renderHeader = this._renderHeader.bind(this)
   }
 
-  //TODO: this isn't re-rendered when counts change :(
   _renderHeader(section, isActive) {
     let icon = isActive ? (
       <Icon name="up-arrow" style={styles.headerArrow} />

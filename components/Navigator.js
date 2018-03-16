@@ -29,6 +29,16 @@ import TerrainScreen from '../screens/TerrainScreen'
 import FightScreen from '../screens/FightScreen'
 import ResultScreen from '../screens/ResultScreen'
 
+const styles = {
+  tabBar: {
+    backgroundColor: colors.grey900,
+    height: 35,
+  },
+  tab: {
+    height: 30,
+  },
+}
+
 const ShowdownNavigator = TabNavigator(
   {
     Setup: {
@@ -59,12 +69,8 @@ const ShowdownNavigator = TabNavigator(
       upperCaseLabel: false,
       activeTintColor: colors.grey50,
       inactiveTintColor: colors.grey50,
-      style: {
-        backgroundColor: colors.grey900,
-        height: 40,
-        // paddingTop: 4,
-        // Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
-      },
+      style: styles.tabBar,
+      tabStyle: styles.tab,
     },
   }
 )
@@ -94,18 +100,8 @@ const SettlementNavigator = TabNavigator(
       upperCaseLabel: false,
       activeTintColor: colors.grey50,
       inactiveTintColor: colors.grey50,
-      style: {
-        backgroundColor: colors.grey900,
-        height: 40,
-        // paddingTop: -20,
-        //   Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
-      },
-      tabStyle: {
-        height: 30,
-      },
-      indicatorStyle: {
-        // paddingTop: -20,
-      },
+      style: styles.tabBar,
+      tabStyle: styles.tab,
     },
   }
 )
@@ -135,12 +131,8 @@ const CampaignNavigator = TabNavigator(
       upperCaseLabel: false,
       activeTintColor: colors.grey50,
       inactiveTintColor: colors.grey50,
-      style: {
-        backgroundColor: colors.grey900,
-        // height: 40,
-        // paddingTop: 4,
-        //   Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0, // workaround for https://github.com/react-community/react-navigation/issues/12
-      },
+      style: styles.tabBar,
+      tabStyle: styles.tab,
     },
   }
 )

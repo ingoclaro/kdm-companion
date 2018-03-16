@@ -46,5 +46,3 @@ const styles = {
     },
   },
 }
-
-// export default connectStyle('CheckboxListItem', styles)(CheckboxListItem)

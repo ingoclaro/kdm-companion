@@ -41,64 +41,6 @@ export default class Bonuses extends React.Component {
   }
 }
 
-// Bonuses.wrappedComponent.propTypes = {
-//   data: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       key: PropTypes.string,
-//       name: PropTypes.string,
-//       items: PropTypes.arrayOf(
-//         PropTypes.shape({
-//           key: PropTypes.string,
-//           text: PropTypes.string,
-//         })
-//       ),
-//     })
-//   ).isRequired,
-// }
-
-// const connectedBonuses = kea({
-//   path: () => ['scenes', 'bonuses'],
-//   reducers: ({ actions }) => ({
-//     bonuses: [
-//       {},
-//       PropTypes.object,
-//       {
-//         [constants.ADD_DATA]: (state, payload) => {
-//           return Object.assign({}, state, payload.bonuses)
-//         },
-//         [constants.REMOVE_DATA]: (state, payload) => {
-//           let next = Object.assign({}, state)
-//           Object.keys(payload.bonuses || {}).forEach(key => delete next[key])
-//           return next
-//         },
-//       },
-//     ],
-//   }),
-//   selectors: ({ selectors }) => ({
-//     data: [
-//       () => [selectors.bonuses],
-//       bonuses => {
-//         const bonusesList = Array.from(Object.entries(bonuses), v => ({
-//           id: v[0],
-//           name: v[1].name,
-//           description: v[1].description,
-//         }))
-//
-//         const elements = bonusesList.map(bonus => {
-//           let items = bonus.description.map((text, index) => {
-//             let key = `${bonus.id}-${index}`
-//             return { key, text }
-//           })
-//           return { key: bonus.id, title: bonus.name, items }
-//         })
-//
-//         return elements
-//       },
-//       PropTypes.object,
-//     ],
-//   }),
-// })(Bonuses)
-
 const styles = {
   bonusText: {
     color: colors.grey500,
