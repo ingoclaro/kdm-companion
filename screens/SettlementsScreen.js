@@ -60,7 +60,6 @@ export default class SettlementsScreen extends React.Component {
             <EditSettlement
               onUpdate={() => {
                 this.setState({ renameVisible: false })
-                //TODO: see how to redraw the Selector above.
               }}
             />
           </View>

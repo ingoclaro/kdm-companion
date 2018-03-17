@@ -411,7 +411,6 @@ export default {
   },
   gear: {
     final_lantern: {
-      //TODO: is this a reasource or an innovation?
       name: 'Final Lantern',
       expansion: 'core',
       recipes: [],

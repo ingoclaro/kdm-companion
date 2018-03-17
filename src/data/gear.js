@@ -1,6 +1,5 @@
 export default {
   final_lantern: {
-    //TODO: is this a gear or an innovation?
     id: 'final_lantern',
     name: 'Final Lantern',
     expansion: 'core',

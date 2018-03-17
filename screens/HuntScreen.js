@@ -26,7 +26,7 @@ export default class HuntScreen extends React.Component {
         <Divider />
         <View styleName="horizontal v-center">
           <Text>Monster:</Text>
-          <MonsterSelector />
+          <MonsterSelector type="quarry" />
         </View>
         <Hunt />
       </Screen>

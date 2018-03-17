@@ -94,8 +94,13 @@ export const Campaign = types
         return
       }
       if (self.expansions.has(expansion.id)) {
-        self.expansions.delete(expansion.id)
+        // reset some stuff when expansions are removed
         self.hunting = null
+        // TODO: should remove associated innovations, locations and resources?
+        // If I don't remove resources it's going to be tricky for the build section.
+        // other option is to not let remove the expansion until it's asociated stuff is removed from the settlement.
+
+        self.expansions.delete(expansion.id)
       } else {
         self.expansions.set(expansion.id, expansion.id)
       }
@@ -125,7 +130,11 @@ export const Campaign = types
       }
     },
     selectHunt(hunt) {
-      self.hunting = { monster: hunt.monster_id, level: hunt.level_id }
+      if (hunt.monster_id) {
+        self.hunting = { monster: hunt.monster_id, level: hunt.level_id }
+      } else {
+        self.hunting = null
+      }
     },
   }))
   .views(self => ({

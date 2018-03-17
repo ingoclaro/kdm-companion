@@ -11,6 +11,7 @@ import R from 'ramda'
         level_id: level.id,
         title: `${monster.name} - ${level.name}`,
         value: `${monster.id}=${level.id}`,
+        type: level.type ? level.type : monster.type,
       }
     })
   }, store.availableHunts),
@@ -19,21 +20,32 @@ import R from 'ramda'
 }))
 @observer
 class MonsterSelector extends React.Component {
-  state = {}
   render() {
+    let monsters = this.props.monsters
+    if (this.props.type !== 'all') {
+      monsters = R.filter(monster => monster.type === this.props.type, monsters)
+    }
+    monsters.unshift({
+      monster_id: null,
+      level_id: null,
+      title: 'Select a Monster',
+      value: 1,
+      type: null,
+    })
+
     let selectedItem = R.find(
       R.and(
         R.propEq('monster_id', this.props.selected.monster),
         R.propEq('level_id', this.props.selected.level)
       ),
-      this.props.monsters
+      monsters
     )
     if (!selectedItem) {
-      selectedItem = this.props.monsters[0]
+      selectedItem = monsters[0]
     }
     return (
       <DropDownMenu
-        options={this.props.monsters}
+        options={monsters}
         selectedOption={selectedItem}
         onOptionSelected={hunt => this.props.select(hunt)}
         titleProperty="title"
@@ -41,6 +53,10 @@ class MonsterSelector extends React.Component {
       />
     )
   }
+}
+
+MonsterSelector.defaultProps = {
+  type: 'all', // quarry, nemesis, all
 }
 
 export default MonsterSelector

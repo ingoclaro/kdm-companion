@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import { observer, inject } from 'mobx-react/native'
 
 @inject(({ store }) => ({
-  //TODO: could this sort be moved to insertion time? probably needs to be moved to the store anyways because needs to be filtered by expansion.
   expansions: store.expansions.values(),
   selectedItems: store.selectedCampaign.expansions.toJS(),
   toggle: store.selectedCampaign.selectExpansion,

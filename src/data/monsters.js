@@ -15,6 +15,7 @@ export default {
       'sinew',
       'white fur',
     ],
+    type: 'quarry',
     instinct: {
       name: 'Sniff',
       description:
@@ -24,6 +25,7 @@ export default {
       'white_lion-prologue': {
         id: 'white_lion-prologue',
         name: 'Prologue',
+        type: 'nemesis',
         movement: 6,
         toughness: 6,
         speed: 0,
@@ -90,6 +92,7 @@ export default {
       'shank bone',
       'spiral horn',
     ],
+    type: 'quarry',
     instinct: {
       name: 'Graze',
       description:
@@ -162,6 +165,7 @@ export default {
       'tail feather',
       'whishbone',
     ],
+    type: 'quarry',
     instinct: {
       name: 'Disdain',
       description:
@@ -247,6 +251,7 @@ export default {
       'handed skull',
       'dense bone',
     ],
+    type: 'quarry',
     instinct: {
       name: 'Illuminate',
       description:
