@@ -663,4 +663,78 @@ export default {
     ],
     providesSurvival: { limit: 1 },
   },
+  rubedo: {
+    id: 'rubedo',
+    name: 'Rubedo',
+    expansion: 'gorm',
+    keywords: ['science', 'gormchymy', 'citrinitas consequence'],
+    endeavors: [
+      {
+        id: 'rubedo',
+        name: 'Rubedo',
+        expansion: 'gorm',
+        recipe: {
+          innovation: 'rubedo',
+          items: [{ resource: 'endeavor', quantity: 4 }],
+        },
+      },
+    ],
+  },
+  nigredo: {
+    id: 'nigredo',
+    name: 'Nigredo',
+    expansion: 'gorm',
+    keywords: ['science', 'gormchymy'],
+    endeavors: [
+      {
+        id: 'nigredo',
+        name: 'Nigredo',
+        expansion: 'gorm',
+        recipe: {
+          innovation: 'nigredo',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+    ],
+    providesSurvival: {
+      limit: 1,
+    },
+  },
+  citrinitas: {
+    id: 'citrinitas',
+    name: 'Citrinitas',
+    expansion: 'gorm',
+    keywords: ['science', 'gormchymy', 'albedo consequence'],
+    endeavors: [
+      {
+        id: 'citrinitas',
+        name: 'Citrinitas',
+        expansion: 'gorm',
+        recipe: {
+          innovation: 'citrinitas',
+          items: [{ resource: 'endeavor', quantity: 3 }],
+        },
+      },
+    ],
+    providesSurvival: {
+      limit: 1,
+    },
+  },
+  albedo: {
+    id: 'albedo',
+    name: 'Albedo',
+    expansion: 'gorm',
+    keywords: ['science', 'gormchymy', 'nigredo consequence'],
+    endeavors: [
+      {
+        id: 'albedo',
+        name: 'Albedo',
+        expansion: 'gorm',
+        recipe: {
+          innovation: 'albedo',
+          items: [{ resource: 'endeavor', quantity: 2 }],
+        },
+      },
+    ],
+  },
 }

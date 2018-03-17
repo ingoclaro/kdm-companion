@@ -4,17 +4,11 @@ import { connectStyle } from '@shoutem/theme'
 import MultiSelectList from './MultiSelectList'
 import PropTypes from 'prop-types'
 import { observer, inject } from 'mobx-react/native'
+import { getKeys } from '../src/utils'
 
 @inject(({ store }) => ({
-  //TODO: could this sort be moved to insertion time? probably needs to be moved to the store anyways because needs to be filtered by expansion.
-  locations: store.locations.values().sort((a, b) => {
-    if (a.name < b.name) {
-      return -1
-    } else {
-      return 1
-    }
-  }),
-  selectedItems: store.selectedCampaign.locations.toJS(),
+  locations: store.availableLocations,
+  selectedItems: getKeys(store.selectedCampaign.locations),
   toggle: store.selectedCampaign.selectLocation,
 }))
 @observer
@@ -37,9 +31,7 @@ Locations.wrappedComponent.propTypes = {
 }
 
 @inject(({ store }) => ({
-  selectedItems: store.selectedCampaign
-    ? store.selectedCampaign.locations.values()
-    : [],
+  selectedItems: store.selectedCampaign.locationsList,
 }))
 @observer
 export class LocationItems extends React.Component {

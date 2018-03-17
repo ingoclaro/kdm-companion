@@ -61,4 +61,19 @@ export default types
         selectedCampaign: self.selectedCampaign.id,
       }
     },
+    get campaignExpansions() {
+      return self.selectedCampaign.expansions.keys()
+    },
+    expansionFilter(map) {
+      return R.filter(
+        item => self.campaignExpansions.includes(item.expansion.id),
+        map.values()
+      )
+    },
+    get availableLocations() {
+      return R.sortBy(R.prop('name'), self.expansionFilter(self.locations))
+    },
+    get availableInnovations() {
+      return R.sortBy(R.prop('name'), self.expansionFilter(self.innovations))
+    },
   }))

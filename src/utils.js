@@ -8,3 +8,7 @@ export function uuid() {
     a => (a ^ ((Math.random() * 16) >> (a / 4))).toString(16)[0]
   )
 }
+
+export function getKeys(list) {
+  return R.reduce((acc, item) => ({ ...acc, [item]: item }), {}, list.keys())
+}

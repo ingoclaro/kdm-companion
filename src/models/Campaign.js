@@ -8,6 +8,8 @@ import { Settlement } from './Settlement'
 import { Expansion } from './Expansion'
 import { Monster } from './Monster'
 
+import R from 'ramda'
+
 const StoredResource = types.model('StoredResource', {
   id: types.identifier(types.string),
   resource: types.reference(Resource),
@@ -137,5 +139,20 @@ export const Campaign = types
       }
       let monsterLevel = self.hunting.monster.levels.get(self.hunting.level)
       return monsterLevel.huntboard
+    },
+    get expansionList() {
+      return self.expansions.keys()
+    },
+    expansionFilter(map) {
+      return R.filter(
+        item => self.expansionList.includes(item.expansion.id),
+        map.values()
+      )
+    },
+    get innovationsList() {
+      return self.expansionFilter(self.innovations)
+    },
+    get locationsList() {
+      return self.expansionFilter(self.locations)
     },
   }))

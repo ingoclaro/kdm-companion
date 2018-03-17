@@ -460,4 +460,46 @@ export default {
       },
     ],
   },
+  gormchymist: {
+    id: 'gormchymist',
+    name: 'Gormchymist',
+    expansion: 'gorm',
+    endeavors: [
+      {
+        id: 'gormchymist',
+        name: 'Get Gormchymy innovation',
+        expansion: 'gorm',
+        recipe: {
+          location: 'gormchymist',
+          items: [
+            { resource: 'endeavor', quantity: 1 },
+            { resource: 'gorm_brain', quantity: 1 },
+            { keyword: 'strange', quantity: 1 },
+          ],
+        },
+      },
+    ],
+  },
+  gormery: {
+    id: 'gormery',
+    name: 'Gormery',
+    expansion: 'gorm',
+    gear: [
+      'gorment mask',
+      'gorment sleeves',
+      'gorment suit',
+      'gorment boots',
+      'regeneration suit',
+      'rib blade',
+      'knuckle shield',
+      'gaxe',
+      'greater gaxe',
+      'riot mace',
+      'pulse lantern',
+      'gorn',
+      'armor spikes',
+      'acid tooth dagger',
+      'black sword',
+    ],
+  },
 }

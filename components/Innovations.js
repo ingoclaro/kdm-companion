@@ -3,17 +3,11 @@ import { Screen, View, Text, Image, Row, Caption } from '@shoutem/ui'
 import MultiSelectList from '../components/MultiSelectList'
 import PropTypes from 'prop-types'
 import { observer, inject } from 'mobx-react/native'
+import { getKeys } from '../src/utils'
 
 @inject(({ store }) => ({
-  //TODO: could this sort be moved to insertion time? probably needs to be moved to the store anyways because needs to be filtered by expansion.
-  innovations: store.innovations.values().sort((a, b) => {
-    if (a.name < b.name) {
-      return -1
-    } else {
-      return 1
-    }
-  }),
-  selectedItems: store.selectedCampaign.innovations.toJS(),
+  innovations: store.availableInnovations,
+  selectedItems: getKeys(store.selectedCampaign.innovations),
   toggle: store.selectedCampaign.selectInnovation,
 }))
 @observer
@@ -31,9 +25,7 @@ export default class Innovations extends React.Component {
 }
 
 @inject(({ store }) => ({
-  selectedItems: store.selectedCampaign
-    ? store.selectedCampaign.innovations.values()
-    : [],
+  selectedItems: store.selectedCampaign.innovationsList,
 }))
 @observer
 export class InnovationsItems extends React.Component {
