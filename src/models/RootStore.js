@@ -62,18 +62,18 @@ export default types
       }
     },
     get campaignExpansions() {
-      return self.selectedCampaign.expansions.keys()
+      return self.selectedCampaign.expansionList
     },
     expansionFilter(map) {
-      return R.filter(
-        item => self.campaignExpansions.includes(item.expansion.id),
-        map.values()
-      )
+      return self.selectedCampaign.expansionFilter(map)
     },
     get availableLocations() {
       return R.sortBy(R.prop('name'), self.expansionFilter(self.locations))
     },
     get availableInnovations() {
       return R.sortBy(R.prop('name'), self.expansionFilter(self.innovations))
+    },
+    get availableHunts() {
+      return self.expansionFilter(self.monsters)
     },
   }))

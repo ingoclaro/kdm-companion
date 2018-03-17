@@ -4,12 +4,15 @@ import { observer, inject } from 'mobx-react/native'
 import colors from '../src/colors'
 
 @inject(({ store }) => ({
-  huntboard: store.selectedCampaign.huntBoard,
+  monsterLevel: store.selectedCampaign.monsterLevel,
 }))
 @observer
 class Hunt extends React.Component {
-  render() {
-    let board = this.props.huntboard.split('').map((letter, idx) => {
+  board() {
+    if (!this.props.monsterLevel.huntboard) {
+      return null
+    }
+    return this.props.monsterLevel.huntboard.split('').map((letter, idx) => {
       let next = idx < 11 ? <Text> > </Text> : null
       return (
         <View styleName="horizontal" key={idx}>
@@ -18,12 +21,26 @@ class Hunt extends React.Component {
         </View>
       )
     })
+  }
 
+  extra() {
+    if (this.props.monsterLevel.huntExtra) {
+      return (
+        <View>
+          <Text>{this.props.monsterLevel.huntExtra}</Text>
+          <Divider />
+        </View>
+      )
+    }
+  }
+
+  render() {
     return (
       <View>
+        {this.extra()}
         <View styleName="horizontal">
           <Text>Start> </Text>
-          {board}
+          {this.board()}
         </View>
 
         <Divider />

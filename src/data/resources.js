@@ -263,4 +263,64 @@ export default {
     keywords: ['vermin', 'consumable'],
     type: 'vermin',
   },
+  'mammoth hand': {
+    id: 'mammoth hand',
+    keywords: ['bone', 'hide', 'organ'],
+    monster: 'gorm',
+  },
+  'jiggling lard': {
+    id: 'jiggling lard',
+    keywords: ['organ', 'hide'],
+    monster: 'gorm',
+  },
+  'stout kidney': {
+    id: 'stout kidney',
+    keywords: ['organ'],
+    monster: 'gorm',
+  },
+  'stout heart': {
+    id: 'stout heart',
+    keywords: ['organ'],
+    monster: 'gorm',
+  },
+  'milky eye': {
+    id: 'milky eye',
+    keywords: ['organ'],
+    monster: 'gorm',
+  },
+  'acid gland': {
+    id: 'acid gland',
+    keywords: ['organ'],
+    monster: 'gorm',
+  },
+  'gorm brain': {
+    id: 'gorm brain',
+    keywords: ['organ'],
+    monster: 'gorm',
+  },
+  'stout hide': {
+    id: 'stout hide',
+    keywords: ['hide'],
+    monster: 'gorm',
+  },
+  'meaty rib': {
+    id: 'meaty rib',
+    keywords: ['bone', 'organ'],
+    monster: 'gorm',
+  },
+  'stout vertebrae': {
+    id: 'stout vertebrae',
+    keywords: ['bone'],
+    monster: 'gorm',
+  },
+  'handed skull': {
+    id: 'handed skull',
+    keywords: ['bone'],
+    monster: 'gorm',
+  },
+  'dense bone': {
+    id: 'dense bone',
+    keywords: ['bone'],
+    monster: 'gorm',
+  },
 }

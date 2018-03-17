@@ -18,41 +18,54 @@ import R from 'ramda'
 
 import colors from '../src/colors'
 
-function resources_structure(global_resources, settlement_resources) {
+function resources_structure(global_resources, settlement_resources, filter) {
   const sections = {
     basic: {
       id: 'basic',
       title: 'Basic',
+      expansion: 'core',
       count: 0,
       data: [],
     },
     strange: {
       id: 'strange',
       title: 'Strange',
+      expansion: 'core',
       count: 0,
       data: [],
     },
     vermin: {
       id: 'vermin',
       title: 'Vermin',
+      expansion: 'core',
       count: 0,
       data: [],
     },
     white_lion: {
       id: 'white_lion',
       title: 'White Lion',
+      expansion: 'core',
       count: 0,
       data: [],
     },
     screaming_antelope: {
       id: 'screaming_antelope',
       title: 'Screaming Antelope',
+      expansion: 'core',
       count: 0,
       data: [],
     },
     phoenix: {
       id: 'phoenix',
       title: 'Phoenix',
+      expansion: 'core',
+      count: 0,
+      data: [],
+    },
+    gorm: {
+      id: 'gorm',
+      title: 'Gorm',
+      expansion: 'gorm',
       count: 0,
       data: [],
     },
@@ -60,7 +73,7 @@ function resources_structure(global_resources, settlement_resources) {
 
   const data = R.reduce(
     (acc, value) => {
-      if (!value.section_id || !sections[value.section_id]) {
+      if (!value.section_id || !acc[value.section_id]) {
         return acc
       }
 
@@ -77,7 +90,7 @@ function resources_structure(global_resources, settlement_resources) {
         },
       }
     },
-    sections,
+    filter(sections),
     global_resources.values()
   )
 
@@ -87,7 +100,8 @@ function resources_structure(global_resources, settlement_resources) {
 @inject(({ store }) => ({
   resources: resources_structure(
     store.resources,
-    store.selectedCampaign.stored_resources
+    store.selectedCampaign.stored_resources,
+    store.expansionFilter
   ),
   stored_resources: store.selectedCampaign.stored_resources,
   setResourceCount: store.selectedCampaign.setResourceCount,

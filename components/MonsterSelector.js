@@ -13,21 +13,24 @@ import R from 'ramda'
         value: `${monster.id}=${level.id}`,
       }
     })
-  }, store.monsters.values()),
-  selected: store.selectedCampaign.hunting,
+  }, store.availableHunts),
+  selected: store.selectedCampaign.hunting || { monster: null, level: null },
   select: store.selectedCampaign.selectHunt,
 }))
 @observer
 class MonsterSelector extends React.Component {
   state = {}
   render() {
-    const selectedItem = R.find(
+    let selectedItem = R.find(
       R.and(
         R.propEq('monster_id', this.props.selected.monster),
         R.propEq('level_id', this.props.selected.level)
       ),
       this.props.monsters
     )
+    if (!selectedItem) {
+      selectedItem = this.props.monsters[0]
+    }
     return (
       <DropDownMenu
         options={this.props.monsters}

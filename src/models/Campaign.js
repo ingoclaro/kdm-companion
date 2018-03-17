@@ -31,12 +31,11 @@ export const Campaign = types
     expansions: types.optional(types.map(types.reference(Expansion)), {
       core: 'core',
     }),
-    hunting: types.optional(
+    hunting: types.maybe(
       types.model({
         monster: types.reference(Monster),
         level: types.string,
-      }),
-      { monster: 'white_lion', level: 'white_lion-1' }
+      })
     ),
     // survivors: types.array(Survivor),
   })
@@ -96,6 +95,7 @@ export const Campaign = types
       }
       if (self.expansions.has(expansion.id)) {
         self.expansions.delete(expansion.id)
+        self.hunting = null
       } else {
         self.expansions.set(expansion.id, expansion.id)
       }
@@ -125,29 +125,29 @@ export const Campaign = types
       }
     },
     selectHunt(hunt) {
-      self.hunting.monster = hunt.monster_id
-      self.hunting.level = hunt.level_id
+      self.hunting = { monster: hunt.monster_id, level: hunt.level_id }
     },
   }))
   .views(self => ({
     get name() {
       return self.settlement.name
     },
-    get huntBoard() {
-      if (!self.hunting) {
-        return null
-      }
-      let monsterLevel = self.hunting.monster.levels.get(self.hunting.level)
-      return monsterLevel.huntboard
+    get monsterLevel() {
+      return self.hunting
+        ? self.hunting.monster.levels.get(self.hunting.level)
+        : {}
     },
     get expansionList() {
       return self.expansions.keys()
     },
     expansionFilter(map) {
-      return R.filter(
-        item => self.expansionList.includes(item.expansion.id),
-        map.values()
-      )
+      return R.filter(item => {
+        let id = false
+        if (item.expansion) {
+          id = item.expansion.id ? item.expansion.id : item.expansion
+        }
+        return !id || self.expansionList.includes(id)
+      }, map.values ? map.values() : map)
     },
     get innovationsList() {
       return self.expansionFilter(self.innovations)

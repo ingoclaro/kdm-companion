@@ -11,6 +11,7 @@ export const MonsterLevel = types.model('MonsterLevel', {
   id: types.identifier(types.string),
   name: types.string,
   huntboard: types.maybe(types.string),
+  huntExtra: types.maybe(types.string),
   movement: types.number,
   toughness: types.number,
   speed: types.number,
