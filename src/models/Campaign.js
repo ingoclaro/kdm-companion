@@ -6,6 +6,7 @@ import { Endeavor } from './Endeavor'
 import { Resource } from './Resource'
 import { Settlement } from './Settlement'
 import { Expansion } from './Expansion'
+import { Monster } from './Monster'
 
 const StoredResource = types.model('StoredResource', {
   id: types.identifier(types.string),
@@ -28,6 +29,13 @@ export const Campaign = types
     expansions: types.optional(types.map(types.reference(Expansion)), {
       core: 'core',
     }),
+    hunting: types.optional(
+      types.model({
+        monster: types.reference(Monster),
+        level: types.string,
+      }),
+      { monster: 'white_lion', level: 'white_lion-1' }
+    ),
     // survivors: types.array(Survivor),
   })
   .actions(self => ({
@@ -81,6 +89,7 @@ export const Campaign = types
     },
     selectExpansion(expansion) {
       if (expansion.id === 'core') {
+        // don't allow to remove core expansion.
         return
       }
       if (self.expansions.has(expansion.id)) {
@@ -113,9 +122,20 @@ export const Campaign = types
         })
       }
     },
+    selectHunt(hunt) {
+      self.hunting.monster = hunt.monster_id
+      self.hunting.level = hunt.level_id
+    },
   }))
   .views(self => ({
     get name() {
       return self.settlement.name
+    },
+    get huntBoard() {
+      if (!self.hunting) {
+        return null
+      }
+      let monsterLevel = self.hunting.monster.levels.get(self.hunting.level)
+      return monsterLevel.huntboard
     },
   }))

@@ -21,16 +21,19 @@ export default {
         "The White Lion sniffs and ends it's turn. Until the end of the next round, all survivors are now threats. At level 3+ gain +1 accuracy token.",
     },
     levels: {
-      prologue: {
-        id: 'prologue',
+      'white_lion-prologue': {
+        id: 'white_lion-prologue',
+        name: 'Prologue',
         movement: 6,
         toughness: 6,
         speed: 0,
         damage: 0,
         deck: 'custom', // TODO: get list of cards
       },
-      1: {
-        id: '1',
+      'white_lion-1': {
+        id: 'white_lion-1',
+        name: '1',
+        huntboard: 'MMBXMOBMMBBS',
         movement: 6,
         toughness: 8,
         speed: 0,
@@ -40,8 +43,10 @@ export default {
           A: 3,
         },
       },
-      2: {
-        id: '2',
+      'white_lion-2': {
+        id: 'white_lion-2',
+        name: '2',
+        huntboard: 'MMBBMOXMMBBS',
         movement: 7,
         toughness: 10,
         speed: 1,
@@ -52,8 +57,10 @@ export default {
           S: ['Cunning'],
         },
       },
-      3: {
-        id: '3',
+      'white_lion-3': {
+        id: 'white_lion-3',
+        name: '3',
+        huntboard: 'MMBBMOBMMBBXS',
         movement: 8,
         toughness: 14,
         speed: 2,
@@ -89,8 +96,10 @@ export default {
         "The monster full moves to the closest Acanthus plant and ends it's turn. If the monster is on or adjacent to an Acanthus plant, archive it and heal 1 wound. If there are no Acanthus plants, full move forward in a straight line.",
     },
     levels: {
-      1: {
-        id: '1',
+      'screaming_antelope-1': {
+        id: 'screaming_antelope-1',
+        name: '1',
+        huntboard: 'MBMXBOMBMBBS',
         movement: 6,
         toughness: 8,
         speed: 0,
@@ -101,8 +110,10 @@ export default {
           S: ['Trample'],
         },
       },
-      2: {
-        id: '2',
+      'screaming_antelope-2': {
+        id: 'screaming_antelope-2',
+        name: '2',
+        huntboard: 'MBMBBOMXMBBS',
         movement: 8,
         toughness: 10,
         speed: 1,
@@ -113,8 +124,10 @@ export default {
           S: ['Trample', 'Diabolical'],
         },
       },
-      3: {
-        id: '3',
+      'screaming_antelope-3': {
+        id: 'screaming_antelope-3',
+        name: '3',
+        huntboard: 'MBMBBOMBMXBS',
         movement: 8,
         toughness: 12,
         speed: 2,
@@ -155,8 +168,10 @@ export default {
         'Place the Phoenix at the center of the Nightmare Tree. It emits a hissing moan. All non-deaf survivors suffer brain damage equal to monster level. Perform Spiral Age.',
     },
     levels: {
-      1: {
-        id: '1',
+      'phoenix-1': {
+        id: 'phoenix-1',
+        name: '1',
+        huntboard: 'BMBMXOMBMBBS',
         movement: 8,
         toughness: 10,
         speed: 0,
@@ -168,8 +183,10 @@ export default {
           S: ['Materialize', 'Spiral Age', 'Zeal', 'Dreaded Decade'],
         },
       },
-      2: {
-        id: '2',
+      'phoenix-2': {
+        id: 'phoenix-2',
+        name: '2',
+        huntboard: 'BMBMBOMXMBBS',
         movement: 8,
         toughness: 12,
         speed: 1,
@@ -187,8 +204,10 @@ export default {
           ],
         },
       },
-      3: {
-        id: '3',
+      'phoenix-3': {
+        id: 'phoenix-3',
+        name: '3',
+        huntboard: 'BMBMBOMBMBXS',
         movement: 8,
         toughness: 16,
         speed: 2,

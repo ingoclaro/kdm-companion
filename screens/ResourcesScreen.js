@@ -23,6 +23,7 @@ export default class ResourcesScreen extends React.Component {
         <View style={styles.resources}>
           <Resources />
         </View>
+        {/*}
         <Button onPress={() => this.setState({ craftVisible: true })}>
           <Text>Craft</Text>
         </Button>
@@ -47,6 +48,7 @@ export default class ResourcesScreen extends React.Component {
             </Button>
           </View>
         </Modal>
+        {*/}
       </Screen>
     )
   }
