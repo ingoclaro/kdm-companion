@@ -111,7 +111,7 @@ const CampaignNavigator = TabNavigator(
     Settlements: {
       screen: SettlementsScreen,
       navigationOptions: {
-        title: 'Settlement Name',
+        title: 'Settlement Admin',
       },
     },
     Expansions: {
@@ -180,6 +180,7 @@ const MainNavigator = TabNavigator(
     tabBarPosition: 'bottom',
     animationEnabled: false, //Platform.OS === 'android' ? false : true,
     swipeEnabled: false,
+    lazy: true,
     tabBarComponent: TabBar,
     tabBarOptions: {
       showIcon: true,
@@ -216,6 +217,9 @@ const MainNavigatorHeader = StackNavigator(
     },
   },
   {
+    cardStyle: {
+      backgroundColor: colors.black,
+    },
     navigationOptions: ({ navigation }) => ({
       header: <Header navigation={navigation} />,
     }),
