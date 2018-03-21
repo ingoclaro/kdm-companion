@@ -7,13 +7,12 @@ import { values } from 'mobx'
 
 @inject(({ store }) => ({
   expansions: values(store.expansions),
-  selectedItems: store.selectedCampaign.expansions.toJS(),
+  selectedItems: store.selectedCampaign.expansions,
   toggle: store.selectedCampaign.selectExpansion,
 }))
 @observer
 export default class Expansions extends React.Component {
   render() {
-    console.log('selectedItems', this.props.selectedItems)
     return (
       <MultiSelectList
         name="expansions"

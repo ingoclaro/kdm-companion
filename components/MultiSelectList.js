@@ -15,7 +15,7 @@ class MultiSelectList extends React.PureComponent {
       <CheckboxListItem
         id={item.id}
         onPressItem={() => toggle(item)}
-        selected={!!selected[item.id]}
+        selected={selected.has(item.id)}
         title={item.name}
       />
     )
