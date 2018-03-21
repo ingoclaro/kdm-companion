@@ -13,6 +13,7 @@ import {
 import Accordion from './Accordion'
 import SimpleStepper from 'react-native-simple-stepper'
 import { observer, inject, Observer } from 'mobx-react/native'
+import { values } from 'mobx'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
@@ -91,7 +92,7 @@ function resources_structure(global_resources, settlement_resources, filter) {
       }
     },
     filter(sections),
-    global_resources.values()
+    values(global_resources)
   )
 
   return Object.values(data)

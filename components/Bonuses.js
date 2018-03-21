@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, Row, Title, Subtitle, ListView } from '@shoutem/ui'
+import { values } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 import { constants } from '../src/reducers'
@@ -7,7 +8,7 @@ import colors from '../src/colors'
 import R from 'ramda'
 
 @inject(({ store }) => ({
-  data: store.selectedCampaign.bonuses.values(),
+  data: values(store.selectedCampaign.bonuses),
 }))
 @observer
 export default class Bonuses extends React.Component {
@@ -16,6 +17,7 @@ export default class Bonuses extends React.Component {
   }
 
   _row(item) {
+    console.log('item', item)
     let text = item.description.map((e, idx) => (
       <Text key={item.id + idx} style={styles.bonusText}>
         {e}
@@ -42,6 +44,8 @@ export default class Bonuses extends React.Component {
     if (this.props.data.length === 0) {
       return this.empty()
     }
+
+    console.log('data', this.props.data)
 
     return (
       <ListView

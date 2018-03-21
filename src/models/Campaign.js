@@ -1,4 +1,5 @@
 import { types, getSnapshot } from 'mobx-state-tree'
+import { keys, values } from 'mobx'
 import { SettlementLocation } from './SettlementLocation'
 import { Innovation } from './Innovation'
 import { Bonus } from './Bonus'
@@ -147,7 +148,7 @@ export const Campaign = types
         : {}
     },
     get expansionList() {
-      return self.expansions.keys()
+      return keys(self.expansions)
     },
     expansionFilter(map) {
       return R.filter(item => {

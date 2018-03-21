@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, Row, Title, Subtitle, ListView } from '@shoutem/ui'
+import { values } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 import colors from '../src/colors'
@@ -23,7 +24,7 @@ const filter_locations = locations => {
       )
     }
     return true
-  }, store.selectedCampaign.endeavors.values()),
+  }, values(store.selectedCampaign.endeavors)),
   locations: store.locations,
 }))
 @observer

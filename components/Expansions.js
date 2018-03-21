@@ -3,15 +3,17 @@ import { Screen, View, Text, Image, Row, Caption } from '@shoutem/ui'
 import MultiSelectList from '../components/MultiSelectList'
 import PropTypes from 'prop-types'
 import { observer, inject } from 'mobx-react/native'
+import { values } from 'mobx'
 
 @inject(({ store }) => ({
-  expansions: store.expansions.values(),
+  expansions: values(store.expansions),
   selectedItems: store.selectedCampaign.expansions.toJS(),
   toggle: store.selectedCampaign.selectExpansion,
 }))
 @observer
 export default class Expansions extends React.Component {
   render() {
+    console.log('selectedItems', this.props.selectedItems)
     return (
       <MultiSelectList
         name="expansions"

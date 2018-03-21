@@ -1,11 +1,12 @@
 import React from 'react'
 import { Screen, View, Text, Image, DropDownMenu } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
+import { values } from 'mobx'
 import R from 'ramda'
 
 @inject(({ store }) => ({
   monsters: R.chain(monster => {
-    return monster.levels.values().map(level => {
+    return values(monster.levels).map(level => {
       return {
         monster_id: monster.id,
         level_id: level.id,
