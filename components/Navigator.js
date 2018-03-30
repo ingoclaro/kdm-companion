@@ -36,6 +36,30 @@ const styles = {
   },
   tab: {
     height: 30,
+    // backgroundColor: 'red',
+    // alignContent: 'stretch',
+    // alignSelf: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+  },
+  label: {
+    // alignContent: 'center',
+    // alignSelf: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+  },
+  indicator: {},
+}
+
+const settlementStyles = {
+  ...styles,
+  tab: {
+    ...styles.tab,
+    flex: 0, // so that label text isn't wrapped in smaller screens (S8)
+    // Unfortunately this causes the indicator to misalign it's width from the label
+    // because they are separate, I could provide a new tabBarComponent to fix this
+    // or maybe change upstream.
+    // TODO: maybe fix this small costmetic issue.
   },
 }
 
@@ -100,8 +124,10 @@ const SettlementNavigator = TabNavigator(
       upperCaseLabel: false,
       activeTintColor: colors.grey50,
       inactiveTintColor: colors.grey50,
-      style: styles.tabBar,
-      tabStyle: styles.tab,
+      style: settlementStyles.tabBar,
+      tabStyle: settlementStyles.tab,
+      labelStyle: settlementStyles.label,
+      indicatorStyle: settlementStyles.indicator,
     },
   }
 )
