@@ -473,7 +473,7 @@ export default {
           location: 'gormchymist',
           items: [
             { resource: 'endeavor', quantity: 1 },
-            { resource: 'gorm_brain', quantity: 1 },
+            { resource: 'gorm brain', quantity: 1 },
             { keyword: 'strange', quantity: 1 },
           ],
         },
