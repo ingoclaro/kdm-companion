@@ -7,7 +7,7 @@ import { getKeys } from '../src/utils'
 
 @inject(({ store }) => ({
   innovations: store.availableInnovations,
-  selectedItems: getKeys(store.selectedCampaign.innovations),
+  selectedItems: store.selectedCampaign.innovations.toJS(),
   toggle: store.selectedCampaign.selectInnovation,
 }))
 @observer

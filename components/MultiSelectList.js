@@ -2,7 +2,6 @@ import React from 'react'
 import { FlatList } from 'react-native'
 import PropTypes from 'prop-types'
 import { View, Row, Text, Caption } from '@shoutem/ui'
-
 import CheckboxListItem from './CheckboxListItem'
 
 class MultiSelectList extends React.PureComponent {

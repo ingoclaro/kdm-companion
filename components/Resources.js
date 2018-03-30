@@ -21,6 +21,7 @@ import colors from '../src/colors'
 
 function resources_structure(global_resources, settlement_resources, filter) {
   const sections = {
+    // TODO transform into Map.
     basic: {
       id: 'basic',
       title: 'Basic',

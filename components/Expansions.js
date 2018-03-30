@@ -7,7 +7,7 @@ import { values } from 'mobx'
 
 @inject(({ store }) => ({
   expansions: values(store.expansions),
-  selectedItems: store.selectedCampaign.expansions,
+  selectedItems: store.selectedCampaign.expansions.toJS(),
   toggle: store.selectedCampaign.selectExpansion,
 }))
 @observer

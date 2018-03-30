@@ -151,13 +151,18 @@ export const Campaign = types
       return keys(self.expansions)
     },
     expansionFilter(map) {
-      return R.filter(item => {
-        let id = false
-        if (item.expansion) {
-          id = item.expansion.id ? item.expansion.id : item.expansion
-        }
-        return !id || self.expansionList.includes(id)
-      }, map.values ? map.values() : map)
+      return R.filter(
+        item => {
+          let id = false
+          if (item.expansion) {
+            id = item.expansion.id ? item.expansion.id : item.expansion
+          }
+          return !id || self.expansionList.includes(id)
+        },
+        map.get //is it a real map?
+          ? values(map)
+          : map
+      )
     },
     get innovationsList() {
       return self.expansionFilter(self.innovations)
