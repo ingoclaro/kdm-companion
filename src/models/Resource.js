@@ -25,6 +25,14 @@ const Resource = types
       }
       return id
     },
+    get expansion() {
+      let expansion = 'core'
+      if (self.monster) {
+        // TODO: there might be expansion specific resources (strange?), consider adding expansion to the model with default to 'core'
+        expansion = self.monster.expansion
+      }
+      return expansion
+    },
   }))
 
 export { Resource }

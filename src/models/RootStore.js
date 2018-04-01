@@ -64,16 +64,22 @@ export default types
     get campaignExpansions() {
       return self.selectedCampaign.expansionList
     },
-    expansionFilter(map) {
-      return self.selectedCampaign.expansionFilter(map)
+    selectedExpansionFilter(map) {
+      return self.selectedCampaign.selectedExpansionFilter(map)
     },
     get availableLocations() {
-      return R.sortBy(R.prop('name'), self.expansionFilter(self.locations))
+      return R.sortBy(
+        R.prop('name'),
+        self.selectedExpansionFilter(self.locations)
+      )
     },
     get availableInnovations() {
-      return R.sortBy(R.prop('name'), self.expansionFilter(self.innovations))
+      return R.sortBy(
+        R.prop('name'),
+        self.selectedExpansionFilter(self.innovations)
+      )
     },
     get availableHunts() {
-      return self.expansionFilter(self.monsters)
+      return self.selectedExpansionFilter(self.monsters)
     },
   }))

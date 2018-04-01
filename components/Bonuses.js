@@ -17,7 +17,6 @@ export default class Bonuses extends React.Component {
   }
 
   _row(item) {
-    console.log('item', item)
     let text = item.description.map((e, idx) => (
       <Text key={item.id + idx} style={styles.bonusText}>
         {e}
@@ -44,8 +43,6 @@ export default class Bonuses extends React.Component {
     if (this.props.data.length === 0) {
       return this.empty()
     }
-
-    console.log('data', this.props.data)
 
     return (
       <ListView

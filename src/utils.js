@@ -1,4 +1,5 @@
 import R from 'ramda'
+import { values } from 'mobx'
 
 export const capitalize = R.replace(/^./, R.toUpper)
 
@@ -9,6 +10,6 @@ export function uuid() {
   )
 }
 
-export function getKeys(list) {
-  return R.reduce((acc, item) => ({ ...acc, [item]: item }), {}, list.keys())
+export function expansionFilter(map, expansion) {
+  return R.filter(item => item.expansion.id === expansion.id, values(map))
 }

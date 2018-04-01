@@ -3,7 +3,6 @@ import { Screen, View, Text, Image, Row, Caption } from '@shoutem/ui'
 import MultiSelectList from '../components/MultiSelectList'
 import PropTypes from 'prop-types'
 import { observer, inject } from 'mobx-react/native'
-import { getKeys } from '../src/utils'
 
 @inject(({ store }) => ({
   innovations: store.availableInnovations,

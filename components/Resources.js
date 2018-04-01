@@ -103,7 +103,7 @@ function resources_structure(global_resources, settlement_resources, filter) {
   resources: resources_structure(
     store.resources,
     store.selectedCampaign.stored_resources,
-    store.expansionFilter
+    store.selectedExpansionFilter
   ),
   stored_resources: store.selectedCampaign.stored_resources,
   setResourceCount: store.selectedCampaign.setResourceCount,

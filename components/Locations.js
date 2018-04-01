@@ -5,12 +5,12 @@ import MultiSelectList from './MultiSelectList'
 import PropTypes from 'prop-types'
 import { observer, inject } from 'mobx-react/native'
 import { keys } from 'mobx'
-import { getKeys } from '../src/utils'
 
 @inject(({ store }) => ({
   locations: store.availableLocations,
   selectedItems: store.selectedCampaign.locations.toJS(),
   toggle: store.selectedCampaign.selectLocation,
+  test: store.selectedCampaign.expansionContent({ id: 'gorm' }),
 }))
 @observer
 export default class Locations extends React.Component {

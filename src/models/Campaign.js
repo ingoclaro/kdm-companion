@@ -11,6 +11,8 @@ import { Monster } from './Monster'
 
 import R from 'ramda'
 
+import { expansionFilter } from '../utils'
+
 const StoredResource = types.model('StoredResource', {
   id: types.identifier(types.string),
   resource: types.reference(Resource),
@@ -97,9 +99,35 @@ export const Campaign = types
       if (self.expansions.has(expansion.id)) {
         // reset some stuff when expansions are removed
         self.hunting = null
-        // TODO: should remove associated innovations, locations and resources?
-        // If I don't remove resources it's going to be tricky for the build section.
-        // other option is to not let remove the expansion until it's asociated stuff is removed from the settlement.
+
+        // remove all expansion locations
+        let remove = []
+        for (let [id, item] of self.locations) {
+          if (item.expansion.id === expansion.id) {
+            remove.push({ id })
+          }
+        }
+        remove.forEach(item => self.selectLocation(item))
+
+        // remove all expansion innovations
+        remove = []
+        for (let [id, item] of self.innovations) {
+          if (item.expansion.id === expansion.id) {
+            remove.push({ id })
+          }
+        }
+        remove.forEach(item => self.selectInnovation(item))
+
+        // remove all expansion monster resources
+        for (let [id, item] of self.stored_resources) {
+          if (
+            item.resource.expansion &&
+            item.resource.expansion !== 'core' &&
+            item.resource.expansion.id === expansion.id
+          ) {
+            item.quantity = 0
+          }
+        }
 
         self.expansions.delete(expansion.id)
       } else {
@@ -150,7 +178,7 @@ export const Campaign = types
     get expansionList() {
       return keys(self.expansions)
     },
-    expansionFilter(map) {
+    selectedExpansionFilter(map) {
       return R.filter(
         item => {
           let id = false
@@ -165,9 +193,21 @@ export const Campaign = types
       )
     },
     get innovationsList() {
-      return self.expansionFilter(self.innovations)
+      return self.selectedExpansionFilter(self.innovations)
     },
     get locationsList() {
-      return self.expansionFilter(self.locations)
+      return self.selectedExpansionFilter(self.locations)
+    },
+    expansionContent(expansion) {
+      let locations = expansionFilter(self.locations, expansion)
+      let innovations = expansionFilter(self.innovations, expansion)
+      let resources = R.filter(
+        item =>
+          item.resource.expansion.id === expansion.id && item.quantity > 0,
+        values(self.stored_resources)
+      )
+      let length = 0 + locations.length + innovations.length + resources.length
+
+      return { locations, innovations, resources, length }
     },
   }))
