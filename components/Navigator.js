@@ -1,5 +1,5 @@
 import React from 'react'
-import { Platform, StatusBar } from 'react-native'
+import { Platform } from 'react-native'
 import { TabNavigator, StackNavigator, DrawerNavigator } from 'react-navigation'
 import TabBar from './TabBar'
 import { Image } from '@shoutem/ui'

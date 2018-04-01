@@ -33,6 +33,7 @@ export default class Header extends React.Component {
         rightComponent={rightComponent}
         hasHistory={back}
         navigateBack={() => this.props.navigation.goBack()}
+        autoStyleStatusBar={false}
       />
     )
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Platform, StatusBar } from 'react-native'
+import { View, Platform, StatusBar } from 'react-native'
 import Expo, { AppLoading } from 'expo'
 import Application from './components/App'
 import colors from './src/colors'
