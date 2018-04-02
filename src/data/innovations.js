@@ -183,14 +183,14 @@ export default {
     ],
     providesSurvival: { limit: 1 },
   },
-  forbidden_dance: {
-    id: 'forbidden_dance',
+  'forbidden dance': {
+    id: 'forbidden dance',
     name: 'Forbidden Dance',
     expansion: 'core',
     keywords: ['music', 'drums consequence'],
     providesBonuses: [
       {
-        id: 'forbidden_dance',
+        id: 'forbidden dance',
         name: 'Forbidden Dance',
         description: [
           'When a survivor uses the Synchronized Strike SFA, reroll missed attack rolls once',
@@ -199,11 +199,11 @@ export default {
     ],
     endeavors: [
       {
-        id: 'forbidden_dance',
+        id: 'forbidden dance',
         name: 'Forbidden Dance',
         expansion: 'core',
         recipe: {
-          innovation: 'forbidden_dance',
+          innovation: 'forbidden dance',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
       },
@@ -357,18 +357,18 @@ export default {
       },
     ],
   },
-  nightmare_training: {
-    id: 'nightmare_training',
+  'nightmare training': {
+    id: 'nightmare training',
     name: 'Nightmare Training',
     expansion: 'core',
     keywords: ['education', 'symposium consequence'],
     endeavors: [
       {
-        id: 'nightmare_training',
+        id: 'nightmare training',
         name: 'Train',
         expansion: 'core',
         recipe: {
-          innovation: 'nightmare_training',
+          innovation: 'nightmare training',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
       },
@@ -732,6 +732,239 @@ export default {
         expansion: 'gorm',
         recipe: {
           innovation: 'albedo',
+          items: [{ resource: 'endeavor', quantity: 2 }],
+        },
+      },
+    ],
+  },
+  'subterranean agriculture': {
+    id: 'subterranean agriculture',
+    name: 'Subterranean Agriculture',
+    expansion: 'dbk',
+    keywords: ['science'],
+    endeavors: [
+      {
+        id: 'underground_sow',
+        name: 'Underground Sow',
+        expansion: 'dbk',
+        recipe: {
+          innovation: 'subterranean agriculture',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+      {
+        id: 'black_harvest',
+        name: 'Black Harvest',
+        expansion: 'dbk',
+        recipe: {
+          innovation: 'subterranean agriculture',
+          items: [
+            { resource: 'endeavor', quantity: 1 },
+            { resource: 'preserved caustic dung', quantity: 1 },
+          ],
+        },
+      },
+      {
+        id: 'build_wet_resin_crafter',
+        name: 'Build - Wet Resin Crafter',
+        expansion: 'dbk',
+        recipe: {
+          innovation: 'subterranean agriculture',
+          not_location: 'wet_resin_crafter',
+          items: [
+            { resource: 'endeavor', quantity: 1 },
+            { keyword: 'organ', quantity: 2 },
+            { keyword: 'bone', quantity: 2 },
+          ],
+        },
+      },
+    ],
+  },
+  'round stone training': {
+    id: 'round stone training',
+    name: 'Round Stone Training',
+    expansion: 'dbk',
+    keywords: ['education', 'nightmare training consequence'],
+    endeavors: [
+      {
+        id: 'round stone training',
+        name: 'Train',
+        expansion: 'dbk',
+        recipe: {
+          innovation: 'round stone training',
+          items: [
+            { resource: 'endeavor', quantity: 1 },
+            { keyword: 'resource', quantity: 1 },
+          ],
+        },
+      },
+    ],
+  },
+  'petal spiral': {
+    id: 'petal spiral',
+    name: 'Petal Spiral',
+    expansion: 'fk',
+    keywords: ['music', 'forbidden dance consequence'],
+    endeavors: [
+      {
+        id: 'trace petals',
+        name: 'Trace Petals',
+        expansion: 'fk',
+        recipe: {
+          innovation: 'petal spiral',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+    ],
+  },
+  'black mask': {
+    id: 'black mask',
+    name: 'Black Mask',
+    expansion: 'lk',
+    keywords: ['other'],
+    endeavors: [
+      {
+        id: 'visit retinue',
+        name: 'Visit the retinue',
+        expansion: 'lk',
+        recipe: {
+          innovation: 'black mask',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+      {
+        id: 'face the monster',
+        name: 'Face the monster',
+        expansion: 'lk',
+        recipe: {
+          innovation: 'black mask',
+          items: [{ resource: 'endeavor', quantity: 2 }],
+        },
+      },
+    ],
+  },
+  'white mask': {
+    id: 'white mask',
+    name: 'White Mask',
+    expansion: 'lk',
+    keywords: ['other'],
+    endeavors: [
+      {
+        id: 'visit retinue',
+        name: 'Visit the retinue',
+        expansion: 'lk',
+        recipe: {
+          innovation: 'white mask',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+      {
+        id: 'leave offering',
+        name: 'Leave the monster an offering',
+        expansion: 'lk',
+        recipe: {
+          innovation: 'white mask',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+    ],
+  },
+  'stoic statue': {
+    id: 'stoic statue',
+    name: 'Stoic Statue',
+    expansion: 'lk',
+    keywords: ['other'],
+    endeavors: [
+      {
+        id: 'worship monster',
+        name: 'Worship the monster',
+        expansion: 'lk',
+        recipe: {
+          innovation: 'stoic statue',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+    ],
+  },
+  'legless ball': {
+    id: 'legless ball',
+    name: 'Legless Ball',
+    expansion: 'spidicules',
+    keywords: ['other'],
+    endeavors: [
+      {
+        id: 'get web silk',
+        name: 'Get Web Silk',
+        expansion: 'spidicules',
+        recipe: {
+          innovation: 'legless ball',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+      {
+        id: 'kill spidicules',
+        name: 'Kill Spidicules',
+        expansion: 'spidicules',
+        recipe: {
+          innovation: 'legless ball',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+    ],
+  },
+  'silk refining': {
+    id: 'silk refining',
+    name: 'Silk Refining',
+    expansion: 'spidicules',
+    keywords: ['other'],
+    endeavors: [
+      {
+        id: 'silk surgery',
+        name: 'Silk Surgery',
+        expansion: 'spidicules',
+        recipe: {
+          innovation: 'silk refining',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+      {
+        id: 'create hide',
+        name: 'Create Hide',
+        expansion: 'spidicules',
+        recipe: {
+          innovation: 'silk refining',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+      {
+        id: 'build silk mill',
+        name: 'Build - Silk Mill',
+        expansion: 'spidicules',
+        recipe: {
+          innovation: 'silk refining',
+          not_location: 'silk mill',
+          items: [
+            { resource: 'endeavor', quantity: 1 },
+            { keyword: 'silk', quantity: 2 },
+            { keyword: 'bone', quantity: 1 },
+            { keyword: 'organ', quantity: 1 },
+          ],
+        },
+      },
+    ],
+  },
+  choreia: {
+    id: 'choreia',
+    name: 'Choreia',
+    expansion: 'spidicules',
+    keywords: ['music', 'forbidden dance consequence'],
+    endeavors: [
+      {
+        id: 'spider dance',
+        name: 'Spider Dance',
+        expansion: 'spidicules',
+        recipe: {
+          innovation: 'choreia',
           items: [{ resource: 'endeavor', quantity: 2 }],
         },
       },

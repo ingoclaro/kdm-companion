@@ -71,6 +71,27 @@ function resources_structure(global_resources, settlement_resources, filter) {
       count: 0,
       data: [],
     },
+    dbk: {
+      id: 'dbk',
+      title: 'Dung Beetle Knight',
+      expansion: 'dbk',
+      count: 0,
+      data: [],
+    },
+    fk: {
+      id: 'fk',
+      title: 'Flower Knight',
+      expansion: 'fk',
+      count: 0,
+      data: [],
+    },
+    spidicules: {
+      id: 'spidicules',
+      title: 'Spidicules',
+      expansion: 'spidicules',
+      count: 0,
+      data: [],
+    },
   }
 
   const data = R.reduce(

@@ -1,6 +1,6 @@
 export default {
   core: { id: 'core', name: 'Core' },
-  dbk: { id: 'dbk', name: 'Dunk Bettle Knight' },
+  dbk: { id: 'dbk', name: 'Dung Beatle Knight' },
   dk: { id: 'dk', name: 'Dragon King' },
   fk: { id: 'fk', name: 'Flower Knight' },
   gka: { id: 'gka', name: 'Green Knight Armor' },

@@ -323,4 +323,183 @@ export default {
     keywords: ['bone'],
     monster: 'gorm',
   },
+  'drifting dream fruit': {
+    id: 'drifting dream fruit',
+    keywords: ['consumable'],
+    type: 'strange',
+    expansion: 'lt',
+  },
+  'blistering plasma fruit': {
+    id: 'blistering plasma fruit',
+    keywords: ['organ', 'consumable'],
+    type: 'strange',
+    expansion: 'lt',
+  },
+  'jagged marrow fruit': {
+    id: 'jagged marrow fruit',
+    keywords: ['bone', 'scrap', 'consumable'],
+    type: 'strange',
+    expansion: 'lt',
+  },
+  'porous flesh fruit': {
+    id: 'porous flesh fruit',
+    keywords: ['hide', 'consumable'],
+    type: 'strange',
+    expansion: 'lt',
+  },
+  'lonely fruit': {
+    id: 'lonely fruit',
+    keywords: ['consumable'],
+    type: 'strange',
+    expansion: 'lt',
+  },
+  'century fingernails': {
+    id: 'century fingernails',
+    keywords: ['bone'],
+    monster: 'dbk',
+  },
+  'beetle horn': {
+    id: 'beetle horn',
+    keywords: ['bone'],
+    monster: 'dbk',
+  },
+  elytra: {
+    id: 'elytra',
+    keywords: ['bone', 'hide', 'organ'],
+    monster: 'dbk',
+  },
+  'compound eye': {
+    id: 'compound eye',
+    keywords: ['organ', 'consumable'],
+    monster: 'dbk',
+  },
+  'century shell': {
+    id: 'century shell',
+    keywords: ['hide', 'iron'],
+    monster: 'dbk',
+  },
+  'scarab wing': {
+    id: 'scarab wing',
+    keywords: ['organ'],
+    monster: 'dbk',
+  },
+  'underplate fungus': {
+    id: 'underplate fungus',
+    keywords: ['herb', 'hide', 'consumable'],
+    monster: 'dbk',
+  },
+  'scarab shell': {
+    id: 'scarab shell',
+    keywords: ['hide'],
+    monster: 'dbk',
+  },
+  'preserved caustic dung': {
+    id: 'preserved caustic dung',
+    keywords: ['organ', 'consumable', 'dung'],
+    type: 'strange',
+    expansion: 'dbk',
+  },
+  scell: {
+    id: 'scell',
+    keywords: ['organ', 'consumable'],
+    type: 'strange',
+    expansion: 'dbk',
+  },
+  'warbling bloom': {
+    id: 'warbling bloom',
+    keywords: ['flower', 'hide'],
+    monster: 'fk',
+  },
+  'lantern bud': {
+    id: 'lantern bud',
+    keywords: ['flower', 'scrap'],
+    monster: 'fk',
+  },
+  'lantern bloom': {
+    id: 'lantern bloom',
+    keywords: ['flower', 'hide'],
+    monster: 'fk',
+  },
+  'osseous bloom': {
+    id: 'osseous bloom',
+    keywords: ['flower', 'bone'],
+    monster: 'fk',
+  },
+  'sighing bloom': {
+    id: 'sighing bloom',
+    keywords: ['flower', 'organ'],
+    monster: 'fk',
+  },
+  'small apendages': {
+    id: 'small apendages',
+    keywords: ['hide'],
+    monster: 'spidicules',
+  },
+  'venom sac': {
+    id: 'venom sac',
+    keywords: ['organ', 'consumable'],
+    monster: 'spidicules',
+  },
+  'aracnid heart': {
+    id: 'aracnid heart',
+    keywords: ['organ'],
+    monster: 'spidicules',
+  },
+  'unlaid eggs': {
+    id: 'unlaid eggs',
+    keywords: ['organ', 'consumable'],
+    monster: 'spidicules',
+  },
+  'thick web silk': {
+    id: 'thick web silk',
+    keywords: ['silk', 'hide'],
+    monster: 'spidicules',
+  },
+  stomach: {
+    id: 'stomach',
+    keywords: ['organ'],
+    monster: 'spidicules',
+  },
+  spinnerets: {
+    id: 'spinnerets',
+    keywords: ['organ', 'scrap'],
+    monster: 'spidicules',
+  },
+  exoskeleton: {
+    id: 'exoskeleton',
+    keywords: ['hide'],
+    monster: 'spidicules',
+  },
+  chitin: {
+    id: 'chitin',
+    keywords: ['hide'],
+    monster: 'spidicules',
+  },
+  eyeballs: {
+    id: 'eyeballs',
+    keywords: ['organ'],
+    monster: 'spidicules',
+  },
+  'serrated fangs': {
+    id: 'serrated fangs',
+    keywords: ['bone'],
+    monster: 'spidicules',
+  },
+  'large appendage': {
+    id: 'large appendage',
+    keywords: ['bone'],
+    monster: 'spidicules',
+  },
+  'web silk': {
+    id: 'web silk',
+    keywords: ['silk'],
+    type: 'strange',
+    expansion: 'spidicules',
+  },
+  'silken nervous system': {
+    id: 'silken nervous system',
+    keywords: ['organ'],
+    type: 'strange',
+    expansion: 'spidicules',
+  },
 }
