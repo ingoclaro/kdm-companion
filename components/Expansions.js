@@ -44,7 +44,7 @@ export default class Expansions extends React.Component {
 
   toggle(expansion) {
     let content = this.props.expansionContent(expansion)
-    if (content.length > 0) {
+    if (expansion.id !== 'core' && content.length > 0) {
       // removing this campaign will cause to loose data!
       this.setState({ content, showAlert: true, expansion })
     } else {
