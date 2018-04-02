@@ -4,7 +4,48 @@ Below you'll find information about performing common tasks. The most recent ver
 
 ## TODO
 
-* Needed to fork @shoutem/ui to set the StatusBar color. Once this [pull request](https://github.com/shoutem/ui/pull/386) is merged we can switch back to upstream.
+* [ ] Needed to fork @shoutem/ui to set the StatusBar color. Once this [pull request](https://github.com/shoutem/ui/pull/386) is merged we can switch back to upstream.
+
+v1.5:
+
+* [ ] Fix strange resources to only show resources of the selected expansion
+* [ ] Change Fight screen to only have the fight tab
+  * [ ] Add monster selector with all available monsters
+  * [ ] Show monster initial Stats
+  * [ ] Add controls for token tracking (+ - buttons) eg: speed: 0 + 2 = 2
+  * [ ] Add button to show basic action / or show it permanently on screen
+  * [ ] Add button to show severe injury table
+  * [ ] Add button to show severe brain trauma table
+* [ ] Add stats/tracking service
+* [ ] Publish as standalone Android App
+* [ ] Add ads?
+
+v1.6:
+
+* [ ] Add support for gear builder
+
+v1.7:
+
+* [ ] Add support for Random Settlement event
+  * [ ] Consider Settlement events from expansions
+
+v1.8:
+
+* [ ] Add support to manage Survivors
+  * [ ] Add, name with picture
+  * [ ] Update name and picture
+  * [ ] Remove
+  * [ ] Kill/revive
+
+v2.0:
+
+* [ ] Full fledged survivor management
+  * [ ] Permanent stats
+  * [ ] Fighting arts
+  * [ ] Disorders
+  * [ ] Re-roll (if survivor of the fittest)
+  * [ ] Gender
+  * [ ] etc...
 
 ## Table of Contents
 
