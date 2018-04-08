@@ -694,6 +694,5 @@ export default {
       },
     ],
   },
-  //TODO: add dbk gear
-  //TODO: add spidicules gear
+  //TODO: review and add al expansions gear
 }

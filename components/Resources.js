@@ -92,6 +92,20 @@ function resources_structure(global_resources, settlement_resources, filter) {
       count: 0,
       data: [],
     },
+    sunstalker: {
+      id: 'sunstalker',
+      title: 'Sunstalker',
+      expansion: 'sunstalker',
+      count: 0,
+      data: [],
+    },
+    dk: {
+      id: 'dk',
+      title: 'Dragon King',
+      expansion: 'dk',
+      count: 0,
+      data: [],
+    },
   }
 
   const data = R.reduce(
@@ -114,7 +128,7 @@ function resources_structure(global_resources, settlement_resources, filter) {
       }
     },
     filter(sections),
-    values(global_resources)
+    filter(global_resources)
   )
 
   return Object.values(data)

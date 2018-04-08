@@ -8,7 +8,9 @@ Below you'll find information about performing common tasks. The most recent ver
 
 v1.5:
 
-* [ ] Fix strange resources to only show resources of the selected expansion
+* [x] Fix strange resources to only show resources of the selected expansion
+* [ ] Review TODOs in the codebase.
+* [ ] Review model to support for "the knowledge worm" innovation.
 * [ ] Change Fight screen to only have the fight tab
   * [ ] Add monster selector with all available monsters
   * [ ] Show monster initial Stats
@@ -38,6 +40,10 @@ v1.8:
   * [ ] Kill/revive
 
 v2.0:
+
+* [ ] Add support for other campaigns (people of the xxx)
+
+v3.0:
 
 * [ ] Full fledged survivor management
   * [ ] Permanent stats

@@ -272,6 +272,16 @@ export default {
     expansion: 'core',
     keywords: ['starting innovation'],
     providesSurvival: { limit: 1 },
+    providesBonuses: [
+      {
+        id: 'encourage',
+        name: 'Encourage',
+        description: [
+          'All  survivors gain encourage survival action.',
+          'Encourage: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
+        ],
+      },
+    ],
   },
   lantern_oven: {
     id: 'lantern_oven',
@@ -967,6 +977,394 @@ export default {
           innovation: 'choreia',
           items: [{ resource: 'endeavor', quantity: 2 }],
         },
+      },
+    ],
+  },
+  'the knowledge worm': {
+    id: 'the knowledge worm',
+    name: 'The Knowledge Worm',
+    expansion: 'lg',
+    keywords: ['other'],
+    providesBonuses: [
+      {
+        id: 'the knowledge worm',
+        name: 'The Knowledge Worm',
+        description: [
+          'At the start of each settlement phase add 1 scrap resource to storage',
+        ],
+      },
+    ],
+    providesSurvival: { departing: 3 },
+    //TODO: departing survivors gain 3 insanity. If any has 10+, "A Gracious Host"
+  },
+  'crimson candy': {
+    id: 'crimson candy',
+    name: 'Crimson Candy',
+    expansion: 'manhunter',
+    keywords: ['science'],
+    //TODO: at the start of the showdown each survivor gains * survival
+    endeavors: [
+      {
+        id: 'crimson cannibalism',
+        name: 'Crimson Cannibalism',
+        expansion: 'manhunter',
+        recipe: {
+          innovation: 'crimson candy',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+    ],
+  },
+  'war room': {
+    id: 'war room',
+    name: 'War room',
+    expansion: 'manhunter',
+    keywords: ['education', 'storytelling consequence'],
+    providesSurvival: {
+      limit: 1,
+    },
+    providesBonuses: [
+      {
+        id: 'war room',
+        name: 'War Room',
+        description: [
+          "Quarries can't move off the hunt board. If survivors would need to move backwards roll 1d10, on 4+ they don't.",
+        ],
+      },
+    ],
+    endeavors: [
+      {
+        id: 'war room',
+        name: 'Reroll 1 Hunt Event',
+        expansion: 'manhunter',
+        recipe: {
+          innovation: 'war room',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+    ],
+  },
+  'settlement watch': {
+    id: 'settlement watch',
+    name: 'Settlement Watch',
+    expansion: 'manhunter',
+    keywords: ['home', 'hovel consequence'],
+    providesSurvival: {
+      limit: 1,
+    },
+    providesBonuses: [
+      {
+        id: 'settlement watch',
+        name: 'Settlement Watch',
+        description: [
+          'Departing survivors gain +2 survival when they depart for a Nemesis encounter or Special Showdown',
+        ], //TODO could this modeled into the provides survival somehow? maybe just have a list of text so is more freeform?
+      },
+    ],
+    endeavors: [
+      {
+        id: 'new recruits',
+        name: 'New Recruits',
+        expansion: 'manhunter',
+        recipe: {
+          innovation: 'settlement watch',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+    ],
+  },
+  'darkwater research': {
+    id: 'darkwater research',
+    name: 'Darkwater Research',
+    expansion: 'slenderman',
+    keywords: ['science'],
+    providesBonuses: [
+      {
+        id: 'darkwater research',
+        name: 'Darkwater Research',
+        description: ['Departing survivors gain +2 insanity.'], //TODO could this modeled into the provides survival somehow? maybe just have a list of text so is more freeform?
+      },
+    ],
+    endeavors: [
+      {
+        id: 'light-forging',
+        name: 'Light-Forging',
+        expansion: 'slenderman',
+        recipe: {
+          innovation: 'darkwater research',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+      {
+        id: 'dark water research',
+        name: 'Dark Water Research',
+        expansion: 'slenderman',
+        recipe: {
+          innovation: 'darkwater research',
+          items: [
+            { resource: 'endeavor', quantity: 1 },
+            { keyword: 'resource', quantity: 2 },
+            { resource: 'dark water', quantity: 2 },
+          ],
+        },
+      },
+    ],
+  },
+  'sun language': {
+    id: 'sun language',
+    name: 'Sun Language',
+    expansion: 'sunstalker',
+    keywords: ['starting innovation'],
+    providesSurvival: {
+      limit: 1,
+    },
+    providesBonuses: [
+      {
+        id: 'embolden',
+        name: 'Embolden',
+        description: [
+          'All Surivors gain the Embolden survival action.',
+          "Embolden: Once per round, if you haven't any +1 Str tokens, spend 1 survival to gain +1 Str token. When you are knocked down loose all Str tokens.",
+        ],
+      },
+    ],
+  },
+  'umbilical bank': {
+    id: 'umbilical bank',
+    name: 'Umbilical Bank',
+    expansion: 'sunstalker',
+    keywords: ['science'],
+    providesBonuses: [
+      {
+        id: 'umbilical bank',
+        name: 'Umbilical Bank',
+        description: [
+          'When a new survivor is born you may add 1 Life String strange resource to the storage.',
+        ],
+      },
+    ],
+    endeavors: [
+      {
+        id: 'umbilical symbiosis',
+        name: 'Umbilical Symbiosis',
+        expansion: 'sunstalker',
+        recipe: {
+          innovation: 'umbilical bank',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+      {
+        id: 'innovate pottery',
+        name: 'Innovate Pottery',
+        expansion: 'sunstalker',
+        recipe: {
+          innovation: 'umbilical bank',
+          not_innovation: 'pottery',
+          items: [
+            { resource: 'endeavor', quantity: 1 },
+            { keyword: 'organ', quantity: 3 },
+          ],
+        },
+      },
+    ],
+  },
+  'sauna shrine': {
+    id: 'sauna shrine',
+    name: 'Sauna Shrine',
+    expansion: 'sunstalker',
+    keywords: ['faith', 'hands of the sun consequence'],
+    providesBonuses: [
+      {
+        id: 'sauna shrine',
+        name: 'Sauna Shrine',
+        description: [
+          'When survivors depart for a nemesis encounter or special showdown, they gain +10 survival.',
+        ],
+      },
+    ],
+    endeavors: [
+      {
+        id: 'tribute',
+        name: 'Tribute',
+        expansion: 'sunstalker',
+        recipe: {
+          innovation: 'sauna shrine',
+          items: [
+            { resource: 'endeavor', quantity: 1 },
+            { keyword: 'organ', quantity: 1 },
+          ],
+        },
+      },
+    ],
+  },
+  'shadow dancing': {
+    id: 'shadow dancing',
+    name: 'Shadow Dancing',
+    expansion: 'sunstalker',
+    keywords: ['home', 'hovel consequence'],
+    endeavors: [
+      {
+        id: 'final dance',
+        name: 'Final Dance',
+        expansion: 'sunstalker',
+        recipe: {
+          innovation: 'shadow dancing',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+    ],
+  },
+  'filleting table': {
+    id: 'filleting table',
+    name: 'Filleting Table',
+    expansion: 'sunstalker',
+    keywords: ['science'],
+    providesBonuses: [
+      {
+        id: 'filleting table',
+        name: 'Filleting Table',
+        description: [
+          'Once per settlement phase, if the survivors return victorious, gain 1 random basic resource.',
+        ],
+      },
+    ],
+    endeavors: [
+      {
+        id: 'advance cutting',
+        name: 'Advance Cutting',
+        expansion: 'sunstalker',
+        recipe: {
+          innovation: 'filleting table',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+    ],
+  },
+  'hands of the sun': {
+    id: 'hands of the sun',
+    name: 'Hands of the Sun',
+    expansion: 'sunstalker',
+    keywords: ['faith'],
+    providesBonuses: [
+      {
+        id: 'overcharge',
+        name: 'Overcharge',
+        description: [
+          'All Surivors gain the Overcharge survival action.',
+          'Overcharge: If you have any +1 Str token, you may spend 1 survival to remove of them and gain devastating 1 to your next attack this round.',
+        ],
+      },
+    ],
+  },
+  aquarobics: {
+    id: 'aquarobics',
+    name: 'Aquarobics',
+    expansion: 'sunstalker',
+    keywords: ['faith', 'hands of the sun consequence'],
+    providesSurvival: {
+      limit: 1,
+    },
+    endeavors: [
+      {
+        id: 'underwater train',
+        name: 'Underwater Train',
+        expansion: 'sunstalker',
+        recipe: {
+          innovation: 'filleting table',
+          items: [{ resource: 'endeavor', quantity: 1 }],
+        },
+      },
+    ],
+  },
+  'dragon speech': {
+    id: 'dragon speech',
+    name: 'Dragon Speech',
+    expansion: 'dk', // TODO: this should be people of the stars, do the same for expansions that provide campaigns so that their cards don't get mixed into the core campaign.
+    keywords: ['starting innovation', 'language'], // TODO: should we do this, or add dragon speech consecuence to all language innovations? Or have a new field with 'add xxx consecuense (like the text at the bottom of the card)'
+    providesSurvival: {
+      limit: 1,
+    },
+    providesBonuses: [
+      {
+        id: 'encourage',
+        name: 'Encourage',
+        description: [
+          'All  survivors gain encourage survival action.',
+          'Encourage: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
+        ],
+      },
+    ],
+  },
+  'radiating orb': {
+    id: 'radiating orb', // TODO: handle consecuence (this card has add lantern oven consecuence :S)
+    name: 'Radiating Orb',
+    expansion: 'dk', // TODO: handle campaigns
+    keywords: ['science'],
+    providesSurvival: {
+      departing: 1,
+      newborn: 1,
+    },
+    providesBonuses: [
+      {
+        id: 'radiating orb',
+        name: 'Radiating Orb',
+        description: [
+          'Departing survivors with a constellation gain +1 survival.',
+        ],
+      },
+    ],
+  },
+  arena: {
+    id: 'arena',
+    name: 'Arena',
+    expansion: 'dk', // TODO: handle campaigns
+    keywords: ['education', 'nightmare training consequence'],
+    endeavors: [
+      {
+        id: 'spar',
+        name: 'Spar',
+        expansion: 'dk',
+        recipe: {
+          innovation: 'arena',
+          items: [
+            { resource: 'endeavor', quantity: 1 },
+            { keyword: 'iron', quantity: 1 },
+          ],
+        },
+      },
+    ],
+  },
+  bloodline: {
+    id: 'bloodline',
+    name: 'Bloodline',
+    expansion: 'dk', // TODO: handle campaigns
+    keywords: ['home', 'hovel consecuence'],
+    providesBonuses: [
+      {
+        id: 'bloodline',
+        name: 'Bloodline',
+        description: [
+          'Newborn survivors inherit the following from their parents:',
+          "The Oracle's Eye, Iridescent Hide or Pristine ability.",
+          '1 Surname.',
+          "Half of the parent's weapon proficiency levels, rounded up.",
+        ],
+      },
+    ],
+  },
+  empire: {
+    id: 'empire',
+    name: 'Empire',
+    expansion: 'dk', // TODO: handle campaigns
+    keywords: ['home', 'bloodline consecuence'],
+    providesBonuses: [
+      {
+        id: 'empire',
+        name: 'Empire',
+        description: [
+          'Newborn survivors have +1 permanent Str and Pristine ability',
+          'Pristine: when you suffer a dismembered severe injury, ignore it and gain 1 bleeding token instead.',
+        ],
       },
     ],
   },
