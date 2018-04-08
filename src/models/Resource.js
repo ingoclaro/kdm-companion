@@ -1,5 +1,6 @@
 import { types } from 'mobx-state-tree'
 import { Monster } from './Monster'
+import { Expansion } from './Expansion'
 import { capitalize } from '../utils'
 
 const Resource = types
@@ -10,6 +11,7 @@ const Resource = types
     type: types.maybe(
       types.enumeration('Type', ['basic', 'strange', 'vermin', 'endeavor'])
     ),
+    expansion: types.optional(types.reference(Expansion), 'core'),
     keywords: types.maybe(types.array(types.string)),
   })
   .views(self => ({
@@ -24,14 +26,6 @@ const Resource = types
         id = self.type
       }
       return id
-    },
-    get expansion() {
-      let expansion = 'core'
-      if (self.monster) {
-        // TODO: there might be expansion specific resources (strange?), consider adding expansion to the model with default to 'core'
-        expansion = self.monster.expansion
-      }
-      return expansion
     },
   }))
 
