@@ -47,10 +47,9 @@ export default class StatItem extends React.Component {
 const styles = {
   name: {
     paddingRight: 5,
-    width: 130,
+    flex: 5,
   },
   baseValue: {
-    // paddingLeft: 15,
     color: colors.grey500,
   },
   total: {
@@ -58,6 +57,7 @@ const styles = {
     paddingRight: 5,
   },
   numberContainer: {
+    flex: 3,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -69,6 +69,7 @@ const styles = {
     paddingBottom: 5,
   },
   stepper: {
+    flex: 2,
     right: 5,
   },
 }
