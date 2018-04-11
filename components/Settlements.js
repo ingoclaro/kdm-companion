@@ -13,6 +13,7 @@ import {
   TextInput,
 } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
+import Expo from 'expo'
 import colors from '../src/colors'
 
 @inject(({ store }) => ({
@@ -90,15 +91,28 @@ export class EditSettlement extends React.Component {
 
 @inject(({ store }) => ({
   createCampaign: store.createCampaign,
+  numCampaigns: store.numCampaigns,
 }))
 @observer
 export class CreateSettlement extends React.Component {
   constructor(props) {
     super(props)
+    this.onCreate = this.onCreate.bind(this)
   }
 
   state = {
     createName: null,
+  }
+
+  onCreate() {
+    this.props.createCampaign(this.state.createName)
+    Expo.Amplitude.logEventWithProperties('Create.Settlement', {
+      numSettlements: this.props.numCampaigns,
+    })
+    this.setState({ createName: null })
+    if (this.props.onCreate) {
+      this.props.onCreate()
+    }
   }
 
   render() {
@@ -114,15 +128,7 @@ export class CreateSettlement extends React.Component {
           style={styles.input}
         />
         <Divider />
-        <Button
-          onPress={() => {
-            this.props.createCampaign(this.state.createName)
-            this.setState({ createName: null })
-            if (this.props.onCreate) {
-              this.props.onCreate()
-            }
-          }}
-        >
+        <Button onPress={this.onCreate}>
           <Text>Create</Text>
         </Button>
       </View>
@@ -133,11 +139,23 @@ export class CreateSettlement extends React.Component {
 @inject(({ store }) => ({
   delete: store.deleteCampaign,
   campaign: store.selectedCampaign,
+  numCampaigns: store.numCampaigns,
 }))
 @observer
 export class DeleteSettlement extends React.Component {
   constructor(props) {
     super(props)
+    this.onDelete = this.onDelete.bind(this)
+  }
+
+  onDelete() {
+    Expo.Amplitude.logEventWithProperties('Delete.Settlement', {
+      numSettlements: this.props.numCampaigns,
+    })
+    this.props.delete(this.props.campaign.id)
+    if (this.props.onDelete) {
+      this.props.onDelete()
+    }
   }
 
   render() {
@@ -152,15 +170,7 @@ export class DeleteSettlement extends React.Component {
         </Text>
         <Text>This will delete all data associated with that Settlement.</Text>
         <Divider />
-        <Button
-          onPress={() => {
-            this.props.delete(this.props.campaign.id)
-            if (this.props.onDelete) {
-              this.props.onDelete()
-            }
-          }}
-          style={styles.delete}
-        >
+        <Button onPress={this.onDelete} style={styles.delete}>
           <Text>DELETE</Text>
         </Button>
       </View>

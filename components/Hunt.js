@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react/native'
 import colors from '../src/colors'
 
 @inject(({ store }) => ({
-  monsterLevel: store.selectedCampaign.monsterLevel,
+  monsterLevel: store.selectedCampaign.huntingMonsterLevel || {},
 }))
 @observer
 class Hunt extends React.Component {

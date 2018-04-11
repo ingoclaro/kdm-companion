@@ -22,31 +22,27 @@ export default {
         "The White Lion sniffs and ends it's turn. Until the end of the next round, all survivors are now threats. At level 3+ gain +1 accuracy token.",
     },
     levels: {
-      'white_lion-prologue': {
-        id: 'white_lion-prologue',
+      prologue: {
+        id: 'prologue',
         name: 'Prologue',
         type: 'nemesis',
         movement: 6,
         toughness: 6,
-        speed: 0,
-        damage: 0,
         deck: 'custom', // TODO: get list of cards
       },
-      'white_lion-1': {
-        id: 'white_lion-1',
+      '1': {
+        id: '1',
         name: '1',
         huntboard: 'MMBXMOBMMBBS',
         movement: 6,
         toughness: 8,
-        speed: 0,
-        damage: 0,
         deck: {
           B: 7,
           A: 3,
         },
       },
-      'white_lion-2': {
-        id: 'white_lion-2',
+      '2': {
+        id: '2',
         name: '2',
         huntboard: 'MMBBMOXMMBBS',
         movement: 7,
@@ -59,8 +55,8 @@ export default {
           S: ['Cunning'],
         },
       },
-      'white_lion-3': {
-        id: 'white_lion-3',
+      '3': {
+        id: '3',
         name: '3',
         huntboard: 'MMBBMOBMMBBXS',
         movement: 8,
@@ -99,22 +95,20 @@ export default {
         "The monster full moves to the closest Acanthus plant and ends it's turn. If the monster is on or adjacent to an Acanthus plant, archive it and heal 1 wound. If there are no Acanthus plants, full move forward in a straight line.",
     },
     levels: {
-      'screaming_antelope-1': {
-        id: 'screaming_antelope-1',
+      '1': {
+        id: '1',
         name: '1',
         huntboard: 'MBMXBOMBMBBS',
         movement: 6,
         toughness: 8,
-        speed: 0,
-        damage: 0,
         deck: {
           B: 7,
           A: 3,
           S: ['Trample'],
         },
       },
-      'screaming_antelope-2': {
-        id: 'screaming_antelope-2',
+      '2': {
+        id: '2',
         name: '2',
         huntboard: 'MBMBBOMXMBBS',
         movement: 8,
@@ -127,8 +121,8 @@ export default {
           S: ['Trample', 'Diabolical'],
         },
       },
-      'screaming_antelope-3': {
-        id: 'screaming_antelope-3',
+      '3': {
+        id: '3',
         name: '3',
         huntboard: 'MBMBBOMBMXBS',
         movement: 8,
@@ -172,14 +166,12 @@ export default {
         'Place the Phoenix at the center of the Nightmare Tree. It emits a hissing moan. All non-deaf survivors suffer brain damage equal to monster level. Perform Spiral Age.',
     },
     levels: {
-      'phoenix-1': {
-        id: 'phoenix-1',
+      '1': {
+        id: '1',
         name: '1',
         huntboard: 'BMBMXOMBMBBS',
         movement: 8,
         toughness: 10,
-        speed: 0,
-        damage: 0,
         deck: {
           B: 8,
           A: 3,
@@ -187,8 +179,8 @@ export default {
           S: ['Materialize', 'Spiral Age', 'Zeal', 'Dreaded Decade'],
         },
       },
-      'phoenix-2': {
-        id: 'phoenix-2',
+      '2': {
+        id: '2',
         name: '2',
         huntboard: 'BMBMBOMXMBBS',
         movement: 8,
@@ -208,8 +200,8 @@ export default {
           ],
         },
       },
-      'phoenix-3': {
-        id: 'phoenix-3',
+      '3': {
+        id: '3',
         name: '3',
         huntboard: 'BMBMBOMBMBXS',
         movement: 8,
@@ -264,10 +256,6 @@ export default {
         huntboard: 'MMBXMOBBMMBS',
         movement: 6,
         toughness: 8,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 8,
           A: 2,
@@ -284,8 +272,6 @@ export default {
         toughness: 11,
         speed: 1,
         damage: 1,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 9,
           A: 5,
@@ -302,7 +288,6 @@ export default {
         toughness: 15,
         speed: 2,
         damage: 2,
-        evasion: 0,
         luck: 1,
         deck: {
           B: 10,
@@ -328,10 +313,6 @@ export default {
         name: '1',
         movement: 5,
         toughness: 9,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 7,
           A: 5,
@@ -351,8 +332,6 @@ export default {
         toughness: 12,
         speed: 1,
         damage: 1,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 10,
           A: 5,
@@ -372,8 +351,6 @@ export default {
         toughness: 15,
         speed: 2,
         damage: 2,
-        evasion: 0,
-        luck: 0,
         accuracy: 2,
         deck: {
           B: 11,
@@ -405,10 +382,6 @@ export default {
         name: '1',
         movement: 5,
         toughness: 14,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 10,
           A: 0,
@@ -431,8 +404,6 @@ export default {
         toughness: 15,
         speed: 1,
         damage: 1,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 10,
           A: 1,
@@ -455,8 +426,6 @@ export default {
         toughness: 30,
         speed: 3,
         damage: 6,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 10,
           A: 2,
@@ -489,10 +458,6 @@ export default {
         name: '1',
         movement: 5,
         toughness: 12,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 10,
           A: 2,
@@ -513,8 +478,6 @@ export default {
         toughness: 15,
         speed: 1,
         damage: 1,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 11,
           A: 4,
@@ -536,8 +499,6 @@ export default {
         toughness: 18,
         speed: 2,
         damage: 2,
-        evasion: 0,
-        luck: 0,
         accuracy: 2,
         deck: {
           B: 12,
@@ -570,10 +531,6 @@ export default {
         name: '1',
         movement: 7,
         toughness: 12,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 7,
           A: 3,
@@ -593,8 +550,6 @@ export default {
         toughness: 14,
         speed: 1,
         damage: 1,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 7,
           A: 6,
@@ -617,7 +572,6 @@ export default {
         damage: 2,
         evasion: 1,
         accuracy: 1,
-        luck: 0,
         deck: {
           B: 8,
           A: 9,
@@ -649,10 +603,6 @@ export default {
         name: '1',
         movement: 7,
         toughness: 6,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 7,
           A: 4,
@@ -665,10 +615,7 @@ export default {
         name: '2',
         movement: 8,
         toughness: 8,
-        speed: 0,
         damage: 1,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 8,
           A: 4,
@@ -683,9 +630,6 @@ export default {
         toughness: 11,
         speed: 1,
         damage: 2,
-        evasion: 0,
-        accuracy: 0,
-        luck: 0,
         deck: {
           B: 9,
           A: 5,
@@ -716,10 +660,6 @@ export default {
         name: '1',
         movement: 7,
         toughness: 10,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 10,
           A: 2,
@@ -732,10 +672,6 @@ export default {
         name: '2',
         movement: 8,
         toughness: 12,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 10,
           A: 5,
@@ -755,9 +691,6 @@ export default {
         toughness: 15,
         speed: 1,
         damage: 1,
-        evasion: 0,
-        accuracy: 0,
-        luck: 0,
         deck: {
           B: 12,
           A: 9,
@@ -788,10 +721,6 @@ export default {
         name: '1',
         movement: 11,
         toughness: 8,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 5,
           A: 4,
@@ -811,8 +740,6 @@ export default {
         toughness: 10,
         speed: 1,
         damage: 1,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 8,
           A: 5,
@@ -833,9 +760,6 @@ export default {
         toughness: 12,
         speed: 2,
         damage: 2,
-        evasion: 0,
-        accuracy: 0,
-        luck: 0,
         deck: {
           B: 10,
           A: 7,
@@ -867,10 +791,6 @@ export default {
         name: '1',
         movement: 8,
         toughness: 14,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 7,
           A: 7,
@@ -885,7 +805,6 @@ export default {
         toughness: 16,
         speed: 1,
         damage: 1,
-        evasion: 0,
         luck: 1,
         deck: {
           B: 11,
@@ -933,10 +852,6 @@ export default {
         name: '1',
         movement: 6,
         toughness: 8,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 7,
           A: 3,
@@ -951,8 +866,6 @@ export default {
         toughness: 11,
         speed: 1,
         damage: 1,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 7,
           A: 6,
@@ -967,8 +880,6 @@ export default {
         toughness: 11,
         speed: 1,
         damage: 1,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 8,
           A: 7,
@@ -1008,10 +919,6 @@ export default {
         name: '1',
         movement: 0,
         toughness: 11,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 6,
           A: 3,
@@ -1024,10 +931,6 @@ export default {
         name: '2',
         movement: 0,
         toughness: 13,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 8,
           A: 5,
@@ -1042,8 +945,6 @@ export default {
         toughness: 17,
         speed: 1,
         damage: 1,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 8,
           A: 5,
@@ -1068,10 +969,6 @@ export default {
         name: '1',
         movement: 6,
         toughness: 11,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 8,
           A: 4,
@@ -1127,10 +1024,6 @@ export default {
         name: '1',
         movement: 16,
         toughness: 10,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 7,
           A: 2,
@@ -1206,10 +1099,6 @@ export default {
         name: '1',
         movement: 10,
         toughness: 13,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 8,
           A: 4,
@@ -1263,10 +1152,6 @@ export default {
         name: '1',
         movement: 6,
         toughness: 8,
-        speed: 0,
-        damage: 0,
-        evasion: 0,
-        luck: 0,
         deck: {
           B: 6,
           A: 5,

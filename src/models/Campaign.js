@@ -40,6 +40,12 @@ export const Campaign = types
         level: types.string,
       })
     ),
+    showdown: types.maybe(
+      types.model({
+        monster: types.reference(Monster),
+        level: types.string,
+      })
+    ),
     // survivors: types.array(Survivor),
   })
   .actions(self => ({
@@ -158,11 +164,19 @@ export const Campaign = types
         })
       }
     },
-    selectHunt(hunt) {
-      if (hunt.monster_id) {
-        self.hunting = { monster: hunt.monster_id, level: hunt.level_id }
+    selectHunt(monster) {
+      if (monster.monster_id) {
+        self.hunting = { monster: monster.monster_id, level: monster.level_id }
+        self.showdown = { monster: monster.monster_id, level: monster.level_id } // default showdown to hunted monster
       } else {
         self.hunting = null
+      }
+    },
+    selectShowdown(monster) {
+      if (monster.monster_id) {
+        self.showdown = { monster: monster.monster_id, level: monster.level_id }
+      } else {
+        self.showdown = null
       }
     },
   }))
@@ -170,9 +184,14 @@ export const Campaign = types
     get name() {
       return self.settlement.name
     },
-    get monsterLevel() {
+    get huntingMonsterLevel() {
       return self.hunting
         ? self.hunting.monster.levels.get(self.hunting.level)
+        : {}
+    },
+    get showdownMonsterLevel() {
+      return self.showdown
+        ? self.showdown.monster.levels.get(self.showdown.level)
         : {}
     },
     get expansionList() {

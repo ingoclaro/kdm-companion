@@ -12,7 +12,7 @@ import {
 } from '@shoutem/ui'
 import Accordion from './Accordion'
 import SimpleStepper from 'react-native-simple-stepper'
-import { observer, inject, Observer } from 'mobx-react/native'
+import { observer, inject } from 'mobx-react/native'
 import { values } from 'mobx'
 import PropTypes from 'prop-types'
 import R from 'ramda'
@@ -187,9 +187,7 @@ export default class Resources extends React.Component {
           valueChanged={value => {
             this.props.setResourceCount(data.item, value)
           }}
-          style={{
-            alignSelf: 'end',
-          }}
+          style={styles.stepper}
         />
       </View>
     )
@@ -240,4 +238,7 @@ const styles = {
   },
   resourceText: { paddingRight: 5 },
   content: {},
+  stepper: {
+    alignSelf: 'end',
+  },
 }

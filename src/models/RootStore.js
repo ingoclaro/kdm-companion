@@ -82,4 +82,7 @@ export default types
     get availableHunts() {
       return self.selectedExpansionFilter(self.monsters)
     },
+    get numCampaigns() {
+      return self.campaigns.length
+    },
   }))

@@ -9,16 +9,20 @@ Below you'll find information about performing common tasks. The most recent ver
 v1.5:
 
 * [x] Fix strange resources to only show resources of the selected expansion
+* [ ] Fix Deleting last campaign error (should auto create a new one)
 * [ ] Review TODOs in the codebase.
 * [ ] Review model to support for "the knowledge worm" innovation.
 * [ ] Change Fight screen to only have the fight tab
-  * [ ] Add monster selector with all available monsters
-  * [ ] Show monster initial Stats
-  * [ ] Add controls for token tracking (+ - buttons) eg: speed: 0 + 2 = 2
+  * [x] Add monster selector with all available monsters
+  * [x] Show monster initial Stats
+  * [x] Add controls for token tracking (+ - buttons) eg: speed: 0 + 2 = 2
   * [ ] Add button to show basic action / or show it permanently on screen
   * [ ] Add button to show severe injury table
   * [ ] Add button to show severe brain trauma table
-* [ ] Add stats/tracking service
+  * [ ] Add icons to base stats? (get them from the tokens?)
+* [x] Add stats/tracking service
+  * [ ] Review events
+  * [ ] Add configuration setting somewhere to use correct Amplitude api-key depending on environment (eg: prod one when publishing)
 * [ ] Publish as standalone Android App
 * [ ] Add ads?
 

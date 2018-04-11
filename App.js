@@ -12,6 +12,7 @@ export default class App extends React.Component {
     // StatusBar.setBarStyle('light-content')
     // StatusBar.setHidden(false)
     StatusBar.setBackgroundColor(colors.grey900)
+    Expo.Amplitude.initialize('ede4fcd69d806d324d2276b0591b1d18') //test environment
 
     this._cacheResourcesAsync = this._cacheResourcesAsync.bind(this)
   }

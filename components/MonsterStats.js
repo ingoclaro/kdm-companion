@@ -1,36 +1,35 @@
 import React from 'react'
-import { Screen, View, Title, Row, Button } from '@shoutem/ui'
-import SimpleStepper from 'react-native-simple-stepper'
+import { View, Text } from '@shoutem/ui'
+import { observer, inject } from 'mobx-react/native'
 
+import StatItem from './StatItem'
+
+@inject(({ store }) => ({
+  monsterLevel: store.selectedCampaign.showdownMonsterLevel,
+}))
+@observer
 export default class MonsterStats extends React.Component {
   render() {
     return (
       <View>
-        <Row>
-          <Title>Thoughness</Title>
-          <SimpleStepper tintColor={style.stepperTintColor} />
-        </Row>
-        <Row>
-          <Title>Movement</Title>
-          <SimpleStepper tintColor={style.stepperTintColor} />
-        </Row>
-        <Row>
-          <Title>Accurancy</Title>
-          <SimpleStepper tintColor={style.stepperTintColor} />
-        </Row>
-        <Row>
-          <Title>Speed</Title>
-          <SimpleStepper tintColor={style.stepperTintColor} />
-        </Row>
-        <Row>
-          <Title>Health</Title>
-          <SimpleStepper tintColor={style.stepperTintColor} />
-        </Row>
+        <Text>stats:</Text>
+        <StatItem
+          name="Movement"
+          baseValue={this.props.monsterLevel.movement}
+        />
+        <StatItem
+          name="Toughness"
+          baseValue={this.props.monsterLevel.toughness}
+        />
+        <StatItem name="Speed" baseValue={this.props.monsterLevel.speed} />
+        <StatItem name="Damage" baseValue={this.props.monsterLevel.damage} />
+        <StatItem
+          name="Accuracy"
+          baseValue={this.props.monsterLevel.accuracy}
+        />
+        <StatItem name="Luck" baseValue={this.props.monsterLevel.luck} />
+        <StatItem name="Evasion" baseValue={this.props.monsterLevel.evasion} />
       </View>
     )
   }
-}
-
-const style = {
-  stepperTintColor: 'white',
 }

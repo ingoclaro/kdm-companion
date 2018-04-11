@@ -11,7 +11,7 @@ import {
 
 import Hunt from '../components/Hunt'
 import Survival from '../components/Survival'
-import MonsterSelector from '../components/MonsterSelector'
+import { HuntMonsterSelector } from '../components/MonsterSelector'
 
 export default class HuntScreen extends React.Component {
   render() {
@@ -26,7 +26,7 @@ export default class HuntScreen extends React.Component {
         <Divider />
         <View styleName="horizontal v-center">
           <Text>Monster:</Text>
-          <MonsterSelector type="quarry" />
+          <HuntMonsterSelector />
         </View>
         <Hunt />
       </Screen>

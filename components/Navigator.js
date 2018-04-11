@@ -27,6 +27,7 @@ import HuntScreen from '../screens/HuntScreen'
 // Showdown
 import TerrainScreen from '../screens/TerrainScreen'
 import FightScreen from '../screens/FightScreen'
+import TablesScreen from '../screens/TablesScreen'
 import ResultScreen from '../screens/ResultScreen'
 
 const styles = {
@@ -65,24 +66,30 @@ const settlementStyles = {
 
 const ShowdownNavigator = TabNavigator(
   {
-    Setup: {
-      screen: BlankScreen, //TerrainScreen,
-      navigationOptions: {
-        tabBarLabel: 'Setup',
-      },
-    },
+    // Setup: {
+    //   screen: BlankScreen, //TerrainScreen,
+    //   navigationOptions: {
+    //     tabBarLabel: 'Setup',
+    //   },
+    // },
     Fight: {
-      screen: BlankScreen, //FightScreen,
+      screen: FightScreen,
       navigationOptions: {
         tabBarLabel: 'Fight',
       },
     },
-    Result: {
-      screen: BlankScreen, //ResultScreen,
+    Tables: {
+      screen: TablesScreen,
       navigationOptions: {
-        tabBarLabel: 'Result',
+        tabBarLabel: 'Tables',
       },
     },
+    // Result: {
+    //   screen: BlankScreen, //ResultScreen,
+    //   navigationOptions: {
+    //     tabBarLabel: 'Result',
+    //   },
+    // },
   },
   {
     tabBarPosition: 'top',
@@ -270,5 +277,30 @@ function icon(image) {
   }
 }
 
-export default MainNavigatorHeader
-// export default SettlementNavigator
+// gets the current screen from navigation state
+function getCurrentRouteName(navigationState) {
+  if (!navigationState) {
+    return null
+  }
+  const route = navigationState.routes[navigationState.index]
+  // dive into nested navigators
+  if (route.routes) {
+    return `${route.routeName}.${getCurrentRouteName(route)}`
+  }
+  return route.routeName
+}
+
+// export default MainNavigatorHeader
+export default () => (
+  <MainNavigatorHeader
+    onNavigationStateChange={(prevState, currentState) => {
+      const currentScreen = getCurrentRouteName(currentState)
+      const prevScreen = getCurrentRouteName(prevState)
+
+      if (prevScreen !== currentScreen) {
+        let eventName = `Pageview.${currentScreen}`
+        Expo.Amplitude.logEvent(eventName)
+      }
+    }}
+  />
+)
