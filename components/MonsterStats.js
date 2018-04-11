@@ -4,8 +4,18 @@ import { observer, inject } from 'mobx-react/native'
 
 import StatItem from './StatItem'
 
+const emptyMonster = {
+  movement: 0,
+  toughness: 0,
+  speed: 0,
+  damage: 0,
+  accuracy: 0,
+  luck: 0,
+  evasion: 0,
+}
+
 @inject(({ store }) => ({
-  monsterLevel: store.selectedCampaign.showdownMonsterLevel,
+  monsterLevel: store.selectedCampaign.showdownMonsterLevel || emptyMonster,
 }))
 @observer
 export default class MonsterStats extends React.Component {

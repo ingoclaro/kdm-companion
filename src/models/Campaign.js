@@ -188,12 +188,12 @@ export const Campaign = types
     get huntingMonsterLevel() {
       return self.hunting
         ? self.hunting.monster.levels.get(self.hunting.level)
-        : {}
+        : null
     },
     get showdownMonsterLevel() {
       return self.showdown
         ? self.showdown.monster.levels.get(self.showdown.level)
-        : {}
+        : null
     },
     get expansionList() {
       return keys(self.expansions)

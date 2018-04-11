@@ -19,22 +19,34 @@ import R from 'ramda'
 }))
 @observer
 class MonsterSelector extends React.Component {
+  static defaultProps = {
+    type: 'all', // quarry, nemesis, all
+  }
+
   render() {
-    let monsters = this.props.monsters
+    // TODO: move this logic to mapPropsToState if in recent enough version of react.
+    let monsters
     if (this.props.type !== 'all') {
-      monsters = R.filter(monster => monster.type === this.props.type, monsters)
+      monsters = R.filter(
+        monster => monster.type === this.props.type,
+        this.props.monsters
+      )
+    } else {
+      monsters = this.props.monsters
     }
-    monsters.unshift({
-      monster_id: null,
-      level_id: null,
-      title: 'Select a Monster',
-      value: 1,
-      type: null,
-    })
+    if (monsters[0].monster_id !== null) {
+      monsters.unshift({
+        monster_id: null,
+        level_id: null,
+        title: 'Select a Monster',
+        value: 1,
+        type: null,
+      })
+    }
 
     let selectedItem = R.find(
       monster =>
-        this.props.selected.monster &&
+        this.props.selected &&
         monster.monster_id === this.props.selected.monster.id &&
         monster.level_id === this.props.selected.level,
       monsters
@@ -55,12 +67,8 @@ class MonsterSelector extends React.Component {
   }
 }
 
-MonsterSelector.defaultProps = {
-  type: 'all', // quarry, nemesis, all
-}
-
 @inject(({ store }) => ({
-  selected: store.selectedCampaign.hunting || { monster: null, level: null },
+  selected: store.selectedCampaign.hunting,
   select: store.selectedCampaign.selectHunt,
 }))
 @observer
@@ -71,7 +79,7 @@ export class HuntMonsterSelector extends React.Component {
 }
 
 @inject(({ store }) => ({
-  selected: store.selectedCampaign.showdown || { monster: null, level: null },
+  selected: store.selectedCampaign.showdown,
   select: store.selectedCampaign.selectShowdown,
 }))
 @observer

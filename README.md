@@ -18,9 +18,9 @@ v1.5:
   * [x] Add monster selector with all available monsters
   * [x] Show monster initial Stats
   * [x] Add controls for token tracking (+ - buttons) eg: speed: 0 + 2 = 2
-  * [ ] Add button to show basic action / or show it permanently on screen
-  * [ ] Show severe injury table
-  * [ ] Show severe brain trauma table
+  * [x] Add button to show basic action / or show it permanently on screen
+  * [x] Show severe injury table
+  * [x] Show severe brain trauma table
   * [ ] Add icons to base stats? (get them from the tokens?)
 * [x] Add stats/tracking service
   * [ ] Review events
