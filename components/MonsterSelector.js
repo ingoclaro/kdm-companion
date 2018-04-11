@@ -34,6 +34,7 @@ class MonsterSelector extends React.Component {
 
     let selectedItem = R.find(
       monster =>
+        this.props.selected.monster &&
         monster.monster_id === this.props.selected.monster.id &&
         monster.level_id === this.props.selected.level,
       monsters

@@ -8,6 +8,15 @@ export default class StatItem extends React.Component {
     value: 0,
   }
 
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    baseValue: PropTypes.number.isRequired,
+  }
+
+  static defaultProps = {
+    baseValue: 0,
+  }
+
   render() {
     let total = this.props.baseValue + this.state.value
 
@@ -29,10 +38,6 @@ export default class StatItem extends React.Component {
       </View>
     )
   }
-}
-StatItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  baseValue: PropTypes.number.isRequired,
 }
 
 const styles = {

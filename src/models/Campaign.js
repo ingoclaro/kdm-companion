@@ -105,6 +105,7 @@ export const Campaign = types
       if (self.expansions.has(expansion.id)) {
         // reset some stuff when expansions are removed
         self.hunting = null
+        self.showdown = null
 
         // remove all expansion locations
         let remove = []
