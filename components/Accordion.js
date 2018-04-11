@@ -26,6 +26,13 @@ export default class Accordion extends React.Component {
     openSection: null,
   }
 
+  static propTypes = {
+    data: PropTypes.array.isRequired,
+    title: PropTypes.string,
+    renderContent: PropTypes.func, // @params: item
+    renderHeader: PropTypes.func, // @params: section_id, isActive
+  }
+
   _row(data) {
     if (this.state.openSection !== data.section.id) {
       return null
@@ -99,13 +106,6 @@ export default class Accordion extends React.Component {
       />
     )
   }
-}
-
-Accordion.propTypes = {
-  data: PropTypes.array.isRequired,
-  title: PropTypes.string,
-  renderContent: PropTypes.func, // @params: item
-  renderHeader: PropTypes.func, // @params: section_id, isActive
 }
 
 const styles = {

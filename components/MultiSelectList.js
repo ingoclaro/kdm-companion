@@ -5,6 +5,12 @@ import { View, Row, Text, Caption } from '@shoutem/ui'
 import CheckboxListItem from './CheckboxListItem'
 
 class MultiSelectList extends React.PureComponent {
+  static propTypes = {
+    data: PropTypes.array.isRequired,
+    toggle: PropTypes.func.isRequired,
+    selected: PropTypes.object,
+  }
+
   _keyExtractor = (item, index) => item.id
 
   _renderItem = ({ item }) => {
@@ -32,13 +38,12 @@ class MultiSelectList extends React.PureComponent {
     )
   }
 }
-MultiSelectList.propTypes = {
-  data: PropTypes.array.isRequired,
-  toggle: PropTypes.func.isRequired,
-  selected: PropTypes.object,
-}
 
 class MultiSelectItems extends React.PureComponent {
+  static propTypes = {
+    items: PropTypes.object.isRequired,
+  }
+
   render() {
     let keys = Object.keys(this.props.selectedItems || {})
     let selectedItems = keys.filter(item => this.props.selectedItems[item])
@@ -59,9 +64,6 @@ class MultiSelectItems extends React.PureComponent {
       </View>
     )
   }
-}
-MultiSelectItems.propTypes = {
-  items: PropTypes.object.isRequired,
 }
 
 export default MultiSelectList

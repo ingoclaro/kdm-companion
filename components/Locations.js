@@ -14,6 +14,12 @@ import { keys } from 'mobx'
 }))
 @observer
 export default class Locations extends React.Component {
+  static propTypes = {
+    locations: PropTypes.array.isRequired,
+    selectedItems: PropTypes.object.isRequired,
+    toggle: PropTypes.func.isRequired,
+  }
+
   render() {
     return (
       <MultiSelectList
@@ -24,11 +30,6 @@ export default class Locations extends React.Component {
       />
     )
   }
-}
-Locations.wrappedComponent.propTypes = {
-  locations: PropTypes.array.isRequired,
-  selectedItems: PropTypes.object.isRequired,
-  toggle: PropTypes.func.isRequired,
 }
 
 @inject(({ store }) => ({

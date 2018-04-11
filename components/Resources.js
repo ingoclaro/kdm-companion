@@ -151,6 +151,26 @@ export default class Resources extends React.Component {
     this._renderHeader = this._renderHeader.bind(this)
   }
 
+  static propTypes = {
+    resources: PropTypes.array.isRequired,
+    // Structure: (can't be changed because it's needed like that for a native component)
+    // [
+    //   {
+    //     id: 'basic', // id of section/type
+    //     title: 'Basic', // title of type
+    //     data: [ //array of items
+    //       {
+    //         id: 'skull', // id of resource
+    //         name: 'skull', // name of resource
+    //         section: 'basic' // id of section
+    //       }
+    //     ]
+    //   },
+    // ],
+    stored_resources: PropTypes.object.isRequired,
+    setResourceCount: PropTypes.func.isRequired, // (resource, count)
+  }
+
   _renderHeader(section, isActive) {
     let icon = isActive ? (
       <Icon name="up-arrow" style={styles.headerArrow} />
@@ -202,25 +222,6 @@ export default class Resources extends React.Component {
       />
     )
   }
-}
-Resources.wrappedComponent.propTypes = {
-  resources: PropTypes.array.isRequired,
-  // Structure: (can't be changed because it's needed like that for a native component)
-  // [
-  //   {
-  //     id: 'basic', // id of section/type
-  //     title: 'Basic', // title of type
-  //     data: [ //array of items
-  //       {
-  //         id: 'skull', // id of resource
-  //         name: 'skull', // name of resource
-  //         section: 'basic' // id of section
-  //       }
-  //     ]
-  //   },
-  // ],
-  stored_resources: PropTypes.object.isRequired,
-  setResourceCount: PropTypes.func.isRequired, // (resource, count)
 }
 
 const styles = {
