@@ -1,7 +1,8 @@
 import React from 'react'
-import { View, Text, Title } from '@shoutem/ui'
+import { View, Text, Subtitle, Title } from '@shoutem/ui'
 import SimpleStepper from 'react-native-simple-stepper'
 import PropTypes from 'prop-types'
+import colors from '../src/colors'
 
 export default class StatItem extends React.Component {
   state = {
@@ -10,7 +11,7 @@ export default class StatItem extends React.Component {
 
   static propTypes = {
     name: PropTypes.string.isRequired,
-    baseValue: PropTypes.number.isRequired,
+    baseValue: PropTypes.number,
   }
 
   static defaultProps = {
@@ -22,10 +23,13 @@ export default class StatItem extends React.Component {
 
     return (
       <View style={styles.stat}>
-        <Title style={styles.itemText}>
-          {this.props.name}: {this.props.baseValue} + {this.state.value} ={' '}
-          {total}
-        </Title>
+        <Title style={styles.name}>{this.props.name}: </Title>
+        <View style={styles.numberContainer}>
+          <Title style={styles.total}>{total}</Title>
+          <Subtitle style={styles.baseValue}>
+            ({this.props.baseValue} + {this.state.value})
+          </Subtitle>
+        </View>
         <SimpleStepper
           tintColor="white"
           initialValue={this.state.value}
@@ -41,8 +45,21 @@ export default class StatItem extends React.Component {
 }
 
 const styles = {
-  itemText: {
-    // paddingRight: 5,
+  name: {
+    paddingRight: 5,
+    width: 130,
+  },
+  baseValue: {
+    // paddingLeft: 15,
+    color: colors.grey500,
+  },
+  total: {
+    color: colors.grey100,
+    paddingRight: 5,
+  },
+  numberContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   stat: {
     flexDirection: 'row',
@@ -52,6 +69,6 @@ const styles = {
     paddingBottom: 5,
   },
   stepper: {
-    // alignSelf: 'end',
+    right: 5,
   },
 }

@@ -5,6 +5,7 @@ import colors from '../src/colors'
 
 import { ShowdownMonsterSelector } from '../components/MonsterSelector'
 import MonsterStats from '../components/MonsterStats'
+import StatItem from '../components/StatItem'
 import BasicAction from '../components/BasicAction'
 
 export default class FightScreen extends React.Component {
@@ -24,6 +25,13 @@ export default class FightScreen extends React.Component {
           <ShowdownMonsterSelector />
         </View>
         <MonsterStats />
+
+        <Divider />
+
+        <StatItem name="Life" baseValue={0} />
+
+        <Divider />
+        <Divider />
 
         <Button onPress={() => this.setState({ basicActionVisible: true })}>
           <Text>Basic Action</Text>
