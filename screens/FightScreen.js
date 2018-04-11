@@ -6,7 +6,7 @@ import colors from '../src/colors'
 import { ShowdownMonsterSelector } from '../components/MonsterSelector'
 import MonsterStats from '../components/MonsterStats'
 import StatItem from '../components/StatItem'
-import BasicAction from '../components/BasicAction'
+import Instinct, { InstinctTitle } from '../components/Instinct'
 
 export default class FightScreen extends React.Component {
   static navigationOptions = {
@@ -14,7 +14,7 @@ export default class FightScreen extends React.Component {
   }
 
   state = {
-    basicActionVisible: false,
+    instinctVisible: false,
   }
 
   render() {
@@ -33,13 +33,13 @@ export default class FightScreen extends React.Component {
         <Divider />
         <Divider />
 
-        <Button onPress={() => this.setState({ basicActionVisible: true })}>
-          <Text>Basic Action</Text>
+        <Button onPress={() => this.setState({ instinctVisible: true })}>
+          <InstinctTitle />
         </Button>
         <Modal
-          isVisible={this.state.basicActionVisible}
-          onBackdropPress={() => this.setState({ basicActionVisible: false })}
-          onBackButtonPress={() => this.setState({ basicActionVisible: false })}
+          isVisible={this.state.instinctVisible}
+          onBackdropPress={() => this.setState({ instinctVisible: false })}
+          onBackButtonPress={() => this.setState({ instinctVisible: false })}
           useNativeDriver={true}
           backdropColor={colors.black}
         >
@@ -50,11 +50,9 @@ export default class FightScreen extends React.Component {
               paddingVertical: 15,
             }}
           >
-            <BasicAction />
+            <Instinct />
             <Divider />
-            <Button
-              onPress={() => this.setState({ basicActionVisible: false })}
-            >
+            <Button onPress={() => this.setState({ instinctVisible: false })}>
               <Text>Close</Text>
             </Button>
           </View>

@@ -73,7 +73,7 @@ export default class Accordion extends React.Component {
 
     return (
       <Row>
-        <Subtitle>{section.title}</Subtitle>
+        <Title>{section.title}</Title>
         {icon}
       </Row>
     )

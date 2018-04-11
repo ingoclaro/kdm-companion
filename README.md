@@ -10,15 +10,17 @@ v1.5:
 
 * [x] Fix strange resources to only show resources of the selected expansion
 * [ ] Fix Deleting last campaign error (should auto create a new one)
+* [ ] Fix Brain and severe injury tables, text is clipped.
+* [ ] Fix severe injury table titles. Row can't be used???
 * [ ] Review TODOs in the codebase.
 * [ ] Review model to support for "the knowledge worm" innovation.
-* [ ] Change Fight screen to only have the fight tab
+* [x] Change Fight screen to only have the fight tab
   * [x] Add monster selector with all available monsters
   * [x] Show monster initial Stats
   * [x] Add controls for token tracking (+ - buttons) eg: speed: 0 + 2 = 2
   * [ ] Add button to show basic action / or show it permanently on screen
-  * [ ] Add button to show severe injury table
-  * [ ] Add button to show severe brain trauma table
+  * [ ] Show severe injury table
+  * [ ] Show severe brain trauma table
   * [ ] Add icons to base stats? (get them from the tokens?)
 * [x] Add stats/tracking service
   * [ ] Review events

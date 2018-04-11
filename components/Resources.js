@@ -162,7 +162,6 @@ export default class Resources extends React.Component {
     //       {
     //         id: 'skull', // id of resource
     //         name: 'skull', // name of resource
-    //         section: 'basic' // id of section
     //       }
     //     ]
     //   },

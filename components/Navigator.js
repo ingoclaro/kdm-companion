@@ -25,10 +25,13 @@ import ResourcesScreen from '../screens/ResourcesScreen'
 import HuntScreen from '../screens/HuntScreen'
 
 // Showdown
-import TerrainScreen from '../screens/TerrainScreen'
+
 import FightScreen from '../screens/FightScreen'
-import TablesScreen from '../screens/TablesScreen'
-import ResultScreen from '../screens/ResultScreen'
+import BrainTraumaScreen from '../screens/BrainTraumaScreen'
+import SevereInjuryScreen from '../screens/SevereInjuryScreen'
+
+// import TerrainScreen from '../screens/TerrainScreen'
+// import ResultScreen from '../screens/ResultScreen'
 
 const styles = {
   tabBar: {
@@ -78,10 +81,16 @@ const ShowdownNavigator = TabNavigator(
         tabBarLabel: 'Fight',
       },
     },
-    Tables: {
-      screen: TablesScreen,
+    BrainTrauma: {
+      screen: BrainTraumaScreen,
       navigationOptions: {
-        tabBarLabel: 'Tables',
+        tabBarLabel: 'Brain Trauma',
+      },
+    },
+    SevereInjury: {
+      screen: SevereInjuryScreen,
+      navigationOptions: {
+        tabBarLabel: 'Severe Injury',
       },
     },
     // Result: {
