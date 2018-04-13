@@ -3,6 +3,8 @@ import { Title, View, Text, Subtitle, Divider } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
 import { capitalize } from '../src/utils'
 import colors from '../src/colors'
+import { MarkdownView } from 'react-native-markdown-view'
+import R from 'ramda'
 
 @inject(({ store }) => ({
   settlement: store.selectedCampaign.settlement,
@@ -20,27 +22,38 @@ export default class HuntBonuses extends React.Component {
       'understanding',
       'hunt xp',
     ]
-    return stats.map((item, idx) => {
-      let survivalLimit = this.props.settlement.survivalLimit
-      if (this.props.settlement.departing[item] > 0)
-        return (
-          <View key={idx} style={styles.statRow}>
-            <Subtitle style={styles.statName}>{capitalize(item)}:</Subtitle>
-            <Text style={styles.statValue}>
-              {' '}
-              +{this.props.settlement.departing[item]}
-            </Text>
-            {item === 'survival' ? (
-              <Text style={styles.statValue}> (Limit: {survivalLimit})</Text>
-            ) : null}
-          </View>
-        )
-    })
+
+    let departing = this.props.settlement.departing || {}
+    let survivalLimit = this.props.settlement.survivalLimit
+
+    let text = R.filter(stat => departing[stat] > 0, stats).map((stat, idx) => (
+      <View key={idx} style={styles.statRow}>
+        <Subtitle style={styles.statName}>{capitalize(stat)}:</Subtitle>
+        <Text style={styles.statValue}> +{departing[stat]}</Text>
+        {stat === 'survival' ? (
+          <Text style={styles.statValue}> (Limit: {survivalLimit})</Text>
+        ) : null}
+      </View>
+    ))
+
+    if (text.length === 0) {
+      text = [
+        <Text key="none" style={styles.statValue}>
+          none
+        </Text>,
+      ]
+    }
+
+    return text
   }
 
   render() {
     const departing = this.props.settlement.departing || {}
-    let description = departing.description || []
+    let description = departing.description
+    if (!description || description.length === 0) {
+      description = ['none']
+    }
+
     return (
       <View>
         <Title>Attributes Bonus</Title>
@@ -49,9 +62,9 @@ export default class HuntBonuses extends React.Component {
         <Title>Hunt Bonus</Title>
         <View>
           {description.map((item, idx) => (
-            <Text key={idx} style={styles.bonusText}>
+            <MarkdownView key={idx} styles={styles.markdown}>
               {item}
-            </Text>
+            </MarkdownView>
           ))}
         </View>
       </View>
@@ -64,13 +77,33 @@ const styles = {
     flexDirection: 'row',
   },
   statName: {
-    fontSize: 17,
-    color: colors.grey300,
+    fontWeight: '700',
+    color: colors.grey500,
   },
   statValue: {
-    color: colors.grey300,
+    color: colors.grey500,
   },
-  bonusText: {
-    color: colors.grey300,
+  markdown: {
+    paragraph: {
+      color: colors.grey500,
+      marginTop: 0,
+      marginBottom: 0,
+    },
+    listItemBullet: {
+      color: colors.grey500,
+      minWidth: 0,
+      paddingRight: 8,
+    },
+    listItemUnorderedContent: {
+      color: colors.grey500,
+    },
+    listItemUnorderedContent: {
+      flex: -1,
+      color: colors.grey500,
+    },
+    // list: {
+    //   margin: 0,
+    //   marginLeft: 8,
+    // },
   },
 }

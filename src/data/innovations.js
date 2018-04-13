@@ -166,7 +166,7 @@ export default {
       },
       newborn: {
         description: [
-          'Family: a newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency.',
+          '**Family**: a newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency.',
         ],
       },
     },
@@ -180,7 +180,7 @@ export default {
       survivalLimit: 1,
       showdown: {
         description: [
-          'Final Fighting Art: Once per showdown you may select an AI card from the discard or wound pile and put it on top of AI deck',
+          '**Final Fighting Art**: Once per showdown you may select an AI card from the discard or wound pile and put it on top of AI deck',
         ],
       },
     },
@@ -290,8 +290,8 @@ export default {
         id: 'encourage',
         name: 'Encourage',
         description: [
-          'All  survivors gain encourage survival action.',
-          'Encourage: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
+          'All  survivors gain **Encourage** survival action.',
+          '**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
         ],
       },
     ],
@@ -630,12 +630,12 @@ export default {
     settlement: {
       departing: {
         description: [
-          'Song of the Brave: During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave',
+          '**Song of the Brave**: During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave',
         ],
       },
       showdown: {
         description: [
-          'Song of the Brave: On arrival each non-deaf survivor may remove 1 negative attribute token',
+          '**Song of the Brave**: On arrival each non-deaf survivor may remove 1 negative attribute token',
         ],
       },
     },
@@ -687,7 +687,7 @@ export default {
       survivalLimit: 1,
       showdown: {
         description: [
-          'Ultimate Weapon: When you defeat a monster, gain 1 monster resource of your choice',
+          '**Ultimate Weapon**: When you defeat a monster, gain 1 monster resource of your choice',
         ],
       },
     },
@@ -1018,7 +1018,7 @@ export default {
         survival: 3,
         insanity: 3,
         description: [
-          'The Knowledge Worm: survivors with 10+ insanity, "A Gracious Host"',
+          '**The Knowledge Worm**: survivors with 10+ insanity, "A Gracious Host"',
         ], //TODO: add book icon.
       },
     },
@@ -1031,7 +1031,7 @@ export default {
     settlement: {
       showdown: {
         description: [
-          'Crimson Candy: At the start of the showdown each survivor gains * survival',
+          '**Crimson Candy**: At the start of the showdown each survivor gains * survival',
         ],
       },
     },
@@ -1056,7 +1056,7 @@ export default {
       survivalLimit: 1,
       departing: {
         description: [
-          "War room: Quarries can't move off the hunt board. If survivors would need to move backwards roll 1d10, on 4+ they don't.",
+          "**War room**: Quarries can't move off the hunt board. If survivors would need to move backwards roll 1d10, on 4+ they don't.",
         ],
       },
     },
@@ -1081,7 +1081,7 @@ export default {
       survivalLimit: 1,
       departing: {
         description: [
-          'Settlement Watch: Survivors gain +2 survival when they depart for a Nemesis encounter or Special Showdown',
+          '**Settlement Watch**: Survivors gain +2 survival when they depart for a Nemesis encounter or Special Showdown',
         ],
       },
     },
@@ -1145,8 +1145,8 @@ export default {
         id: 'embolden',
         name: 'Embolden',
         description: [
-          'All Surivors gain the Embolden survival action.',
-          "Embolden: Once per round, if you haven't any +1 Str tokens, spend 1 survival to gain +1 Str token. When you are knocked down loose all Str tokens.",
+          'All Surivors gain the **Embolden** survival action.',
+          "**Embolden**: Once per round, if you haven't any +1 Str tokens, spend 1 survival to gain +1 Str token. When you are knocked down loose all Str tokens.",
         ],
       },
     ],
@@ -1159,7 +1159,7 @@ export default {
     settlement: {
       newborn: {
         description: [
-          'Umbilical Bank: You may add 1 Life String strange resource to the storage.',
+          '**Umbilical Bank**: You may add 1 Life String strange resource to the storage.',
         ],
       },
     },
@@ -1196,7 +1196,7 @@ export default {
     settlement: {
       departing: {
         description: [
-          'Sauna Shrine: When departing for a nemesis encounter or special showdown, gain +10 survival.',
+          '**Sauna Shrine**: When departing for a nemesis encounter or special showdown, gain +10 survival.',
         ],
       },
     },
@@ -1268,8 +1268,8 @@ export default {
         id: 'overcharge',
         name: 'Overcharge',
         description: [
-          'All Surivors gain the Overcharge survival action.',
-          'Overcharge: If you have any +1 Str token, you may spend 1 survival to remove of them and gain devastating 1 to your next attack this round.',
+          'All Surivors gain the **Overcharge** survival action.',
+          '**Overcharge**: If you have any +1 Str token, you may spend 1 survival to remove of them and gain devastating 1 to your next attack this round.',
         ],
       },
     ],
@@ -1307,8 +1307,8 @@ export default {
         id: 'encourage',
         name: 'Encourage',
         description: [
-          'All survivors gain encourage survival action.',
-          'Encourage: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
+          'All survivors gain **Encourage** survival action.',
+          '**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
         ],
       },
     ],
@@ -1322,7 +1322,7 @@ export default {
       departing: {
         survival: 1,
         description: [
-          'Radiating Orb: Survivors with a constellation gain +1 survival',
+          '**Radiating Orb**: Survivors with a constellation gain +1 survival',
         ],
       },
       newborn: {
@@ -1358,10 +1358,10 @@ export default {
     settlement: {
       newborn: {
         description: [
-          'Bloodline: inherit the following from parents:',
-          "The Oracle's Eye, Iridescent Hide or Pristine ability.",
-          '1 Surname.',
-          "Half of the parent's weapon proficiency levels, rounded up.",
+          '**Bloodline**: inherit the following from parents:\n\n' +
+            "* The Oracle's Eye, Iridescent Hide or Pristine ability.\n" +
+            '* 1 Surname.\n' +
+            "* Half of the parent's weapon proficiency levels, rounded up.",
         ],
       },
     },
@@ -1375,8 +1375,8 @@ export default {
       newborn: {
         strength: 1,
         description: [
-          'Empire: gain Pristine ability',
-          'Pristine: when you suffer a dismembered severe injury, ignore it and gain 1 bleeding token instead.',
+          '**Empire**: gain **Pristine** ability',
+          '**Pristine**: when you suffer a dismembered severe injury, ignore it and gain 1 bleeding token instead.',
         ],
       },
     },

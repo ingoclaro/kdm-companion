@@ -2,7 +2,8 @@ import React from 'react'
 import { View, Text, Row, Title, Subtitle, ListView } from '@shoutem/ui'
 import { values } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
-import PropTypes from 'prop-types'
+import { MarkdownView } from 'react-native-markdown-view'
+
 import colors from '../src/colors'
 import { capitalize } from '../src/utils'
 
@@ -52,9 +53,9 @@ function newbornBonuses(newborn) {
 export default class Bonuses extends React.Component {
   _row(item) {
     let text = item.description.map((e, idx) => (
-      <Text key={item.id + idx} style={styles.bonusText}>
+      <MarkdownView key={item.id + idx} styles={styles.markdown}>
         {e}
-      </Text>
+      </MarkdownView>
     ))
     return (
       <View style={styles.bonus}>
@@ -84,10 +85,30 @@ export default class Bonuses extends React.Component {
 }
 
 const styles = {
-  bonusText: {
-    color: colors.grey500,
-  },
   bonus: {
     paddingVertical: 3,
+  },
+  markdown: {
+    paragraph: {
+      color: colors.grey500,
+      marginTop: 0,
+      marginBottom: 0,
+    },
+    listItemBullet: {
+      color: colors.grey500,
+      minWidth: 0,
+      paddingRight: 8,
+    },
+    listItemUnorderedContent: {
+      color: colors.grey500,
+    },
+    listItemUnorderedContent: {
+      flex: -1,
+      color: colors.grey500,
+    },
+    // list: {
+    //   margin: 0,
+    //   marginLeft: 8,
+    // },
   },
 }

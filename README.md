@@ -10,13 +10,14 @@ v1.5:
 
 * [x] Fix strange resources to only show resources of the selected expansion
 * [ ] Fix Brain and severe injury tables, text is clipped.
+* [ ] Fix Bonus Screen, text is clipped.
 * [ ] Fix severe injury table titles. Row can't be used???
 * [ ] Review TODOs in the codebase.
 * [x] Review model to support for "the knowledge worm" innovation.
 * [x] Change Hunt screen to show departing bonuses
 * [x] Change Bonuses screen to show newborn bonuses
-* [ ] Improve bonuses to show title different than rest of text (needs structure change :()
-* [ ] Test the new bonus/settlement change (adding and removal)
+* [x] Improve bonuses to show title different than rest of text
+* [x] Test the new bonus/settlement change (adding and removal)
 * [x] Change Fight screen to only have the fight tab
   * [x] Add monster selector with all available monsters
   * [x] Show monster initial Stats
