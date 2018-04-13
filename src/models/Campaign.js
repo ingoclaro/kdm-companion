@@ -22,7 +22,10 @@ const StoredResource = types.model('StoredResource', {
 export const Campaign = types
   .model('Campaign', {
     id: types.identifier(types.string),
-    settlement: types.optional(Settlement, { name: 'New Settlement' }),
+    settlement: types.optional(Settlement, {
+      name: 'New Settlement',
+      survivalLimit: 1,
+    }),
     locations: types.optional(
       types.map(types.reference(SettlementLocation)),
       {}
@@ -76,8 +79,8 @@ export const Campaign = types
         inno.endeavors.forEach(endeavor => {
           self.removeEndeavor(getSnapshot(endeavor))
         })
-        if (inno.providesSurvival) {
-          self.settlement.survival.remove(getSnapshot(inno.providesSurvival))
+        if (inno.settlement) {
+          self.settlement.remove(getSnapshot(inno.settlement))
         }
 
         self.innovations.delete(innovation.id)
@@ -92,8 +95,8 @@ export const Campaign = types
         inno.endeavors.forEach(endeavor => {
           self.addEndeavor(getSnapshot(endeavor))
         })
-        if (inno.providesSurvival) {
-          self.settlement.survival.add(getSnapshot(inno.providesSurvival))
+        if (inno.settlement) {
+          self.settlement.add(getSnapshot(inno.settlement))
         }
       }
     },

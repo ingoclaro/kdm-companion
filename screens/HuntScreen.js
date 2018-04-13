@@ -10,7 +10,7 @@ import {
 } from '@shoutem/ui'
 
 import Hunt from '../components/Hunt'
-import Survival from '../components/Survival'
+import HuntBonuses from '../components/HuntBonuses'
 import { HuntMonsterSelector } from '../components/MonsterSelector'
 
 export default class HuntScreen extends React.Component {
@@ -22,7 +22,7 @@ export default class HuntScreen extends React.Component {
           justifyContent: 'center',
         }}
       >
-        <Survival />
+        <HuntBonuses />
         <Divider />
         <View styleName="horizontal v-center">
           <Text>Monster:</Text>

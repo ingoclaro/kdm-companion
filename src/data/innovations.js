@@ -4,15 +4,19 @@ export default {
     name: 'Ammonia',
     expansion: 'core',
     keywords: ['science', 'language consequence'],
-    providesSurvival: { departing: 1 },
+    settlement: {
+      departing: {
+        survival: 1,
+      },
+    },
   },
   bed: {
     id: 'bed',
     name: 'Bed',
     expansion: 'core',
     keywords: ['home', 'hovel consequence'],
-    providesSurvival: {
-      limit: 1,
+    settlement: {
+      survivalLimit: 1,
     },
     endeavors: [
       {
@@ -51,15 +55,13 @@ export default {
     name: 'Clan of Death',
     expansion: 'core',
     keywords: ['home', 'family consequence'],
-    providesBonuses: [
-      {
-        id: 'clan_of_death',
-        name: 'Clan of Death',
-        description: [
-          'All newborn survivors gain +1 accuracy, strength and evasion',
-        ],
+    settlement: {
+      newborn: {
+        accuracy: 1,
+        strength: 1,
+        evasion: 1,
       },
-    ],
+    },
   },
   cooking: {
     id: 'cooking',
@@ -73,8 +75,8 @@ export default {
         description: ['At the start of the Settlement phase gain +1 endeavor'],
       },
     ],
-    providesSurvival: {
-      limit: 1,
+    settlement: {
+      survivalLimit: 1,
     },
     endeavors: [
       {
@@ -123,7 +125,9 @@ export default {
     name: 'Destiny',
     expansion: 'core',
     keywords: ['faith'],
-    providesSurvival: { limit: 1 },
+    settlement: {
+      survivalLimit: 1,
+    },
   },
   face_painting: {
     id: 'face_painting',
@@ -156,32 +160,30 @@ export default {
     name: 'Family',
     expansion: 'core',
     keywords: ['home', 'hovel consequence'],
-    providesBonuses: [
-      {
-        id: 'family',
-        name: 'Family',
+    settlement: {
+      departing: {
+        survival: 1,
+      },
+      newborn: {
         description: [
-          'A newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency',
+          'Family: a newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency.',
         ],
       },
-    ],
-    providesSurvival: { departing: 1 },
+    },
   },
   final_fighting_art: {
     id: 'final_fighting_art',
     name: 'Final Fighting Art',
     expansion: 'core',
     keywords: ['education'],
-    providesBonuses: [
-      {
-        id: 'final_fighting_art',
-        name: 'Final Fighting Art',
+    settlement: {
+      survivalLimit: 1,
+      showdown: {
         description: [
-          'Once per showdown you may select an AI card from the discard or wound pile and put it on top of AI deck',
+          'Final Fighting Art: Once per showdown you may select an AI card from the discard or wound pile and put it on top of AI deck',
         ],
       },
-    ],
-    providesSurvival: { limit: 1 },
+    },
   },
   'forbidden dance': {
     id: 'forbidden dance',
@@ -214,7 +216,11 @@ export default {
     name: 'Guidepost',
     expansion: 'core',
     keywords: ['other'],
-    providesSurvival: { departing: 1 },
+    settlement: {
+      departing: {
+        survival: 1,
+      },
+    },
     endeavors: [
       {
         id: 'guidepost',
@@ -258,7 +264,12 @@ export default {
     name: 'Hovel',
     expansion: 'core',
     keywords: ['home', 'language consequence'],
-    providesSurvival: { limit: 1, departing: 1 },
+    settlement: {
+      survivalLimit: 1,
+      departing: {
+        survival: 1,
+      },
+    },
   },
   inner_lantern: {
     id: 'inner_lantern',
@@ -271,7 +282,9 @@ export default {
     name: 'Language',
     expansion: 'core',
     keywords: ['starting innovation'],
-    providesSurvival: { limit: 1 },
+    settlement: {
+      survivalLimit: 1,
+    },
     providesBonuses: [
       {
         id: 'encourage',
@@ -288,7 +301,11 @@ export default {
     name: 'Lantern Oven',
     expansion: 'core',
     keywords: ['science', 'heat', 'ammonia consequence'],
-    providesSurvival: { departing: 1 },
+    settlement: {
+      departing: {
+        survival: 1,
+      },
+    },
   },
   mastery_axe: {
     id: 'mastery_axe',
@@ -428,8 +445,8 @@ export default {
     name: 'Pottery',
     expansion: 'core',
     keywords: ['art', 'sculpture consequence'],
-    providesSurvival: {
-      limit: 1,
+    settlement: {
+      survivalLimit: 1,
     },
     endeavors: [
       {
@@ -523,15 +540,13 @@ export default {
     name: 'Saga',
     expansion: 'core',
     keywords: ['music', 'song of the brave consequence'],
-    providesBonuses: [
-      {
-        id: 'saga',
-        name: 'Saga',
-        description: [
-          'All newborn survivors gain +2 Courage, Understanding and Hunt XP',
-        ],
+    settlement: {
+      newborn: {
+        courage: 2,
+        understanding: 2,
+        'hunt xp': 2,
       },
-    ],
+    },
   },
   scrap_smelting: {
     id: 'scrap_smelting',
@@ -612,23 +627,27 @@ export default {
     name: 'Song of the Brave',
     expansion: 'core',
     keywords: ['music', 'drums consequence'],
-    providesBonuses: [
-      {
-        id: 'song_of_the_brave',
-        name: 'Song of the Brave',
+    settlement: {
+      departing: {
         description: [
-          'On arrival each non-deaf survivor may remove 1 negative attribute token',
-          'During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave',
+          'Song of the Brave: During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave',
         ],
       },
-    ],
+      showdown: {
+        description: [
+          'Song of the Brave: On arrival each non-deaf survivor may remove 1 negative attribute token',
+        ],
+      },
+    },
   },
   storytelling: {
     id: 'storytelling',
     name: 'Storytelling',
     expansion: 'core',
     keywords: ['education', 'symposium consequence'],
-    providesSurvival: { limit: 1 },
+    settlement: {
+      survivalLimit: 1,
+    },
     endeavors: [
       {
         id: 'storytelling',
@@ -655,23 +674,23 @@ export default {
         ],
       },
     ],
-    providesSurvival: { limit: 1 },
+    settlement: {
+      survivalLimit: 1,
+    },
   },
   ultimate_weapon: {
     id: 'ultimate_weapon',
     name: 'Ultimate Weapon',
     expansion: 'core',
     keywords: ['science'],
-    providesBonuses: [
-      {
-        id: 'ultimate_weapon',
-        name: 'Ultimate Weapon',
+    settlement: {
+      survivalLimit: 1,
+      showdown: {
         description: [
-          'When you defeat a monster, gain 1 monster resource of your choice',
+          'Ultimate Weapon: When you defeat a monster, gain 1 monster resource of your choice',
         ],
       },
-    ],
-    providesSurvival: { limit: 1 },
+    },
   },
   rubedo: {
     id: 'rubedo',
@@ -706,8 +725,8 @@ export default {
         },
       },
     ],
-    providesSurvival: {
-      limit: 1,
+    settlement: {
+      survivalLimit: 1,
     },
   },
   citrinitas: {
@@ -726,8 +745,8 @@ export default {
         },
       },
     ],
-    providesSurvival: {
-      limit: 1,
+    settlement: {
+      survivalLimit: 1,
     },
   },
   albedo: {
@@ -994,15 +1013,28 @@ export default {
         ],
       },
     ],
-    providesSurvival: { departing: 3 },
-    //TODO: departing survivors gain 3 insanity. If any has 10+, "A Gracious Host"
+    settlement: {
+      departing: {
+        survival: 3,
+        insanity: 3,
+        description: [
+          'The Knowledge Worm: survivors with 10+ insanity, "A Gracious Host"',
+        ], //TODO: add book icon.
+      },
+    },
   },
   'crimson candy': {
     id: 'crimson candy',
     name: 'Crimson Candy',
     expansion: 'manhunter',
     keywords: ['science'],
-    //TODO: at the start of the showdown each survivor gains * survival
+    settlement: {
+      showdown: {
+        description: [
+          'Crimson Candy: At the start of the showdown each survivor gains * survival',
+        ],
+      },
+    },
     endeavors: [
       {
         id: 'crimson cannibalism',
@@ -1020,18 +1052,14 @@ export default {
     name: 'War room',
     expansion: 'manhunter',
     keywords: ['education', 'storytelling consequence'],
-    providesSurvival: {
-      limit: 1,
-    },
-    providesBonuses: [
-      {
-        id: 'war room',
-        name: 'War Room',
+    settlement: {
+      survivalLimit: 1,
+      departing: {
         description: [
-          "Quarries can't move off the hunt board. If survivors would need to move backwards roll 1d10, on 4+ they don't.",
+          "War room: Quarries can't move off the hunt board. If survivors would need to move backwards roll 1d10, on 4+ they don't.",
         ],
       },
-    ],
+    },
     endeavors: [
       {
         id: 'war room',
@@ -1049,18 +1077,14 @@ export default {
     name: 'Settlement Watch',
     expansion: 'manhunter',
     keywords: ['home', 'hovel consequence'],
-    providesSurvival: {
-      limit: 1,
-    },
-    providesBonuses: [
-      {
-        id: 'settlement watch',
-        name: 'Settlement Watch',
+    settlement: {
+      survivalLimit: 1,
+      departing: {
         description: [
-          'Departing survivors gain +2 survival when they depart for a Nemesis encounter or Special Showdown',
-        ], //TODO could this modeled into the provides survival somehow? maybe just have a list of text so is more freeform?
+          'Settlement Watch: Survivors gain +2 survival when they depart for a Nemesis encounter or Special Showdown',
+        ],
       },
-    ],
+    },
     endeavors: [
       {
         id: 'new recruits',
@@ -1078,13 +1102,11 @@ export default {
     name: 'Darkwater Research',
     expansion: 'slenderman',
     keywords: ['science'],
-    providesBonuses: [
-      {
-        id: 'darkwater research',
-        name: 'Darkwater Research',
-        description: ['Departing survivors gain +2 insanity.'], //TODO could this modeled into the provides survival somehow? maybe just have a list of text so is more freeform?
+    settlement: {
+      departing: {
+        insanity: 2,
       },
-    ],
+    },
     endeavors: [
       {
         id: 'light-forging',
@@ -1115,8 +1137,8 @@ export default {
     name: 'Sun Language',
     expansion: 'sunstalker',
     keywords: ['starting innovation'],
-    providesSurvival: {
-      limit: 1,
+    settlement: {
+      survivalLimit: 1,
     },
     providesBonuses: [
       {
@@ -1134,15 +1156,13 @@ export default {
     name: 'Umbilical Bank',
     expansion: 'sunstalker',
     keywords: ['science'],
-    providesBonuses: [
-      {
-        id: 'umbilical bank',
-        name: 'Umbilical Bank',
+    settlement: {
+      newborn: {
         description: [
-          'When a new survivor is born you may add 1 Life String strange resource to the storage.',
+          'Umbilical Bank: You may add 1 Life String strange resource to the storage.',
         ],
       },
-    ],
+    },
     endeavors: [
       {
         id: 'umbilical symbiosis',
@@ -1173,15 +1193,13 @@ export default {
     name: 'Sauna Shrine',
     expansion: 'sunstalker',
     keywords: ['faith', 'hands of the sun consequence'],
-    providesBonuses: [
-      {
-        id: 'sauna shrine',
-        name: 'Sauna Shrine',
+    settlement: {
+      departing: {
         description: [
-          'When survivors depart for a nemesis encounter or special showdown, they gain +10 survival.',
+          'Sauna Shrine: When departing for a nemesis encounter or special showdown, gain +10 survival.',
         ],
       },
-    ],
+    },
     endeavors: [
       {
         id: 'tribute',
@@ -1261,8 +1279,8 @@ export default {
     name: 'Aquarobics',
     expansion: 'sunstalker',
     keywords: ['faith', 'hands of the sun consequence'],
-    providesSurvival: {
-      limit: 1,
+    settlement: {
+      survivalLimit: 1,
     },
     endeavors: [
       {
@@ -1281,15 +1299,15 @@ export default {
     name: 'Dragon Speech',
     expansion: 'dk', // TODO: this should be people of the stars, do the same for expansions that provide campaigns so that their cards don't get mixed into the core campaign.
     keywords: ['starting innovation', 'language'], // TODO: should we do this, or add dragon speech consecuence to all language innovations? Or have a new field with 'add xxx consecuense (like the text at the bottom of the card)'
-    providesSurvival: {
-      limit: 1,
+    settlement: {
+      survivalLimit: 1,
     },
     providesBonuses: [
       {
         id: 'encourage',
         name: 'Encourage',
         description: [
-          'All  survivors gain encourage survival action.',
+          'All survivors gain encourage survival action.',
           'Encourage: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
         ],
       },
@@ -1300,19 +1318,17 @@ export default {
     name: 'Radiating Orb',
     expansion: 'dk', // TODO: handle campaigns
     keywords: ['science'],
-    providesSurvival: {
-      departing: 1,
-      newborn: 1,
-    },
-    providesBonuses: [
-      {
-        id: 'radiating orb',
-        name: 'Radiating Orb',
+    settlement: {
+      departing: {
+        survival: 1,
         description: [
-          'Departing survivors with a constellation gain +1 survival.',
+          'Radiating Orb: Survivors with a constellation gain +1 survival',
         ],
       },
-    ],
+      newborn: {
+        survival: 1,
+      },
+    },
   },
   arena: {
     id: 'arena',
@@ -1339,33 +1355,30 @@ export default {
     name: 'Bloodline',
     expansion: 'dk', // TODO: handle campaigns
     keywords: ['home', 'hovel consecuence'],
-    providesBonuses: [
-      {
-        id: 'bloodline',
-        name: 'Bloodline',
+    settlement: {
+      newborn: {
         description: [
-          'Newborn survivors inherit the following from their parents:',
+          'Bloodline: inherit the following from parents:',
           "The Oracle's Eye, Iridescent Hide or Pristine ability.",
           '1 Surname.',
           "Half of the parent's weapon proficiency levels, rounded up.",
         ],
       },
-    ],
+    },
   },
   empire: {
     id: 'empire',
     name: 'Empire',
     expansion: 'dk', // TODO: handle campaigns
     keywords: ['home', 'bloodline consecuence'],
-    providesBonuses: [
-      {
-        id: 'empire',
-        name: 'Empire',
+    settlement: {
+      newborn: {
+        strength: 1,
         description: [
-          'Newborn survivors have +1 permanent Str and Pristine ability',
+          'Empire: gain Pristine ability',
           'Pristine: when you suffer a dismembered severe injury, ignore it and gain 1 bleeding token instead.',
         ],
       },
-    ],
+    },
   },
 }

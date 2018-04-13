@@ -9,11 +9,13 @@ Below you'll find information about performing common tasks. The most recent ver
 v1.5:
 
 * [x] Fix strange resources to only show resources of the selected expansion
-* [ ] Fix Deleting last campaign error (should auto create a new one)
 * [ ] Fix Brain and severe injury tables, text is clipped.
 * [ ] Fix severe injury table titles. Row can't be used???
 * [ ] Review TODOs in the codebase.
-* [ ] Review model to support for "the knowledge worm" innovation.
+* [x] Review model to support for "the knowledge worm" innovation.
+* [ ] Change Hunt screen to show departing bonuses
+* [ ] Change Bonuses screen to show newborn bonuses
+* [ ] Test the new bonus/settlement change (adding and removal)
 * [x] Change Fight screen to only have the fight tab
   * [x] Add monster selector with all available monsters
   * [x] Show monster initial Stats

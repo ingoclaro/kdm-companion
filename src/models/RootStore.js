@@ -35,7 +35,7 @@ export default types
   .actions(self => ({
     createCampaign(name) {
       id = uuid()
-      self.campaigns.push({ id, settlement: { name: name } })
+      self.campaigns.push({ id, settlement: { name: name, survivalLimit: 1 } })
       self.selectCampaign(id)
     },
     selectCampaign(id) {
