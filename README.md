@@ -13,8 +13,9 @@ v1.5:
 * [ ] Fix severe injury table titles. Row can't be used???
 * [ ] Review TODOs in the codebase.
 * [x] Review model to support for "the knowledge worm" innovation.
-* [ ] Change Hunt screen to show departing bonuses
-* [ ] Change Bonuses screen to show newborn bonuses
+* [x] Change Hunt screen to show departing bonuses
+* [x] Change Bonuses screen to show newborn bonuses
+* [ ] Improve bonuses to show title different than rest of text (needs structure change :()
 * [ ] Test the new bonus/settlement change (adding and removal)
 * [x] Change Fight screen to only have the fight tab
   * [x] Add monster selector with all available monsters

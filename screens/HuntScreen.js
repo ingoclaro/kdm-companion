@@ -18,12 +18,13 @@ export default class HuntScreen extends React.Component {
     return (
       <Screen
         style={{
-          alignItems: 'center',
+          alignItems: 'flex-start',
           justifyContent: 'center',
         }}
       >
         <HuntBonuses />
         <Divider />
+        <Title>Hunt Board</Title>
         <View styleName="horizontal v-center">
           <Text>Monster:</Text>
           <HuntMonsterSelector />
