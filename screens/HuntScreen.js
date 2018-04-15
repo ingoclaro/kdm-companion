@@ -8,6 +8,7 @@ import {
   Subtitle,
   Divider,
 } from '@shoutem/ui'
+import { ScrollView } from 'react-native'
 
 import Hunt from '../components/Hunt'
 import HuntBonuses from '../components/HuntBonuses'
@@ -21,9 +22,10 @@ export default class HuntScreen extends React.Component {
           alignItems: 'flex-start',
           justifyContent: 'center',
           paddingHorizontal: 5,
+          overflow: 'scroll',
         }}
       >
-        <View>
+        <ScrollView>
           <HuntBonuses />
           <Divider />
           <Title>Hunt Board</Title>
@@ -32,7 +34,7 @@ export default class HuntScreen extends React.Component {
             <HuntMonsterSelector />
           </View>
           <Hunt />
-        </View>
+        </ScrollView>
       </Screen>
     )
   }
