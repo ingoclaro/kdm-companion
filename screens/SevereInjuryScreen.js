@@ -1,5 +1,5 @@
 import React from 'react'
-import { Screen } from '@shoutem/ui'
+import { Screen, View } from '@shoutem/ui'
 import SevereInjuryTable from '../components/SevereInjuryTable'
 
 export default class SevereInjuryScreen extends React.Component {
@@ -12,7 +12,9 @@ export default class SevereInjuryScreen extends React.Component {
           paddingHorizontal: 5,
         }}
       >
-        <SevereInjuryTable />
+        <View>
+          <SevereInjuryTable />
+        </View>
       </Screen>
     )
   }

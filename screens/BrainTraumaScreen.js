@@ -7,6 +7,7 @@ export default class BrainTraumaScreen extends React.Component {
     return (
       <Screen
         style={{
+          flex: 1,
           alignItems: 'flex-start',
           justifyContent: 'flex-start',
           paddingHorizontal: 5,
