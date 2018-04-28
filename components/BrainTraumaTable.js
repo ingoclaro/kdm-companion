@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Title, Text, ListView } from '@shoutem/ui'
+import { View, Title, Text, Row, ListView } from '@shoutem/ui'
+import { MarkdownView } from 'react-native-markdown-view'
 import colors from '../src/colors'
 
 export default class BrainTraumaTable extends React.Component {
@@ -68,11 +69,15 @@ export default class BrainTraumaTable extends React.Component {
 
   _row(item) {
     return (
-      <View style={styles.itemContainer}>
-        <Text style={styles.numbers}>{item.numbers}</Text>
-        <View style={styles.textContainer}>
+      <View styleName="horizontal v-start">
+        <View style={styles.numberContainer}>
+          <Text style={styles.numbers}>{item.numbers}</Text>
+        </View>
+        <View styleName="vertical h-start">
           <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.description}>{item.description}</Text>
+          <MarkdownView styles={styles.markdown}>
+            {item.description}
+          </MarkdownView>
         </View>
       </View>
     )
@@ -84,23 +89,44 @@ export default class BrainTraumaTable extends React.Component {
 }
 
 const styles = {
-  itemContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-  },
-  numbers: {
+  // itemContainer: {
+  //   flex: 1,
+  //   alignItems: 'flex-start',
+  //   paddingVertical: 3,
+  // },
+  numberContainer: {
     // flex: 1,
-    color: colors.brown400,
     paddingRight: 5,
     width: 38,
   },
+  numbers: {
+    color: colors.brown400,
+  },
   textContainer: {
     // flex: 1,
-    // flexWrap: 'wrap',
   },
   title: {},
-  description: {
-    color: colors.grey500,
+  markdown: {
+    paragraph: {
+      color: colors.grey500,
+      marginTop: 0,
+      marginBottom: 0,
+    },
+    listItemBullet: {
+      color: colors.grey500,
+      minWidth: 0,
+      paddingRight: 8,
+    },
+    listItemUnorderedContent: {
+      color: colors.grey500,
+    },
+    listItemUnorderedContent: {
+      flex: -1,
+      color: colors.grey500,
+    },
+    // list: {
+    //   margin: 0,
+    //   marginLeft: 8,
+    // },
   },
 }
