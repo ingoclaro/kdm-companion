@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Title, Text, Row, ListView } from '@shoutem/ui'
 import { MarkdownView } from 'react-native-markdown-view'
+import { Dimensions } from 'react-native'
 import colors from '../src/colors'
 
 export default class BrainTraumaTable extends React.Component {
@@ -68,6 +69,12 @@ export default class BrainTraumaTable extends React.Component {
   }
 
   _row(item) {
+    //TODO: remove this hack to avoid text clipping (galaxy S8)
+    let width = Dimensions.get('window').width - 45
+    let mdStyles = Object.assign({}, styles.markdown, {
+      paragraph: { ...styles.markdown.paragraph, width },
+    })
+
     return (
       <View styleName="horizontal v-start">
         <View style={styles.numberContainer}>
@@ -75,9 +82,7 @@ export default class BrainTraumaTable extends React.Component {
         </View>
         <View styleName="vertical h-start">
           <Text style={styles.title}>{item.title}</Text>
-          <MarkdownView styles={styles.markdown}>
-            {item.description}
-          </MarkdownView>
+          <MarkdownView styles={mdStyles}>{item.description}</MarkdownView>
         </View>
       </View>
     )
@@ -95,7 +100,6 @@ const styles = {
   //   paddingVertical: 3,
   // },
   numberContainer: {
-    // flex: 1,
     paddingRight: 5,
     width: 38,
   },
@@ -111,6 +115,11 @@ const styles = {
       color: colors.grey500,
       marginTop: 0,
       marginBottom: 0,
+      // try to avoid text clipping:
+      // marginRight: 10, // doesn't work
+      // paddingRight: 10, // doesn't work
+      // right: 10, // doesn't work
+      // width: '80%', // doesn't work
     },
     listItemBullet: {
       color: colors.grey500,

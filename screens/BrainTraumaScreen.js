@@ -1,5 +1,5 @@
 import React from 'react'
-import { Screen } from '@shoutem/ui'
+import { Screen, View } from '@shoutem/ui'
 import BrainTraumaTable from '../components/BrainTraumaTable'
 
 export default class BrainTraumaScreen extends React.Component {
