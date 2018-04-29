@@ -10,7 +10,7 @@ v1.5:
 
 * [x] Fix strange resources to only show resources of the selected expansion
 * [x] Fix Brain and severe injury tables, text is clipped.
-* [ ] Fix Bonus Screen, text is clipped.
+* [x] Fix Bonus Screen, text is clipped.
 * [x] Fix severe injury table titles. Row can't be used???
 * [ ] Review TODOs in the codebase.
 * [x] Review model to support for "the knowledge worm" innovation.
