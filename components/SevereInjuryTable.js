@@ -1,12 +1,13 @@
 import React from 'react'
 import { Screen, View, Title, Text, Row, Icon } from '@shoutem/ui'
+import { MarkdownView } from 'react-native-markdown-view'
+import { Dimensions } from 'react-native'
 import Accordion from './Accordion'
 import colors from '../src/colors'
 
 export default class SevereInjuryTable extends React.Component {
   constructor(props) {
     super(props)
-    this._renderHeader = this._renderHeader.bind(this)
     this._renderContent = this._renderContent.bind(this)
   }
 
@@ -298,65 +299,65 @@ export default class SevereInjuryTable extends React.Component {
   ]
 
   _renderContent(data) {
+    //TODO: remove this hack to avoid text clipping (galaxy S8)
+    let width = Dimensions.get('window').width - 48
+    let mdStyles = Object.assign({}, styles.markdown, {
+      paragraph: { ...styles.markdown.paragraph, width },
+    })
+
     return (
-      <View style={styles.itemContainer}>
-        <Text style={styles.numbers}>{data.item.numbers}</Text>
-        <View style={styles.textContainer}>
+      <View styleName="horizontal v-start">
+        <View style={styles.numberContainer}>
+          <Text style={styles.numbers}>{data.item.numbers}</Text>
+        </View>
+        <View styleName="vertical h-start">
           <Text style={styles.title}>{data.item.title}</Text>
-          <Text style={styles.description}>{data.item.description}</Text>
+          <MarkdownView styles={mdStyles}>{data.item.description}</MarkdownView>
         </View>
       </View>
     )
   }
 
-  _renderHeader(section, isActive) {
-    let icon = isActive ? (
-      <Icon name="up-arrow" style={styles.headerArrow} />
-    ) : (
-      <Icon name="down-arrow" style={styles.headerArrow} />
-    )
-
-    //TODO: WTF!? why with Row the titles aren't shown?
-    return (
-      <View style={{ flexDirection: 'row' }}>
-        <Title>{section.title}</Title>
-        {icon}
-      </View>
-    )
-  }
-
   render() {
-    return (
-      <Accordion
-        data={this.data}
-        renderHeader={this._renderHeader}
-        renderContent={this._renderContent}
-      />
-    )
+    return <Accordion data={this.data} renderContent={this._renderContent} />
   }
 }
 
 const styles = {
-  itemContainer: {
-    // flex: 1,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-  },
-  numbers: {
-    // flex: 1,
-    color: colors.bluegrey400,
+  numberContainer: {
     paddingRight: 5,
     width: 38,
   },
-  textContainer: {
-    // flex: 1,
-    // flexWrap: 'wrap',
+  numbers: {
+    color: colors.brown400,
   },
   title: {},
-  description: {
-    color: colors.grey500,
-  },
-  headerArrow: {
-    color: colors.grey100,
+  markdown: {
+    paragraph: {
+      color: colors.grey500,
+      marginTop: 0,
+      marginBottom: 0,
+      // try to avoid text clipping:
+      // marginRight: 10, // doesn't work
+      // paddingRight: 10, // doesn't work
+      // right: 10, // doesn't work
+      // width: '80%', // doesn't work
+    },
+    listItemBullet: {
+      color: colors.grey500,
+      minWidth: 0,
+      paddingRight: 8,
+    },
+    listItemUnorderedContent: {
+      color: colors.grey500,
+    },
+    listItemUnorderedContent: {
+      flex: -1,
+      color: colors.grey500,
+    },
+    // list: {
+    //   margin: 0,
+    //   marginLeft: 8,
+    // },
   },
 }

@@ -190,7 +190,6 @@ export default class Resources extends React.Component {
   }
 
   _renderContent(data) {
-    // const { change } = this.actions
     let item = this.props.stored_resources.get(data.item.id)
     const quantity = item ? item.quantity : 0
 

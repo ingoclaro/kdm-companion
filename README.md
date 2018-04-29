@@ -9,9 +9,9 @@ Below you'll find information about performing common tasks. The most recent ver
 v1.5:
 
 * [x] Fix strange resources to only show resources of the selected expansion
-* [ ] Fix Brain and severe injury tables, text is clipped.
+* [x] Fix Brain and severe injury tables, text is clipped.
 * [ ] Fix Bonus Screen, text is clipped.
-* [ ] Fix severe injury table titles. Row can't be used???
+* [x] Fix severe injury table titles. Row can't be used???
 * [ ] Review TODOs in the codebase.
 * [x] Review model to support for "the knowledge worm" innovation.
 * [x] Change Hunt screen to show departing bonuses

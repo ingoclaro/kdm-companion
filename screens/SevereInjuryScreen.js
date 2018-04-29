@@ -5,17 +5,18 @@ import SevereInjuryTable from '../components/SevereInjuryTable'
 export default class SevereInjuryScreen extends React.Component {
   render() {
     return (
-      <Screen
-        style={{
-          alignItems: 'flex-start',
-          justifyContent: 'flex-start',
-          paddingHorizontal: 5,
-        }}
-      >
-        <View>
+      <Screen>
+        <View style={styles.container}>
           <SevereInjuryTable />
         </View>
       </Screen>
     )
   }
+}
+
+const styles = {
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
 }
