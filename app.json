@@ -3,7 +3,7 @@
     "sdkVersion": "27.0.0",
     "name": "Kingdom Death: Monster Companion",
     "slug": "kdm-companion",
-    "icon": "./images/logo.png",
+    "icon": "./images/icon_lantern.png",
     "version": "1.0.0",
     "orientation": "portrait",
     "assetBundlePatterns": ["**/*"],
@@ -12,7 +12,7 @@
       "backgroundColor": "#212121"
     },
     "android": {
-      "package": "com.ingo.kdm"
+      "package": "com.github.ingoclaro.kdmcompanion"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -20,7 +20,7 @@
     "splash": {
       "image": "./images/logo.png",
       "backgroundColor": "#000000",
-      "resizeMode": "cover"
+      "resizeMode": "contain"
     },
     "privacy": "unlisted"
   }
