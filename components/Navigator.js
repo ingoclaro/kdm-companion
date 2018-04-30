@@ -3,7 +3,7 @@ import { Platform } from 'react-native'
 import { TabNavigator, StackNavigator, DrawerNavigator } from 'react-navigation'
 import TabBar from './TabBar'
 import { Image } from '@shoutem/ui'
-import Expo from 'expo'
+import { Segment } from 'expo'
 import colors from '../src/colors'
 import { observer, inject } from 'mobx-react/native'
 import Header from './Header'
@@ -308,7 +308,7 @@ export default () => (
 
       if (prevScreen !== currentScreen) {
         let eventName = `Pageview.${currentScreen}`
-        Expo.Amplitude.logEvent(eventName)
+        Segment.screen(currentScreen)
       }
     }}
   />

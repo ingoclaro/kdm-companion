@@ -1,10 +1,11 @@
 import React from 'react'
 import { View, Platform, StatusBar } from 'react-native'
-import Expo, { AppLoading } from 'expo'
+import Expo, { AppLoading, Segment } from 'expo'
 import Application from './components/App'
 import colors from './src/colors'
 import RootStore from './src/models/RootStore'
 import { load } from './src/filesystem'
+import { SEGMENT_ANDROID_KEY, SEGMENT_IOS_KEY } from 'react-native-dotenv'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -12,7 +13,11 @@ export default class App extends React.Component {
     // StatusBar.setBarStyle('light-content')
     // StatusBar.setHidden(false)
     StatusBar.setBackgroundColor(colors.grey900)
-    Expo.Amplitude.initialize('ede4fcd69d806d324d2276b0591b1d18') //test environment
+
+    Segment.initialize({
+      androidWriteKey: SEGMENT_ANDROID_KEY,
+      iosWriteKey: SEGMENT_IOS_KEY,
+    })
 
     this._cacheResourcesAsync = this._cacheResourcesAsync.bind(this)
   }

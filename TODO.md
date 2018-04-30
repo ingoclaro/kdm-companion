@@ -25,8 +25,10 @@ v1.5:
   * [x] Show severe brain trauma table
 * [x] Add stats/tracking service
   * [ ] Review events
-  * [ ] Add configuration setting somewhere to use correct Amplitude api-key depending on environment (eg: prod one when publishing)
-  * [ ] Change tracking to Segment
+  * [x] Add configuration setting somewhere to use correct Amplitude api-key depending on environment (eg: prod one when publishing)
+  * [x] Change tracking to Segment
+  * [ ] Get production keys
+* [ ] Add Principles + bonus they provide
 * [ ] Publish as standalone Android App
   * [x] Standalone build
   * [ ] Submit to app store
