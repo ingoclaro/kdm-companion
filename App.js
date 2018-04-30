@@ -5,7 +5,8 @@ import Application from './components/App'
 import colors from './src/colors'
 import RootStore from './src/models/RootStore'
 import { load } from './src/filesystem'
-import { SEGMENT_ANDROID_KEY, SEGMENT_IOS_KEY } from 'react-native-dotenv'
+import env from './env.js'
+const { SEGMENT_ANDROID_KEY, SEGMENT_IOS_KEY } = env
 
 export default class App extends React.Component {
   constructor(props) {

@@ -107,7 +107,7 @@ export class CreateSettlement extends React.Component {
   onCreate() {
     this.props.createCampaign(this.state.createName)
     Segment.trackWithProperties('Settlement Created', {
-      numSettlements: this.props.numCampaigns,
+      numSettlements: this.props.numCampaigns + 1,
     })
     this.setState({ createName: null })
     if (this.props.onCreate) {
@@ -150,7 +150,7 @@ export class DeleteSettlement extends React.Component {
 
   onDelete() {
     Segment.trackWithProperties('Settlement Deleted', {
-      numSettlements: this.props.numCampaigns,
+      numSettlements: this.props.numCampaigns - 1,
     })
     this.props.delete(this.props.campaign.id)
     if (this.props.onDelete) {
