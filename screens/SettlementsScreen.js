@@ -24,14 +24,30 @@ export default class SettlementsScreen extends React.Component {
 
         <Divider />
 
-        <Button onPress={() => this.setState({ renameVisible: true })}>
+        <Button
+          onPress={() => {
+            this.setState({
+              renameVisible: true,
+              createVisible: false,
+              deleteVisible: false,
+            })
+          }}
+        >
           <Text>Rename</Text>
         </Button>
 
         <Divider />
         <Divider />
 
-        <Button onPress={() => this.setState({ createVisible: true })}>
+        <Button
+          onPress={() => {
+            this.setState({
+              renameVisible: false,
+              createVisible: true,
+              deleteVisible: false,
+            })
+          }}
+        >
           <Text>Create Settlement</Text>
         </Button>
 
@@ -39,7 +55,15 @@ export default class SettlementsScreen extends React.Component {
         <Divider />
         <Divider />
 
-        <Button onPress={() => this.setState({ deleteVisible: true })}>
+        <Button
+          onPress={() =>
+            this.setState({
+              renameVisible: false,
+              createVisible: false,
+              deleteVisible: true,
+            })
+          }
+        >
           <Text>Delete Settlement</Text>
         </Button>
 

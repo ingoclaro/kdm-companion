@@ -25,12 +25,13 @@ v1.5:
   * [x] Add button to show basic action / or show it permanently on screen
   * [x] Show severe injury table
   * [x] Show severe brain trauma table
-  * [ ] Add icons to base stats? (get them from the tokens?)
 * [x] Add stats/tracking service
   * [ ] Review events
   * [ ] Add configuration setting somewhere to use correct Amplitude api-key depending on environment (eg: prod one when publishing)
 * [ ] Publish as standalone Android App
-* [ ] Add ads?
+  * [x] Standalone build
+  * [ ] Submit to app store
+  * [ ] Change splash screen
 
 v1.6:
 

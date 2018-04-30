@@ -13,7 +13,7 @@ import {
   TextInput,
 } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
-import Expo from 'expo'
+import { Amplitude } from 'expo'
 import colors from '../src/colors'
 
 @inject(({ store }) => ({
@@ -106,7 +106,7 @@ export class CreateSettlement extends React.Component {
 
   onCreate() {
     this.props.createCampaign(this.state.createName)
-    Expo.Amplitude.logEventWithProperties('Create.Settlement', {
+    Amplitude.logEventWithProperties('Create.Settlement', {
       numSettlements: this.props.numCampaigns,
     })
     this.setState({ createName: null })
@@ -149,7 +149,7 @@ export class DeleteSettlement extends React.Component {
   }
 
   onDelete() {
-    Expo.Amplitude.logEventWithProperties('Delete.Settlement', {
+    Amplitude.logEventWithProperties('Delete.Settlement', {
       numSettlements: this.props.numCampaigns,
     })
     this.props.delete(this.props.campaign.id)
