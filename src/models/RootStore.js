@@ -6,6 +6,7 @@ import { Resource } from './Resource'
 import { Monster } from './Monster'
 import { Gear } from './Gear'
 import { Expansion } from './Expansion'
+import { Principle } from './Principle'
 import { uuid } from '../utils'
 import R from 'ramda'
 
@@ -15,6 +16,7 @@ import resourceData from '../data/resources'
 import monsterData from '../data/monsters'
 import gearData from '../data/gear'
 import expansionData from '../data/expansions'
+import principlesData from '../data/principles'
 
 export default types
   .model('RootStore', {
@@ -24,7 +26,7 @@ export default types
     monsters: types.optional(types.map(Monster), monsterData),
     gear: types.optional(types.map(Gear), gearData),
     expansions: types.optional(types.map(Expansion), expansionData),
-    // principles: types.map(Principle),
+    principles: types.optional(types.map(Principle), principlesData),
     campaigns: types.optional(types.array(Campaign), [
       {
         id: 'new',

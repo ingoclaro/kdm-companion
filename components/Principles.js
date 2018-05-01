@@ -9,92 +9,129 @@ import {
   Divider,
   Row,
 } from '@shoutem/ui'
+import { observer, inject } from 'mobx-react/native'
+import R from 'ramda'
 
-class Principles extends React.Component {
-  state = {
+@inject(({ store }) => ({
+  selectedPrinciples: store.selectedCampaign.principles,
+  select: store.selectedCampaign.selectPrinciple,
+}))
+@observer
+export default class Principles extends React.Component {
+  state = {}
+
+  principles = {
     death: [
-      { title: 'None', value: 'none' },
-      { title: 'Graves', value: 'graves' },
-      { title: 'Cannibalism', value: 'cannibalism' },
+      { title: 'None', id: null },
+      { title: 'Graves', id: 'graves' },
+      { title: 'Cannibalize', id: 'cannibalize' },
     ],
     newlife: [
-      { title: 'None', value: 'none' },
-      { title: 'Protect the Young', value: 'pty' },
-      { title: 'Survival of the Fittest', value: 'sotf' },
+      { title: 'None', id: null },
+      { title: 'Protect the Young', id: 'pty' },
+      { title: 'Survival of the Fittest', id: 'sotf' },
+    ],
+    society: [
+      { title: 'None', id: null },
+      { title: 'Accept Darkness', id: 'accept_darkness' },
+      { title: 'Collective Toil', id: 'collective_toil' },
+    ],
+    conviction: [
+      { title: 'None', id: null },
+      { title: 'Barbaric', id: 'barbaric' },
+      { title: 'Romantic', id: 'romantic' },
     ],
   }
 
   render() {
+    let selectedDeath = R.find(
+      item =>
+        this.props.selectedPrinciples.death &&
+        this.props.selectedPrinciples.death.id === item.id,
+      this.principles.death
+    )
+    if (!selectedDeath) {
+      selectedDeath = this.principles.death[0]
+    }
+
+    let selectedNewlife = R.find(
+      item =>
+        this.props.selectedPrinciples.newlife &&
+        this.props.selectedPrinciples.newlife.id === item.id,
+      this.principles.newlife
+    )
+    if (!selectedNewlife) {
+      selectedNewlife = this.principles.newlife[0]
+    }
+
+    let selectedSociety = R.find(
+      item =>
+        this.props.selectedPrinciples.society &&
+        this.props.selectedPrinciples.society.id === item.id,
+      this.principles.society
+    )
+    if (!selectedSociety) {
+      selectedSociety = this.principles.society[0]
+    }
+
+    let selectedConviction = R.find(
+      item =>
+        this.props.selectedPrinciples.conviction &&
+        this.props.selectedPrinciples.conviction.id === item.id,
+      this.principles.conviction
+    )
+    if (!selectedConviction) {
+      selectedConviction = this.principles.conviction[0]
+    }
+
     return (
       <View>
         <Row>
           <Subtitle>Death:</Subtitle>
           <DropDownMenu
-            options={this.state.death}
-            selectedOption={
-              this.state.selectedDeath
-                ? this.state.selectedDeath
-                : this.state.death[0]
-            }
-            onOptionSelected={death => this.setState({ selectedDeath: death })}
+            options={this.principles.death}
+            selectedOption={selectedDeath}
+            onOptionSelected={death => this.props.select('death', death)}
             titleProperty="title"
-            valueProperty="value"
+            valueProperty="id"
           />
         </Row>
 
         <Row>
           <Subtitle>New Life:</Subtitle>
           <DropDownMenu
-            options={this.state.newlife}
-            selectedOption={
-              this.state.selectedNewlife
-                ? this.state.selectedNewlife
-                : this.state.newlife[0]
-            }
-            onOptionSelected={newlife =>
-              this.setState({ selectedNewlife: newlife })
-            }
+            options={this.principles.newlife}
+            selectedOption={selectedNewlife}
+            onOptionSelected={newlife => this.props.select('newlife', newlife)}
             titleProperty="title"
-            valueProperty="value"
+            valueProperty="id"
           />
         </Row>
 
         <Row>
           <Subtitle>Society:</Subtitle>
           <DropDownMenu
-            options={this.state.newlife}
-            selectedOption={
-              this.state.selectedNewlife
-                ? this.state.selectedNewlife
-                : this.state.newlife[0]
-            }
-            onOptionSelected={newlife =>
-              this.setState({ selectedNewlife: newlife })
-            }
+            options={this.principles.society}
+            selectedOption={selectedSociety}
+            onOptionSelected={society => this.props.select('society', society)}
             titleProperty="title"
-            valueProperty="value"
+            valueProperty="id"
           />
         </Row>
 
         <Row>
           <Subtitle>Conviction:</Subtitle>
           <DropDownMenu
-            options={this.state.newlife}
-            selectedOption={
-              this.state.selectedNewlife
-                ? this.state.selectedNewlife
-                : this.state.newlife[0]
-            }
-            onOptionSelected={newlife =>
-              this.setState({ selectedNewlife: newlife })
+            options={this.principles.conviction}
+            selectedOption={selectedConviction}
+            onOptionSelected={conviction =>
+              this.props.select('conviction', conviction)
             }
             titleProperty="title"
-            valueProperty="value"
+            valueProperty="id"
           />
         </Row>
       </View>
     )
   }
 }
-
-export default Principles

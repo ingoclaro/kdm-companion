@@ -12,6 +12,7 @@ import {
   Icon,
 } from '@shoutem/ui'
 import Modal from 'react-native-modal'
+import { ScrollView } from 'react-native'
 import { observer, inject } from 'mobx-react/native'
 
 import colors from '../src/colors'
@@ -35,111 +36,121 @@ class SummaryScreen extends React.Component {
   render() {
     return (
       <Screen style={{ paddingTop: 5, paddingLeft: 5 }}>
-        <Button
-          styleName="textual"
-          style={{ alignSelf: 'flex-start' }}
-          onPress={() => this.setState({ locationsVisible: true })}
-        >
-          <Title>Locations</Title>
-          <Icon name="right-arrow" />
-        </Button>
-        <Divider styleName="line" />
-
-        <LocationItems />
-
-        <Modal
-          isVisible={this.state.locationsVisible}
-          onBackdropPress={() => this.setState({ locationsVisible: false })}
-          onBackButtonPress={() => this.setState({ locationsVisible: false })}
-          useNativeDriver={true}
-          backdropColor={colors.black}
-        >
-          <View
-            style={{
-              backgroundColor: colors.grey900,
-              paddingHorizontal: 15,
-              paddingVertical: 15,
-            }}
+        <ScrollView>
+          <Button
+            styleName="textual"
+            style={{ alignSelf: 'flex-start' }}
+            onPress={() => this.setState({ locationsVisible: true })}
           >
-            <Locations />
-            <Divider />
-            <Button onPress={() => this.setState({ locationsVisible: false })}>
-              <Text>Close</Text>
-            </Button>
-          </View>
-        </Modal>
+            <Title>Locations</Title>
+            <Icon name="right-arrow" />
+          </Button>
+          <Divider styleName="line" />
 
-        <Divider />
+          <LocationItems />
 
-        <Button
-          styleName="textual"
-          style={{ alignSelf: 'flex-start' }}
-          onPress={() => this.setState({ innovationsVisible: true })}
-        >
-          <Title>Innovations</Title>
-          <Icon name="right-arrow" />
-        </Button>
-        <Divider styleName="line" />
-        <InnovationsItems />
-
-        <Modal
-          isVisible={this.state.innovationsVisible}
-          onBackdropPress={() => this.setState({ innovationsVisible: false })}
-          onBackButtonPress={() => this.setState({ innovationsVisible: false })}
-          useNativeDriver={true}
-          backdropColor={colors.black}
-        >
-          <View
-            style={{
-              backgroundColor: colors.grey900,
-              paddingHorizontal: 15,
-              paddingVertical: 40,
-            }}
+          <Modal
+            isVisible={this.state.locationsVisible}
+            onBackdropPress={() => this.setState({ locationsVisible: false })}
+            onBackButtonPress={() => this.setState({ locationsVisible: false })}
+            useNativeDriver={true}
+            backdropColor={colors.black}
           >
-            <Innovations />
-            <Divider />
-            <Button
-              onPress={() => this.setState({ innovationsVisible: false })}
+            <View
+              style={{
+                backgroundColor: colors.grey900,
+                paddingHorizontal: 15,
+                paddingVertical: 40,
+              }}
             >
-              <Text>Close</Text>
-            </Button>
-          </View>
-        </Modal>
+              <Locations />
+              <Divider />
+              <Button
+                onPress={() => this.setState({ locationsVisible: false })}
+              >
+                <Text>Close</Text>
+              </Button>
+            </View>
+          </Modal>
 
-        {/*}
-        <Divider />
+          <Divider />
 
-        <Button
-          styleName="textual"
-          style={{ alignSelf: 'flex-start' }}
-          onPress={() => this.setState({ principlesVisible: true })}
-        >
-          <Title>Principles</Title>
-          <Icon name="right-arrow" />
-        </Button>
-        <Divider styleName="line" />
-        <Caption>Tap title to add principles...</Caption>
+          <Button
+            styleName="textual"
+            style={{ alignSelf: 'flex-start' }}
+            onPress={() => this.setState({ innovationsVisible: true })}
+          >
+            <Title>Innovations</Title>
+            <Icon name="right-arrow" />
+          </Button>
+          <Divider styleName="line" />
+          <InnovationsItems />
 
-        <Modal
-          isVisible={this.state.principlesVisible}
-          onBackdropPress={() => this.setState({ principlesVisible: false })}
-          onBackButtonPress={() => this.setState({ principlesVisible: false })}
-          useNativeDriver={true}
-          backdropColor={colors.black}
-        >
-          <View style={{ backgroundColor: colors.grey900 }}>
-            <Principles />
-            <Divider />
-            <Button onPress={() => this.setState({ principlesVisible: false })}>
-              <Text>Close</Text>
-            </Button>
-          </View>
-        </Modal>
+          <Modal
+            isVisible={this.state.innovationsVisible}
+            onBackdropPress={() => this.setState({ innovationsVisible: false })}
+            onBackButtonPress={() =>
+              this.setState({ innovationsVisible: false })
+            }
+            useNativeDriver={true}
+            backdropColor={colors.black}
+          >
+            <View
+              style={{
+                backgroundColor: colors.grey900,
+                paddingHorizontal: 15,
+                paddingVertical: 40,
+              }}
+            >
+              <Innovations />
+              <Divider />
+              <Button
+                onPress={() => this.setState({ innovationsVisible: false })}
+              >
+                <Text>Close</Text>
+              </Button>
+            </View>
+          </Modal>
 
-        <Divider />
+          <Divider />
 
-        <Title>Survival Limit: 2</Title>
-        {*/}
+          <Button
+            styleName="textual"
+            style={{ alignSelf: 'flex-start' }}
+            onPress={() => this.setState({ principlesVisible: true })}
+          >
+            <Title>Principles</Title>
+            <Icon name="right-arrow" />
+          </Button>
+          <Divider styleName="line" />
+          <Caption>Tap title to add principles...</Caption>
+
+          <Modal
+            isVisible={this.state.principlesVisible}
+            onBackdropPress={() => this.setState({ principlesVisible: false })}
+            onBackButtonPress={() =>
+              this.setState({ principlesVisible: false })
+            }
+            useNativeDriver={true}
+            backdropColor={colors.black}
+          >
+            <View
+              style={{
+                backgroundColor: colors.grey900,
+                paddingHorizontal: 15,
+                paddingVertical: 15,
+              }}
+            >
+              <Principles />
+              <Divider />
+              <Button
+                onPress={() => this.setState({ principlesVisible: false })}
+              >
+                <Text>Close</Text>
+              </Button>
+            </View>
+          </Modal>
+        </ScrollView>
       </Screen>
     )
   }

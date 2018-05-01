@@ -27,8 +27,8 @@ v1.5:
   * [ ] Review events
   * [x] Add configuration setting somewhere to use correct Amplitude api-key depending on environment (eg: prod one when publishing)
   * [x] Change tracking to Segment
-  * [ ] Get production keys
-* [ ] Add Principles + bonus they provide
+  * [x] Get production keys
+* [x] Add Principles + bonus they provide
 * [ ] Publish as standalone Android App
   * [x] Standalone build
   * [ ] Submit to app store

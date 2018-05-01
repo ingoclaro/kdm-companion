@@ -1,4 +1,4 @@
-import { types, getSnapshot } from 'mobx-state-tree'
+import { types, getSnapshot, getRoot, resolveIdentifier } from 'mobx-state-tree'
 import { keys, values } from 'mobx'
 import { SettlementLocation } from './SettlementLocation'
 import { Innovation } from './Innovation'
@@ -7,6 +7,7 @@ import { Endeavor } from './Endeavor'
 import { Resource } from './Resource'
 import { Settlement } from './Settlement'
 import { Expansion } from './Expansion'
+import { Principle } from './Principle'
 import { Monster } from './Monster'
 
 import R from 'ramda'
@@ -31,6 +32,15 @@ export const Campaign = types
       {}
     ),
     innovations: types.optional(types.map(types.reference(Innovation)), {}),
+    principles: types.optional(
+      types.model('principles', {
+        death: types.maybe(types.reference(Principle)),
+        newlife: types.maybe(types.reference(Principle)),
+        society: types.maybe(types.reference(Principle)),
+        conviction: types.maybe(types.reference(Principle)),
+      }),
+      {}
+    ),
     bonuses: types.optional(types.map(Bonus), {}),
     endeavors: types.optional(types.map(Endeavor), {}),
     stored_resources: types.optional(types.map(StoredResource), {}),
@@ -142,6 +152,32 @@ export const Campaign = types
         self.expansions.delete(expansion.id)
       } else {
         self.expansions.set(expansion.id, expansion.id)
+      }
+    },
+    selectPrinciple(type, principle) {
+      if (self.principles[type]) {
+        let principle = self.principles[type]
+        principle.providesBonuses.forEach(bonus => {
+          self.removeBonus(getSnapshot(bonus))
+        })
+        if (principle.settlement) {
+          self.settlement.remove(getSnapshot(principle.settlement))
+        }
+      }
+
+      // selecting
+      self.principles[type] = principle.id
+
+      // process extensions
+      let prin = self.principles[type]
+      if (prin) {
+        //handle unselected principle
+        prin.providesBonuses.forEach(bonus => {
+          self.addBonus(getSnapshot(bonus))
+        })
+        if (prin.settlement) {
+          self.settlement.add(getSnapshot(prin.settlement))
+        }
       }
     },
     addBonus(bonus) {
