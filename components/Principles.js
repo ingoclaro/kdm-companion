@@ -8,6 +8,7 @@ import {
   DropDownMenu,
   Divider,
   Row,
+  Caption,
 } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
 import R from 'ramda'
@@ -130,6 +131,40 @@ export default class Principles extends React.Component {
             titleProperty="title"
             valueProperty="id"
           />
+        </Row>
+      </View>
+    )
+  }
+}
+
+@inject(({ store }) => ({
+  selectedPrinciples: store.selectedCampaign.principles,
+}))
+@observer
+export class PrinciplesItems extends React.Component {
+  render() {
+    let descriptions = []
+    if (this.props.selectedPrinciples.death) {
+      descriptions.push(this.props.selectedPrinciples.death.name)
+    }
+    if (this.props.selectedPrinciples.newlife) {
+      descriptions.push(this.props.selectedPrinciples.newlife.name)
+    }
+    if (this.props.selectedPrinciples.society) {
+      descriptions.push(this.props.selectedPrinciples.society.name)
+    }
+    if (this.props.selectedPrinciples.conviction) {
+      descriptions.push(this.props.selectedPrinciples.conviction.name)
+    }
+
+    return (
+      <View>
+        <Row>
+          {descriptions.length > 0 ? (
+            <Caption>{descriptions.join(', ')}</Caption>
+          ) : (
+            <Caption>Tap title to add Principles...</Caption>
+          )}
         </Row>
       </View>
     )

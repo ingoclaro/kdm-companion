@@ -1298,7 +1298,7 @@ export default {
     id: 'dragon speech',
     name: 'Dragon Speech',
     expansion: 'dk', // TODO: this should be people of the stars, do the same for expansions that provide campaigns so that their cards don't get mixed into the core campaign.
-    keywords: ['starting innovation', 'language'], // TODO: should we do this, or add dragon speech consecuence to all language innovations? Or have a new field with 'add xxx consecuense (like the text at the bottom of the card)'
+    keywords: ['starting innovation', 'language'], // TODO: should we do this, or add dragon speech consecuence to all language innovations? Or have a new field with 'add xxx consecuense (like the text at the bottom of the card, but in a programatic way)'
     settlement: {
       survivalLimit: 1,
     },

@@ -33,12 +33,10 @@ export default class StatItem extends React.Component {
         <SimpleStepper
           tintColor="white"
           initialValue={this.state.value}
+          minimumValue={-10}
           valueChanged={value => this.setState({ value })}
           style={styles.stepper}
         />
-        {
-          //TODO: add minValue -10
-        }
       </View>
     )
   }

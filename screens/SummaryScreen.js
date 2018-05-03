@@ -19,7 +19,7 @@ import colors from '../src/colors'
 
 import Innovations, { InnovationsItems } from '../components/Innovations'
 import Locations, { LocationItems } from '../components/Locations'
-import Principles from '../components/Principles'
+import Principles, { PrinciplesItems } from '../components/Principles'
 
 @observer
 class SummaryScreen extends React.Component {
@@ -123,7 +123,7 @@ class SummaryScreen extends React.Component {
             <Icon name="right-arrow" />
           </Button>
           <Divider styleName="line" />
-          <Caption>Tap title to add principles...</Caption>
+          <PrinciplesItems />
 
           <Modal
             isVisible={this.state.principlesVisible}

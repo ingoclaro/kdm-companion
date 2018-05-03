@@ -54,5 +54,3 @@ so that I can acquire and keep the developer's license. Anything helps, ideally 
 
 If you want to build your own software based off of my code, please make it meaningfully
 different rather than just a clone, better yet, consider contributing to this app to improve it!
-
-TODO: process to submit to app store.

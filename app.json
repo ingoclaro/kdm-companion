@@ -12,7 +12,9 @@
       "backgroundColor": "#212121"
     },
     "android": {
-      "package": "com.github.ingoclaro.kdmcompanion"
+      "package": "com.github.ingoclaro.kdmcompanion",
+      "versionCode": 20180501,
+      "permissions": ["WAKE_LOCK"]
     },
     "updates": {
       "fallbackToCacheTimeout": 0
