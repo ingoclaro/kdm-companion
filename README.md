@@ -28,6 +28,18 @@ To upload new version to Expo:
 exp publish
 ```
 
+Note that apps in the internal test and beta channels are going to get the update automatically.
+
+---
+
+To upload the version to the `production` build, execute the following command:
+
+```
+exp publish --release-channel production
+```
+
+This will distribute the update to the production app automatically.
+
 ### Android app
 
 Create new package:
@@ -42,7 +54,16 @@ After the build has finished, download the signed package, you can install it in
 adb install -r kdm-companion-signed.apk
 ```
 
-TODO: submit to store steps.
+or you can drag it to the simulator.
+
+To submit to the store go [here](https://play.google.com/apps/publish/) and upload the apk to the internal test channel.
+After trying it out you can promote it to the beta channel.
+
+To build the apk for production execute:
+
+```
+exp build:android --release-channel production
+```
 
 ### iOS app
 
