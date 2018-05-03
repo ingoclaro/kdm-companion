@@ -4,7 +4,7 @@
     "name": "Kingdom Death: Monster Companion",
     "slug": "kdm-companion",
     "icon": "./images/icon_lantern.png",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "assetBundlePatterns": ["**/*"],
     "primaryColor": "#212121",
@@ -13,7 +13,7 @@
     },
     "android": {
       "package": "com.github.ingoclaro.kdmcompanion",
-      "versionCode": 20180501,
+      "versionCode": 20180503,
       "permissions": ["WAKE_LOCK"]
     },
     "updates": {
