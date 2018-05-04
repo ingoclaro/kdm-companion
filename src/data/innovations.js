@@ -32,7 +32,7 @@ export default {
   },
   bloodletting: {
     id: 'bloodletting',
-    name: 'Blooletting',
+    name: 'Bloodletting',
     expansion: 'core',
     keywords: ['science', 'ammonia consequence'],
     endeavors: [
