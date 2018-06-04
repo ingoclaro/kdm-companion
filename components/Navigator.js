@@ -11,6 +11,9 @@ import Header from './Header'
 //tmp
 import BlankScreen from '../screens/BlankScreen'
 
+// individual survivor screen
+import SurvivorScreen from '../screens/SurvivorScreen'
+
 // Campaign
 import SettlementsScreen from '../screens/SettlementsScreen'
 import ExpansionsScreen from '../screens/ExpansionsScreen'
@@ -189,7 +192,7 @@ const MainNavigator = TabNavigator(
     //   },
     // },
     Survivors: {
-      screen: BlankScreen,
+      screen: SurvivorScreen,
       navigationOptions: {
         tabBarLabel: 'Survivors',
         tabBarIcon: icon(require('../images/icon_survivors.png')),
