@@ -184,13 +184,6 @@ const CampaignNavigator = TabNavigator(
 
 const MainNavigator = TabNavigator(
   {
-    // Campaign: {
-    //   screen: CampaignNavigator,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Campaign',
-    //     tabBarIcon: icon(require('../images/icon_lantern.png')),
-    //   },
-    // },
     Survivors: {
       screen: SurvivorScreen,
       navigationOptions: {
@@ -206,7 +199,7 @@ const MainNavigator = TabNavigator(
       },
     },
     Hunt: {
-      screen: HuntScreen, //HuntScreen,
+      screen: HuntScreen,
       navigationOptions: {
         tabBarLabel: 'Hunt',
         tabBarIcon: icon(require('../images/icon_hunt.png')),
@@ -221,7 +214,7 @@ const MainNavigator = TabNavigator(
     },
   },
   {
-    initialRouteName: 'Settlement',
+    initialRouteName: 'Survivors', //'Settlement',
     tabBarPosition: 'bottom',
     animationEnabled: false, //Platform.OS === 'android' ? false : true,
     swipeEnabled: false,

@@ -1,5 +1,6 @@
 import { types, getSnapshot } from 'mobx-state-tree'
 import { SettlementBonus, init as defaultBonus } from './SettlementBonus'
+import { Survivor, init as defaultSurvivor } from './Survivor'
 
 // all are maybe because it's used by innovations as well.
 export const Settlement = types
@@ -9,6 +10,7 @@ export const Settlement = types
     departing: types.maybe(SettlementBonus),
     newborn: types.maybe(SettlementBonus),
     showdown: types.maybe(SettlementBonus),
+    survivors: types.optional(types.map(Survivor), {}),
   })
   .actions(self => ({
     updateName(name) {
@@ -59,5 +61,10 @@ export const Settlement = types
         }
         self.showdown.remove(settlement.showdown)
       }
+    },
+    createSurvivor(name = null) {
+      let survivorData = defaultSurvivor()
+      self.survivors.set(survivorData.id, survivorData)
+      return self.survivors.get(survivorData.id)
     },
   }))

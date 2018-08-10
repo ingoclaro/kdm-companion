@@ -237,6 +237,7 @@ export const Campaign = types
     get expansionList() {
       return keys(self.expansions)
     },
+    // Returns items from the map that are in the expansionList of this campaign
     selectedExpansionFilter(map) {
       return R.filter(
         item => {
@@ -251,12 +252,17 @@ export const Campaign = types
           : map
       )
     },
+    // gets selected innovations validated with selected expansions
+    // TODO: do we need to do this since we are removing innovations when removing campaign.
     get innovationsList() {
       return self.selectedExpansionFilter(self.innovations)
     },
+    // gets selected locations validated with selected expansions
+    // TODO: do we need to do this since we are removing locations when removing campaign.
     get locationsList() {
       return self.selectedExpansionFilter(self.locations)
     },
+    // Returns all content being used by an expansion
     expansionContent(expansion) {
       let locations = expansionFilter(self.locations, expansion)
       let innovations = expansionFilter(self.innovations, expansion)

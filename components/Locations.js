@@ -10,7 +10,6 @@ import { keys } from 'mobx'
   locations: store.availableLocations,
   selectedItems: store.selectedCampaign.locations.toJS(),
   toggle: store.selectedCampaign.selectLocation,
-  test: store.selectedCampaign.expansionContent({ id: 'gorm' }),
 }))
 @observer
 export default class Locations extends React.Component {

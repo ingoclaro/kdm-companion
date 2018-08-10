@@ -3,8 +3,10 @@ import {
   Screen,
   View,
   Text,
+  Title,
   Subtitle,
   Image,
+  Icon,
   Button,
   Row,
   Caption,
@@ -13,6 +15,7 @@ import {
 
 import GenderButton from '../components/GenderButton'
 import EditableProperty from '../components/EditableProperty'
+import Attributes from '../components/Attributes'
 
 const ico_movement = require('../images/icon_movement-24.png')
 const ico_accuracy = require('../images/icon_accuracy-24.png')
@@ -30,6 +33,8 @@ export default class SurvivorScreen extends React.Component {
         style={{
           alignItems: 'flex-start',
           justifyContent: 'center',
+          // paddingTop: 5,
+          paddingLeft: 5,
         }}
       >
         <View styleName="horizontal">
@@ -79,14 +84,7 @@ export default class SurvivorScreen extends React.Component {
 
         <Divider />
 
-        <View>
-          <Subtitle>Fighting Arts</Subtitle>
-          <View styleName="horizontal">
-            <Text>FA1</Text>
-            <Text>FA2</Text>
-            <Text>FA3</Text>
-          </View>
-        </View>
+        <Attributes />
 
         <Divider />
 
