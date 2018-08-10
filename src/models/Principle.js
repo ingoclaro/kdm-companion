@@ -3,10 +3,10 @@ import { Bonus } from './Bonus'
 import { Settlement } from './Settlement'
 
 const Principle = types.model('Principle', {
-  id: types.identifier(types.string),
+  id: types.identifier,
   name: types.string,
-  providesBonuses: types.optional(types.array(Bonus), []),
-  settlement: types.maybe(Settlement),
+  providesBonuses: types.array(Bonus),
+  settlement: types.maybeNull(Settlement),
 })
 
 export { Principle }

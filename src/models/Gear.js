@@ -4,10 +4,10 @@ import { lateRecipe } from './Recipe'
 
 export function lateGear() {
   return types.model('Gear', {
-    id: types.identifier(types.string),
+    id: types.identifier,
     name: types.string,
     expansion: types.reference(Expansion),
-    recipes: types.maybe(types.array(types.late(lateRecipe))),
+    recipes: types.maybeNull(types.array(types.late(lateRecipe))),
   })
 }
 

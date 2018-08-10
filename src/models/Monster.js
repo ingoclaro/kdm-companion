@@ -8,7 +8,7 @@ const Instinct = types.model('Instinct', {
 })
 
 const Monster = types.model('Monster', {
-  id: types.identifier(types.string),
+  id: types.identifier,
   name: types.string,
   expansion: types.reference(Expansion),
   type: types.optional(types.enumeration(['quarry', 'nemesis']), 'nemesis'),

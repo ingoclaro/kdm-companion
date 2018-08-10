@@ -5,12 +5,12 @@ import { Survivor, init as defaultSurvivor } from './Survivor'
 // all are maybe because it's used by innovations as well.
 export const Settlement = types
   .model('Settlement', {
-    name: types.maybe(types.string),
-    survivalLimit: types.maybe(types.number),
-    departing: types.maybe(SettlementBonus),
-    newborn: types.maybe(SettlementBonus),
-    showdown: types.maybe(SettlementBonus),
-    survivors: types.optional(types.map(Survivor), {}),
+    name: types.maybeNull(types.string),
+    survivalLimit: types.maybeNull(types.number),
+    departing: types.maybeNull(SettlementBonus),
+    newborn: types.maybeNull(SettlementBonus),
+    showdown: types.maybeNull(SettlementBonus),
+    survivors: types.map(Survivor),
   })
   .actions(self => ({
     updateName(name) {

@@ -5,14 +5,14 @@ import { capitalize } from '../utils'
 
 const Resource = types
   .model('Resource', {
-    id: types.identifier(types.string),
+    id: types.identifier,
     // name: types.string,
-    monster: types.maybe(types.reference(Monster)),
-    type: types.maybe(
+    monster: types.maybeNull(types.reference(Monster)),
+    type: types.maybeNull(
       types.enumeration('Type', ['basic', 'strange', 'vermin', 'endeavor'])
     ),
     expansion: types.optional(types.reference(Expansion), 'core'),
-    keywords: types.maybe(types.array(types.string)),
+    keywords: types.maybeNull(types.array(types.string)),
   })
   .views(self => ({
     get name() {

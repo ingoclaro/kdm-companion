@@ -3,15 +3,15 @@ import R from 'ramda'
 
 export const SettlementBonus = types
   .model('SettlementBonus', {
-    survival: types.maybe(types.number),
-    accuracy: types.maybe(types.number),
-    strength: types.maybe(types.number),
-    evasion: types.maybe(types.number),
-    insanity: types.maybe(types.number),
-    courage: types.maybe(types.number),
-    understanding: types.maybe(types.number),
-    'hunt xp': types.maybe(types.number),
-    description: types.maybe(types.array(types.string)),
+    survival: types.maybeNull(types.number),
+    accuracy: types.maybeNull(types.number),
+    strength: types.maybeNull(types.number),
+    evasion: types.maybeNull(types.number),
+    insanity: types.maybeNull(types.number),
+    courage: types.maybeNull(types.number),
+    understanding: types.maybeNull(types.number),
+    'hunt xp': types.maybeNull(types.number),
+    description: types.maybeNull(types.array(types.string)),
   })
   .actions(self => ({
     add(bonus) {

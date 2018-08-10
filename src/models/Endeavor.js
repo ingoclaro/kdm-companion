@@ -6,7 +6,7 @@ export const Endeavor = lateEndeavor()
 
 export function lateEndeavor() {
   return types.model('Endeavor', {
-    id: types.identifier(types.string),
+    id: types.identifier,
     name: types.string,
     expansion: types.reference(Expansion),
     recipe: types.late(lateRecipe),

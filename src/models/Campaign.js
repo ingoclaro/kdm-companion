@@ -15,45 +15,42 @@ import R from 'ramda'
 import { expansionFilter } from '../utils'
 
 const StoredResource = types.model('StoredResource', {
-  id: types.identifier(types.string),
+  id: types.identifier,
   resource: types.reference(Resource),
   quantity: 0,
 })
 
 export const Campaign = types
   .model('Campaign', {
-    id: types.identifier(types.string),
+    id: types.identifier,
     settlement: types.optional(Settlement, {
       name: 'New Settlement',
       survivalLimit: 1,
     }),
-    locations: types.optional(
-      types.map(types.reference(SettlementLocation)),
-      {}
-    ),
-    innovations: types.optional(types.map(types.reference(Innovation)), {}),
+    locations: types.map(types.reference(SettlementLocation)),
+    innovations: types.map(types.reference(Innovation)),
     principles: types.optional(
       types.model('principles', {
-        death: types.maybe(types.reference(Principle)),
-        newlife: types.maybe(types.reference(Principle)),
-        society: types.maybe(types.reference(Principle)),
-        conviction: types.maybe(types.reference(Principle)),
+        death: types.maybeNull(types.reference(Principle)),
+        newlife: types.maybeNull(types.reference(Principle)),
+        society: types.maybeNull(types.reference(Principle)),
+        conviction: types.maybeNull(types.reference(Principle)),
       }),
       {}
     ),
-    bonuses: types.optional(types.map(Bonus), {}),
-    endeavors: types.optional(types.map(Endeavor), {}),
-    stored_resources: types.optional(types.map(StoredResource), {}),
+    bonuses: types.map(Bonus),
+    endeavors: types.map(Endeavor),
+    stored_resources: types.map(StoredResource),
     expansions: types.optional(types.map(types.reference(Expansion)), {
       core: 'core',
     }),
-    hunting: types.maybe(
+    hunting: types.maybeNull(
       types.model({
         monster: types.reference(Monster),
         level: types.string,
       })
     ),
-    showdown: types.maybe(
+    showdown: types.maybeNull(
       types.model({
         monster: types.reference(Monster),
         level: types.string,

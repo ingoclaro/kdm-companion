@@ -4,11 +4,11 @@
   "private": true,
   "devDependencies": {
     "husky": "^0.14.3",
-    "jest-expo": "^27.0.0",
-    "lint-staged": "^7.0.5",
-    "prettier": "^1.12.1",
+    "jest-expo": "^29.0.0",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.14.2",
     "react-native-scripts": "1.14.0",
-    "react-test-renderer": "16.3.2"
+    "react-test-renderer": "16.4.2"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -23,23 +23,25 @@
     "preset": "jest-expo"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"]
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "@shoutem/theme": "^0.11.0",
     "@shoutem/ui": "ingoclaro/ui#set-statusbar-color-optional",
-    "expo": "^27.0.0",
-    "mobx": "^4.2.0",
-    "mobx-react": "^5.0.0",
-    "mobx-state-tree": "^2.0.4",
-    "prop-types": "^15.6.1",
+    "expo": "^29.0.0",
+    "mobx": "4.x.x",
+    "mobx-react": "5.x.x",
+    "mobx-state-tree": "^3.0.2",
+    "prop-types": "^15.6.2",
     "ramda": "^0.25.0",
-    "react": "16.3.2",
-    "react-native":
-      "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",
     "react-native-markdown-view": "^1.1.4",
-    "react-native-modal": "^5.3.0",
+    "react-native-modal": "^6.5.0",
     "react-native-simple-stepper": "^1.18.0",
-    "react-navigation": "1.5.11"
+    "react-navigation": "1.x.x"
   }
 }

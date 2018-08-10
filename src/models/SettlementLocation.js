@@ -4,10 +4,10 @@ import { lateEndeavor } from './Endeavor'
 
 export function lateSettlementLocation() {
   return types.model('SettlementLocation', {
-    id: types.identifier(types.string),
+    id: types.identifier,
     name: types.string,
     expansion: types.reference(Expansion),
-    endeavors: types.optional(types.array(types.late(lateEndeavor)), []),
+    endeavors: types.array(types.late(lateEndeavor)),
   })
 }
 

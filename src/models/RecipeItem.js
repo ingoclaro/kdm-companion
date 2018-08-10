@@ -5,9 +5,9 @@ import { Gear } from './Gear'
 export function lateRecipeItem() {
   return types
     .model('RecipeItem', {
-      resource: types.maybe(types.reference(Resource)),
-      gear: types.maybe(types.reference(Gear)), //god_mask requires founding_store
-      keyword: types.maybe(types.string),
+      resource: types.maybeNull(types.reference(Resource)),
+      gear: types.maybeNull(types.reference(Gear)), //god_mask requires founding_store
+      keyword: types.maybeNull(types.string),
       quantity: 1,
     })
     .views(self => ({

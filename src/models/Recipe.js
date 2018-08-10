@@ -5,10 +5,10 @@ import { RecipeItem } from './RecipeItem'
 
 export function lateRecipe() {
   return types.model('Recipe', {
-    location: types.maybe(types.string), // manual ref to location because circular dependency
-    not_location: types.maybe(types.string), // manual ref to location
-    innovation: types.maybe(types.reference(Innovation)),
-    not_innovation: types.maybe(types.reference(Innovation)),
+    location: types.maybeNull(types.string), // manual ref to location because circular dependency
+    not_location: types.maybeNull(types.string), // manual ref to location
+    innovation: types.maybeNull(types.reference(Innovation)),
+    not_innovation: types.maybeNull(types.reference(Innovation)),
     items: types.array(RecipeItem),
   })
 }
