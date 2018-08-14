@@ -62,9 +62,13 @@ export const Settlement = types
         self.showdown.remove(settlement.showdown)
       }
     },
-    createSurvivor(name = null) {
+    createSurvivor(name = undefined) {
       let survivorData = defaultSurvivor()
+      if (name) {
+        survivorData.name = name
+      }
       self.survivors.set(survivorData.id, survivorData)
-      return self.survivors.get(survivorData.id)
+      let survivor = self.survivors.get(survivorData.id)
+      return survivor
     },
   }))

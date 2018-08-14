@@ -11,19 +11,22 @@ import {
   DropDownMenu,
 } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
+import R from 'ramda'
 import Modal from 'react-native-modal'
-import colors from '../src/colors'
+import colors from '../../src/colors'
 
 @inject(({ store }) => ({
-  fightingArts: store.availableFightingArts,
-  // selectedItems: store.selectedCampaign.innovations.toJS(),
-  // toggle: store.selectedCampaign.selectInnovation,
+  availableFightingArts: store.availableFightingArts,
 }))
 @observer
 export default class Attributes extends React.Component {
   constructor(props) {
     super(props)
+
     this.showEditor = this.showEditor.bind(this)
+    this.hideEditor = this.hideEditor.bind(this)
+    this.faDropdown = this.faDropdown.bind(this)
+    this.fa = this.fa.bind(this)
   }
 
   state = {
@@ -34,14 +37,51 @@ export default class Attributes extends React.Component {
     this.setState({ visible: true })
   }
 
-  render() {
+  hideEditor() {
+    this.setState({ visible: false })
+  }
+
+  faDropdown() {
     const fightingArts = [
       { name: 'Select Fighting Art', id: null },
-      ...this.props.fightingArts,
+      ...this.props.availableFightingArts,
     ]
 
     let selected = fightingArts[0]
 
+    return (
+      <DropDownMenu
+        options={fightingArts}
+        selectedOption={selected}
+        onOptionSelected={item => this.props.addFA(item)}
+        titleProperty="name"
+        valueProperty="id"
+      />
+    )
+  }
+
+  fa(editable = false) {
+    let list = this.props.fightingArts.map(fa => (
+      <View styleName="horizontal" key={fa.id}>
+        <Text>{fa.name}</Text>
+        {editable && (
+          <Button
+            styleName="textual"
+            style={{ alignSelf: 'flex-start' }}
+            onPress={() => {
+              this.props.removeFA(fa)
+            }}
+          >
+            <Text>X</Text>
+          </Button>
+        )}
+      </View>
+    ))
+
+    return list
+  }
+
+  render() {
     return (
       <View>
         <Button
@@ -52,41 +92,18 @@ export default class Attributes extends React.Component {
           <Title>Fighting Arts</Title>
           <Icon name="right-arrow" />
         </Button>
-        <View styleName="horizontal">
-          <Text>FA1</Text>
-          <Text>FA2</Text>
-          <Text>FA3</Text>
-        </View>
+        <View styleName="horizontal">{this.fa()}</View>
 
         <Modal
           isVisible={this.state.visible}
-          onBackdropPress={() => this.setState({ visible: false })}
-          onBackButtonPress={() => this.setState({ visible: false })}
+          onBackdropPress={() => this.hideEditor()}
+          onBackButtonPress={() => this.hideEditor()}
           useNativeDriver={true}
           backdropColor={colors.black}
         >
           <View style={styles.propertyLine}>
-            <DropDownMenu
-              options={fightingArts}
-              selectedOption={selected}
-              onOptionSelected={item => this.props.select('fightingArt1', item)}
-              titleProperty="name"
-              valueProperty="id"
-            />
-            <DropDownMenu
-              options={fightingArts}
-              selectedOption={selected}
-              onOptionSelected={item => this.props.select('fightingArt1', item)}
-              titleProperty="name"
-              valueProperty="id"
-            />
-            <DropDownMenu
-              options={fightingArts}
-              selectedOption={selected}
-              onOptionSelected={item => this.props.select('fightingArt1', item)}
-              titleProperty="name"
-              valueProperty="id"
-            />
+            {this.fa(true)}
+            {this.faDropdown()}
           </View>
         </Modal>
       </View>

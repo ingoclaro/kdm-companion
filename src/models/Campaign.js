@@ -26,6 +26,7 @@ export const Campaign = types
     settlement: types.optional(Settlement, {
       name: 'New Settlement',
       survivalLimit: 1,
+      survivors: {},
     }),
     locations: types.map(types.reference(SettlementLocation)),
     innovations: types.map(types.reference(Innovation)),

@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, Image, Button, Caption } from '@shoutem/ui'
 import Modal from 'react-native-modal'
 import SimpleStepper from 'react-native-simple-stepper'
-import colors from '../src/colors'
+import colors from '../../src/colors'
 
 export default class EditableProperty extends React.Component {
   constructor(props) {
@@ -11,7 +11,6 @@ export default class EditableProperty extends React.Component {
   }
 
   state = {
-    quantity: 0,
     visible: false,
   }
 
@@ -39,7 +38,7 @@ export default class EditableProperty extends React.Component {
         >
           {icon}
           <Text style={styles.property}>
-            {label}: {this.state.quantity}
+            {label}: {this.props.quantity}
           </Text>
         </Button>
 
@@ -53,17 +52,17 @@ export default class EditableProperty extends React.Component {
           <View style={styles.propertyLine}>
             <View styleName="horizontal">
               <Text>
-                {this.props.label}: {this.state.quantity}
+                {this.props.label}: {this.props.quantity}
               </Text>
               <Caption style={{ paddingLeft: 4 }}>{this.props.help}</Caption>
             </View>
 
             <SimpleStepper
               tintColor="white"
-              initialValue={this.state.quantity}
+              initialValue={this.props.quantity}
               minimumValue={this.props.minimumValue || -10}
               maximimValue={this.props.maximumValue || 10}
-              valueChanged={quantity => this.setState({ quantity })}
+              valueChanged={this.props.setQuantity}
               style={styles.stepper}
             />
           </View>

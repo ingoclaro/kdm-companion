@@ -3,7 +3,7 @@ import { AppState } from 'react-native'
 import { StyleProvider } from '@shoutem/theme'
 import theme from '../src/theme'
 import { Provider } from 'mobx-react'
-import { getSnapshot } from 'mobx-state-tree'
+import { getSnapshot, setLivelynessChecking } from 'mobx-state-tree'
 import PropTypes from 'prop-types'
 import { save } from '../src/filesystem'
 import Navigator from './Navigator'
@@ -11,6 +11,7 @@ import Navigator from './Navigator'
 class ThemedApp extends React.Component {
   constructor(props) {
     super(props)
+    setLivelynessChecking('error')
   }
   state = {
     appState: AppState.currentState,
