@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Title, Button, Icon } from '@shoutem/ui'
+import { View, Text, Title, Button, Icon, Divider } from '@shoutem/ui'
 import Modal from 'react-native-modal'
 import { observer } from 'mobx-react/native'
 import colors from '../src/colors'
@@ -63,17 +63,21 @@ export default class Note extends React.Component {
           useNativeDriver={true}
           backdropColor={colors.black}
         >
-          <View style={styles.propertyLine}>
+          <View style={styles.modal}>
             <Text>{this.props.notes}</Text>
+
+            <Divider />
+
+            <Button onPress={this.onSave}>
+              <Text>Save</Text>
+            </Button>
+
+            <Divider />
+
+            <Button onPress={() => this.hideEditor()}>
+              <Text>Cancel</Text>
+            </Button>
           </View>
-
-          <Button onPress={this.onSave}>
-            <Text>Save</Text>
-          </Button>
-
-          <Button onPress={() => this.hideEditor()}>
-            <Text>Cancel</Text>
-          </Button>
         </Modal>
       </View>
     )
@@ -81,13 +85,10 @@ export default class Note extends React.Component {
 }
 
 const styles = {
-  propertyLine: {
-    // flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 5,
-    paddingVertical: 5,
+  modal: {
     backgroundColor: colors.grey900,
+    paddingHorizontal: 15,
+    paddingVertical: 15,
   },
   markdown: {
     paragraph: {

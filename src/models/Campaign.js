@@ -57,7 +57,7 @@ export const Campaign = types
         level: types.string,
       })
     ),
-    // survivors: types.array(Survivor),
+    notes: '',
   })
   .actions(self => ({
     selectLocation(location) {
@@ -216,6 +216,9 @@ export const Campaign = types
       } else {
         self.showdown = null
       }
+    },
+    saveNotes(notes) {
+      self.notes = notes
     },
   }))
   .views(self => ({
