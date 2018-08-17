@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, Image, Button, Caption } from '@shoutem/ui'
 import Modal from 'react-native-modal'
 import SimpleStepper from 'react-native-simple-stepper'
+import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 
 export default class EditableProperty extends React.Component {
@@ -12,6 +13,17 @@ export default class EditableProperty extends React.Component {
 
   state = {
     visible: false,
+  }
+
+  static propTypes = {
+    showLabel: PropTypes.bool,
+    label: PropTypes.string, // label of the property
+    help: PropTypes.string, // extra text to show when editing
+    icon: PropTypes.any, // icon to show
+    quantity: PropTypes.number.isRequired, // quantity of the property
+    minimumValue: PropTypes.number, // minimum value for the quantity
+    maximumValue: PropTypes.number, // maximum value for the quantity
+    setQuantity: PropTypes.func.isRequired, // @params quantity: save the quantity
   }
 
   static defaultProps = {

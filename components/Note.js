@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, Title, Button, Icon, Divider } from '@shoutem/ui'
 import Modal from 'react-native-modal'
 import { observer } from 'mobx-react/native'
+import PropTypes from 'prop-types'
 import colors from '../src/colors'
 
 import { MarkdownView } from 'react-native-markdown-view'
@@ -21,6 +22,12 @@ export default class Note extends React.Component {
   state = {
     visible: false,
     notes: '',
+  }
+
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    notes: PropTypes.string.isRequired,
+    saveNote: PropTypes.func, // @params: notes
   }
 
   static defaultProps = {

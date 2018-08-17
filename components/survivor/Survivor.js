@@ -13,6 +13,7 @@ import {
 } from '@shoutem/ui'
 
 import { observer, inject } from 'mobx-react/native'
+import PropTypes from 'prop-types'
 import R from 'ramda'
 
 import GenderButton from './GenderButton'
@@ -30,14 +31,15 @@ const ico_d10 = require('../../images/icon_d10-32.png')
 const ico_insanity = require('../../images/ico_insanity-32.png')
 
 // This is the individual survivor screen
-@inject(({ store }) => ({
-  settlement: store.selectedCampaign.settlement,
-  survivor: store.selectedCampaign.settlement.survivors.get(
-    '16a7f801-0b64-4847-8516-fb5b79fe0e9a'
-  ),
+@inject(({ store }, props) => ({
+  survivor: store.selectedCampaign.settlement.survivors.get(props.survivorId),
 }))
 @observer
 export default class Survivor extends React.Component {
+  static propTypes = {
+    survivorId: PropTypes.string.isRequired, // ID of the survivor to show
+  }
+
   render() {
     let survivor = this.props.survivor
 

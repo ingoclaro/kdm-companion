@@ -14,6 +14,7 @@ import {
 import R from 'ramda'
 import Modal from 'react-native-modal'
 import { observer } from 'mobx-react/native'
+import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 
 @observer
@@ -29,6 +30,15 @@ export default class AbilitySection extends React.Component {
 
   state = {
     visible: false,
+  }
+
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    dropdownTitle: PropTypes.string.isRequired,
+    items: PropTypes.object.isRequired, // items selected TODO: should be array, but since it's array of references it seems it's received as an object instead.
+    availableItems: PropTypes.array.isRequired, // list of all items for the dropdown
+    addItem: PropTypes.func.isRequired, // @params item: item to add to selected list
+    removeItem: PropTypes.func.isRequired, // @params item: item to remove from selected list
   }
 
   static defaultProps = {

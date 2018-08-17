@@ -13,7 +13,8 @@ import {
   Divider,
 } from '@shoutem/ui'
 
-import Survivor from '../components/survivor/Survivor'
+import SurvivorList from '../components/survivor/SurvivorList'
+import Survivor from '../components/survivor/Survivor' //TODO: remove
 
 export default class SurvivorScreen extends React.Component {
   render() {
@@ -26,7 +27,8 @@ export default class SurvivorScreen extends React.Component {
           paddingLeft: 5,
         }}
       >
-        <Survivor survivor="16a7f801-0b64-4847-8516-fb5b79fe0e9a" />
+        <SurvivorList />
+        <Survivor survivorId="16a7f801-0b64-4847-8516-fb5b79fe0e9a" />
       </Screen>
     )
   }
