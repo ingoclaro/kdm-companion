@@ -16,17 +16,17 @@ import Modal from 'react-native-modal'
 import colors from '../../src/colors'
 
 @inject(({ store }) => ({
-  availableFightingArts: store.availableFightingArts,
+  availableDisorders: store.availableDisorders,
 }))
 @observer
-export default class Attributes extends React.Component {
+export default class Disorders extends React.Component {
   constructor(props) {
     super(props)
 
     this.showEditor = this.showEditor.bind(this)
     this.hideEditor = this.hideEditor.bind(this)
-    this.faDropdown = this.faDropdown.bind(this)
-    this.fa = this.fa.bind(this)
+    this.disorderDropdown = this.disorderDropdown.bind(this)
+    this.disorders = this.disorders.bind(this)
   }
 
   state = {
@@ -41,35 +41,39 @@ export default class Attributes extends React.Component {
     this.setState({ visible: false })
   }
 
-  faDropdown() {
-    const fightingArts = [
-      { name: 'Select Fighting Art', id: null },
-      ...this.props.availableFightingArts,
+  disorderDropdown() {
+    if (this.props.disorders.length >= 3) {
+      return null
+    }
+
+    const disorders = [
+      { name: 'Select Disorder', id: null },
+      ...this.props.availableDisorders,
     ]
 
-    let selected = fightingArts[0]
+    let selected = disorders[0]
 
     return (
       <DropDownMenu
-        options={fightingArts}
+        options={disorders}
         selectedOption={selected}
-        onOptionSelected={item => this.props.addFA(item)}
+        onOptionSelected={item => this.props.addDisorder(item)}
         titleProperty="name"
         valueProperty="id"
       />
     )
   }
 
-  fa(editable = false) {
-    let list = this.props.fightingArts.map(fa => (
-      <View styleName="horizontal" key={fa.id}>
-        <Text>{fa.name}</Text>
+  disorders(editable = false) {
+    let list = this.props.disorders.map(disorder => (
+      <View styleName="horizontal" key={disorder.id}>
+        <Text>{disorder.name}</Text>
         {editable && (
           <Button
             styleName="textual"
             style={{ alignSelf: 'flex-start' }}
             onPress={() => {
-              this.props.removeFA(fa)
+              this.props.removeDisorder(disorder)
             }}
           >
             <Text>X</Text>
@@ -89,10 +93,10 @@ export default class Attributes extends React.Component {
           style={{ alignSelf: 'flex-start' }}
           onPress={this.showEditor}
         >
-          <Title>Fighting Arts</Title>
+          <Title>Disorders</Title>
           <Icon name="right-arrow" />
         </Button>
-        <View styleName="horizontal">{this.fa()}</View>
+        <View styleName="horizontal">{this.disorders()}</View>
 
         <Modal
           isVisible={this.state.visible}
@@ -102,8 +106,8 @@ export default class Attributes extends React.Component {
           backdropColor={colors.black}
         >
           <View style={styles.propertyLine}>
-            {this.fa(true)}
-            {this.faDropdown()}
+            {this.disorders(true)}
+            {this.disorderDropdown()}
           </View>
         </Modal>
       </View>

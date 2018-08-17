@@ -1,5 +1,6 @@
 import { types } from 'mobx-state-tree'
 import { FightingArt } from './FightingArt'
+import { Disorder } from './Disorder'
 import { uuid } from '../utils'
 import R from 'ramda'
 
@@ -8,6 +9,7 @@ const Survivor = types
     id: types.identifier,
     name: types.string,
     fightingArts: types.array(types.reference(FightingArt)),
+    disorders: types.array(types.reference(Disorder)),
     gender: types.optional(types.enumeration(['male', 'female']), 'male'),
     survival: 1,
     movement: 5,
@@ -28,6 +30,16 @@ const Survivor = types
     removeFA(fa) {
       // TODO: removing an element other than the last gives an error.
       self.fightingArts.remove(fa)
+    },
+    addDisorder(disorder) {
+      let found = R.find(item => disorder.id === item.id, self.disorders)
+      if (!found) {
+        self.disorders.push(disorder)
+      }
+    },
+    removeDisorder(disorder) {
+      // TODO: removing an element other than the last gives an error.
+      self.disorders.remove(disorder)
     },
     changeGender() {
       let gender = self.gender === 'male' ? 'female' : 'male'

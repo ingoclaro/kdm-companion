@@ -8,12 +8,14 @@ import { Gear } from './Gear'
 import { Expansion } from './Expansion'
 import { Principle } from './Principle'
 import { FightingArt } from './FightingArt'
+import { Disorder } from './Disorder'
 import { uuid } from '../utils'
 import R from 'ramda'
 
 import locationsData from '../data/settlement_locations'
 import innovationsData from '../data/innovations'
 import fightingArtsData from '../data/fightingArts'
+import disordersData from '../data/disorders'
 import resourceData from '../data/resources'
 import monsterData from '../data/monsters'
 import gearData from '../data/gear'
@@ -25,6 +27,7 @@ export default types
     locations: types.optional(types.map(SettlementLocation), locationsData),
     innovations: types.optional(types.map(Innovation), innovationsData),
     fightingArts: types.optional(types.map(FightingArt), fightingArtsData),
+    disorders: types.optional(types.map(Disorder), disordersData),
     resources: types.optional(types.map(Resource), resourceData),
     monsters: types.optional(types.map(Monster), monsterData),
     gear: types.optional(types.map(Gear), gearData),
@@ -88,6 +91,12 @@ export default types
       return R.sortBy(
         R.prop('name'),
         self.selectedExpansionFilter(self.fightingArts)
+      )
+    },
+    get availableDisorders() {
+      return R.sortBy(
+        R.prop('name'),
+        self.selectedExpansionFilter(self.disorders)
       )
     },
     get availableHunts() {
