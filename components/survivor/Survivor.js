@@ -19,6 +19,7 @@ import GenderButton from './GenderButton'
 import EditableProperty from './EditableProperty'
 import FightingArts from './FightingArts'
 import Disorders from './Disorders'
+import Note from '../Note'
 
 const ico_movement = require('../../images/icon_movement-24.png')
 const ico_accuracy = require('../../images/icon_accuracy-24.png')
@@ -145,6 +146,14 @@ export default class Survivor extends React.Component {
           disorders={survivor.disorders}
           addDisorder={survivor.addDisorder}
           removeDisorder={survivor.removeDisorder}
+        />
+
+        <Divider />
+
+        <Note
+          title="Notes"
+          notes={survivor.notes}
+          saveNote={survivor.saveNotes}
         />
       </View>
     )

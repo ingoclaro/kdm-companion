@@ -9,6 +9,7 @@ import {
   Button,
   Caption,
   DropDownMenu,
+  Divider,
 } from '@shoutem/ui'
 import R from 'ramda'
 import Modal from 'react-native-modal'
@@ -100,7 +101,7 @@ export default class AbilitySection extends React.Component {
           <Title>{this.props.title}</Title>
           <Icon name="right-arrow" />
         </Button>
-        <View styleName="horizontal">{this.list()}</View>
+        <View>{this.list()}</View>
 
         <Modal
           isVisible={this.state.visible}
@@ -112,7 +113,12 @@ export default class AbilitySection extends React.Component {
           <View style={styles.propertyLine}>
             {this.list(true)}
             {this.dropdown()}
+
+            <Divider />
           </View>
+          <Button onPress={() => this.hideEditor()}>
+            <Text>Close</Text>
+          </Button>
         </Modal>
       </View>
     )

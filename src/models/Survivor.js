@@ -19,6 +19,7 @@ const Survivor = types
     luck: 0,
     speed: 0,
     insanity: 0,
+    notes: '',
   })
   .actions(self => ({
     addFA(fa) {
@@ -49,6 +50,9 @@ const Survivor = types
       if (self[attribute] !== undefined) {
         self[attribute] = quantity
       }
+    },
+    saveNotes(notes) {
+      self.notes = notes
     },
   }))
 const init = () => ({ id: uuid(), name: 'Unnamed', fightingArts: [] })
