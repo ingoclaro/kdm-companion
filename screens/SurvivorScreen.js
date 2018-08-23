@@ -13,10 +13,15 @@ import {
   Divider,
 } from '@shoutem/ui'
 
-import SurvivorList from '../components/survivor/SurvivorList'
-import Survivor from '../components/survivor/Survivor' //TODO: remove
+import Survivor from '../components/survivor/Survivor'
 
 export default class SurvivorScreen extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: navigation.getParam('survivorName', 'Unnamed'), // This isn't working yet.
+    }
+  }
+
   render() {
     return (
       <Screen
@@ -27,8 +32,7 @@ export default class SurvivorScreen extends React.Component {
           paddingLeft: 5,
         }}
       >
-        <SurvivorList />
-        <Survivor survivorId="16a7f801-0b64-4847-8516-fb5b79fe0e9a" />
+        <Survivor survivorId={this.props.navigation.getParam('survivorId')} />
       </Screen>
     )
   }

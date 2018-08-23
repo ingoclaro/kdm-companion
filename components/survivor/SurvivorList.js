@@ -29,7 +29,15 @@ export default class SurvivorList extends React.Component {
         <Title>Survivors</Title>
         {this.props.survivors.map(item => {
           let survivor = item[1]
-          return <Text key={survivor.id}>{survivor.name}</Text>
+          return (
+            <View key={survivor.id}>
+              <Button
+                onPress={() => this.props.navigate(survivor.id, survivor.name)}
+              >
+                <Text>{survivor.name}</Text>
+              </Button>
+            </View>
+          )
         })}
       </View>
     )

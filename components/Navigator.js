@@ -4,14 +4,14 @@ import { TabNavigator, StackNavigator, DrawerNavigator } from 'react-navigation'
 import TabBar from './TabBar'
 import { Image } from '@shoutem/ui'
 import { Segment } from 'expo'
-import colors from '../src/colors'
 import { observer, inject } from 'mobx-react/native'
+import colors from '../src/colors'
 import Header from './Header'
 
 //tmp
 import BlankScreen from '../screens/BlankScreen'
 
-// individual survivor screen
+import SurvivorListScreen from '../screens/SurvivorListScreen'
 import SurvivorScreen from '../screens/SurvivorScreen'
 
 // Campaign
@@ -184,8 +184,8 @@ const CampaignNavigator = TabNavigator(
 
 const MainNavigator = TabNavigator(
   {
-    Survivors: {
-      screen: SurvivorScreen,
+    SurvivorList: {
+      screen: SurvivorListScreen,
       navigationOptions: {
         tabBarLabel: 'Survivors',
         tabBarIcon: icon(require('../images/icon_survivors.png')),
@@ -214,7 +214,7 @@ const MainNavigator = TabNavigator(
     },
   },
   {
-    initialRouteName: 'Survivors', //'Settlement',
+    initialRouteName: 'SurvivorList', //'Settlement',
     tabBarPosition: 'bottom',
     animationEnabled: false, //Platform.OS === 'android' ? false : true,
     swipeEnabled: false,
@@ -252,6 +252,9 @@ const MainNavigatorHeader = StackNavigator(
     },
     Campaign: {
       screen: CampaignNavigator,
+    },
+    Survivor: {
+      screen: SurvivorScreen,
     },
   },
   {
