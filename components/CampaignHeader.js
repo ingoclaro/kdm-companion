@@ -7,7 +7,7 @@ import { observer, inject } from 'mobx-react/native'
   title: store.selectedCampaign.name,
 }))
 @observer
-export default class Header extends React.Component {
+export default class CampaignHeader extends React.Component {
   button() {
     return (
       <Button

@@ -1,12 +1,17 @@
 import React from 'react'
 import { Platform } from 'react-native'
-import { TabNavigator, StackNavigator, DrawerNavigator } from 'react-navigation'
+import {
+  createBottomTabNavigator,
+  createMaterialTopTabNavigator,
+  createStackNavigator,
+} from 'react-navigation'
 import TabBar from './TabBar'
 import { Image } from '@shoutem/ui'
 import { Segment } from 'expo'
 import { observer, inject } from 'mobx-react/native'
 import colors from '../src/colors'
-import Header from './Header'
+import CampaignHeader from './CampaignHeader'
+import SurvivorHeader from './SurvivorHeader'
 
 //tmp
 import BlankScreen from '../screens/BlankScreen'
@@ -70,7 +75,7 @@ const settlementStyles = {
   },
 }
 
-const ShowdownNavigator = TabNavigator(
+const ShowdownNavigator = createMaterialTopTabNavigator(
   {
     // Setup: {
     //   screen: BlankScreen, //TerrainScreen,
@@ -108,6 +113,8 @@ const ShowdownNavigator = TabNavigator(
     animationEnabled: true,
     swipeEnabled: true,
     lazy: false,
+    optimizationsEnabled: true,
+
     tabBarOptions: {
       upperCaseLabel: false,
       activeTintColor: colors.grey50,
@@ -118,7 +125,7 @@ const ShowdownNavigator = TabNavigator(
   }
 )
 
-const SettlementNavigator = TabNavigator(
+const SettlementNavigator = createMaterialTopTabNavigator(
   {
     Summary: {
       screen: SummaryScreen,
@@ -138,6 +145,8 @@ const SettlementNavigator = TabNavigator(
     animationEnabled: true,
     swipeEnabled: true,
     lazy: false,
+    optimizationsEnabled: true,
+
     tabBarOptions: {
       showIcon: false,
       upperCaseLabel: false,
@@ -151,7 +160,7 @@ const SettlementNavigator = TabNavigator(
   }
 )
 
-const CampaignNavigator = TabNavigator(
+const CampaignNavigator = createMaterialTopTabNavigator(
   {
     Settlements: {
       screen: SettlementsScreen,
@@ -171,6 +180,8 @@ const CampaignNavigator = TabNavigator(
     animationEnabled: true,
     swipeEnabled: true,
     lazy: true,
+    optimizationsEnabled: true,
+
     tabBarOptions: {
       showIcon: false,
       upperCaseLabel: false,
@@ -182,7 +193,7 @@ const CampaignNavigator = TabNavigator(
   }
 )
 
-const MainNavigator = TabNavigator(
+const MainNavigator = createBottomTabNavigator(
   {
     SurvivorList: {
       screen: SurvivorListScreen,
@@ -219,7 +230,9 @@ const MainNavigator = TabNavigator(
     animationEnabled: false, //Platform.OS === 'android' ? false : true,
     swipeEnabled: false,
     lazy: true,
-    tabBarComponent: TabBar,
+    removeClippedSubviews: true,
+    // tabBarComponent: TabBar,
+
     tabBarOptions: {
       showIcon: true,
       showLabel: true,
@@ -245,25 +258,36 @@ const MainNavigator = TabNavigator(
   }
 )
 
-const MainNavigatorHeader = StackNavigator(
+const MainNavigatorHeader = createStackNavigator(
   {
     Main: {
       screen: MainNavigator,
+      navigationOptions: ({ navigation }) => ({
+        header: <CampaignHeader navigation={navigation} />,
+      }),
     },
     Campaign: {
       screen: CampaignNavigator,
+      navigationOptions: ({ navigation }) => ({
+        header: <CampaignHeader navigation={navigation} />,
+      }),
     },
     Survivor: {
       screen: SurvivorScreen,
+      navigationOptions: ({ navigation }) => ({
+        header: (
+          <SurvivorHeader
+            navigation={navigation}
+            survivorId={navigation.getParam('survivorId')}
+          />
+        ),
+      }),
     },
   },
   {
     cardStyle: {
       backgroundColor: colors.black,
     },
-    navigationOptions: ({ navigation }) => ({
-      header: <Header navigation={navigation} />,
-    }),
   }
 )
 

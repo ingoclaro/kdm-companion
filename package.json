@@ -42,6 +42,6 @@
     "react-native-markdown-view": "^1.1.4",
     "react-native-modal": "^6.5.0",
     "react-native-simple-stepper": "^1.18.0",
-    "react-navigation": "1.x.x"
+    "react-navigation": "2.12.x"
   }
 }
