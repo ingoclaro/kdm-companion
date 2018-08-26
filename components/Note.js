@@ -1,5 +1,13 @@
 import React from 'react'
-import { View, Text, Title, Button, Icon, Divider } from '@shoutem/ui'
+import {
+  View,
+  Text,
+  Title,
+  Button,
+  Icon,
+  Divider,
+  TextInput,
+} from '@shoutem/ui'
 import Modal from 'react-native-modal'
 import { observer } from 'mobx-react/native'
 import PropTypes from 'prop-types'
@@ -12,7 +20,7 @@ export default class Note extends React.Component {
   constructor(props) {
     super(props)
 
-    // this.setState({ notes: this.props.notes }) //TODO: move this line to the proper hook.
+    this.state.notes = this.props.notes
 
     this.showEditor = this.showEditor.bind(this)
     this.hideEditor = this.hideEditor.bind(this)
@@ -71,7 +79,13 @@ export default class Note extends React.Component {
           backdropColor={colors.black}
         >
           <View style={styles.modal}>
-            <Text>{this.props.notes}</Text>
+            <TextInput
+              style={styles.textInput}
+              value={this.state.notes}
+              multiline={true}
+              autoFocus={true}
+              onChangeText={notes => this.setState({ notes })}
+            />
 
             <Divider />
 
@@ -96,6 +110,13 @@ const styles = {
     backgroundColor: colors.grey900,
     paddingHorizontal: 15,
     paddingVertical: 15,
+  },
+  textInput: {
+    height: 200,
+    borderColor: colors.grey700,
+    borderWidth: 1,
+    selectionColor: colors.grey800,
+    textAlignVertical: 'top',
   },
   markdown: {
     paragraph: {
