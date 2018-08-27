@@ -1,26 +1,30 @@
 export default {
-  test: {
-    id: 'test',
-    name: 'Test',
+  'Abyssal Sadist': {
+    id: 'Abyssal Sadist',
+    name: 'Abyssal Sadist',
     expansion: 'core',
-    description: 'test desc',
+    description:
+      'The first time you wound the monster each attack, gain +1 survival and +1 insanity. Ignore the effects of the **Fear of the Dark** and **Pray** disorders.',
   },
-  test2: {
-    id: 'test2',
-    name: 'Test2',
+  Acrobatics: {
+    id: 'Acrobatics',
+    name: 'Acrobatics',
     expansion: 'core',
-    description: 'test2 descr',
+    description:
+      'When you are adjacent to the monster, you may spend {movement} to place your survivor on any other space adjacent to the monster.',
   },
-  test3: {
-    id: 'test3',
-    name: 'Test3',
+  Ambidextrous: {
+    id: 'Ambidextrous',
+    name: 'Ambidextrous',
     expansion: 'core',
-    description: 'test3 descr',
+    description:
+      'All melee weapons in your gear grid gain **paired**. Ambidextrous connot be used if there are any shields, two-handed, or heavy gear in your gear grid.',
   },
-  test4: {
-    id: 'test4',
-    name: 'Test4',
+  Berserker: {
+    id: 'Berserker',
+    name: 'Berserker',
     expansion: 'core',
-    description: 'test4 descr',
+    description:
+      'Once per showdown, you may spend {action} to suffer **bash** and the **frenzy** brain trauma.',
   },
 }

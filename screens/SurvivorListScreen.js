@@ -12,8 +12,10 @@ import {
   Caption,
   Divider,
 } from '@shoutem/ui'
+import { ScrollView } from 'react-native'
 
 import SurvivorList from '../components/survivor/SurvivorList'
+import CreateButton from '../components/survivor/CreateButton'
 
 export default class SurvivorScreen extends React.Component {
   constructor(props) {
@@ -21,10 +23,9 @@ export default class SurvivorScreen extends React.Component {
     this.navigate = this.navigate.bind(this)
   }
 
-  navigate(survivorId, survivorName) {
+  navigate(survivorId) {
     this.props.navigation.navigate('Survivor', {
       survivorId,
-      title: survivorName,
     })
   }
 
@@ -32,13 +33,15 @@ export default class SurvivorScreen extends React.Component {
     return (
       <Screen
         style={{
-          alignItems: 'flex-start',
-          justifyContent: 'center',
-          // paddingTop: 5,
+          paddingTop: 5,
           paddingLeft: 5,
         }}
       >
-        <SurvivorList navigate={this.navigate} />
+        <ScrollView>
+          <SurvivorList navigate={this.navigate} />
+          <Divider />
+          <CreateButton navigate={this.navigate} />
+        </ScrollView>
       </Screen>
     )
   }

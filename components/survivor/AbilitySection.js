@@ -14,6 +14,7 @@ import {
 import R from 'ramda'
 import Modal from 'react-native-modal'
 import { observer } from 'mobx-react/native'
+import { MarkdownView } from 'react-native-markdown-view'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 
@@ -79,20 +80,27 @@ export default class AbilitySection extends React.Component {
     )
   }
 
-  list(editable = false) {
+  list(editable = false, description = false) {
     let list = this.props.items.map(item => (
-      <View styleName="horizontal" key={item.id}>
-        <Text>{item.name}</Text>
-        {editable && (
-          <Button
-            styleName="textual"
-            style={{ alignSelf: 'flex-start' }}
-            onPress={() => {
-              this.props.removeItem(item)
-            }}
-          >
-            <Text>X</Text>
-          </Button>
+      <View key={item.id}>
+        <View styleName="horizontal">
+          <Text>{item.name}</Text>
+          {editable && (
+            <Button
+              styleName="textual"
+              style={{ alignSelf: 'flex-start' }}
+              onPress={() => {
+                this.props.removeItem(item)
+              }}
+            >
+              <Text>X</Text>
+            </Button>
+          )}
+        </View>
+        {description && (
+          <MarkdownView styles={styles.markdown}>
+            {item.description}
+          </MarkdownView>
         )}
       </View>
     ))
@@ -111,7 +119,7 @@ export default class AbilitySection extends React.Component {
           <Title>{this.props.title}</Title>
           <Icon name="right-arrow" />
         </Button>
-        <View>{this.list()}</View>
+        <View>{this.list(false, true)}</View>
 
         <Modal
           isVisible={this.state.visible}
@@ -143,5 +151,28 @@ const styles = {
     paddingHorizontal: 5,
     paddingVertical: 5,
     backgroundColor: colors.grey900,
+  },
+  markdown: {
+    paragraph: {
+      color: colors.grey500,
+      marginTop: 0,
+      marginBottom: 0,
+    },
+    listItemBullet: {
+      color: colors.grey500,
+      minWidth: 0,
+      paddingRight: 8,
+    },
+    listItemUnorderedContent: {
+      color: colors.grey500,
+    },
+    listItemUnorderedContent: {
+      flex: -1,
+      color: colors.grey500,
+    },
+    // list: {
+    //   margin: 0,
+    //   marginLeft: 8,
+    // },
   },
 }

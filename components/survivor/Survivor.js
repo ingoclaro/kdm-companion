@@ -20,6 +20,7 @@ import GenderButton from './GenderButton'
 import EditableProperty from './EditableProperty'
 import FightingArts from './FightingArts'
 import Disorders from './Disorders'
+import EditableTextProperty from './EditableTextProperty'
 import Note from '../Note'
 
 const ico_movement = require('../../images/icon_movement-24.png')
@@ -50,7 +51,12 @@ export default class Survivor extends React.Component {
     return (
       <View>
         <View styleName="horizontal">
-          <Text>Name: {survivor.name}</Text>
+          <EditableTextProperty
+            label="Name"
+            showLabel={true}
+            text={survivor.name}
+            setText={name => survivor.setAttribute('name', name)}
+          />
           <GenderButton
             gender={survivor.gender}
             changeGender={survivor.changeGender}

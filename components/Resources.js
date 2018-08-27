@@ -21,7 +21,6 @@ import colors from '../src/colors'
 
 function resources_structure(global_resources, settlement_resources, filter) {
   const sections = {
-    // TODO transform into Map.
     basic: {
       id: 'basic',
       title: 'Basic',
@@ -158,7 +157,7 @@ export default class Resources extends React.Component {
     //   {
     //     id: 'basic', // id of section/type
     //     title: 'Basic', // title of type
-    //     data: [ //array of items
+    //     data: [ // array of items
     //       {
     //         id: 'skull', // id of resource
     //         name: 'skull', // name of resource
