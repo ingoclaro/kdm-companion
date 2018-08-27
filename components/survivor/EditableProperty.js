@@ -73,7 +73,7 @@ export default class EditableProperty extends React.Component {
               tintColor="white"
               initialValue={this.props.quantity}
               minimumValue={this.props.minimumValue || -10}
-              maximimValue={this.props.maximumValue || 10}
+              maximumValue={this.props.maximumValue || 10}
               valueChanged={this.props.setQuantity}
               style={styles.stepper}
             />

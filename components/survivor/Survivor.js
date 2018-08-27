@@ -34,6 +34,7 @@ const ico_insanity = require('../../images/ico_insanity-32.png')
 // This is the individual survivor screen
 @inject(({ store }, props) => ({
   survivor: store.selectedCampaign.settlement.survivors.get(props.survivorId),
+  survivalLimit: store.selectedCampaign.settlement.survivalLimit,
 }))
 @observer
 export default class Survivor extends React.Component {
@@ -47,6 +48,8 @@ export default class Survivor extends React.Component {
     if (!survivor) {
       return null
     }
+
+    let survivalHint = `(Limit: ${this.props.survivalLimit})`
 
     return (
       <View>
@@ -64,9 +67,9 @@ export default class Survivor extends React.Component {
 
           <EditableProperty
             label="Survival"
-            help="(Limit: 3)"
+            help={survivalHint}
             minimumValue={0}
-            maximumValue={3}
+            maximumValue={this.props.survivalLimit}
             showLabel={true}
             quantity={survivor.survival}
             setQuantity={qty => survivor.setAttribute('survival', qty)}
@@ -77,6 +80,7 @@ export default class Survivor extends React.Component {
             label="Movement"
             icon={ico_movement}
             quantity={survivor.movement}
+            minimumValue={1}
             setQuantity={qty => survivor.setAttribute('movement', qty)}
           />
           <EditableProperty
@@ -114,6 +118,8 @@ export default class Survivor extends React.Component {
             label="Insanity"
             icon={ico_insanity}
             quantity={survivor.insanity}
+            maximumValue={50}
+            minimumValue={0}
             setQuantity={qty => survivor.setAttribute('insanity', qty)}
           />
         </View>

@@ -19,7 +19,6 @@ import AbilitySection from './AbilitySection'
 @observer
 export default class FightingArts extends React.Component {
   render() {
-    console.log('this.props.fightingArts', this.props.fightingArts)
     return (
       <AbilitySection
         title="Fighting Arts"
