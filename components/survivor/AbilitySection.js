@@ -16,6 +16,7 @@ import Modal from 'react-native-modal'
 import { observer } from 'mobx-react/native'
 import { MarkdownView } from 'react-native-markdown-view'
 import PropTypes from 'prop-types'
+import AbilityList from './AbilityList'
 import colors from '../../src/colors'
 
 @observer
@@ -119,7 +120,11 @@ export default class AbilitySection extends React.Component {
           <Title>{this.props.title}</Title>
           <Icon name="right-arrow" />
         </Button>
-        <View>{this.list(false, true)}</View>
+        <AbilityList
+          items={this.props.items}
+          editable={false}
+          showDescription={true}
+        />
 
         <Modal
           isVisible={this.state.visible}
@@ -129,7 +134,12 @@ export default class AbilitySection extends React.Component {
           backdropColor={colors.black}
         >
           <View style={styles.propertyLine}>
-            {this.list(true)}
+            <AbilityList
+              items={this.props.items}
+              editable={true}
+              showDescription={false}
+              removeItem={this.props.removeItem}
+            />
             {this.dropdown()}
 
             <Divider />

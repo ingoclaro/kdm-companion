@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, Image, Button, Caption } from '@shoutem/ui'
 import Modal from 'react-native-modal'
 import SimpleStepper from 'react-native-simple-stepper'
+import { MarkdownView } from 'react-native-markdown-view'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 
@@ -9,10 +10,15 @@ export default class EditableProperty extends React.Component {
   constructor(props) {
     super(props)
     this.showEditor = this.showEditor.bind(this)
+    this.hideEditor = this.hideEditor.bind(this)
+    this.milestone = this.milestone.bind(this)
+    this.milestoneDetails = this.milestoneDetails.bind(this)
+    this.hasMilestoneDetails = this.hasMilestoneDetails.bind(this)
   }
 
   state = {
     visible: false,
+    showMilestoneDetails: false,
   }
 
   static propTypes = {
@@ -24,14 +30,66 @@ export default class EditableProperty extends React.Component {
     minimumValue: PropTypes.number, // minimum value for the quantity
     maximumValue: PropTypes.number, // maximum value for the quantity
     setQuantity: PropTypes.func.isRequired, // @params quantity: save the quantity
+    milestones: PropTypes.object, // milestones for achieving a certain number in the quantity field
+    // structure:
+    // number: {description: text, callback: function} TODO: revisit the structure.
   }
 
   static defaultProps = {
     showLabel: false,
+    milestones: {},
   }
 
   showEditor() {
     this.setState({ visible: true })
+  }
+
+  hideEditor() {
+    this.setState({ visible: false })
+    if (this.hasMilestoneDetails()) {
+      this.setState({ showMilestoneDetails: true })
+    }
+  }
+
+  milestone() {
+    //TODO: fix this part because you can gain 2 (age) and pass the milestone.
+    //Somehow we need to detect the transition rather than the absolute value.
+    //An option could be to save this on the model, or store it in the container of this component,
+    //but the problem is that it's reloaded because the value changed.
+    // Another option is to eliminate the stepper altogether and only edit via doubletap, longtap, then show the modal as soon as the milestone is reached.
+    if (!this.props.milestones[this.props.quantity]) {
+      return null
+    }
+    milestone = this.props.milestones[this.props.quantity]
+    return (
+      <MarkdownView styles={styles.markdown}>
+        {milestone.description}
+      </MarkdownView>
+    )
+  }
+
+  hasMilestoneDetails() {
+    return (
+      this.props.milestones[this.props.quantity] &&
+      this.props.milestones[this.props.quantity].details
+    )
+  }
+
+  milestoneDetails() {
+    if (!this.hasMilestoneDetails()) {
+      return null
+    }
+    return (
+      <Modal
+        isVisible={this.state.showMilestoneDetails}
+        onBackdropPress={() => this.setState({ showMilestoneDetails: false })}
+        onBackButtonPress={() => this.setState({ showMilestoneDetails: false })}
+        useNativeDriver={true}
+        backdropColor={colors.black}
+      >
+        {this.props.milestones[this.props.quantity].details}
+      </Modal>
+    )
   }
 
   render() {
@@ -56,42 +114,50 @@ export default class EditableProperty extends React.Component {
 
         <Modal
           isVisible={this.state.visible}
-          onBackdropPress={() => this.setState({ visible: false })}
-          onBackButtonPress={() => this.setState({ visible: false })}
+          onBackdropPress={() => this.hideEditor()}
+          onBackButtonPress={() => this.hideEditor()}
           useNativeDriver={true}
           backdropColor={colors.black}
         >
-          <View style={styles.propertyLine}>
-            <View styleName="horizontal">
-              <Text>
-                {this.props.label}: {this.props.quantity}
-              </Text>
-              <Caption style={{ paddingLeft: 4 }}>{this.props.help}</Caption>
-            </View>
+          <View style={styles.modal}>
+            <View style={styles.propertyLine}>
+              <View styleName="horizontal">
+                <Text>
+                  {this.props.label}: {this.props.quantity}
+                </Text>
+                <Caption style={{ paddingLeft: 4 }}>{this.props.help}</Caption>
+              </View>
 
-            <SimpleStepper
-              tintColor="white"
-              initialValue={this.props.quantity}
-              minimumValue={this.props.minimumValue || -10}
-              maximumValue={this.props.maximumValue || 10}
-              valueChanged={this.props.setQuantity}
-              style={styles.stepper}
-            />
+              <SimpleStepper
+                tintColor="white"
+                initialValue={this.props.quantity}
+                minimumValue={this.props.minimumValue || -10}
+                maximumValue={this.props.maximumValue || 10}
+                valueChanged={this.props.setQuantity}
+                style={styles.stepper}
+              />
+            </View>
+            {this.milestone()}
           </View>
         </Modal>
+
+        {this.milestoneDetails()}
       </View>
     )
   }
 }
 
 const styles = {
+  modal: {
+    paddingHorizontal: 5,
+    paddingTop: 15,
+    backgroundColor: colors.grey900,
+    height: 80,
+  },
   propertyLine: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 5,
-    paddingVertical: 5,
-    backgroundColor: colors.grey900,
   },
   property: {
     color: colors.grey100,
@@ -107,5 +173,28 @@ const styles = {
   button: {
     paddingLeft: 0,
     marginRight: 4,
+  },
+  markdown: {
+    paragraph: {
+      color: colors.grey500,
+      marginTop: 0,
+      marginBottom: 0,
+    },
+    listItemBullet: {
+      color: colors.grey500,
+      minWidth: 0,
+      paddingRight: 8,
+    },
+    listItemUnorderedContent: {
+      color: colors.grey500,
+    },
+    listItemUnorderedContent: {
+      flex: -1,
+      color: colors.grey500,
+    },
+    // list: {
+    //   margin: 0,
+    //   marginLeft: 8,
+    // },
   },
 }

@@ -12,17 +12,21 @@ import {
   Divider,
 } from '@shoutem/ui'
 
+import { MarkdownView } from 'react-native-markdown-view'
+
 import { observer, inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
-import R from 'ramda'
 
 import GenderButton from './GenderButton'
 import EditableProperty from './EditableProperty'
 import FightingArts from './FightingArts'
 import Disorders from './Disorders'
 import EditableTextProperty from './EditableTextProperty'
+import AbilityList from './AbilityList'
 import Note from '../Note'
+import AgeMilestone from './AgeMilestone'
 
+import colors from '../../src/colors'
 const ico_movement = require('../../images/icon_movement-24.png')
 const ico_accuracy = require('../../images/icon_accuracy-24.png')
 const ico_strength = require('../../images/icon_strength-24.png')
@@ -40,6 +44,24 @@ const ico_insanity = require('../../images/ico_insanity-32.png')
 export default class Survivor extends React.Component {
   static propTypes = {
     survivorId: PropTypes.string.isRequired, // ID of the survivor to show
+  }
+
+  ageMilestones = {
+    2: { description: '{book} Age', details: <AgeMilestone age={2} /> },
+    6: { description: '{book} Age', details: <AgeMilestone age={6} /> },
+    10: { description: '{book} Age', details: <AgeMilestone age={10} /> },
+    15: { description: '{book} Age', details: <AgeMilestone age={15} /> },
+    16: { description: 'Retired' },
+  }
+
+  courageMilestones = {
+    3: { description: '{book} Bold' },
+    9: { description: '{book} See the Truth' },
+  }
+
+  understandingMilestones = {
+    3: { description: '{book} Insight' },
+    9: { description: '{book} White Secret' },
   }
 
   render() {
@@ -63,16 +85,6 @@ export default class Survivor extends React.Component {
           <GenderButton
             gender={survivor.gender}
             changeGender={survivor.changeGender}
-          />
-
-          <EditableProperty
-            label="Survival"
-            help={survivalHint}
-            minimumValue={0}
-            maximumValue={this.props.survivalLimit}
-            showLabel={true}
-            quantity={survivor.survival}
-            setQuantity={qty => survivor.setAttribute('survival', qty)}
           />
         </View>
         <View styleName="horizontal">
@@ -126,24 +138,43 @@ export default class Survivor extends React.Component {
 
         <Divider />
 
-        <View>
-          <Subtitle>Courage: 3</Subtitle>
-          <View styleName="horizontal">
-            <Text>Stalwart</Text>
-            <Text>Stalwart2</Text>
-            <Text>Stalwart3</Text>
-          </View>
-        </View>
-
-        <Divider />
-
-        <View>
-          <Subtitle>Understanding: 3</Subtitle>
-          <View styleName="horizontal">
-            <Text>Analyze</Text>
-            <Text>Analyze2</Text>
-            <Text>Analyze3</Text>
-          </View>
+        <View style={{ alignItems: 'flex-start' }}>
+          <EditableProperty
+            label="Survival"
+            help={survivalHint}
+            minimumValue={0}
+            maximumValue={this.props.survivalLimit}
+            showLabel={true}
+            quantity={survivor.survival}
+            setQuantity={qty => survivor.setAttribute('survival', qty)}
+          />
+          <EditableProperty
+            label="Age"
+            minimumValue={0}
+            maximumValue={16}
+            showLabel={true}
+            quantity={survivor.age}
+            setQuantity={qty => survivor.setAttribute('age', qty)}
+            milestones={this.ageMilestones}
+          />
+          <EditableProperty
+            label="Courage"
+            minimumValue={0}
+            maximumValue={9}
+            showLabel={true}
+            quantity={survivor.courage}
+            setQuantity={qty => survivor.setAttribute('courage', qty)}
+            milestones={this.courageMilestones}
+          />
+          <EditableProperty
+            label="Understanding"
+            minimumValue={0}
+            maximumValue={9}
+            showLabel={true}
+            quantity={survivor.understanding}
+            setQuantity={qty => survivor.setAttribute('understanding', qty)}
+            milestones={this.understandingMilestones}
+          />
         </View>
 
         <Divider />
@@ -164,6 +195,16 @@ export default class Survivor extends React.Component {
 
         <Divider />
 
+        <View>
+          <Title>Abilities</Title>
+          <AbilityList
+            items={survivor.abilities}
+            editable={false}
+            showDescription={true}
+          />
+        </View>
+        <Divider />
+
         <Note
           title="Notes"
           notes={survivor.notes}
@@ -172,4 +213,30 @@ export default class Survivor extends React.Component {
       </View>
     )
   }
+}
+
+const styles = {
+  markdown: {
+    paragraph: {
+      color: colors.grey500,
+      marginTop: 0,
+      marginBottom: 0,
+    },
+    listItemBullet: {
+      color: colors.grey500,
+      minWidth: 0,
+      paddingRight: 8,
+    },
+    listItemUnorderedContent: {
+      color: colors.grey500,
+    },
+    listItemUnorderedContent: {
+      flex: -1,
+      color: colors.grey500,
+    },
+    // list: {
+    //   margin: 0,
+    //   marginLeft: 8,
+    // },
+  },
 }

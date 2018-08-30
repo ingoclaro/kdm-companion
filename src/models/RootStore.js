@@ -9,6 +9,7 @@ import { Expansion } from './Expansion'
 import { Principle } from './Principle'
 import { FightingArt } from './FightingArt'
 import { Disorder } from './Disorder'
+import { Ability } from './Ability'
 import { uuid } from '../utils'
 import R from 'ramda'
 
@@ -21,6 +22,7 @@ import monsterData from '../data/monsters'
 import gearData from '../data/gear'
 import expansionData from '../data/expansions'
 import principlesData from '../data/principles'
+import abilitiesData from '../data/abilities'
 
 export default types
   .model('RootStore', {
@@ -33,6 +35,7 @@ export default types
     gear: types.optional(types.map(Gear), gearData),
     expansions: types.optional(types.map(Expansion), expansionData),
     principles: types.optional(types.map(Principle), principlesData),
+    abilities: types.optional(types.map(Ability), abilitiesData),
     campaigns: types.optional(types.array(Campaign), [
       {
         id: 'new',
