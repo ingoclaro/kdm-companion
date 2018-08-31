@@ -5,6 +5,7 @@
     "slug": "kdm-companion",
     "icon": "./images/icon_lantern.png",
     "version": "1.5.0",
+    "githubUrl": "https://github.com/ingoclaro/kdm-companion",
     "orientation": "portrait",
     "assetBundlePatterns": ["**/*"],
     "primaryColor": "#212121",
@@ -13,7 +14,8 @@
     },
     "android": {
       "package": "com.github.ingoclaro.kdmcompanion",
-      "versionCode": 20180503,
+      "versionCode": 20180831,
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.github.ingoclaro.kdmcompanion",
       "permissions": ["WAKE_LOCK"]
     },
     "updates": {
