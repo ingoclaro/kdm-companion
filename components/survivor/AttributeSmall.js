@@ -13,6 +13,9 @@ export default class AttributeSmall extends React.Component {
   render() {
     let styleName =
       this.props.value < 0 ? 'attributeTextNegative' : 'attributeText'
+    if (this.props.label === 'Movement' && this.props.value < 6) {
+      styleName = 'attributeTextNegative'
+    }
     return (
       <View styleName="horizontal" style={styles.attributeContainer}>
         <Text style={styles[styleName]}>{this.props.value}</Text>

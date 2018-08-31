@@ -9,14 +9,13 @@ import { observer, inject } from 'mobx-react/native'
 @observer
 export default class SurvivorHeader extends React.Component {
   button() {
-    // TODO: fix edit name button
     return (
       <Button
         style={{
           backgroundColor: colors.grey900,
           borderColor: colors.grey900,
         }}
-        onPress={() => this.props.navigation.getParam('editName')}
+        onPress={this.props.navigation.getParam('editSurvivor')}
       >
         <Icon name="edit" style={{ color: colors.grey50 }} />
       </Button>

@@ -76,18 +76,19 @@ export default class Survivor extends React.Component {
     }
 
     let survivalHint = `(Survival Limit: ${this.props.survivalLimit})`
+    let gender_icon = survivor.gender === 'male' ? ico_male : ico_female
 
     return (
       <View>
-        <View styleName="horizontal">
+        <View styleName="horizontal v-center">
           <Subtitle>Gender:</Subtitle>
-          <GenderButton
-            gender={survivor.gender}
-            changeGender={survivor.changeGender}
+          <Image
+            source={gender_icon}
+            style={{ width: 14, height: 14, marginLeft: 5 }}
           />
         </View>
 
-        <View styleName="horizontal">
+        <View styleName="horizontal" style={{ flex: 1 }}>
           <View styleName="vertical" style={{ flex: 1 }}>
             <AttributeLarge
               label="Movement"

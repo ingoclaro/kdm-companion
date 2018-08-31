@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text, Image, Button, Caption } from '@shoutem/ui'
 import Modal from 'react-native-modal'
-import SimpleStepper from 'react-native-simple-stepper'
 import { MarkdownView } from 'react-native-markdown-view'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'

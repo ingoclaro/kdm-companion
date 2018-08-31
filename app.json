@@ -4,7 +4,7 @@
     "name": "Kingdom Death: Monster Companion",
     "slug": "kdm-companion",
     "icon": "./images/icon_lantern.png",
-    "version": "1.1.0",
+    "version": "1.5.0",
     "orientation": "portrait",
     "assetBundlePatterns": ["**/*"],
     "primaryColor": "#212121",

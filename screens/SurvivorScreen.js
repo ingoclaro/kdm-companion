@@ -19,20 +19,24 @@ import Modal from 'react-native-modal'
 import colors from '../src/colors'
 
 import Survivor from '../components/survivor/Survivor'
+import EditStats from '../components/survivor/EditStats'
 
 export default class SurvivorScreen extends React.Component {
   constructor(props) {
     super(props)
     this.showEditor = this.showEditor.bind(this)
     this.hideEditor = this.hideEditor.bind(this)
-    this.saveName = this.saveName.bind(this)
+  }
 
-    // TODO: fix edit name button
-    // this.props.navigation.setParam('editName', this.showEditor)
+  componentDidMount() {
+    this.props.navigation.setParams({ editSurvivor: this.editSurvivor })
+  }
+
+  editSurvivor = () => {
+    this.showEditor()
   }
 
   state = {
-    text: '',
     visible: false,
   }
 
@@ -42,11 +46,6 @@ export default class SurvivorScreen extends React.Component {
 
   hideEditor() {
     this.setState({ visible: false })
-  }
-
-  saveName() {
-    this.props.saveName(this.state.text)
-    this.hideEditor()
   }
 
   render() {
@@ -69,36 +68,14 @@ export default class SurvivorScreen extends React.Component {
             useNativeDriver={true}
             backdropColor={colors.black}
           >
-            <View style={styles.propertyLine}>
+            <View style={styles.modal}>
+              <EditStats
+                survivorId={this.props.navigation.getParam('survivorId')}
+              />
               <Divider />
-
-              <View styleName="horizontal">
-                <Text>Name: </Text>
-                <TextInput
-                  style={styles.textInput}
-                  value={this.state.text}
-                  autoFocus={true}
-                  onChangeText={text => this.setState({ text })}
-                  maxLength={22}
-                />
-              </View>
-
-              <Divider />
-
-              <View styleName="horizontal">
-                <Button onPress={this.saveName} style={{ marginHorizontal: 8 }}>
-                  <Text>Save</Text>
-                </Button>
-
-                <Divider />
-
-                <Button
-                  onPress={() => this.hideEditor()}
-                  style={{ marginHorizontal: 8 }}
-                >
-                  <Text>Cancel</Text>
-                </Button>
-              </View>
+              <Button onPress={() => this.hideEditor()}>
+                <Text>Close</Text>
+              </Button>
             </View>
           </Modal>
         </ScrollView>
@@ -135,5 +112,9 @@ const styles = {
     padding: 2,
     height: 22,
     width: 200,
+  },
+  modal: {
+    backgroundColor: colors.grey900,
+    padding: 8,
   },
 }
