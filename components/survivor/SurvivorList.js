@@ -11,32 +11,20 @@ import {
   Caption,
   Divider,
 } from '@shoutem/ui'
+import AttributeSmall from './AttributeSmall'
 
 import { observer, inject } from 'mobx-react/native'
 import colors from '../../src/colors'
 
-const ico_movement = require('../../images/icon_movement-24.png')
 const ico_accuracy = require('../../images/icon_accuracy-24.png')
-const ico_strength = require('../../images/icon_strength-24.png')
-const ico_evasion = require('../../images/icon_evasion-32.png')
-const ico_luck = require('../../images/icon_luck-24.png')
 const ico_d10 = require('../../images/icon_d10-32.png')
-const ico_insanity = require('../../images/ico_insanity-32.png')
-const ico_male = require('../../images/male-32.png')
+const ico_evasion = require('../../images/icon_evasion-32.png')
 const ico_female = require('../../images/female-32.png')
-
-class Attribute extends React.Component {
-  render() {
-    let styleName =
-      this.props.value < 0 ? 'attributeTextNegative' : 'attributeText'
-    return (
-      <View styleName="horizontal" style={styles.attributeContainer}>
-        <Text style={styles[styleName]}>{this.props.value}</Text>
-        <Image source={this.props.icon} style={{ width: 16, height: 16 }} />
-      </View>
-    )
-  }
-}
+const ico_insanity = require('../../images/ico_insanity-32.png')
+const ico_luck = require('../../images/icon_luck-24.png')
+const ico_male = require('../../images/male-32.png')
+const ico_movement = require('../../images/icon_movement-24.png')
+const ico_strength = require('../../images/icon_strength-24.png')
 
 @inject(({ store }) => ({
   survivors: Array.from(store.selectedCampaign.settlement.survivors),
@@ -78,23 +66,26 @@ export default class SurvivorList extends React.Component {
                     }
                   }
                 >
-                  <View
-                    styleName="horizontal"
-                    style={styles.attributeContainer}
-                  >
-                    <Text style={styles.attributeText}>
-                      {survivor.survival}
-                    </Text>
-                    <Text>S</Text>
-                  </View>
-
-                  <Attribute icon={ico_insanity} value={survivor.insanity} />
-                  <Attribute icon={ico_movement} value={survivor.movement} />
-                  <Attribute icon={ico_accuracy} value={survivor.accuracy} />
-                  <Attribute icon={ico_strength} value={survivor.strength} />
-                  <Attribute icon={ico_evasion} value={survivor.evasion} />
-                  <Attribute icon={ico_luck} value={survivor.luck} />
-                  <Attribute icon={ico_d10} value={survivor.speed} />
+                  <AttributeSmall text="S" value={survivor.survival} />
+                  <AttributeSmall
+                    icon={ico_insanity}
+                    value={survivor.insanity}
+                  />
+                  <AttributeSmall
+                    icon={ico_movement}
+                    value={survivor.movement}
+                  />
+                  <AttributeSmall
+                    icon={ico_accuracy}
+                    value={survivor.accuracy}
+                  />
+                  <AttributeSmall
+                    icon={ico_strength}
+                    value={survivor.strength}
+                  />
+                  <AttributeSmall icon={ico_evasion} value={survivor.evasion} />
+                  <AttributeSmall icon={ico_luck} value={survivor.luck} />
+                  <AttributeSmall icon={ico_d10} value={survivor.speed} />
                 </View>
                 <Text>
                   {survivor.fightingArts.map(fa => fa.name).join(', ')}
@@ -108,19 +99,4 @@ export default class SurvivorList extends React.Component {
       </View>
     )
   }
-}
-
-const styles = {
-  attributeText: {
-    paddingRight: 2,
-  },
-  attributeTextNegative: {
-    paddingRight: 2,
-    color: colors.red800,
-  },
-  attributeContainer: {
-    justifyContent: 'flex-end',
-    marginHorizontal: 3,
-    width: 34,
-  },
 }

@@ -3,7 +3,6 @@
 This tracks pending tasks and ideas for the app
 
 - [ ] Needed to fork @shoutem/ui to set the StatusBar color. Once this [pull request](https://github.com/shoutem/ui/pull/386) is merged we can switch back to upstream.
-- Idea: in survivor summary view, see if double tap can be used to increase stat, and long press to decrease it.
 
 v1.5:
 

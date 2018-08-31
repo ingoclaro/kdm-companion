@@ -17,23 +17,27 @@ import { MarkdownView } from 'react-native-markdown-view'
 import { observer, inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 
-import GenderButton from './GenderButton'
-import EditableProperty from './EditableProperty'
-import FightingArts from './FightingArts'
-import Disorders from './Disorders'
-import EditableTextProperty from './EditableTextProperty'
 import AbilityList from './AbilityList'
-import Note from '../Note'
 import AgeMilestone from './AgeMilestone'
+import AttributeLarge from './AttributeLarge'
+import Disorders from './Disorders'
+import EditableProperty from './EditableProperty'
+import EditableTextProperty from './EditableTextProperty'
+import FightingArts from './FightingArts'
+import GenderButton from './GenderButton'
 
+import Note from '../Note'
 import colors from '../../src/colors'
-const ico_movement = require('../../images/icon_movement-24.png')
+
 const ico_accuracy = require('../../images/icon_accuracy-24.png')
-const ico_strength = require('../../images/icon_strength-24.png')
-const ico_evasion = require('../../images/icon_evasion-32.png')
-const ico_luck = require('../../images/icon_luck-24.png')
 const ico_d10 = require('../../images/icon_d10-32.png')
+const ico_evasion = require('../../images/icon_evasion-32.png')
+const ico_female = require('../../images/female-32.png')
 const ico_insanity = require('../../images/ico_insanity-32.png')
+const ico_luck = require('../../images/icon_luck-24.png')
+const ico_male = require('../../images/male-32.png')
+const ico_movement = require('../../images/icon_movement-24.png')
+const ico_strength = require('../../images/icon_strength-24.png')
 
 // This is the individual survivor screen
 @inject(({ store }, props) => ({
@@ -71,74 +75,66 @@ export default class Survivor extends React.Component {
       return null
     }
 
-    let survivalHint = `(Limit: ${this.props.survivalLimit})`
+    let survivalHint = `(Survival Limit: ${this.props.survivalLimit})`
 
     return (
       <View>
         <View styleName="horizontal">
-          <EditableTextProperty
-            label="Name"
-            showLabel={true}
-            text={survivor.name}
-            setText={name => survivor.setAttribute('name', name)}
-          />
+          <Subtitle>Gender:</Subtitle>
           <GenderButton
             gender={survivor.gender}
             changeGender={survivor.changeGender}
           />
         </View>
-        <View styleName="horizontal">
-          <EditableProperty
-            label="Movement"
-            icon={ico_movement}
-            quantity={survivor.movement}
-            minimumValue={1}
-            setQuantity={qty => survivor.setAttribute('movement', qty)}
-          />
-          <EditableProperty
-            label="Accuracy"
-            icon={ico_accuracy}
-            quantity={survivor.accuracy}
-            setQuantity={qty => survivor.setAttribute('accuracy', qty)}
-          />
-          <EditableProperty
-            label="Strength"
-            icon={ico_strength}
-            quantity={survivor.strength}
-            setQuantity={qty => survivor.setAttribute('strength', qty)}
-          />
 
-          <EditableProperty
-            label="Evasion"
-            icon={ico_evasion}
-            quantity={survivor.evasion}
-            setQuantity={qty => survivor.setAttribute('evasion', qty)}
-          />
-          <EditableProperty
-            label="Luck"
-            icon={ico_luck}
-            quantity={survivor.luck}
-            setQuantity={qty => survivor.setAttribute('luck', qty)}
-          />
-          <EditableProperty
-            label="Speed"
-            icon={ico_d10}
-            quantity={survivor.speed}
-            setQuantity={qty => survivor.setAttribute('speed', qty)}
-          />
-          <EditableProperty
-            label="Insanity"
-            icon={ico_insanity}
-            quantity={survivor.insanity}
-            maximumValue={50}
-            minimumValue={0}
-            setQuantity={qty => survivor.setAttribute('insanity', qty)}
-          />
+        <View styleName="horizontal">
+          <View styleName="vertical" style={{ flex: 1 }}>
+            <AttributeLarge
+              label="Movement"
+              icon={ico_movement}
+              value={survivor.movement}
+            />
+            <AttributeLarge
+              label="Accuracy"
+              icon={ico_accuracy}
+              value={survivor.accuracy}
+            />
+            <AttributeLarge
+              label="Strength"
+              icon={ico_strength}
+              value={survivor.strength}
+            />
+          </View>
+          <View styleName="vertical" style={{ flex: 1 }}>
+            <AttributeLarge
+              label="Evasion"
+              icon={ico_evasion}
+              value={survivor.evasion}
+            />
+            <AttributeLarge
+              label="Luck"
+              icon={ico_luck}
+              value={survivor.luck}
+            />
+            <AttributeLarge
+              label="Speed"
+              icon={ico_d10}
+              value={survivor.speed}
+            />
+          </View>
         </View>
 
         <Divider />
 
         <View style={{ alignItems: 'flex-start' }}>
+          <EditableProperty
+            label="Insanity"
+            minimumValue={0}
+            maximumValue={30}
+            showLabel={true}
+            quantity={survivor.insanity}
+            setQuantity={qty => survivor.setAttribute('insanity', qty)}
+          />
           <EditableProperty
             label="Survival"
             help={survivalHint}
