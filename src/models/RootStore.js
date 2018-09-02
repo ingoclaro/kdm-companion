@@ -7,7 +7,7 @@ import { Monster } from './Monster'
 import { Gear } from './Gear'
 import { Expansion } from './Expansion'
 import { Principle } from './Principle'
-import { FightingArt } from './FightingArt'
+import { FightingArt, SecretFightingArt } from './FightingArt'
 import { Disorder } from './Disorder'
 import { Ability } from './Ability'
 import { uuid } from '../utils'
@@ -16,6 +16,7 @@ import R from 'ramda'
 import locationsData from '../data/settlement_locations'
 import innovationsData from '../data/innovations'
 import fightingArtsData from '../data/fightingArts'
+import secretFightingArtsData from '../data/secretFightingArts'
 import disordersData from '../data/disorders'
 import resourceData from '../data/resources'
 import monsterData from '../data/monsters'
@@ -29,6 +30,10 @@ export default types
     locations: types.optional(types.map(SettlementLocation), locationsData),
     innovations: types.optional(types.map(Innovation), innovationsData),
     fightingArts: types.optional(types.map(FightingArt), fightingArtsData),
+    secretFightingArts: types.optional(
+      types.map(SecretFightingArt),
+      secretFightingArtsData
+    ),
     disorders: types.optional(types.map(Disorder), disordersData),
     resources: types.optional(types.map(Resource), resourceData),
     monsters: types.optional(types.map(Monster), monsterData),
@@ -94,6 +99,12 @@ export default types
       return R.sortBy(
         R.prop('name'),
         self.selectedExpansionFilter(self.fightingArts)
+      )
+    },
+    get availableSecretFightingArts() {
+      return R.sortBy(
+        R.prop('name'),
+        self.selectedExpansionFilter(self.secretFightingArts)
       )
     },
     get availableDisorders() {

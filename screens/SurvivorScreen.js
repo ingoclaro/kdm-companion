@@ -67,6 +67,7 @@ export default class SurvivorScreen extends React.Component {
             onBackButtonPress={() => this.hideEditor()}
             useNativeDriver={true}
             backdropColor={colors.black}
+            avoidKeyboard={false}
           >
             <View style={styles.modal}>
               <EditStats

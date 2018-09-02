@@ -1,5 +1,5 @@
 import { types } from 'mobx-state-tree'
-import { FightingArt } from './FightingArt'
+import { FightingArt, SecretFightingArt } from './FightingArt'
 import { Disorder } from './Disorder'
 import { Ability } from './Ability'
 import { uuid } from '../utils'
@@ -15,7 +15,9 @@ const Survivor = types
       'alive'
     ),
 
-    fightingArts: types.array(types.reference(FightingArt)),
+    fightingArts: types.array(
+      types.reference(types.union(FightingArt, SecretFightingArt))
+    ),
     disorders: types.array(types.reference(Disorder)),
     abilities: types.array(types.reference(Ability)),
 

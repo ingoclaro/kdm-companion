@@ -8,4 +8,6 @@ const FightingArt = types.model('FightingArt', {
   expansion: types.reference(Expansion),
 })
 
-export { FightingArt }
+const SecretFightingArt = FightingArt.named('SecretFightingArt')
+
+export { FightingArt, SecretFightingArt }

@@ -41,6 +41,8 @@ export default class AbilitySection extends React.Component {
     availableItems: PropTypes.array.isRequired, // list of all items for the dropdown
     addItem: PropTypes.func.isRequired, // @params item: item to add to selected list
     removeItem: PropTypes.func.isRequired, // @params item: item to remove from selected list
+    additionalDropdownTitle: PropTypes.string,
+    additionalAvailableItems: PropTypes.array,
   }
 
   static defaultProps = {
@@ -58,22 +60,29 @@ export default class AbilitySection extends React.Component {
     this.setState({ visible: false })
   }
 
-  dropdown() {
-    if (this.props.items.length >= 3) {
+  dropdown(additional = false) {
+    if (this.props.items.length >= 3 || !this.props.additionalAvailableItems) {
       return null
     }
 
-    const items = [
-      { name: this.props.dropdownTitle, id: null },
-      ...this.props.availableItems,
-    ]
+    let items = []
 
-    let selected = items[0]
+    if (additional) {
+      items = [
+        { name: this.props.additionalDropdownTitle, id: null },
+        ...this.props.additionalAvailableItems,
+      ]
+    } else {
+      items = [
+        { name: this.props.dropdownTitle, id: null },
+        ...this.props.availableItems,
+      ]
+    }
 
     return (
       <DropDownMenu
         options={items}
-        selectedOption={selected}
+        selectedOption={items[0]}
         onOptionSelected={item => this.props.addItem(item)}
         titleProperty="name"
         valueProperty="id"
@@ -141,6 +150,7 @@ export default class AbilitySection extends React.Component {
               removeItem={this.props.removeItem}
             />
             {this.dropdown()}
+            {this.dropdown(true)}
 
             <Divider />
           </View>

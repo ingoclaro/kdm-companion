@@ -15,6 +15,7 @@ import AbilitySection from './AbilitySection'
 
 @inject(({ store }) => ({
   availableFightingArts: store.availableFightingArts,
+  availableSecretFightingArts: store.availableSecretFightingArts,
 }))
 @observer
 export default class FightingArts extends React.Component {
@@ -23,8 +24,10 @@ export default class FightingArts extends React.Component {
       <AbilitySection
         title="Fighting Arts"
         dropdownTitle="Select Fighting Art"
-        items={this.props.fightingArts}
         availableItems={this.props.availableFightingArts}
+        additionalDropdownTitle="Select Secret Fighting Art"
+        additionalAvailableItems={this.props.availableSecretFightingArts}
+        items={this.props.fightingArts}
         addItem={this.props.addFA}
         removeItem={this.props.removeFA}
       />
