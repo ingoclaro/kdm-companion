@@ -48,8 +48,10 @@ export default class AbilitySection extends React.Component {
   static defaultProps = {
     title: 'Undefined',
     dropdownTitle: 'Select Undefined',
+    additionalDropdownTitle: 'Select Undefined',
     items: [],
     availableItems: [],
+    additionalAvailableItems: [],
   }
 
   showEditor() {
@@ -61,7 +63,10 @@ export default class AbilitySection extends React.Component {
   }
 
   dropdown(additional = false) {
-    if (this.props.items.length >= 3 || !this.props.additionalAvailableItems) {
+    if (
+      this.props.items.length >= 3 ||
+      (additional === true && this.props.additionalAvailableItems.length === 0)
+    ) {
       return null
     }
 

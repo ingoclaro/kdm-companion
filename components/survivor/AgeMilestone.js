@@ -1,12 +1,9 @@
 import React from 'react'
-import { View, Title, Text, Row, ListView } from '@shoutem/ui'
+import { View, Title, Text, Divider } from '@shoutem/ui'
+import MilestoneTable from './MilestoneTable'
 import colors from '../../src/colors'
 
 export default class AgeMilestone extends React.Component {
-  static defaultProps = {
-    age: 0,
-  }
-
   data = {
     2: [
       {
@@ -15,7 +12,7 @@ export default class AgeMilestone extends React.Component {
       },
       {
         numbers: '3-6',
-        description: 'Gain + 1 permanent strength.',
+        description: 'Gain +1 permanent strength.',
       },
       {
         numbers: '7-15',
@@ -98,40 +95,21 @@ export default class AgeMilestone extends React.Component {
     ],
   }
 
-  _row(item) {
-    return (
-      <View styleName="horizontal v-start">
-        <View style={styles.numberContainer}>
-          <Text style={styles.numbers}>{item.numbers}</Text>
-        </View>
-        <View styleName="vertical h-start">
-          <Text>{item.description}</Text>
-        </View>
-      </View>
-    )
-  }
-
   render() {
-    if (!this.data[this.props.age]) {
-      return null
-    }
     return (
-      <View style={styles.container}>
-        <ListView data={this.data[this.props.age]} renderRow={this._row} />
-      </View>
+      <MilestoneTable
+        data={this.data}
+        intro="Gain the benefits for the Hunt XP milestone you have reached:"
+        {...this.props}
+      />
     )
   }
 }
 
-const styles = {
-  container: {
-    margin: 5,
-  },
-  numberContainer: {
-    paddingRight: 5,
-    width: 38,
-  },
-  numbers: {
-    color: colors.brown400,
-  },
+export const ageMilestones = {
+  2: { description: '{book} Age', details: <AgeMilestone value={2} /> },
+  6: { description: '{book} Age', details: <AgeMilestone value={6} /> },
+  10: { description: '{book} Age', details: <AgeMilestone value={10} /> },
+  15: { description: '{book} Age', details: <AgeMilestone value={15} /> },
+  16: { description: 'Retired' },
 }

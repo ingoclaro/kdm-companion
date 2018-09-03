@@ -32,7 +32,7 @@ export default class EditableProperty extends React.Component {
     setQuantity: PropTypes.func.isRequired, // @params quantity: save the quantity
     milestones: PropTypes.object, // milestones for achieving a certain number in the quantity field
     // structure:
-    // number: {description: text, callback: function} TODO: revisit the structure.
+    // number: {description: text, details: function}
   }
 
   static defaultProps = {
@@ -70,7 +70,9 @@ export default class EditableProperty extends React.Component {
         useNativeDriver={true}
         backdropColor={colors.black}
       >
-        {this.props.milestones[this.props.quantity].details}
+        <View style={styles.modalContainer}>
+          {this.props.milestones[this.props.quantity].details}
+        </View>
       </Modal>
     )
   }
@@ -138,6 +140,13 @@ export default class EditableProperty extends React.Component {
 }
 
 const styles = {
+  modalContainer: {
+    // flex: 1,
+    backgroundColor: colors.grey900,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 5,
+  },
   property: {
     color: colors.grey100,
     fontWeight: 'normal',

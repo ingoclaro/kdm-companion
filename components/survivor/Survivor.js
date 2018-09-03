@@ -18,7 +18,8 @@ import { observer, inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 
 import AbilityList from './AbilityList'
-import AgeMilestone from './AgeMilestone'
+import { ageMilestones } from './AgeMilestone'
+import { courageMilestones } from './CourageMilestone'
 import AttributeLarge from './AttributeLarge'
 import Disorders from './Disorders'
 import EditableProperty from './EditableProperty'
@@ -50,19 +51,7 @@ export default class Survivor extends React.Component {
     survivorId: PropTypes.string.isRequired, // ID of the survivor to show
   }
 
-  ageMilestones = {
-    2: { description: '{book} Age', details: <AgeMilestone age={2} /> },
-    6: { description: '{book} Age', details: <AgeMilestone age={6} /> },
-    10: { description: '{book} Age', details: <AgeMilestone age={10} /> },
-    15: { description: '{book} Age', details: <AgeMilestone age={15} /> },
-    16: { description: 'Retired' },
-  }
-
-  courageMilestones = {
-    3: { description: '{book} Bold' },
-    9: { description: '{book} See the Truth' },
-  }
-
+  //TODO: move this to it's own class after resolving for CourageMilestone
   understandingMilestones = {
     3: { description: '{book} Insight' },
     9: { description: '{book} White Secret' },
@@ -152,7 +141,7 @@ export default class Survivor extends React.Component {
             showLabel={true}
             quantity={survivor.age}
             setQuantity={qty => survivor.setAttribute('age', qty)}
-            milestones={this.ageMilestones}
+            milestones={ageMilestones}
           />
           <EditableProperty
             label="Courage"
@@ -161,7 +150,7 @@ export default class Survivor extends React.Component {
             showLabel={true}
             quantity={survivor.courage}
             setQuantity={qty => survivor.setAttribute('courage', qty)}
-            milestones={this.courageMilestones}
+            milestones={courageMilestones}
           />
           <EditableProperty
             label="Understanding"
