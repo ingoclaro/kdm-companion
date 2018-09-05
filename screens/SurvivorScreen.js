@@ -50,14 +50,7 @@ export default class SurvivorScreen extends React.Component {
 
   render() {
     return (
-      <Screen
-        style={{
-          alignItems: 'flex-start',
-          justifyContent: 'center',
-          // paddingTop: 5,
-          paddingLeft: 5,
-        }}
-      >
+      <Screen style={{ paddingTop: 5, paddingLeft: 5 }}>
         <ScrollView>
           <Survivor survivorId={this.props.navigation.getParam('survivorId')} />
 

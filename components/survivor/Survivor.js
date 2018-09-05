@@ -68,8 +68,8 @@ export default class Survivor extends React.Component {
     let gender_icon = survivor.gender === 'male' ? ico_male : ico_female
 
     return (
-      <View style={{ flex: 1, alignSelf: 'stretch' }}>
-        <View styleName="horizontal v-center">
+      <View>
+        <View styleName="horizontal">
           <Subtitle>Gender:</Subtitle>
           <Image
             source={gender_icon}
@@ -77,8 +77,8 @@ export default class Survivor extends React.Component {
           />
         </View>
 
-        <View styleName="horizontal" style={{ flex: 1 }}>
-          <View styleName="vertical" style={{ flex: 1 }}>
+        <View styleName="horizontal">
+          <View style={{ flex: 1 }}>
             <AttributeLarge
               label="Movement"
               icon={ico_movement}
@@ -95,7 +95,7 @@ export default class Survivor extends React.Component {
               value={survivor.strength}
             />
           </View>
-          <View styleName="vertical" style={{ flex: 1 }}>
+          <View style={{ flex: 1 }}>
             <AttributeLarge
               label="Evasion"
               icon={ico_evasion}
@@ -116,7 +116,7 @@ export default class Survivor extends React.Component {
 
         <Divider />
 
-        <View style={{ alignItems: 'flex-start' }}>
+        <View>
           <EditableProperty
             label="Insanity"
             minimumValue={0}

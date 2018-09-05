@@ -58,14 +58,7 @@ export default class SurvivorList extends React.Component {
                   <Subtitle>{survivor.name}</Subtitle>
                   <Icon name="right-arrow" />
                 </Button>
-                <View
-                  styleName="horizontal"
-                  style={
-                    {
-                      // justifyContent: 'space-between',
-                    }
-                  }
-                >
+                <View styleName="horizontal">
                   <AttributeSmall text="S" value={survivor.survival} />
                   <AttributeSmall
                     icon={ico_insanity}
