@@ -71,7 +71,7 @@ export default {
     name: 'Crystal Skin',
     expansion: 'core',
     description:
-      'You ignore **cursed** and cannot wear armor. When you **depart**, gain <font class="inline_shield">3</font> to all hit locations. Suffer -2 to the result of all severe injury rolls. When you participate in **Intimacy**, newborns gain **Crystal Skin** in addition to any other roll results.',
+      'You ignore **cursed** and cannot wear armor. When you **depart**, gain {shield 3} to all hit locations. Suffer -2 to the result of all severe injury rolls. When you participate in **Intimacy**, newborns gain **Crystal Skin** in addition to any other roll results.',
   },
   'Death Mehndi': {
     id: 'Death Mehndi',
@@ -85,7 +85,7 @@ export default {
     name: 'Dormenatus',
     expansion: 'core',
     description:
-      'When you suffer damage, you may declare \'Dormenatus X\' in a loud, booming voice. If you do, gain <font class="inline_shield">x</font> to each hit location. X cannot be more than your total green affinities. After the damage is resolved, gain +X hunt XP. When you trigger Age 2, gain the **Grace of Dormenatus** secret fighting art.',
+      "When you suffer damage, you may declare 'Dormenatus X' in a loud, booming voice. If you do, gain {shield x} to each hit location. X cannot be more than your total green affinities. After the damage is resolved, gain +X hunt XP. When you trigger Age 2, gain the **Grace of Dormenatus** secret fighting art.",
   },
   'Dream of the Beast': {
     id: 'Dream of the Beast',
@@ -206,7 +206,7 @@ export default {
     name: 'Limb-maker',
     expansion: 'dk',
     description:
-      'Once per settlement phase, spend 2 <font class="kdm_font">d</font> to carve a prosthetic limb. Remove a survivor\'s **dismembered** injury and add 1 bone to the settlement\'s storage.',
+      "Once per settlement phase, spend 2 {endeavor} to carve a prosthetic limb. Remove a survivor's **dismembered** injury and add 1 bone to the settlement's storage.",
   },
   'Lovelorn Rock': {
     id: 'Lovelorn Rock',
@@ -262,7 +262,7 @@ export default {
     name: 'Partner',
     expansion: 'core',
     description:
-      'When you both **Arrive**, gain survival up to the survival limit. Partners may only nominate each other for <b>{book} Intimacy</b>. When a partner dies, the remaining partner gains a random disorder and loses this ability.',
+      'When you both **Arrive**, gain survival up to the survival limit. Partners may only nominate each other for {book} **Intimacy**. When a partner dies, the remaining partner gains a random disorder and loses this ability.',
   },
   Peerless: {
     id: 'Peerless',
@@ -318,14 +318,14 @@ export default {
     name: 'Reflection',
     expansion: 'sunstalker',
     description:
-      '<ul><li>Your complete affinities and incomplete affinity halves count as all colors.</li><li>You may dodge at any time and as many times as you like each round.</li><li>When you attack from a blind spot, add +1d10 to all wound attempts for that attack.</li></ul>',
+      'Your complete affinities and incomplete affinity halves count as all colors. You may dodge at any time and as many times as you like each round. When you attack from a blind spot, add +1d10 to all wound attempts for that attack.',
   },
   Refraction: {
     id: 'Refraction',
     name: 'Refraction',
     expansion: 'sunstalker',
     description:
-      '<ul><li>Your complete affinities and incomplete affinity halves count as all colors.</li><li>During the Showdown, after you perform a survival action, gain +1 survival.</li></ul>',
+      'Your complete affinities and incomplete affinity halves count as all colors. During the Showdown, after you perform a survival action, gain +1 survival.',
   },
   "Rival's Scar": {
     id: "Rival's Scar",
