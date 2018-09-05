@@ -68,7 +68,7 @@ export default class Survivor extends React.Component {
     let gender_icon = survivor.gender === 'male' ? ico_male : ico_female
 
     return (
-      <View>
+      <View style={{ flex: 1, alignSelf: 'stretch' }}>
         <View styleName="horizontal v-center">
           <Subtitle>Gender:</Subtitle>
           <Image
