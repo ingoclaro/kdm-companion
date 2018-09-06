@@ -5,8 +5,6 @@ import RichText from '../RichText'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 
-const ico_book = require('../../images/book.png')
-
 export default class EditableProperty extends React.Component {
   constructor(props) {
     super(props)
