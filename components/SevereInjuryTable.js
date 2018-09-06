@@ -1,6 +1,6 @@
 import React from 'react'
 import { Screen, View, Title, Text, Row, Icon } from '@shoutem/ui'
-import { MarkdownView } from 'react-native-markdown-view'
+import RichText from './RichText'
 import { Dimensions } from 'react-native'
 import Accordion from './Accordion'
 import colors from '../src/colors'
@@ -301,9 +301,6 @@ export default class SevereInjuryTable extends React.Component {
   _renderContent(data) {
     //TODO: remove this hack to avoid text clipping (galaxy S8)
     let width = Dimensions.get('window').width - 48
-    let mdStyles = Object.assign({}, styles.markdown, {
-      paragraph: { ...styles.markdown.paragraph, width },
-    })
 
     return (
       <View styleName="horizontal v-start">
@@ -312,7 +309,9 @@ export default class SevereInjuryTable extends React.Component {
         </View>
         <View styleName="vertical h-start">
           <Text style={styles.title}>{data.item.title}</Text>
-          <MarkdownView styles={mdStyles}>{data.item.description}</MarkdownView>
+          <View style={{ width }}>
+            <RichText>{data.item.description}</RichText>
+          </View>
         </View>
       </View>
     )
@@ -332,32 +331,4 @@ const styles = {
     color: colors.brown400,
   },
   title: {},
-  markdown: {
-    paragraph: {
-      color: colors.grey500,
-      marginTop: 0,
-      marginBottom: 0,
-      // try to avoid text clipping:
-      // marginRight: 10, // doesn't work
-      // paddingRight: 10, // doesn't work
-      // right: 10, // doesn't work
-      // width: '80%', // doesn't work
-    },
-    listItemBullet: {
-      color: colors.grey500,
-      minWidth: 0,
-      paddingRight: 8,
-    },
-    listItemUnorderedContent: {
-      color: colors.grey500,
-    },
-    listItemUnorderedContent: {
-      flex: -1,
-      color: colors.grey500,
-    },
-    // list: {
-    //   margin: 0,
-    //   marginLeft: 8,
-    // },
-  },
 }

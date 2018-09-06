@@ -14,7 +14,6 @@ import {
 import R from 'ramda'
 import Modal from 'react-native-modal'
 import { observer } from 'mobx-react/native'
-import { MarkdownView } from 'react-native-markdown-view'
 import PropTypes from 'prop-types'
 import AbilityList from './AbilityList'
 import colors from '../../src/colors'
@@ -27,7 +26,6 @@ export default class AbilitySection extends React.Component {
     this.showEditor = this.showEditor.bind(this)
     this.hideEditor = this.hideEditor.bind(this)
     this.dropdown = this.dropdown.bind(this)
-    this.list = this.list.bind(this)
   }
 
   state = {
@@ -43,6 +41,7 @@ export default class AbilitySection extends React.Component {
     removeItem: PropTypes.func.isRequired, // @params item: item to remove from selected list
     additionalDropdownTitle: PropTypes.string,
     additionalAvailableItems: PropTypes.array,
+    limit: PropTypes.number,
   }
 
   static defaultProps = {
@@ -52,6 +51,7 @@ export default class AbilitySection extends React.Component {
     items: [],
     availableItems: [],
     additionalAvailableItems: [],
+    limit: 3,
   }
 
   showEditor() {
@@ -64,7 +64,7 @@ export default class AbilitySection extends React.Component {
 
   dropdown(additional = false) {
     if (
-      this.props.items.length >= 3 ||
+      this.props.items.length >= this.props.limit ||
       (additional === true && this.props.additionalAvailableItems.length === 0)
     ) {
       return null
@@ -93,34 +93,6 @@ export default class AbilitySection extends React.Component {
         valueProperty="id"
       />
     )
-  }
-
-  list(editable = false, description = false) {
-    let list = this.props.items.map(item => (
-      <View key={item.id}>
-        <View styleName="horizontal">
-          <Text>{item.name}</Text>
-          {editable && (
-            <Button
-              styleName="textual"
-              style={{ alignSelf: 'flex-start' }}
-              onPress={() => {
-                this.props.removeItem(item)
-              }}
-            >
-              <Text>X</Text>
-            </Button>
-          )}
-        </View>
-        {description && (
-          <MarkdownView styles={styles.markdown}>
-            {item.description}
-          </MarkdownView>
-        )}
-      </View>
-    ))
-
-    return list
   }
 
   render() {
@@ -176,28 +148,5 @@ const styles = {
     paddingHorizontal: 5,
     paddingVertical: 5,
     backgroundColor: colors.grey900,
-  },
-  markdown: {
-    paragraph: {
-      color: colors.grey500,
-      marginTop: 0,
-      marginBottom: 0,
-    },
-    listItemBullet: {
-      color: colors.grey500,
-      minWidth: 0,
-      paddingRight: 8,
-    },
-    listItemUnorderedContent: {
-      color: colors.grey500,
-    },
-    listItemUnorderedContent: {
-      flex: -1,
-      color: colors.grey500,
-    },
-    // list: {
-    //   margin: 0,
-    //   marginLeft: 8,
-    // },
   },
 }

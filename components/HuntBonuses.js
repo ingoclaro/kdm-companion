@@ -3,7 +3,7 @@ import { Title, View, Text, Subtitle, Divider } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
 import { capitalize } from '../src/utils'
 import colors from '../src/colors'
-import { MarkdownView } from 'react-native-markdown-view'
+import RichText from './RichText'
 import R from 'ramda'
 
 @inject(({ store }) => ({
@@ -62,9 +62,7 @@ export default class HuntBonuses extends React.Component {
         <Title>Hunt Bonus</Title>
         <View>
           {description.map((item, idx) => (
-            <MarkdownView key={idx} styles={styles.markdown}>
-              {item}
-            </MarkdownView>
+            <RichText key={idx}>{item}</RichText>
           ))}
         </View>
       </View>
@@ -82,28 +80,5 @@ const styles = {
   },
   statValue: {
     color: colors.grey500,
-  },
-  markdown: {
-    paragraph: {
-      color: colors.grey500,
-      marginTop: 0,
-      marginBottom: 0,
-    },
-    listItemBullet: {
-      color: colors.grey500,
-      minWidth: 0,
-      paddingRight: 8,
-    },
-    listItemUnorderedContent: {
-      color: colors.grey500,
-    },
-    listItemUnorderedContent: {
-      flex: -1,
-      color: colors.grey500,
-    },
-    // list: {
-    //   margin: 0,
-    //   marginLeft: 8,
-    // },
   },
 }

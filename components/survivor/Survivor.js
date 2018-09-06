@@ -12,8 +12,6 @@ import {
   Divider,
 } from '@shoutem/ui'
 
-import { MarkdownView } from 'react-native-markdown-view'
-
 import { observer, inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 
@@ -22,6 +20,7 @@ import { ageMilestones } from './AgeMilestone'
 import { courageMilestones } from './CourageMilestone'
 import AttributeLarge from './AttributeLarge'
 import Disorders from './Disorders'
+import Abilities from './Abilities'
 import EditableProperty from './EditableProperty'
 import EditableTextProperty from './EditableTextProperty'
 import FightingArts from './FightingArts'
@@ -64,12 +63,11 @@ export default class Survivor extends React.Component {
       return null
     }
 
-    let survivalHint = `(Survival Limit: ${this.props.survivalLimit})`
     let gender_icon = survivor.gender === 'male' ? ico_male : ico_female
 
     return (
       <View>
-        <View styleName="horizontal">
+        <View styleName="horizontal v-center">
           <Subtitle>Gender:</Subtitle>
           <Image
             source={gender_icon}
@@ -125,17 +123,21 @@ export default class Survivor extends React.Component {
             quantity={survivor.insanity}
             setQuantity={qty => survivor.setAttribute('insanity', qty)}
           />
+          <View styleName="horizontal v-center">
+            <EditableProperty
+              label="Survival"
+              minimumValue={0}
+              maximumValue={this.props.survivalLimit}
+              showLabel={true}
+              quantity={survivor.survival}
+              setQuantity={qty => survivor.setAttribute('survival', qty)}
+            />
+            <Text style={{ color: colors.grey500 }}>
+              (Limit: {this.props.survivalLimit})
+            </Text>
+          </View>
           <EditableProperty
-            label="Survival"
-            help={survivalHint}
-            minimumValue={0}
-            maximumValue={this.props.survivalLimit}
-            showLabel={true}
-            quantity={survivor.survival}
-            setQuantity={qty => survivor.setAttribute('survival', qty)}
-          />
-          <EditableProperty
-            label="Age"
+            label="Hunt XP"
             minimumValue={0}
             maximumValue={16}
             showLabel={true}
@@ -181,14 +183,12 @@ export default class Survivor extends React.Component {
 
         <Divider />
 
-        <View>
-          <Title>Abilities</Title>
-          <AbilityList
-            items={survivor.abilities}
-            editable={false}
-            showDescription={true}
-          />
-        </View>
+        <Abilities
+          abilities={survivor.abilities}
+          addAbility={survivor.addAbility}
+          removeAbility={survivor.removeAbility}
+        />
+
         <Divider />
 
         <Note
@@ -199,30 +199,4 @@ export default class Survivor extends React.Component {
       </View>
     )
   }
-}
-
-const styles = {
-  markdown: {
-    paragraph: {
-      color: colors.grey500,
-      marginTop: 0,
-      marginBottom: 0,
-    },
-    listItemBullet: {
-      color: colors.grey500,
-      minWidth: 0,
-      paddingRight: 8,
-    },
-    listItemUnorderedContent: {
-      color: colors.grey500,
-    },
-    listItemUnorderedContent: {
-      flex: -1,
-      color: colors.grey500,
-    },
-    // list: {
-    //   margin: 0,
-    //   marginLeft: 8,
-    // },
-  },
 }

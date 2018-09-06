@@ -113,6 +113,12 @@ export default types
         self.selectedExpansionFilter(self.disorders)
       )
     },
+    get availableAbilities() {
+      return R.sortBy(
+        R.prop('name'),
+        self.selectedExpansionFilter(self.abilities)
+      )
+    },
     get availableHunts() {
       return self.selectedExpansionFilter(self.monsters)
     },

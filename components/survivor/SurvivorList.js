@@ -66,6 +66,7 @@ export default class SurvivorList extends React.Component {
                   />
                   <AttributeSmall
                     icon={ico_movement}
+                    label="Movement"
                     value={survivor.movement}
                   />
                   <AttributeSmall
@@ -81,9 +82,14 @@ export default class SurvivorList extends React.Component {
                   <AttributeSmall icon={ico_d10} value={survivor.speed} />
                 </View>
                 <Text>
-                  {survivor.fightingArts.map(fa => fa.name).join(', ')}
+                  {survivor.fightingArts.map(item => item.name).join(', ')}
                 </Text>
-                <Text>{survivor.disorders.map(fa => fa.name).join(', ')}</Text>
+                <Text>
+                  {survivor.disorders.map(item => item.name).join(', ')}
+                </Text>
+                <Text>
+                  {survivor.abilities.map(item => item.name).join(', ')}
+                </Text>
                 <Divider styleName="line" />
               </View>
             )

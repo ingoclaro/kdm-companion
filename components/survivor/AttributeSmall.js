@@ -13,7 +13,7 @@ export default class AttributeSmall extends React.Component {
   render() {
     let styleName =
       this.props.value < 0 ? 'attributeTextNegative' : 'attributeText'
-    if (this.props.label === 'Movement' && this.props.value < 6) {
+    if (this.props.label === 'Movement' && this.props.value < 5) {
       styleName = 'attributeTextNegative'
     }
     return (

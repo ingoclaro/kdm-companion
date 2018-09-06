@@ -13,7 +13,7 @@ import { observer } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 import colors from '../src/colors'
 
-import { MarkdownView } from 'react-native-markdown-view'
+import RichText from './RichText'
 
 @observer
 export default class Note extends React.Component {
@@ -69,7 +69,7 @@ export default class Note extends React.Component {
           <Icon name="right-arrow" />
         </Button>
 
-        <MarkdownView styles={styles.markdown}>{this.props.notes}</MarkdownView>
+        <RichText>{this.props.notes}</RichText>
 
         <Modal
           isVisible={this.state.visible}
@@ -117,28 +117,5 @@ const styles = {
     borderWidth: 1,
     selectionColor: colors.grey800,
     textAlignVertical: 'top',
-  },
-  markdown: {
-    paragraph: {
-      color: colors.grey500,
-      marginTop: 0,
-      marginBottom: 0,
-    },
-    listItemBullet: {
-      color: colors.grey500,
-      minWidth: 0,
-      paddingRight: 8,
-    },
-    listItemUnorderedContent: {
-      color: colors.grey500,
-    },
-    listItemUnorderedContent: {
-      flex: -1,
-      color: colors.grey500,
-    },
-    // list: {
-    //   margin: 0,
-    //   marginLeft: 8,
-    // },
   },
 }

@@ -1,9 +1,11 @@
 import React from 'react'
 import { View, Text, Image, Button, Caption } from '@shoutem/ui'
 import Modal from 'react-native-modal'
-import { MarkdownView } from 'react-native-markdown-view'
+import RichText from '../RichText'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
+
+const ico_book = require('../../images/book.png')
 
 export default class EditableProperty extends React.Component {
   constructor(props) {
@@ -24,7 +26,7 @@ export default class EditableProperty extends React.Component {
 
   static propTypes = {
     label: PropTypes.string, // label of the property
-    // help: PropTypes.string, // extra text to show when editing
+    // help: PropTypes.string, // extra text to show when reaching
     icon: PropTypes.any, // icon to show
     quantity: PropTypes.number.isRequired, // quantity of the property
     minimumValue: PropTypes.number, // minimum value for the quantity
@@ -47,11 +49,7 @@ export default class EditableProperty extends React.Component {
       return null
     }
     let milestone = this.props.milestones[this.props.quantity]
-    return (
-      <MarkdownView styles={styles.markdown}>
-        {milestone.description}
-      </MarkdownView>
-    )
+    return <RichText>{milestone.description}</RichText>
   }
 
   milestoneDetails() {
@@ -160,28 +158,5 @@ const styles = {
   button: {
     paddingLeft: 0,
     marginRight: 4,
-  },
-  markdown: {
-    paragraph: {
-      color: colors.grey500,
-      marginTop: 0,
-      marginBottom: 0,
-    },
-    listItemBullet: {
-      color: colors.grey500,
-      minWidth: 0,
-      paddingRight: 8,
-    },
-    listItemUnorderedContent: {
-      color: colors.grey500,
-    },
-    listItemUnorderedContent: {
-      flex: -1,
-      color: colors.grey500,
-    },
-    // list: {
-    //   margin: 0,
-    //   marginLeft: 8,
-    // },
   },
 }

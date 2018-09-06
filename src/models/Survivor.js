@@ -58,6 +58,16 @@ const Survivor = types
       // TODO: removing an element other than the last gives an error.
       self.disorders.remove(disorder)
     },
+    addAbility(ability) {
+      let found = R.find(item => ability.id === item.id, self.abilities)
+      if (!found) {
+        self.abilities.push(ability)
+      }
+    },
+    removeAbility(ability) {
+      // TODO: removing an element other than the last gives an error.
+      self.abilities.remove(ability)
+    },
     changeGender() {
       let gender = self.gender === 'male' ? 'female' : 'male'
       self.gender = gender
