@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, Image, Button, Caption } from '@shoutem/ui'
+import { Platform, PixelRatio } from 'react-native'
 import Markdown, { PluginContainer } from 'react-native-markdown-renderer'
 import PropTypes from 'prop-types'
 import colors from '../src/colors'
@@ -44,14 +45,18 @@ export default class RichText extends React.Component {
     }
   }
 
+  book(key) {
+    const width = 14 * (Platform.OS === 'ios' ? 1 : PixelRatio.get())
+    const height = 12 * (Platform.OS === 'ios' ? 1 : PixelRatio.get())
+    return <Image key={key} source={ico_book} style={{ width, height }} />
+  }
+
   render() {
     return (
       <Markdown
         style={styles.markdown}
         rules={{
-          book: (node, children, parent, styles) => (
-            <Image key={node.key} source={ico_book} style={{ flex: 1 }} />
-          ),
+          book: (node, children, parent, styles) => this.book(node.key),
         }}
         plugins={[
           new PluginContainer((md, options) => {
