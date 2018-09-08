@@ -45,8 +45,8 @@ const Survivor = types
       }
     },
     removeFA(fa) {
-      // TODO: removing an element other than the last gives an error.
-      self.fightingArts.remove(fa)
+      self.fightingArts = R.reject(item => fa.id === item.id, self.fightingArts)
+      // self.fightingArts.remove(fa) this throws an error.
     },
     addDisorder(disorder) {
       let found = R.find(item => disorder.id === item.id, self.disorders)
@@ -55,8 +55,8 @@ const Survivor = types
       }
     },
     removeDisorder(disorder) {
-      // TODO: removing an element other than the last gives an error.
-      self.disorders.remove(disorder)
+      self.disorders = R.reject(item => disorder.id === item.id, self.disorders)
+      // self.disorders.remove(disorder)
     },
     addAbility(ability) {
       let found = R.find(item => ability.id === item.id, self.abilities)
@@ -65,8 +65,8 @@ const Survivor = types
       }
     },
     removeAbility(ability) {
-      // TODO: removing an element other than the last gives an error.
-      self.abilities.remove(ability)
+      self.abilities = R.reject(item => ability.id === item.id, self.abilities)
+      // self.abilities.remove(ability)
     },
     changeGender() {
       let gender = self.gender === 'male' ? 'female' : 'male'

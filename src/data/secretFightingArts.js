@@ -88,7 +88,7 @@ export default {
     name: 'Grace of Dormenatus',
     expansion: 'core',
     description:
-      'You may **Concentrate**. If you do, perform **Grace of Dormenatus** at the start of your next act. **Grace of Dormenatus:** You reach into the dream and remove a twisting green crown. The crown explodes. A glittering rain of shards coats the survivors. All survivors gain armor at all hit locations equal to your green affinities. They may remove up to the same number of tokens. Them, gain +6 Hunt XP. If you still exist, gain the priority target token.',
+      'You may **Concentrate**. If you do, perform **Grace of Dormenatus** at the start of your next act. \n**Grace of Dormenatus:** You reach into the dream and remove a twisting green crown. The crown explodes. A glittering rain of shards coats the survivors. All survivors gain armor at all hit locations equal to your green affinities. They may remove up to the same number of tokens. Them, gain +6 Hunt XP. If you still exist, gain the priority target token.',
   },
   Hellfire: {
     id: 'Hellfire',
