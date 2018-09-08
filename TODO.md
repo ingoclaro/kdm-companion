@@ -3,6 +3,7 @@
 This tracks pending tasks and ideas for the app
 
 - [ ] Needed to fork @shoutem/ui to set the StatusBar color. Once this [pull request](https://github.com/shoutem/ui/pull/386) is merged we can switch back to upstream.
+- Fix editing the name of a survivor, the keyboard displaces the modal and the input get hidden at the top
 
 v1.5:
 

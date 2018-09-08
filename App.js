@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Platform, StatusBar } from 'react-native'
 import Expo, { AppLoading, Segment } from 'expo'
-import Application from './components/App'
+import Application from './screens/App'
 import colors from './src/colors'
 import RootStore from './src/models/RootStore'
 import { load } from './src/filesystem'

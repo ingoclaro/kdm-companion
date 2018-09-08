@@ -14,32 +14,32 @@ import CampaignHeader from './CampaignHeader'
 import SurvivorHeader from './SurvivorHeader'
 
 //tmp
-import BlankScreen from '../screens/BlankScreen'
+import BlankScreen from './BlankScreen'
 
-import SurvivorListScreen from '../screens/SurvivorListScreen'
-import SurvivorScreen from '../screens/SurvivorScreen'
+import SurvivorListScreen from './SurvivorListScreen'
+import SurvivorScreen from './SurvivorScreen'
 
 // Campaign
-import SettlementsScreen from '../screens/SettlementsScreen'
-import ExpansionsScreen from '../screens/ExpansionsScreen'
+import SettlementsScreen from './SettlementsScreen'
+import ExpansionsScreen from './ExpansionsScreen'
 
 // Settlement
-import SummaryScreen from '../screens/SummaryScreen'
-import BonusesScreen from '../screens/BonusesScreen'
-import EndeavorsScreen from '../screens/EndeavorsScreen'
-import ResourcesScreen from '../screens/ResourcesScreen'
+import SummaryScreen from './SummaryScreen'
+import BonusesScreen from './BonusesScreen'
+import EndeavorsScreen from './EndeavorsScreen'
+import ResourcesScreen from './ResourcesScreen'
 
 // Hunt
-import HuntScreen from '../screens/HuntScreen'
+import HuntScreen from './HuntScreen'
 
 // Showdown
 
-import FightScreen from '../screens/FightScreen'
-import BrainTraumaScreen from '../screens/BrainTraumaScreen'
-import SevereInjuryScreen from '../screens/SevereInjuryScreen'
+import FightScreen from './FightScreen'
+import BrainTraumaScreen from './BrainTraumaScreen'
+import SevereInjuryScreen from './SevereInjuryScreen'
 
-// import TerrainScreen from '../screens/TerrainScreen'
-// import ResultScreen from '../screens/ResultScreen'
+// import TerrainScreen from './TerrainScreen'
+// import ResultScreen from './ResultScreen'
 
 const styles = {
   tabBar: {
