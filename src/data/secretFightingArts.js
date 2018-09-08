@@ -4,7 +4,7 @@ export default {
     name: 'Acanthus Doctor',
     expansion: 'fk',
     description:
-      'You may wear up to 3 **Satchel** gear cards. When you **depart**, if you are not wearing any armor, for each {green square} you have, gain +1 strength token and add {shield 1} to all hit locations. Spend {action} and a Flower or **Fresh Acanthus** resource to heal a permanent injury you or an adjacent survivor suffered this showdown.',
+      'You may wear up to 3 **Satchel** gear cards. When you **depart**, if you are not wearing any armor, for each {green square} you have, gain +1 strength token and add {shield 1} to all hit locations. Spend ![action](action) and a Flower or **Fresh Acanthus** resource to heal a permanent injury you or an adjacent survivor suffered this showdown.',
   },
   'Ageless Apprentice': {
     id: 'Ageless Apprentice',
@@ -32,7 +32,7 @@ export default {
     name: 'Beetle Strength',
     expansion: 'dbk',
     description:
-      'Once per showdown, you may spend {action} to shove an adjacent obstacle terrain. If you do, move the train directly away from you in a straight line until it encounters a board edge or another obstacle terrain. Any monsters the train passes over suffer a wound, and any survivors it **collides** with suffer **knockback 7**. The display of strength is so exhausting it ages you. You are knocked down and gain +1 Hunt XP.',
+      'Once per showdown, you may spend ![action](action) to shove an adjacent obstacle terrain. If you do, move the train directly away from you in a straight line until it encounters a board edge or another obstacle terrain. Any monsters the train passes over suffer a wound, and any survivors it **collides** with suffer **knockback 7**. The display of strength is so exhausting it ages you. You are knocked down and gain +1 Hunt XP.',
   },
   'Bone Whisperer': {
     id: 'Bone Whisperer',

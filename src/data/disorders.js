@@ -283,7 +283,7 @@ export default {
     name: 'Sun-Drunk',
     expansion: 'sunstalker',
     description:
-      'When you have any +1 strength tokens, you cannot **dash**, **dodge** or {book} **Run Away**.',
+      'When you have any +1 strength tokens, you cannot **dash**, **dodge** or ![book](book) **Run Away**.',
   },
   Superstitious: {
     id: 'Superstitious',
@@ -310,7 +310,8 @@ export default {
     id: 'Tunnel Vision',
     name: 'Tunnel Vision',
     expansion: 'lg',
-    description: 'When you spend {action}, you may only activate weapons.',
+    description:
+      'When you spend ![action](action), you may only activate weapons.',
   },
   Unlucky: {
     id: 'Unlucky',

@@ -107,14 +107,20 @@ export default class AgeMilestone extends React.Component {
 }
 
 export const ageMilestones = {
-  2: { description: '{book} Age (p.107)', details: <AgeMilestone value={2} /> },
-  6: { description: '{book} Age (p.107)', details: <AgeMilestone value={6} /> },
+  2: {
+    description: '![book](book) Age (p.107)',
+    details: <AgeMilestone value={2} />,
+  },
+  6: {
+    description: '![book](book) Age (p.107)',
+    details: <AgeMilestone value={6} />,
+  },
   10: {
-    description: '{book} Age (p.107)',
+    description: '![book](book) Age (p.107)',
     details: <AgeMilestone value={10} />,
   },
   15: {
-    description: '{book} Age (p.107)',
+    description: '![book](book) Age (p.107)',
     details: <AgeMilestone value={15} />,
   },
   16: { description: 'Retired' },

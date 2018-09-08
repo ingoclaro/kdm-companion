@@ -50,11 +50,12 @@ export default class CourageMilestone extends React.Component {
     settlement: [
       {
         numbers: '1-3',
-        description: 'May reroll 1 {endeavor} this settlement phase.', // TODO: replace {} tokens in code
+        description:
+          'May reroll 1 ![endeavor](endeavor) this settlement phase.', // TODO: replace {} tokens in code
       },
       {
         numbers: '4-7',
-        description: 'Gain +1 {endeavor} this settlement phase.',
+        description: 'Gain +1 ![endeavor](endeavor) this settlement phase.',
       },
       {
         numbers: '8-9',
@@ -73,7 +74,7 @@ export default class CourageMilestone extends React.Component {
     hunt:
       '**Prepared**: When rolling to determine a straggler, add your hunt experience to your roll result.',
     settlement:
-      '**Matchmaker**: When you are a returning survivor, once per year you may spend {endeavor} to {book} **Intimacy** (p.133).',
+      '**Matchmaker**: When you are a returning survivor, once per year you may spend ![endeavor](endeavor) to {book} **Intimacy** (p.133).',
   }
 
   state = {

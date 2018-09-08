@@ -11,7 +11,7 @@ export default {
     name: 'Acrobatics',
     expansion: 'dk',
     description:
-      'When you are adjacent to the monster, you may spend {movement} to place your survivor on any other space adjacent to the monster.',
+      'When you are adjacent to the monster, you may spend ![movement](movement) to place your survivor on any other space adjacent to the monster.',
   },
   Ambidextrous: {
     id: 'Ambidextrous',
@@ -25,7 +25,7 @@ export default {
     name: 'Berserker',
     expansion: 'core',
     description:
-      'Once per showdown, you may spend {action} to suffer **bash** and the **frenzy** brain trauma.',
+      'Once per showdown, you may spend ![action](action) to suffer **bash** and the **frenzy** brain trauma.',
   },
   'Blotted Out': {
     id: 'Blotted Out',
@@ -99,7 +99,7 @@ export default {
     name: 'Double Dash',
     expansion: 'core',
     description:
-      'During your act, once per round, you may spend {action} to gain {movement}.',
+      'During your act, once per round, you may spend ![action](action) to gain ![movement](movement).',
   },
   'Extra Sense': {
     id: 'Extra Sense',
@@ -154,7 +154,7 @@ export default {
     name: 'Lure Epilepsy',
     expansion: 'gorm',
     description:
-      'Once per showdown, you may spend {action} to give yourself a seizure. You suffer a random brain trauma and are knocked down.',
+      'Once per showdown, you may spend ![action](action) to give yourself a seizure. You suffer a random brain trauma and are knocked down.',
   },
   'Mammoth Hunting': {
     id: 'Mammoth Hunting',
@@ -182,7 +182,7 @@ export default {
     name: 'Orator of Death',
     expansion: 'core',
     description:
-      'Once per showdown, you may spend {action} to have all non-deaf survivors gain +2 insanity. When you die, you **encourage** all survivors with your last words.',
+      'Once per showdown, you may spend ![action](action) to have all non-deaf survivors gain +2 insanity. When you die, you **encourage** all survivors with your last words.',
   },
   'Otherworldly Luck': {
     id: 'Otherworldly Luck',

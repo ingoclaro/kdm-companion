@@ -165,7 +165,7 @@ export default {
     id: "King's Curse",
     name: "King's Curse",
     expansion: 'core',
-    description: "At the Aftermath, {book} **King's Curse** (p.135).",
+    description: "At the Aftermath, ![book](book) **King's Curse** (p.135).",
   },
   Legendcaller: {
     id: 'Legendcaller',
@@ -200,7 +200,7 @@ export default {
     name: 'Limb-maker',
     expansion: 'dk',
     description:
-      "Once per settlement phase, spend 2 {endeavor} to carve a prosthetic limb. Remove a survivor's **dismembered** injury and add 1 bone to the settlement's storage.",
+      "Once per settlement phase, spend 2 ![endeavor](endeavor) to carve a prosthetic limb. Remove a survivor's **dismembered** injury and add 1 bone to the settlement's storage.",
   },
   'Lovelorn Rock': {
     id: 'Lovelorn Rock',
@@ -235,7 +235,7 @@ export default {
     name: 'Matchmaker',
     expansion: 'core',
     description:
-      'When you are a returning survivor, once per year you may spend 1 Endeavor to trigger {book} **Intimacy** (p.133).',
+      'When you are a returning survivor, once per year you may spend 1 Endeavor to trigger ![book](book) **Intimacy** (p.133).',
   },
   'Metal Maw': {
     id: 'Metal Maw',
@@ -256,7 +256,7 @@ export default {
     name: 'Partner',
     expansion: 'core',
     description:
-      'When you both **Arrive**, gain survival up to the survival limit. Partners may only nominate each other for {book} **Intimacy**. When a partner dies, the remaining partner gains a random disorder and loses this ability.',
+      'When you both **Arrive**, gain survival up to the survival limit. Partners may only nominate each other for ![book](book) **Intimacy**. When a partner dies, the remaining partner gains a random disorder and loses this ability.',
   },
   Peerless: {
     id: 'Peerless',

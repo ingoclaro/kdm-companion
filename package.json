@@ -40,6 +40,7 @@
     "ramda": "^0.25.0",
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",
+    "react-native-fit-image": "^1.5.4",
     "react-native-markdown-renderer": "^3.2.8",
     "react-native-markdown-view": "^1.1.4",
     "react-native-modal": "^6.5.0",
