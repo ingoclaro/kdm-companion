@@ -11,6 +11,7 @@ import {
   Divider,
   TextInput,
 } from '@shoutem/ui'
+import { Keyboard } from 'react-native'
 import { observer, inject } from 'mobx-react/native'
 import SimpleStepper from 'react-native-simple-stepper'
 import GenderButton from './GenderButton'
@@ -23,6 +24,41 @@ import colors from '../../src/colors'
 }))
 @observer
 export default class EditStats extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.keyboardWillShow = this.keyboardWillShow.bind(this)
+    this.keyboardWillHide = this.keyboardWillHide.bind(this)
+  }
+
+  componentWillMount() {
+    this.keyboardWillShowSub = Keyboard.addListener(
+      'keyboardDidShow',
+      this.keyboardWillShow
+    )
+    this.keyboardWillHideSub = Keyboard.addListener(
+      'keyboardDidHide',
+      this.keyboardWillHide
+    )
+  }
+
+  componentWillUnmount() {
+    this.keyboardWillShowSub.remove()
+    this.keyboardWillHideSub.remove()
+  }
+
+  keyboardWillShow() {
+    this.setState({ showBottomPart: false })
+  }
+
+  keyboardWillHide() {
+    this.setState({ showBottomPart: true })
+  }
+
+  state = {
+    showBottomPart: true,
+  }
+
   render() {
     let survivalHint = `(Limit: ${this.props.survivalLimit})`
 
@@ -48,82 +84,89 @@ export default class EditStats extends React.Component {
           />
         </View>
 
-        <Divider />
+        {this.state.showBottomPart && (
+          <View>
+            <Divider />
 
-        <View styleName="horizontal space-between v-center">
-          <Text>Movement: {this.props.survivor.movement}</Text>
-          <SimpleStepper
-            tintColor="white"
-            initialValue={this.props.survivor.movement}
-            minimumValue={1}
-            maximumValue={10}
-            valueChanged={qty =>
-              this.props.survivor.setAttribute('movement', qty)
-            }
-          />
-        </View>
+            <View styleName="horizontal space-between v-center">
+              <Text>Movement: {this.props.survivor.movement}</Text>
+              <SimpleStepper
+                tintColor="white"
+                initialValue={this.props.survivor.movement}
+                minimumValue={1}
+                maximumValue={10}
+                valueChanged={qty =>
+                  this.props.survivor.setAttribute('movement', qty)
+                }
+              />
+            </View>
 
-        <View styleName="horizontal space-between v-center">
-          <Text>Accuracy: {this.props.survivor.accuracy}</Text>
-          <SimpleStepper
-            tintColor="white"
-            initialValue={this.props.survivor.accuracy}
-            minimumValue={-10}
-            maximumValue={10}
-            valueChanged={qty =>
-              this.props.survivor.setAttribute('accuracy', qty)
-            }
-          />
-        </View>
+            <View styleName="horizontal space-between v-center">
+              <Text>Accuracy: {this.props.survivor.accuracy}</Text>
+              <SimpleStepper
+                tintColor="white"
+                initialValue={this.props.survivor.accuracy}
+                minimumValue={-10}
+                maximumValue={10}
+                valueChanged={qty =>
+                  this.props.survivor.setAttribute('accuracy', qty)
+                }
+              />
+            </View>
 
-        <View styleName="horizontal space-between v-center">
-          <Text>Strength: {this.props.survivor.strength}</Text>
-          <SimpleStepper
-            tintColor="white"
-            initialValue={this.props.survivor.strength}
-            minimumValue={-10}
-            maximumValue={10}
-            valueChanged={qty =>
-              this.props.survivor.setAttribute('strength', qty)
-            }
-          />
-        </View>
+            <View styleName="horizontal space-between v-center">
+              <Text>Strength: {this.props.survivor.strength}</Text>
+              <SimpleStepper
+                tintColor="white"
+                initialValue={this.props.survivor.strength}
+                minimumValue={-10}
+                maximumValue={10}
+                valueChanged={qty =>
+                  this.props.survivor.setAttribute('strength', qty)
+                }
+              />
+            </View>
 
-        <View styleName="horizontal space-between v-center">
-          <Text>Evasion: {this.props.survivor.evasion}</Text>
-          <SimpleStepper
-            tintColor="white"
-            initialValue={this.props.survivor.evasion}
-            minimumValue={-10}
-            maximumValue={10}
-            valueChanged={qty =>
-              this.props.survivor.setAttribute('evasion', qty)
-            }
-          />
-        </View>
+            <View styleName="horizontal space-between v-center">
+              <Text>Evasion: {this.props.survivor.evasion}</Text>
+              <SimpleStepper
+                tintColor="white"
+                initialValue={this.props.survivor.evasion}
+                minimumValue={-10}
+                maximumValue={10}
+                valueChanged={qty =>
+                  this.props.survivor.setAttribute('evasion', qty)
+                }
+              />
+            </View>
 
-        <View styleName="horizontal space-between v-center">
-          <Text>Luck: {this.props.survivor.luck}</Text>
-          <SimpleStepper
-            tintColor="white"
-            initialValue={this.props.survivor.luck}
-            minimumValue={-10}
-            maximumValue={10}
-            valueChanged={qty => this.props.survivor.setAttribute('luck', qty)}
-          />
-        </View>
+            <View styleName="horizontal space-between v-center">
+              <Text>Luck: {this.props.survivor.luck}</Text>
+              <SimpleStepper
+                tintColor="white"
+                initialValue={this.props.survivor.luck}
+                minimumValue={-10}
+                maximumValue={10}
+                valueChanged={qty =>
+                  this.props.survivor.setAttribute('luck', qty)
+                }
+              />
+            </View>
 
-        <View styleName="horizontal space-between v-center">
-          <Text>Speed: {this.props.survivor.speed}</Text>
-          <SimpleStepper
-            tintColor="white"
-            initialValue={this.props.survivor.speed}
-            minimumValue={-10}
-            maximumValue={10}
-            valueChanged={qty => this.props.survivor.setAttribute('speed', qty)}
-          />
-        </View>
-
+            <View styleName="horizontal space-between v-center">
+              <Text>Speed: {this.props.survivor.speed}</Text>
+              <SimpleStepper
+                tintColor="white"
+                initialValue={this.props.survivor.speed}
+                minimumValue={-10}
+                maximumValue={10}
+                valueChanged={qty =>
+                  this.props.survivor.setAttribute('speed', qty)
+                }
+              />
+            </View>
+          </View>
+        )}
         <Divider />
 
         <View styleName="horizontal space-between v-center">
