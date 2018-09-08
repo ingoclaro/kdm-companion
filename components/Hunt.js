@@ -48,7 +48,7 @@ class Hunt extends React.Component {
         <Text style={styles.B}>B: Basic hunt event</Text>
         <Text style={styles.M}>M: Monster hunt event</Text>
         <Text style={styles.X}>X: Monster</Text>
-        <Text style={styles.O}>O: Overwhelming Darkness</Text>
+        <Text style={styles.O}>O: Overwhelming Darkness (p.147)</Text>
         <Text>S: Starvation</Text>
       </View>
     )

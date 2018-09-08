@@ -38,14 +38,8 @@ export default {
     id: 'Bone Witch - Scarred Eyes',
     name: 'Bone Witch - Scarred Eyes',
     expansion: 'core',
-    description: 'Suffer -4 permanent Accuracy and gain +4 permanent strength.',
-  },
-  'Bone Witch - Wounds': {
-    id: 'Bone Witch - Wounds',
-    name: 'Bone Witch - Wounds',
-    expansion: 'core',
     description:
-      'Suffer -1 permanent strength, -1 permanent accuracy and skip the next hunt.',
+      'Roll 1d5, suffer -X permanent **accuracy** and gain +X permanent **strength**. If you gain this result twice, you die.',
   },
   'Burnt Nerves': {
     id: 'Burnt Nerves',
@@ -110,7 +104,7 @@ export default {
     name: 'Endless Babble',
     expansion: 'core',
     description:
-      'When you **depart**, **departing survivors** gain +1 insanity. You may not encourage.',
+      'When you **depart**, departing survivors gain +1 insanity. You may not **encourage**.',
   },
   Explore: {
     id: 'Explore',
@@ -131,7 +125,7 @@ export default {
     name: 'Forgettable',
     expansion: 'slenderman',
     description:
-      'Gain +2 permanent evasion. Forgettable survivors cannot be encouraged.',
+      'Gain +2 permanent evasion. Forgettable survivors cannot be **encouraged**.',
   },
   'Green Life Exchange': {
     id: 'Green Life Exchange',
@@ -171,7 +165,7 @@ export default {
     id: "King's Curse",
     name: "King's Curse",
     expansion: 'core',
-    description: "At the Aftermath, {book} **King's Curse**.",
+    description: "At the Aftermath, {book} **King's Curse** (p.135).",
   },
   Legendcaller: {
     id: 'Legendcaller',
@@ -241,7 +235,7 @@ export default {
     name: 'Matchmaker',
     expansion: 'core',
     description:
-      'When you are a returning survivor, once per year you may spend 1 Endeavor to trigger Intimacy (story event).',
+      'When you are a returning survivor, once per year you may spend 1 Endeavor to trigger {book} **Intimacy** (p.133).',
   },
   'Metal Maw': {
     id: 'Metal Maw',
@@ -269,7 +263,7 @@ export default {
     name: 'Peerless',
     expansion: 'core',
     description:
-      'When you gain insanity, you may gain an equal amount of survival.',
+      'When you gain **insanity**, you may gain an equal amount of **survival**.',
   },
   Possessed: {
     id: 'Possessed',

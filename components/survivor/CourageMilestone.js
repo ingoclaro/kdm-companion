@@ -73,7 +73,7 @@ export default class CourageMilestone extends React.Component {
     hunt:
       '**Prepared**: When rolling to determine a straggler, add your hunt experience to your roll result.',
     settlement:
-      '**Matchmaker**: When you are a returning survivor, once per year you may spend {endeavor} to {book} **Intimacy**.',
+      '**Matchmaker**: When you are a returning survivor, once per year you may spend {endeavor} to {book} **Intimacy** (p.133).',
   }
 
   state = {
@@ -127,6 +127,6 @@ export default class CourageMilestone extends React.Component {
 }
 
 export const courageMilestones = {
-  3: { description: '{book} Bold' }, //TODO: add details: <CourageMilestone />
-  9: { description: '{book} See the Truth' },
+  3: { description: '{book} Bold (p.113)' }, //TODO: add details: <CourageMilestone />
+  9: { description: '{book} See the Truth (p.167)' },
 }

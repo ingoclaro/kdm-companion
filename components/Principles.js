@@ -12,6 +12,7 @@ import {
 } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
 import R from 'ramda'
+import colors from '../src/colors'
 
 @inject(({ store }) => ({
   selectedPrinciples: store.selectedCampaign.principles,
@@ -88,7 +89,10 @@ export default class Principles extends React.Component {
     return (
       <View>
         <Row>
-          <Subtitle>Death:</Subtitle>
+          <View>
+            <Subtitle>Death:</Subtitle>
+            <Text style={styles.bookPage}>(p.155)</Text>
+          </View>
           <DropDownMenu
             options={this.principles.death}
             selectedOption={selectedDeath}
@@ -99,7 +103,10 @@ export default class Principles extends React.Component {
         </Row>
 
         <Row>
-          <Subtitle>New Life:</Subtitle>
+          <View>
+            <Subtitle>New Life:</Subtitle>
+            <Text style={styles.bookPage}>(p.157)</Text>
+          </View>
           <DropDownMenu
             options={this.principles.newlife}
             selectedOption={selectedNewlife}
@@ -110,7 +117,10 @@ export default class Principles extends React.Component {
         </Row>
 
         <Row>
-          <Subtitle>Society:</Subtitle>
+          <View>
+            <Subtitle>Society:</Subtitle>
+            <Text style={styles.bookPage}>(p.159)</Text>
+          </View>
           <DropDownMenu
             options={this.principles.society}
             selectedOption={selectedSociety}
@@ -121,7 +131,10 @@ export default class Principles extends React.Component {
         </Row>
 
         <Row>
-          <Subtitle>Conviction:</Subtitle>
+          <View>
+            <Subtitle>Conviction:</Subtitle>
+            <Text style={styles.bookPage}>(p.153)</Text>
+          </View>
           <DropDownMenu
             options={this.principles.conviction}
             selectedOption={selectedConviction}
@@ -169,4 +182,10 @@ export class PrinciplesItems extends React.Component {
       </View>
     )
   }
+}
+
+const styles = {
+  bookPage: {
+    color: colors.grey800,
+  },
 }
