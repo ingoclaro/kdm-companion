@@ -62,7 +62,7 @@ function map_description(desc) {
     .replace('<font id="Dormenatus">&#x02588;</font>', '{green square}')
     .replace('<font id="Caratosis">&#x02588;</font>', '{red square}')
     .replace('<font class="inline_shield">1</font>', '{shield 1}')
-    .replace('<font class="kdm_font">g</font>', '{book}')
+    .replace('<font class="kdm_font">g</font>', '![book](book)')
 }
 
 function extract(data) {

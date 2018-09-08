@@ -1,6 +1,8 @@
 import React from 'react'
-import { View, Text, Image, Button, Caption } from '@shoutem/ui'
+import { View, Image, Button, Caption } from '@shoutem/ui'
+import { Text } from 'react-native'
 import Markdown from 'react-native-markdown-renderer'
+import applyStyle from 'react-native-markdown-renderer/src/lib/util/applyStyle'
 import FitImage from 'react-native-fit-image'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
@@ -79,7 +81,6 @@ export default class RichText extends React.Component {
               }
               return (
                 <FitImage
-                  indicator={false}
                   key={node.key}
                   style={style}
                   source={this.icons[node.attributes.src].source}
@@ -96,6 +97,28 @@ export default class RichText extends React.Component {
               />
             )
           },
+
+          // TODO: fix that text after an image doesn't fit, it gets into a new line.
+
+          // text: (node, children, parent, styles) => {
+          //   return (
+          //     <Text key={node.key} style={styles.text}>
+          //       {node.content}
+          //     </Text>
+          //   )
+          // },
+          //
+          // textgroup: (node, children, parent, styles) => {
+          //   // if children doesn't have any images, group them together.
+          //   return (
+          //     <Text key={node.key} style={styles.text}>
+          //       {children}
+          //     </Text>
+          //   )
+          //
+          //   // otherwise return as is to "fake" inline images.
+          //   // return children
+          // },
         }}
       >
         {this.props.children}
@@ -108,7 +131,6 @@ const styles = {
   markdown: {
     text: {
       color: colors.grey500,
-      flexWrap: 'wrap',
     },
     paragraph: {
       marginTop: 0,
@@ -118,21 +140,5 @@ const styles = {
       alignItems: 'center',
       justifyContent: 'flex-start',
     },
-    // listItemBullet: {
-    //   color: colors.grey500,
-    //   minWidth: 0,
-    //   paddingRight: 8,
-    // },
-    // listItemUnorderedContent: {
-    //   color: colors.grey500,
-    // },
-    // listItemUnorderedContent: {
-    //   flex: -1,
-    //   color: colors.grey500,
-    // },
-    // list: {
-    //   margin: 0,
-    //   marginLeft: 8,
-    // },
   },
 }

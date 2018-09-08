@@ -52,8 +52,8 @@ export default class Survivor extends React.Component {
 
   //TODO: move this to it's own class after resolving for CourageMilestone
   understandingMilestones = {
-    3: { description: '{book} Insight (p.131)' },
-    9: { description: '{book} White Secret (p.181)' },
+    3: { description: '![book](book) Insight (p.131)' },
+    9: { description: '![book](book) White Secret (p.181)' },
   }
 
   render() {
