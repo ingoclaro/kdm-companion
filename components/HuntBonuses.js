@@ -3,7 +3,7 @@ import { Title, View, Text, Subtitle, Divider } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
 import { capitalize } from '../src/utils'
 import colors from '../src/colors'
-import RichText from './RichText'
+import RichText from './common/RichText'
 import R from 'ramda'
 
 @inject(({ store }) => ({

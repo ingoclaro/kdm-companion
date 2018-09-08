@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Title, Text, Row, ListView } from '@shoutem/ui'
-import RichText from './RichText'
+import RichText from './common/RichText'
 import { Dimensions } from 'react-native'
 import colors from '../src/colors'
 

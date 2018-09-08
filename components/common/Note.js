@@ -11,7 +11,7 @@ import {
 import Modal from 'react-native-modal'
 import { observer } from 'mobx-react/native'
 import PropTypes from 'prop-types'
-import colors from '../src/colors'
+import colors from '../../src/colors'
 
 import RichText from './RichText'
 

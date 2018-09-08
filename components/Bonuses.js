@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, Row, Title, Subtitle, ListView } from '@shoutem/ui'
 import { values } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
-import RichText from './RichText'
+import RichText from './common/RichText'
 
 import colors from '../src/colors'
 import { capitalize } from '../src/utils'

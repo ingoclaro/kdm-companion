@@ -10,7 +10,7 @@ import {
   Row,
   Icon,
 } from '@shoutem/ui'
-import Accordion from './Accordion'
+import Accordion from './common/Accordion'
 import SimpleStepper from 'react-native-simple-stepper'
 import { observer, inject } from 'mobx-react/native'
 import { values } from 'mobx'

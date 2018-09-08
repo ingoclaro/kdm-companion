@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Icon, TouchableOpacity } from '@shoutem/ui'
 import { connectStyle } from '@shoutem/theme'
-import colors from '../src/colors'
+import colors from '../../src/colors'
 
 export default class CheckboxListItem extends React.PureComponent {
   _onPress = () => {

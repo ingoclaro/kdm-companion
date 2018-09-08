@@ -9,7 +9,7 @@ import {
   Divider,
   Button,
 } from '@shoutem/ui'
-import MultiSelectList from '../components/MultiSelectList'
+import MultiSelectList from '../components/common/MultiSelectList'
 import Modal from 'react-native-modal'
 import PropTypes from 'prop-types'
 import { observer, inject } from 'mobx-react/native'

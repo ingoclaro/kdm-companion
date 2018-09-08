@@ -1,8 +1,8 @@
 import React from 'react'
 import { Screen, View, Title, Text, Row, Icon } from '@shoutem/ui'
-import RichText from './RichText'
+import RichText from './common/RichText'
 import { Dimensions } from 'react-native'
-import Accordion from './Accordion'
+import Accordion from './common/Accordion'
 import colors from '../src/colors'
 
 export default class SevereInjuryTable extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Button, Icon } from '@shoutem/ui'
-import RichText from '../RichText'
+import RichText from '../common/RichText'
 import PropTypes from 'prop-types'
 
 import colors from '../../src/colors'

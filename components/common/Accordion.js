@@ -10,7 +10,7 @@ import {
 } from '@shoutem/ui'
 import { SectionList } from 'react-native'
 import PropTypes from 'prop-types'
-import colors from '../src/colors'
+import colors from '../../src/colors'
 
 export default class Accordion extends React.Component {
   constructor(props) {

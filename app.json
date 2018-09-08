@@ -7,7 +7,7 @@
     "version": "1.5.0",
     "githubUrl": "https://github.com/ingoclaro/kdm-companion",
     "orientation": "portrait",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": ["images/*"],
     "primaryColor": "#212121",
     "androidStatusBar": {
       "backgroundColor": "#212121"

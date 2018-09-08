@@ -18,7 +18,7 @@ import colors from '../src/colors'
 import Innovations, { InnovationsItems } from './Innovations'
 import Locations, { LocationItems } from './Locations'
 import Principles, { PrinciplesItems } from './Principles'
-import Note from './Note'
+import Note from './common/Note'
 
 @inject(({ store }) => ({
   notes: store.selectedCampaign.notes,

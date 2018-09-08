@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Image, Button, Caption } from '@shoutem/ui'
 import Modal from 'react-native-modal'
-import RichText from '../RichText'
+import RichText from '../common/RichText'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 

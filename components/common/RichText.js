@@ -3,9 +3,10 @@ import { View, Text, Image, Button, Caption } from '@shoutem/ui'
 import { Platform, PixelRatio } from 'react-native'
 import Markdown, { PluginContainer } from 'react-native-markdown-renderer'
 import PropTypes from 'prop-types'
-import colors from '../src/colors'
+import colors from '../../src/colors'
 
-const ico_book = require('../images/book.png')
+const ico_book = require('../../images/book.png')
+const ico_movement = require('../../images/movement.png')
 
 export default class RichText extends React.Component {
   replace(md, options) {
@@ -25,13 +26,20 @@ export default class RichText extends React.Component {
 
           let nodes = []
           let index = 0
-          let re = /{book}/g
-          while (re.exec(token.content) !== null) {
-            let offset = re.lastIndex - 6
+          let re = /{([^}]+)}/g // {book}, {whatever}
+          let result
+          while ((result = re.exec(token.content)) !== null) {
+            if (!['book', 'movement'].includes(result[1])) {
+              continue
+            }
+            let offset = re.lastIndex - (2 + result[1].length)
             let tok = new Token('text', '', token.nesting)
             tok.content = token.content.substring(index, offset)
             nodes.push(tok)
-            nodes.push(new Token('book', '', token.nesting))
+
+            let image = new Token('image', '', token.nesting)
+
+            nodes.push(image)
             index = re.lastIndex
           }
           if (index > 0) {
@@ -51,12 +59,19 @@ export default class RichText extends React.Component {
     return <Image key={key} source={ico_book} style={{ width, height }} />
   }
 
+  movement(key) {
+    const width = 12 * (Platform.OS === 'ios' ? 1 : PixelRatio.get())
+    const height = 12 * (Platform.OS === 'ios' ? 1 : PixelRatio.get())
+    return <Image key={key} source={ico_movement} style={{ width, height }} />
+  }
+
   render() {
     return (
       <Markdown
         style={styles.markdown}
         rules={{
           book: (node, children, parent, styles) => this.book(node.key),
+          movement: (node, children, parent, styles) => this.movement(node.key),
         }}
         plugins={[
           new PluginContainer((md, options) => {

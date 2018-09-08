@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Title, Text, Divider } from '@shoutem/ui'
 import MilestoneTable from './MilestoneTable'
-import CheckboxListItem from '../CheckboxListItem'
+import CheckboxListItem from '../common/CheckboxListItem'
 import colors from '../../src/colors'
 
 export default class CourageMilestone extends React.Component {

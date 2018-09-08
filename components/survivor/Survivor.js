@@ -26,7 +26,7 @@ import EditableTextProperty from './EditableTextProperty'
 import FightingArts from './FightingArts'
 import GenderButton from './GenderButton'
 
-import Note from '../Note'
+import Note from '../common/Note'
 import colors from '../../src/colors'
 
 const ico_accuracy = require('../../images/icon_accuracy-24.png')
