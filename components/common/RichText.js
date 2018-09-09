@@ -69,6 +69,12 @@ export default class RichText extends React.Component {
     endeavor: { source: ico_endeavor },
   }
 
+  colors = {
+    blue: colors.blue900,
+    red: colors.red800,
+    green: colors.green800,
+  }
+
   render() {
     return (
       <Markdown
@@ -91,6 +97,19 @@ export default class RichText extends React.Component {
 
             if (node.attributes.src === 'shield') {
               return <Shield key={node.key} value={node.content} />
+            }
+
+            if (node.attributes.src === 'square') {
+              return (
+                <View
+                  key={node.key}
+                  style={{
+                    backgroundColor: this.colors[node.content],
+                    width: 12,
+                    height: 12,
+                  }}
+                />
+              )
             }
 
             return (

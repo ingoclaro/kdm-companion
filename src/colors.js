@@ -1,5 +1,7 @@
+//https://material.io/design/color/the-color-system.html#tools-for-picking-colors
 export default {
   black: '#000000',
+  blue900: '#0D47A1',
   bluegrey300: '#90A4AE',
   bluegrey400: '#78909C',
   bluegrey500: '#607D8B',
@@ -9,6 +11,8 @@ export default {
   brown400: '#8D6E63',
   brown500: '#795548',
   brown600: '#6D4C41',
+  green800: '#2E7D32',
+  green900: '#1B5E20',
   grey100: '#F5F5F5',
   grey200: '#EEEEEE',
   grey300: '#E0E0E0',

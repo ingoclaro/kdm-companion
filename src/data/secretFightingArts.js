@@ -4,7 +4,7 @@ export default {
     name: 'Acanthus Doctor',
     expansion: 'fk',
     description:
-      'You may wear up to 3 **Satchel** gear cards. When you **depart**, if you are not wearing any armor, for each {green square} you have, gain +1 strength token and add ![1](shield) to all hit locations. Spend ![action](action) and a Flower or **Fresh Acanthus** resource to heal a permanent injury you or an adjacent survivor suffered this showdown.',
+      'You may wear up to 3 **Satchel** gear cards. When you **depart**, if you are not wearing any armor, for each ![green](square) you have, gain +1 strength token and add ![1](shield) to all hit locations. Spend ![action](action) and a Flower or **Fresh Acanthus** resource to heal a permanent injury you or an adjacent survivor suffered this showdown.',
   },
   'Ageless Apprentice': {
     id: 'Ageless Apprentice',
@@ -95,7 +95,7 @@ export default {
     name: 'Hellfire',
     expansion: 'sunstalker',
     description:
-      'You cannot lose or remove this fighting art. Gain +1 strength for each {red square} you have. You cannot be nominated for **Intimacy**. You ignore **Extreme Heat**. At the start of your act, lose 1 survival. At the end of your act, if your survival is 0 or you have any +1 strength tokens, your organs cook themselves and you die.',
+      'You cannot lose or remove this fighting art. Gain +1 strength for each ![red](square) you have. You cannot be nominated for **Intimacy**. You ignore **Extreme Heat**. At the start of your act, lose 1 survival. At the end of your act, if your survival is 0 or you have any +1 strength tokens, your organs cook themselves and you die.',
   },
   'Immovable Object': {
     id: 'Immovable Object',

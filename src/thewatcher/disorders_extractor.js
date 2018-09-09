@@ -58,8 +58,8 @@ function map_description(desc) {
     })
     .replace('<font class="kdm_font">c</font>', '![movement](movement)')
     .replace('<font class="kdm_font">a</font>', '![action](action)')
-    .replace('<font id="Dormenatus">&#x02588;</font>', '{green square}')
-    .replace('<font id="Caratosis">&#x02588;</font>', '{red square}')
+    .replace('<font id="Dormenatus">&#x02588;</font>', '![green](square)')
+    .replace('<font id="Caratosis">&#x02588;</font>', '![red](square)')
     .replace('<font class="inline_shield">1</font>', '![1](shield)')
     .replace('<font class="kdm_font">g</font>', '![book](book)')
 }
