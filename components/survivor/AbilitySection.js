@@ -42,6 +42,7 @@ export default class AbilitySection extends React.Component {
     additionalDropdownTitle: PropTypes.string,
     additionalAvailableItems: PropTypes.array,
     limit: PropTypes.number,
+    disabled: PropTypes.bool, // disable the widget
   }
 
   static defaultProps = {
@@ -52,6 +53,7 @@ export default class AbilitySection extends React.Component {
     availableItems: [],
     additionalAvailableItems: [],
     limit: 3,
+    disabled: false,
   }
 
   showEditor() {
@@ -96,6 +98,8 @@ export default class AbilitySection extends React.Component {
   }
 
   render() {
+    let titleStyle = this.props.disabled ? styles.titleDisabled : {}
+
     return (
       <View>
         <Button
@@ -103,7 +107,7 @@ export default class AbilitySection extends React.Component {
           style={{ alignSelf: 'flex-start' }}
           onPress={this.showEditor}
         >
-          <Title>{this.props.title}</Title>
+          <Title style={titleStyle}>{this.props.title}</Title>
           <Icon name="right-arrow" />
         </Button>
         <AbilityList
@@ -148,5 +152,8 @@ const styles = {
     paddingHorizontal: 5,
     paddingVertical: 5,
     backgroundColor: colors.grey900,
+  },
+  titleDisabled: {
+    textDecorationLine: 'line-through',
   },
 }

@@ -138,6 +138,7 @@ export default class Survivor extends React.Component {
               showLabel={true}
               quantity={survivor.survival}
               setQuantity={qty => survivor.setAttribute('survival', qty)}
+              disabled={survivor.cannotUseSurvival}
             />
             <Text style={{ color: colors.grey500 }}>
               (Limit: {this.props.survivalLimit})
@@ -178,6 +179,7 @@ export default class Survivor extends React.Component {
           fightingArts={survivor.fightingArts}
           addFA={survivor.addFA}
           removeFA={survivor.removeFA}
+          disabled={survivor.cannotUseFightingArts}
         />
 
         <Divider />
@@ -194,6 +196,7 @@ export default class Survivor extends React.Component {
           abilities={survivor.abilities}
           addAbility={survivor.addAbility}
           removeAbility={survivor.removeAbility}
+          disabled={survivor.cannotUseAbilities}
         />
 
         <Divider />

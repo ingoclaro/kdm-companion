@@ -30,6 +30,7 @@ export default class EditableProperty extends React.Component {
     minimumValue: PropTypes.number, // minimum value for the quantity
     maximumValue: PropTypes.number, // maximum value for the quantity
     setQuantity: PropTypes.func.isRequired, // @params quantity: save the quantity
+    disabled: PropTypes.bool, // disable the widget
     milestones: PropTypes.object, // milestones for achieving a certain number in the quantity field
     // structure:
     // number: {description: text, details: function}
@@ -37,6 +38,7 @@ export default class EditableProperty extends React.Component {
 
   static defaultProps = {
     milestones: {},
+    disabled: false,
   }
 
   milestone() {
@@ -115,6 +117,8 @@ export default class EditableProperty extends React.Component {
       <Image source={this.props.icon} style={{ width: 16, height: 16 }} />
     ) : null
 
+    let style = this.props.disabled ? styles.disabledProperty : styles.property
+
     return (
       <View styleName="horizontal v-center">
         <Button
@@ -124,7 +128,7 @@ export default class EditableProperty extends React.Component {
           style={styles.button}
         >
           {icon}
-          <Text style={styles.property}>
+          <Text style={style}>
             {this.props.label}: {this.props.quantity}
           </Text>
         </Button>
@@ -147,6 +151,16 @@ const styles = {
     color: colors.grey100,
     fontWeight: 'normal',
     textDecorationLine: 'underline',
+    fontSize: 15,
+    paddingLeft: 2,
+    marginRight: 0,
+    marginTop: 2,
+    marginBottom: 2,
+  },
+  disabledProperty: {
+    color: colors.grey100,
+    fontWeight: 'normal',
+    textDecorationLine: 'line-through',
     fontSize: 15,
     paddingLeft: 2,
     marginRight: 0,

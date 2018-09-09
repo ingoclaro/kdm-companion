@@ -14,6 +14,7 @@ import {
 import { Keyboard } from 'react-native'
 import { observer, inject } from 'mobx-react/native'
 import SimpleStepper from 'react-native-simple-stepper'
+import CheckboxListItem from '../common/CheckboxListItem'
 import GenderButton from './GenderButton'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
@@ -182,6 +183,45 @@ export default class EditStats extends React.Component {
           </View>
         )}
         <Divider />
+
+        <CheckboxListItem
+          styleName="title"
+          onPressItem={() =>
+            this.props.survivor.setAttribute(
+              'cannotUseSurvival',
+              !this.props.survivor.cannotUseSurvival
+            )
+          }
+          title="Cannot use Survival"
+          id="cannotUseSurvival"
+          selected={this.props.survivor.cannotUseSurvival}
+        />
+
+        <CheckboxListItem
+          styleName="title"
+          onPressItem={() =>
+            this.props.survivor.setAttribute(
+              'cannotUseFightingArts',
+              !this.props.survivor.cannotUseFightingArts
+            )
+          }
+          title="Cannot use Fighting Arts"
+          id="cannotUseFightingArts"
+          selected={this.props.survivor.cannotUseFightingArts}
+        />
+
+        <CheckboxListItem
+          styleName="title"
+          onPressItem={() =>
+            this.props.survivor.setAttribute(
+              'cannotUseAbilities',
+              !this.props.survivor.cannotUseAbilities
+            )
+          }
+          title="Cannot use Abilities"
+          id="cannotUseAbilities"
+          selected={this.props.survivor.cannotUseAbilities}
+        />
 
         <View styleName="horizontal space-between v-center">
           <Text>Insanity: {this.props.survivor.insanity}</Text>

@@ -36,6 +36,10 @@ const Survivor = types
     understanding: 0,
 
     notes: '',
+
+    cannotUseSurvival: false,
+    cannotUseFightingArts: false,
+    cannotUseAbilities: false,
   })
   .actions(self => ({
     addFA(fa) {

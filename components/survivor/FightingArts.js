@@ -30,6 +30,7 @@ export default class FightingArts extends React.Component {
         items={this.props.fightingArts}
         addItem={this.props.addFA}
         removeItem={this.props.removeFA}
+        disabled={this.props.disabled}
       />
     )
   }

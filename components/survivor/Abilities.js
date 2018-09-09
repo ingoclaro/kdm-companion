@@ -28,6 +28,7 @@ export default class Abilities extends React.Component {
         addItem={this.props.addAbility}
         removeItem={this.props.removeAbility}
         limit={99}
+        disabled={this.props.disabled}
       />
     )
   }
