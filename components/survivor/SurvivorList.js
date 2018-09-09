@@ -40,10 +40,6 @@ export default class SurvivorList extends React.Component {
   render() {
     const survivors = this.props.filterSurvivors(this.state.selected)
 
-    // if (survivors.length === 0) {
-    //   return <Text>No survivors</Text>
-    // }
-
     return (
       <View>
         <View styleName="horizontal space-between">
