@@ -12,6 +12,7 @@ import {
   Divider,
 } from '@shoutem/ui'
 import AttributeSmall from './AttributeSmall'
+import CheckboxListItem from '../common/CheckboxListItem'
 
 import { observer, inject } from 'mobx-react/native'
 import colors from '../../src/colors'
@@ -27,21 +28,43 @@ const ico_movement = require('../../images/icon_movement-24.png')
 const ico_strength = require('../../images/icon_strength-24.png')
 
 @inject(({ store }) => ({
-  survivors: Array.from(store.selectedCampaign.settlement.survivors),
+  // survivors: Array.from(store.selectedCampaign.settlement.survivors),
+  filterSurvivors: store.selectedCampaign.settlement.filterSurvivors,
 }))
 @observer
 export default class SurvivorList extends React.Component {
+  state = {
+    selected: 'alive',
+  }
+
   render() {
-    if (this.props.survivors.length === 0) {
-      return <Text>No survivors</Text>
-    }
+    const survivors = this.props.filterSurvivors(this.state.selected)
+
+    // if (survivors.length === 0) {
+    //   return <Text>No survivors</Text>
+    // }
 
     return (
       <View>
-        <Title>Survivors</Title>
+        <View styleName="horizontal space-between">
+          <Title>Survivors</Title>
+          <CheckboxListItem
+            styleName="title"
+            onPressItem={() => this.setState({ selected: 'alive' })}
+            title="Alive"
+            id="alive"
+            selected={this.state.selected === 'alive'}
+          />
+          <CheckboxListItem
+            styleName="title"
+            onPressItem={() => this.setState({ selected: 'dead' })}
+            title="Dead"
+            id="dead"
+            selected={this.state.selected === 'dead'}
+          />
+        </View>
         <View>
-          {this.props.survivors.map(item => {
-            let survivor = item[1]
+          {survivors.map(survivor => {
             let gender_icon = survivor.gender === 'male' ? ico_male : ico_female
 
             return (

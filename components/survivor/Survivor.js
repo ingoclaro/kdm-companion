@@ -38,6 +38,7 @@ const ico_luck = require('../../images/icon_luck-24.png')
 const ico_male = require('../../images/male-32.png')
 const ico_movement = require('../../images/icon_movement-24.png')
 const ico_strength = require('../../images/icon_strength-24.png')
+const ico_death = require('../../images/icon_death.png')
 
 // This is the individual survivor screen
 @inject(({ store }, props) => ({
@@ -73,6 +74,12 @@ export default class Survivor extends React.Component {
             source={gender_icon}
             style={{ width: 14, height: 14, marginLeft: 5 }}
           />
+          {survivor.status === 'dead' ? (
+            <Image
+              source={ico_death}
+              style={{ width: 14, height: 16, marginLeft: 10 }}
+            />
+          ) : null}
         </View>
 
         <View styleName="horizontal">

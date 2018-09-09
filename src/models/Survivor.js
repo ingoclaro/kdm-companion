@@ -80,6 +80,11 @@ const Survivor = types
     saveNotes(notes) {
       self.notes = notes
     },
+    cycleStatus() {
+      let statusList = ['alive', 'dead', 'retired']
+      let index = (statusList.indexOf(self.status) + 1) % statusList.length
+      self.status = statusList[index]
+    },
   }))
 const init = () => ({ id: uuid(), name: 'Unnamed' })
 

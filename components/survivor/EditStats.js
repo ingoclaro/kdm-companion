@@ -76,12 +76,26 @@ export default class EditStats extends React.Component {
             maxLength={35}
           />
         </View>
+
         <View styleName="horizontal v-center" style={styles.genderRow}>
           <Text style={styles.genderText}>Gender:</Text>
           <GenderButton
             gender={this.props.survivor.gender}
             changeGender={this.props.survivor.changeGender}
           />
+        </View>
+
+        <View styleName="horizontal v-center" style={{ paddingTop: 10 }}>
+          <Text>Status: </Text>
+          <Button
+            styleName="clear"
+            style={{ paddingLeft: 5, borderBottomWidth: 1 }}
+            onPress={() => this.props.survivor.cycleStatus()}
+          >
+            <Text style={{ color: colors.grey200, margin: 0 }}>
+              {this.props.survivor.status}
+            </Text>
+          </Button>
         </View>
 
         {this.state.showBottomPart && (

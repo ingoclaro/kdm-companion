@@ -1,6 +1,8 @@
 import { types, getSnapshot } from 'mobx-state-tree'
 import { SettlementBonus, init as defaultBonus } from './SettlementBonus'
 import { Survivor, init as defaultSurvivor } from './Survivor'
+import R from 'ramda'
+import { values } from 'mobx'
 
 // all are maybe because it's used by innovations as well.
 export const Settlement = types
@@ -70,5 +72,19 @@ export const Settlement = types
       self.survivors.set(survivorData.id, survivorData)
       let survivor = self.survivors.get(survivorData.id)
       return survivor
+    },
+  }))
+  .views(self => ({
+    filterSurvivors(status = 'alive') {
+      if (status === 'alive') {
+        return R.filter(
+          item => item.status === 'alive' || item.status === 'retired',
+          values(self.survivors)
+        )
+      } else {
+        return R.filter(item => {
+          return item.status === status
+        }, values(self.survivors))
+      }
     },
   }))

@@ -11,7 +11,10 @@ export default class CheckboxListItem extends React.PureComponent {
   styles = this.props.style
 
   render() {
-    const styleName = this.props.selected ? 'selected' : ''
+    let styleName = this.props.selected ? 'selected' : ''
+    if (this.props.styleName) {
+      styleName += ` ${this.props.styleName}`
+    }
     const Checkbox = this.props.selected ? (
       <Icon name="checkbox-on" style={styles.checkbox} />
     ) : (
@@ -42,6 +45,9 @@ const styles = {
       fontSize: 24,
       '.selected': {
         color: colors.grey100,
+      },
+      '.title': {
+        fontSize: 20,
       },
     },
   },
