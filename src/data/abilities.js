@@ -65,7 +65,7 @@ export default {
     name: 'Crystal Skin',
     expansion: 'core',
     description:
-      'You ignore **cursed** and cannot wear armor. When you **depart**, gain {shield 3} to all hit locations. Suffer -2 to the result of all severe injury rolls. When you participate in **Intimacy**, newborns gain **Crystal Skin** in addition to any other roll results.',
+      'You ignore **cursed** and cannot wear armor. When you **depart**, gain ![3](shield) to all hit locations. Suffer -2 to the result of all severe injury rolls. When you participate in **Intimacy**, newborns gain **Crystal Skin** in addition to any other roll results.',
   },
   'Death Mehndi': {
     id: 'Death Mehndi',
@@ -79,7 +79,7 @@ export default {
     name: 'Dormenatus',
     expansion: 'core',
     description:
-      "When you suffer damage, you may declare 'Dormenatus X' in a loud, booming voice. If you do, gain {shield x} to each hit location. X cannot be more than your total green affinities. After the damage is resolved, gain +X hunt XP. When you trigger Age 2, gain the **Grace of Dormenatus** secret fighting art.",
+      "When you suffer damage, you may declare 'Dormenatus X' in a loud, booming voice. If you do, gain ![x](shield) to each hit location. X cannot be more than your total green affinities. After the damage is resolved, gain +X hunt XP. When you trigger Age 2, gain the **Grace of Dormenatus** secret fighting art.",
   },
   'Dream of the Beast': {
     id: 'Dream of the Beast',
@@ -152,7 +152,7 @@ export default {
     name: 'Iridescent Hide',
     expansion: 'dk',
     description:
-      'Gain +{shield 1} to all hit locations for each different-colored affinity in your gear grid.',
+      'Gain +![1](shield) to all hit locations for each different-colored affinity in your gear grid.',
   },
   'Iron Will': {
     id: 'Iron Will',

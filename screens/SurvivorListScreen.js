@@ -23,9 +23,10 @@ export default class SurvivorScreen extends React.Component {
     this.navigate = this.navigate.bind(this)
   }
 
-  navigate(survivorId) {
+  navigate(survivorId, edit = false) {
     this.props.navigation.navigate('Survivor', {
       survivorId,
+      edit,
     })
   }
 

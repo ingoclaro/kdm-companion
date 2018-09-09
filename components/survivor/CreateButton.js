@@ -28,7 +28,7 @@ export default class CreateButton extends React.Component {
 
   create() {
     let survivor = this.props.createSurvivor()
-    this.props.navigate(survivor.id)
+    this.props.navigate(survivor.id, true)
   }
 
   render() {

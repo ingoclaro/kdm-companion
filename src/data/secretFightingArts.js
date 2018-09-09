@@ -4,7 +4,7 @@ export default {
     name: 'Acanthus Doctor',
     expansion: 'fk',
     description:
-      'You may wear up to 3 **Satchel** gear cards. When you **depart**, if you are not wearing any armor, for each {green square} you have, gain +1 strength token and add {shield 1} to all hit locations. Spend ![action](action) and a Flower or **Fresh Acanthus** resource to heal a permanent injury you or an adjacent survivor suffered this showdown.',
+      'You may wear up to 3 **Satchel** gear cards. When you **depart**, if you are not wearing any armor, for each {green square} you have, gain +1 strength token and add ![1](shield) to all hit locations. Spend ![action](action) and a Flower or **Fresh Acanthus** resource to heal a permanent injury you or an adjacent survivor suffered this showdown.',
   },
   'Ageless Apprentice': {
     id: 'Ageless Apprentice',
@@ -137,7 +137,7 @@ export default {
     name: 'Necromancer',
     expansion: 'lg',
     description:
-      'When you **depart**, gain {shield 1} to all hit locations for each gear card in your grid with the *symbol* keyword. If you would roll on the severe injury table, roll on the **Worm Trauma** table on the other side of this card instead. When you die or forget this, the settlement gains the **Knowledge Worm** innovation.',
+      'When you **depart**, gain ![1](shield) to all hit locations for each gear card in your grid with the *symbol* keyword. If you would roll on the severe injury table, roll on the **Worm Trauma** table on the other side of this card instead. When you die or forget this, the settlement gains the **Knowledge Worm** innovation.',
   },
   'Red Fist': {
     id: 'Red Fist',

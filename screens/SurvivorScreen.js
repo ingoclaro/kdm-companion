@@ -29,6 +29,9 @@ export default class SurvivorScreen extends React.Component {
 
   componentDidMount() {
     this.props.navigation.setParams({ editSurvivor: this.editSurvivor })
+    if (this.props.navigation.getParam('edit') === true) {
+      this.setState({ visible: true })
+    }
   }
 
   editSurvivor = () => {

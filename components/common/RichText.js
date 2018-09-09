@@ -4,6 +4,7 @@ import { Text } from 'react-native'
 import Markdown from 'react-native-markdown-renderer'
 import applyStyle from 'react-native-markdown-renderer/src/lib/util/applyStyle'
 import FitImage from 'react-native-fit-image'
+import Shield from './Shield'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 
@@ -86,6 +87,10 @@ export default class RichText extends React.Component {
                   source={this.icons[node.attributes.src].source}
                 />
               )
+            }
+
+            if (node.attributes.src === 'shield') {
+              return <Shield key={node.key} value={node.content} />
             }
 
             return (
