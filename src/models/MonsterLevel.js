@@ -1,8 +1,8 @@
 import { types } from 'mobx-state-tree'
 
 const Deck = types.model('Deck', {
-  B: types.number,
-  A: types.number,
+  B: types.integer,
+  A: types.integer,
   L: 0,
   S: types.array(types.string),
 })

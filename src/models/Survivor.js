@@ -23,7 +23,7 @@ const Survivor = types
 
     survival: 1,
     insanity: 0,
-    age: 0,
+    'hunt xp': 0,
 
     movement: 5,
     accuracy: 0,
@@ -76,7 +76,7 @@ const Survivor = types
       if (self[attribute] !== undefined) {
         self[attribute] = quantity
       }
-      if (self.age >= 16) {
+      if (self['hunt xp'] >= 16) {
         self.status = 'retired'
       }
     },
@@ -87,6 +87,15 @@ const Survivor = types
       let statusList = ['alive', 'dead', 'retired']
       let index = (statusList.indexOf(self.status) + 1) % statusList.length
       self.status = statusList[index]
+    },
+    applyNewbornMilestones() {
+      // handle newborn milestones derived by bonuses
+      if (self.understanding >= 3) {
+        self.abilities.push('Tinker')
+      }
+      if (self.courage >= 3) {
+        self.abilities.push('Matchmaker')
+      }
     },
   }))
 const init = () => ({ id: uuid(), name: 'Unnamed' })

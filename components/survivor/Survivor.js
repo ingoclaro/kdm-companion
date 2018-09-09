@@ -148,8 +148,8 @@ export default class Survivor extends React.Component {
             minimumValue={0}
             maximumValue={16}
             showLabel={true}
-            quantity={survivor.age}
-            setQuantity={qty => survivor.setAttribute('age', qty)}
+            quantity={survivor['hunt xp']}
+            setQuantity={qty => survivor.setAttribute('hunt xp', qty)}
             milestones={ageMilestones}
           />
           <EditableProperty

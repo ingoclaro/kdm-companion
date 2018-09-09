@@ -8,7 +8,7 @@ import { values } from 'mobx'
 export const Settlement = types
   .model('Settlement', {
     name: types.maybeNull(types.string),
-    survivalLimit: types.maybeNull(types.number),
+    survivalLimit: types.maybeNull(types.integer),
     departing: types.maybeNull(SettlementBonus),
     newborn: types.maybeNull(SettlementBonus),
     showdown: types.maybeNull(SettlementBonus),
@@ -65,12 +65,15 @@ export const Settlement = types
       }
     },
     createSurvivor(name = undefined) {
-      let survivorData = defaultSurvivor()
+      let survivorData = Object.assign(defaultSurvivor(), self.newborn.bonus)
       if (name) {
         survivorData.name = name
       }
+
       self.survivors.set(survivorData.id, survivorData)
+
       let survivor = self.survivors.get(survivorData.id)
+      survivor.applyNewbornMilestones()
       return survivor
     },
   }))
