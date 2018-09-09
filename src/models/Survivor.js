@@ -76,6 +76,9 @@ const Survivor = types
       if (self[attribute] !== undefined) {
         self[attribute] = quantity
       }
+      if (self.age >= 16) {
+        self.status = 'retired'
+      }
     },
     saveNotes(notes) {
       self.notes = notes
