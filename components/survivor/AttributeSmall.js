@@ -8,9 +8,23 @@ export default class AttributeSmall extends React.Component {
     value: PropTypes.number.isRequired,
     icon: PropTypes.any, // image element
     text: PropTypes.string, // character
+    hideIfneutral: PropTypes.bool, //hide the stat if it's netural. (5 for movement, 0 for rest)
+  }
+
+  static defaultProps = {
+    hideIfneutral: false,
   }
 
   render() {
+    if (this.props.hideIfneutral) {
+      if (this.props.label === 'Movement' && this.props.value === 5) {
+        return null
+      }
+      if (this.props.value === 0) {
+        return null
+      }
+    }
+
     let styleName =
       this.props.value < 0 ? 'attributeTextNegative' : 'attributeText'
     if (this.props.label === 'Movement' && this.props.value < 5) {

@@ -87,18 +87,33 @@ export default class SurvivorList extends React.Component {
                     icon={ico_movement}
                     label="Movement"
                     value={survivor.movement}
+                    hideIfneutral={true}
                   />
                   <AttributeSmall
                     icon={ico_accuracy}
                     value={survivor.accuracy}
+                    hideIfneutral={true}
                   />
                   <AttributeSmall
                     icon={ico_strength}
                     value={survivor.strength}
+                    hideIfneutral={true}
                   />
-                  <AttributeSmall icon={ico_evasion} value={survivor.evasion} />
-                  <AttributeSmall icon={ico_luck} value={survivor.luck} />
-                  <AttributeSmall icon={ico_d10} value={survivor.speed} />
+                  <AttributeSmall
+                    icon={ico_evasion}
+                    value={survivor.evasion}
+                    hideIfneutral={true}
+                  />
+                  <AttributeSmall
+                    icon={ico_luck}
+                    value={survivor.luck}
+                    hideIfneutral={true}
+                  />
+                  <AttributeSmall
+                    icon={ico_d10}
+                    value={survivor.speed}
+                    hideIfneutral={true}
+                  />
                 </View>
                 <Text>
                   {survivor.fightingArts.map(item => item.name).join(', ')}
