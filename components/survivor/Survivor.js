@@ -15,16 +15,17 @@ import {
 import { observer, inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 
-import AbilityList from './AbilityList'
 import { ageMilestones } from './AgeMilestone'
 import { courageMilestones } from './CourageMilestone'
+import Abilities from './Abilities'
+import AbilityList from './AbilityList'
 import AttributeLarge from './AttributeLarge'
 import Disorders from './Disorders'
-import Abilities from './Abilities'
 import EditableProperty from './EditableProperty'
 import EditableTextProperty from './EditableTextProperty'
 import FightingArts from './FightingArts'
 import GenderButton from './GenderButton'
+import WeaponProficiency from './WeaponProficiency'
 
 import Note from '../common/Note'
 import colors from '../../src/colors'
@@ -55,6 +56,11 @@ export default class Survivor extends React.Component {
   understandingMilestones = {
     3: { description: '![book](book) Insight (p.131)' },
     9: { description: '![book](book) White Secret (p.181)' },
+  }
+
+  weaponProficiencyMilestones = {
+    3: { description: 'Specialist' },
+    8: { description: 'Master' },
   }
 
   render() {
@@ -153,6 +159,7 @@ export default class Survivor extends React.Component {
             setQuantity={qty => survivor.setAttribute('hunt xp', qty)}
             milestones={ageMilestones}
           />
+
           <EditableProperty
             label="Courage"
             minimumValue={0}
@@ -172,6 +179,21 @@ export default class Survivor extends React.Component {
             milestones={this.understandingMilestones}
           />
         </View>
+
+        {survivor.weaponProficiency && (
+          <EditableProperty
+            label={survivor.weaponProficiency.name}
+            minimumValue={0}
+            maximumValue={8}
+            showLabel={true}
+            quantity={survivor.weaponProficiencyLevel}
+            setQuantity={qty =>
+              survivor.setAttribute('weaponProficiencyLevel', qty)
+            }
+            milestones={this.weaponProficiencyMilestones}
+          />
+        )}
+        <WeaponProficiency survivor={survivor} />
 
         <Divider />
 

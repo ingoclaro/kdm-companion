@@ -65,7 +65,10 @@ export const Settlement = types
       }
     },
     createSurvivor(name = undefined) {
-      let survivorData = Object.assign(defaultSurvivor(), self.newborn.bonus)
+      let survivorData = Object.assign(
+        defaultSurvivor(),
+        self.newborn ? self.newborn.bonus : {}
+      )
       if (name) {
         survivorData.name = name
       }

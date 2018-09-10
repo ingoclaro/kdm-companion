@@ -10,6 +10,7 @@ import { Principle } from './Principle'
 import { FightingArt, SecretFightingArt } from './FightingArt'
 import { Disorder } from './Disorder'
 import { Ability } from './Ability'
+import { WeaponProficiency } from './WeaponProficiency'
 import { uuid } from '../utils'
 import R from 'ramda'
 
@@ -24,6 +25,7 @@ import gearData from '../data/gear'
 import expansionData from '../data/expansions'
 import principlesData from '../data/principles'
 import abilitiesData from '../data/abilities'
+import weaponProficiencyData from '../data/weaponProficiencies'
 
 export default types
   .model('RootStore', {
@@ -41,6 +43,10 @@ export default types
     expansions: types.optional(types.map(Expansion), expansionData),
     principles: types.optional(types.map(Principle), principlesData),
     abilities: types.optional(types.map(Ability), abilitiesData),
+    weaponProficiencies: types.optional(
+      types.map(WeaponProficiency),
+      weaponProficiencyData
+    ),
     campaigns: types.optional(types.array(Campaign), [
       {
         id: 'new',
@@ -121,6 +127,9 @@ export default types
     },
     get availableHunts() {
       return self.selectedExpansionFilter(self.monsters)
+    },
+    get availableWeaponProficiencies() {
+      return self.selectedExpansionFilter(self.weaponProficiencies)
     },
     get numCampaigns() {
       return self.campaigns.length

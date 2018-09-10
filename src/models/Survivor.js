@@ -2,6 +2,7 @@ import { types } from 'mobx-state-tree'
 import { FightingArt, SecretFightingArt } from './FightingArt'
 import { Disorder } from './Disorder'
 import { Ability } from './Ability'
+import { WeaponProficiency } from './WeaponProficiency'
 import { uuid } from '../utils'
 import R from 'ramda'
 
@@ -36,6 +37,9 @@ const Survivor = types
     understanding: 0,
 
     notes: '',
+
+    weaponProficiency: types.maybe(types.reference(WeaponProficiency)),
+    weaponProficiencyLevel: 0,
 
     cannotUseSurvival: false,
     cannotUseFightingArts: false,
@@ -99,6 +103,28 @@ const Survivor = types
       }
       if (self.courage >= 3) {
         self.abilities.push('Matchmaker')
+      }
+    },
+    setWeaponProficiency(prof) {
+      if (!self.weaponProficiency || self.weaponProficiency.id !== prof.id) {
+        self.weaponProficiencyLevel = 0
+        self.weaponProficiency = prof.id
+      }
+    },
+  }))
+  .views(self => ({
+    get weaponProficiencySpecialization() {
+      if (self.weaponProficiency && self.weaponProficiencyLevel >= 3) {
+        return self.weaponProficiency.specialistBonus
+      } else {
+        return null
+      }
+    },
+    get weaponProficiencyMastery() {
+      if (self.weaponProficiency && self.weaponProficiencyLevel >= 8) {
+        return self.weaponProficiency.masterBonus
+      } else {
+        return null
       }
     },
   }))

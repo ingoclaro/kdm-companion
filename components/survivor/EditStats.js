@@ -9,6 +9,7 @@ import {
   Button,
   Caption,
   Divider,
+  DropDownMenu,
   TextInput,
 } from '@shoutem/ui'
 import { Keyboard } from 'react-native'
@@ -18,10 +19,12 @@ import CheckboxListItem from '../common/CheckboxListItem'
 import GenderButton from './GenderButton'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
+import R from 'ramda'
 
 @inject(({ store }, props) => ({
   survivor: store.selectedCampaign.settlement.survivors.get(props.survivorId),
   survivalLimit: store.selectedCampaign.settlement.survivalLimit,
+  availableWeaponProficiencies: store.availableWeaponProficiencies,
 }))
 @observer
 export default class EditStats extends React.Component {
@@ -62,6 +65,21 @@ export default class EditStats extends React.Component {
 
   render() {
     let survivalHint = `(Limit: ${this.props.survivalLimit})`
+
+    let weaponProficiencies = [
+      { name: 'Choose', id: undefined },
+      ...this.props.availableWeaponProficiencies,
+    ]
+
+    let selectedWeaponProficiency = R.find(
+      item =>
+        this.props.survivor.weaponProficiency &&
+        this.props.survivor.weaponProficiency.id === item.id,
+      weaponProficiencies
+    )
+    if (!selectedWeaponProficiency) {
+      selectedWeaponProficiency = weaponProficiencies[0]
+    }
 
     return (
       <View>
@@ -184,6 +202,19 @@ export default class EditStats extends React.Component {
         )}
         <Divider />
 
+        <View styleName="horizontal v-center">
+          <Text>Weapon Proficiency:</Text>
+          <DropDownMenu
+            options={weaponProficiencies}
+            selectedOption={selectedWeaponProficiency}
+            onOptionSelected={item =>
+              this.props.survivor.setWeaponProficiency(item)
+            }
+            titleProperty="name"
+            valueProperty="id"
+          />
+        </View>
+
         <CheckboxListItem
           styleName="title"
           onPressItem={() =>
@@ -222,35 +253,6 @@ export default class EditStats extends React.Component {
           id="cannotUseAbilities"
           selected={this.props.survivor.cannotUseAbilities}
         />
-
-        <View styleName="horizontal space-between v-center">
-          <Text>Insanity: {this.props.survivor.insanity}</Text>
-          <SimpleStepper
-            tintColor="white"
-            initialValue={this.props.survivor.insanity}
-            minimumValue={0}
-            maximumValue={30}
-            valueChanged={qty =>
-              this.props.survivor.setAttribute('insanity', qty)
-            }
-          />
-        </View>
-
-        <View styleName="horizontal space-between v-center">
-          <View styleName="horizontal">
-            <Text>Survival: {this.props.survivor.survival}</Text>
-            <Text style={styles.hint}>(Limit: {this.props.survivalLimit})</Text>
-          </View>
-          <SimpleStepper
-            tintColor="white"
-            initialValue={this.props.survivor.survival}
-            minimumValue={0}
-            maximumValue={this.props.survivalLimit}
-            valueChanged={qty =>
-              this.props.survivor.setAttribute('survival', qty)
-            }
-          />
-        </View>
       </View>
     )
   }

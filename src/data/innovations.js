@@ -310,61 +310,79 @@ export default {
   mastery_axe: {
     id: 'mastery_axe',
     name: 'Mastery - Axe',
+    keywords: ['axe'], // use to map to weapon proficiency id.
     expansion: 'core',
   },
   mastery_bow: {
     id: 'mastery_bow',
     name: 'Mastery - Bow',
+    keywords: ['bow'],
     expansion: 'core',
   },
   mastery_club: {
     id: 'mastery_club',
     name: 'Mastery - Club',
+    keywords: ['club'],
     expansion: 'core',
   },
   mastery_dagger: {
     id: 'mastery_dagger',
     name: 'Mastery - Dagger',
+    keywords: ['dagger'],
     expansion: 'core',
   },
   mastery_fist_and_tooth: {
     id: 'mastery_fist_and_tooth',
     name: 'Mastery - Fist & Tooth',
+    keywords: ['fist & tooth'],
     expansion: 'core',
   },
   mastery_grand_weapon: {
     id: 'mastery_grand_weapon',
     name: 'Mastery - Grand Weapon',
+    keywords: ['grand weapon'],
     expansion: 'core',
   },
   mastery_katar: {
     id: 'mastery_katar',
     name: 'Mastery - Katar',
+    keywords: ['katar'],
     expansion: 'core',
+  },
+  mastery_scythe: {
+    id: 'mastery_scythe',
+    name: 'Mastery - Scythe',
+    keywords: ['scythe'],
+    expansion: 'dk',
   },
   mastery_shield: {
     id: 'mastery_shield',
     name: 'Mastery - Shield',
+    keywords: ['shield'],
     expansion: 'core',
   },
   mastery_spear: {
     id: 'mastery_spear',
     name: 'Mastery - Spear',
+    keywords: ['spear'],
     expansion: 'core',
   },
   mastery_sword: {
     id: 'mastery_sword',
     name: 'Mastery - Sword',
+    keywords: ['sword'],
     expansion: 'core',
   },
   mastery_twilight_sword: {
     id: 'mastery_twilight_sword',
     name: 'Mastery - Twilight Sword',
+    keywords: ['twilight sword'],
     expansion: 'core',
   },
   mastery_whip: {
     id: 'mastery_whip',
     name: 'Mastery - Whip',
+    keywords: ['whip'],
     expansion: 'core',
   },
   momento_mori: {

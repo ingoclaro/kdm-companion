@@ -8,7 +8,6 @@ import {
   Icon,
   Button,
   Caption,
-  DropDownMenu,
 } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
 import AbilitySection from './AbilitySection'
