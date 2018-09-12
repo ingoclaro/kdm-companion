@@ -20,6 +20,11 @@ const StoredResource = types.model('StoredResource', {
   quantity: 0,
 })
 
+const SelectedMonsterLevel = types.model('SelectedMonsterLevel', {
+  monster: types.reference(Monster),
+  level: types.string,
+})
+
 export const Campaign = types
   .model('Campaign', {
     id: types.identifier,
@@ -31,7 +36,7 @@ export const Campaign = types
     locations: types.map(types.reference(SettlementLocation)),
     innovations: types.map(types.reference(Innovation)),
     principles: types.optional(
-      types.model('principles', {
+      types.model('Principles', {
         death: types.maybeNull(types.reference(Principle)),
         newlife: types.maybeNull(types.reference(Principle)),
         society: types.maybeNull(types.reference(Principle)),
@@ -45,18 +50,8 @@ export const Campaign = types
     expansions: types.optional(types.map(types.reference(Expansion)), {
       core: 'core',
     }),
-    hunting: types.maybeNull(
-      types.model({
-        monster: types.reference(Monster),
-        level: types.string,
-      })
-    ),
-    showdown: types.maybeNull(
-      types.model({
-        monster: types.reference(Monster),
-        level: types.string,
-      })
-    ),
+    hunting: types.maybeNull(SelectedMonsterLevel),
+    showdown: types.maybeNull(SelectedMonsterLevel),
     notes: '',
   })
   .actions(self => ({
@@ -139,9 +134,11 @@ export const Campaign = types
         // remove all expansion monster resources
         for (let [id, item] of self.stored_resources) {
           if (
-            item.resource.expansion &&
-            item.resource.expansion !== 'core' &&
-            item.resource.expansion.id === expansion.id
+            (item.resource.expansion &&
+              item.resource.expansion !== 'core' &&
+              item.resource.expansion.id === expansion.id) ||
+            (item.resource.monster &&
+              item.resource.monster.expansion.id === expansion.id)
           ) {
             item.quantity = 0
           }
@@ -269,7 +266,11 @@ export const Campaign = types
       let innovations = expansionFilter(self.innovations, expansion)
       let resources = R.filter(
         item =>
-          item.resource.expansion.id === expansion.id && item.quantity > 0,
+          ((item.resource.expansion &&
+            item.resource.expansion.id === expansion.id) ||
+            (item.resource.monster &&
+              item.resource.monster.expansion.id === expansion.id)) &&
+          item.quantity > 0,
         values(self.stored_resources)
       )
       let length = 0 + locations.length + innovations.length + resources.length

@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`.add adds bonuses to settlement 1`] = `
+Object {
+  "departing": Object {
+    "accuracy": 0,
+    "courage": 0,
+    "description": Array [
+      "a description",
+    ],
+    "evasion": 0,
+    "hunt xp": 0,
+    "insanity": 3,
+    "strength": 0,
+    "survival": 3,
+    "understanding": 0,
+  },
+  "name": "New Settlement",
+  "newborn": Object {
+    "accuracy": 1,
+    "courage": 0,
+    "description": Array [],
+    "evasion": 1,
+    "hunt xp": 0,
+    "insanity": 0,
+    "strength": 1,
+    "survival": 0,
+    "understanding": 0,
+  },
+  "showdown": Object {
+    "accuracy": 0,
+    "courage": 0,
+    "description": Array [
+      "another description",
+    ],
+    "evasion": 0,
+    "hunt xp": 0,
+    "insanity": 0,
+    "strength": 0,
+    "survival": 0,
+    "understanding": 0,
+  },
+  "survivalLimit": 2,
+  "survivors": Object {},
+}
+`;
+
+exports[`.create creates a barebones settlement 1`] = `
+Object {
+  "departing": null,
+  "name": "New Settlement",
+  "newborn": null,
+  "showdown": null,
+  "survivalLimit": 1,
+  "survivors": Object {},
+}
+`;
+
+exports[`.create works with empty data 1`] = `
+Object {
+  "departing": null,
+  "name": null,
+  "newborn": null,
+  "showdown": null,
+  "survivalLimit": null,
+  "survivors": Object {},
+}
+`;
+
+exports[`.createSurvivor creates a survivor and assings it to the settlement 1`] = `
+Object {
+  "departing": null,
+  "name": "New Settlement",
+  "newborn": null,
+  "showdown": null,
+  "survivalLimit": 1,
+  "survivors": Object {
+    "4e55b990-5b16-480f-81d2-06765c52ec72": Object {
+      "abilities": Array [],
+      "accuracy": 0,
+      "cannotUseAbilities": false,
+      "cannotUseFightingArts": false,
+      "cannotUseSurvival": false,
+      "courage": 0,
+      "disorders": Array [],
+      "evasion": 0,
+      "fightingArts": Array [],
+      "gender": "male",
+      "hunt xp": 0,
+      "id": "4e55b990-5b16-480f-81d2-06765c52ec72",
+      "insanity": 0,
+      "luck": 0,
+      "movement": 5,
+      "name": "test name",
+      "notes": "",
+      "speed": 0,
+      "status": "alive",
+      "strength": 0,
+      "survival": 1,
+      "understanding": 0,
+      "weaponProficiency": undefined,
+      "weaponProficiencyLevel": 0,
+    },
+  },
+}
+`;
+
+exports[`.remove removes bonuses from settlement 1`] = `
+Object {
+  "departing": Object {
+    "accuracy": 0,
+    "courage": 0,
+    "description": Array [],
+    "evasion": 0,
+    "hunt xp": 0,
+    "insanity": 0,
+    "strength": 0,
+    "survival": 0,
+    "understanding": 0,
+  },
+  "name": "New Settlement",
+  "newborn": Object {
+    "accuracy": 0,
+    "courage": 0,
+    "description": Array [],
+    "evasion": 0,
+    "hunt xp": 0,
+    "insanity": 0,
+    "strength": 0,
+    "survival": 0,
+    "understanding": 0,
+  },
+  "showdown": Object {
+    "accuracy": 0,
+    "courage": 0,
+    "description": Array [],
+    "evasion": 0,
+    "hunt xp": 0,
+    "insanity": 0,
+    "strength": 0,
+    "survival": 0,
+    "understanding": 0,
+  },
+  "survivalLimit": 1,
+  "survivors": Object {},
+}
+`;
