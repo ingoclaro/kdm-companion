@@ -16,6 +16,11 @@ import { inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 
+// TODO: this could be changed to instead create an empty survivor and pass the survivor as a param
+// then a save button to attach that survivor to the Settlement, cancel to discard the survivor.
+// (survivor to be stored in the component's state). Similar to edit, a clone can be used and a save to commit the changes
+// save = () => applySnapshot(survivor, getSnapshot(this.state.survivor))
+// see https://egghead.io/lessons/react-create-an-entry-form-to-add-models-to-the-state-tree
 @inject(({ store }) => ({
   createSurvivor: store.selectedCampaign.settlement.createSurvivor,
 }))

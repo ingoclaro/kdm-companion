@@ -5,6 +5,7 @@ import R from 'ramda'
 import { values } from 'mobx'
 
 // all are maybe because it's used by innovations as well.
+// TODO: this could be changed to optional and have always initialized data, should make the UI simpler and avoid null checks there.
 export const Settlement = types
   .model('Settlement', {
     name: types.maybeNull(types.string),
@@ -42,6 +43,7 @@ export const Settlement = types
       }
     },
     remove(settlement) {
+      // here a combination of destroy(item) + beforeDestroy hook on the item itself could be used to maybe simplify this stuff a little bit. does it work with references?
       if (settlement.survivalLimit) {
         self.survivalLimit -= settlement.survivalLimit
       }
@@ -72,11 +74,10 @@ export const Settlement = types
       if (name) {
         survivorData.name = name
       }
+      let survivor = Survivor.create(survivorData)
+      survivor.applyNewbornMilestones() // TODO: this could be moved to afterCreate if that hook is only called when creating models and not when applying a snapshot.
+      self.survivors.put(survivor)
 
-      self.survivors.set(survivorData.id, survivorData)
-
-      let survivor = self.survivors.get(survivorData.id)
-      survivor.applyNewbornMilestones()
       return survivor
     },
   }))
