@@ -18,6 +18,10 @@
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.github.ingoclaro.kdmcompanion",
       "permissions": ["WAKE_LOCK"]
     },
+    "ios": {
+      "bundleIdentifier": "com.github.ingoclaro.kdmcompanion",
+      "buildNumber": 20180831
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
