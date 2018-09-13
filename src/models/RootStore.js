@@ -11,6 +11,7 @@ import { FightingArt, SecretFightingArt } from './FightingArt'
 import { Disorder } from './Disorder'
 import { Ability } from './Ability'
 import { WeaponProficiency } from './WeaponProficiency'
+import { Subscription } from './Subscription'
 import { uuid } from '../utils'
 import R from 'ramda'
 
@@ -47,12 +48,15 @@ export default types
       types.map(WeaponProficiency),
       weaponProficiencyData
     ),
+    // stuff stored to disc after this
+    version: 1,
     campaigns: types.optional(types.array(Campaign), [
       {
         id: 'new',
       },
     ]),
     selectedCampaign: types.optional(types.reference(Campaign), 'new'),
+    subscription: types.optional(Subscription, {}),
   })
   .actions(self => ({
     createCampaign(name) {
@@ -71,9 +75,14 @@ export default types
         self.selectedCampaign = self.campaigns[0]
       }
     },
+    setVersion(version) {
+      self.version = version
+    },
     load(data) {
       self.campaigns = data.campaigns
       self.selectedCampaign = data.selectedCampaign
+      self.version = data.version || 1
+      self.subscription = data.subscription || {}
     },
   }))
   .views(self => ({
@@ -81,6 +90,8 @@ export default types
       return {
         campaigns: getSnapshot(self.campaigns),
         selectedCampaign: self.selectedCampaign.id,
+        version: self.version,
+        subscription: getSnapshot(self.subscription),
       }
     },
     get campaignExpansions() {

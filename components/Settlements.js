@@ -21,6 +21,7 @@ import colors from '../src/colors'
   selectedCampaign: store.selectedCampaign,
   selectCampaign: store.selectCampaign,
   campaignName: store.selectedCampaign.name, // map it so that it redraws when renaming.
+  subscription: store.subscription,
 }))
 @observer
 export class SettlementSelector extends React.Component {
@@ -29,20 +30,31 @@ export class SettlementSelector extends React.Component {
   }
 
   render() {
-    return (
-      <View>
-        <Title>Select a Settlement:</Title>
-        <DropDownMenu
-          options={this.props.campaigns}
-          selectedOption={this.props.selectedCampaign}
-          onOptionSelected={selected => {
-            this.props.selectCampaign(selected.id)
-          }}
-          titleProperty="name"
-          valueProperty="id"
-        />
-      </View>
-    )
+    if (this.props.subscription.id) {
+      return (
+        <View>
+          <Title>Select a Settlement:</Title>
+          <DropDownMenu
+            options={this.props.campaigns}
+            selectedOption={this.props.selectedCampaign}
+            onOptionSelected={selected => {
+              this.props.selectCampaign(selected.id)
+            }}
+            titleProperty="name"
+            valueProperty="id"
+          />
+        </View>
+      )
+    } else {
+      return (
+        <View>
+          <Text>
+            You need to purchase a premium subscription to have multiple
+            settlements.
+          </Text>
+        </View>
+      )
+    }
   }
 }
 
@@ -165,8 +177,8 @@ export class DeleteSettlement extends React.Component {
         <Divider styleName="line" />
         <Divider />
         <Text>
-          Are you sure you want to delete settlement "
-          {this.props.campaign.name}"?
+          Are you sure you want to delete settlement "{this.props.campaign.name}
+          "?
         </Text>
         <Text>This will delete all data associated with that Settlement.</Text>
         <Divider />

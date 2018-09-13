@@ -13,9 +13,6 @@ import colors from '../src/colors'
 import CampaignHeader from './CampaignHeader'
 import SurvivorHeader from './SurvivorHeader'
 
-//tmp
-import BlankScreen from './BlankScreen'
-
 import SurvivorListScreen from './SurvivorListScreen'
 import SurvivorScreen from './SurvivorScreen'
 
@@ -40,6 +37,8 @@ import SevereInjuryScreen from './SevereInjuryScreen'
 
 // import TerrainScreen from './TerrainScreen'
 // import ResultScreen from './ResultScreen'
+
+import SubscriptionScreen from './SubscriptionScreen'
 
 const styles = {
   tabBar: {
@@ -222,6 +221,9 @@ const MainNavigator = createBottomTabNavigator(
         tabBarLabel: 'Showdown',
         tabBarIcon: icon(require('../images/icon_monster.png')),
       },
+    },
+    Subscription: {
+      screen: SubscriptionScreen,
     },
   },
   {

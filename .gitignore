@@ -3,3 +3,4 @@ node_modules/
 npm-debug.*
 .env*
 /env.js
+/kdm-companion.jks
