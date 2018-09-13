@@ -14,13 +14,13 @@
     },
     "android": {
       "package": "com.github.ingoclaro.kdmcompanion",
-      "versionCode": 20180831,
+      "versionCode": 2018091201,
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.github.ingoclaro.kdmcompanion",
       "permissions": ["WAKE_LOCK"]
     },
     "ios": {
       "bundleIdentifier": "com.github.ingoclaro.kdmcompanion",
-      "buildNumber": "20180831"
+      "buildNumber": "2018091201"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
