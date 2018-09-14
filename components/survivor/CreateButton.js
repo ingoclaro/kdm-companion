@@ -11,7 +11,6 @@ import {
   DropDownMenu,
   Divider,
 } from '@shoutem/ui'
-import Modal from 'react-native-modal'
 import { inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'

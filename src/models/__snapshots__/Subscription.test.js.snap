@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`.purchased handles the IAP response 1`] = `
+Object {
+  "appLastActiveAt": 0,
+  "autoRenewing": true,
+  "checkedAt": 1536939811199,
+  "purchasedAt": 1536939811199,
+  "response": "{\\"autoRenewingAndroid\\":true,\\"dataAndroid\\":\\"{orderId: GPA.3327-6252-8328-19548, packageName: 'com.github.ingoclaro.kdmcompanion', productId: 'premium_subscription_1', purchaseTime: 1536906424588, purchaseState: 0, purchaseToken: '[redacted]', autoRenewing: true}\\",\\"productId\\":\\"premium_subscription_1\\",\\"purchaseToken\\":\\"[redacted]\\",\\"signatureAndroid\\":\\"[redacted]\\",\\"transactionDate\\":\\"1536939811199\\",\\"transactionId\\":\\"GPA.3327-6252-8328-19548\\",\\"transactionReceipt\\":\\"[redacted]\\"}",
+  "transactionId": "GPA.3327-6252-8328-19548",
+}
+`;

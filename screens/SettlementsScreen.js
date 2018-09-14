@@ -8,19 +8,47 @@ import {
   CreateSettlement,
   DeleteSettlement,
 } from '../components/Settlements'
+import { observer, inject } from 'mobx-react/native'
 import colors from '../src/colors'
 
+@inject(({ store }) => ({
+  subscription: store.subscription,
+}))
+@observer
 export default class SettlementsScreen extends React.Component {
   state = {
     renameVisible: false,
     createVisible: false,
     deleteVisible: false,
+    showSubscriptionWarning: false,
+  }
+
+  showCreateModal = () => {
+    if (!this.props.subscription.hasActiveSubscription()) {
+      this.setState(
+        {
+          renameVisible: false,
+          createVisible: false,
+          deleteVisible: false,
+        },
+        () => this.props.navigation.navigate('Subscription')
+      )
+    } else {
+      this.setState({
+        renameVisible: false,
+        createVisible: true,
+        deleteVisible: false,
+      })
+    }
   }
 
   render() {
     return (
       <Screen style={{ paddingTop: 5, paddingLeft: 5 }}>
-        <SettlementSelector />
+        <Title>Select a Settlement:</Title>
+        <SettlementSelector
+          subscribeButton={() => this.props.navigation.navigate('Subscription')}
+        />
 
         <Divider />
 
@@ -39,15 +67,7 @@ export default class SettlementsScreen extends React.Component {
         <Divider />
         <Divider />
 
-        <Button
-          onPress={() => {
-            this.setState({
-              renameVisible: false,
-              createVisible: true,
-              deleteVisible: false,
-            })
-          }}
-        >
+        <Button onPress={this.showCreateModal}>
           <Text>Create Settlement</Text>
         </Button>
 
@@ -107,6 +127,9 @@ export default class SettlementsScreen extends React.Component {
               onCreate={() => {
                 this.setState({ createVisible: false })
               }}
+              subscribeButton={() =>
+                this.props.navigation.navigate('Subscription')
+              }
             />
 
             <Divider />

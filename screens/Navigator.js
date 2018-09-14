@@ -222,9 +222,6 @@ const MainNavigator = createBottomTabNavigator(
         tabBarIcon: icon(require('../images/icon_monster.png')),
       },
     },
-    Subscription: {
-      screen: SubscriptionScreen,
-    },
   },
   {
     initialRouteName: 'SurvivorList', //'Settlement',
@@ -283,6 +280,12 @@ const MainNavigatorHeader = createStackNavigator(
             survivorId={navigation.getParam('survivorId')}
           />
         ),
+      }),
+    },
+    Subscription: {
+      screen: SubscriptionScreen,
+      navigationOptions: ({ navigation }) => ({
+        header: <CampaignHeader navigation={navigation} />,
       }),
     },
   },

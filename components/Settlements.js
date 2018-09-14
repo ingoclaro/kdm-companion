@@ -1,18 +1,19 @@
 import React from 'react'
 import {
-  Screen,
   Button,
-  View,
-  Text,
-  Title,
-  Image,
-  DropDownMenu,
-  Row,
-  Icon,
   Divider,
+  DropDownMenu,
+  Icon,
+  Image,
+  Row,
+  Text,
   TextInput,
+  Title,
+  TouchableOpacity,
+  View,
 } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
+import Modal from 'react-native-modal'
 import { Segment } from 'expo'
 import colors from '../src/colors'
 
@@ -29,32 +30,40 @@ export class SettlementSelector extends React.Component {
     super(props)
   }
 
+  state = {
+    showSubscriptionWarning: false,
+  }
+
+  disabledDropdown() {
+    return (
+      <View>
+        <TouchableOpacity onPress={this.props.subscribeButton}>
+          <View styleName="horizontal v-center h-center">
+            <Text>{this.props.selectedCampaign.name}</Text>
+            <Icon name="drop-down" style={{ color: colors.grey200 }} />
+          </View>
+        </TouchableOpacity>
+      </View>
+    )
+  }
+
   render() {
-    if (this.props.subscription.id) {
-      return (
-        <View>
-          <Title>Select a Settlement:</Title>
-          <DropDownMenu
-            options={this.props.campaigns}
-            selectedOption={this.props.selectedCampaign}
-            onOptionSelected={selected => {
-              this.props.selectCampaign(selected.id)
-            }}
-            titleProperty="name"
-            valueProperty="id"
-          />
-        </View>
-      )
-    } else {
-      return (
-        <View>
-          <Text>
-            You need to purchase a premium subscription to have multiple
-            settlements.
-          </Text>
-        </View>
-      )
+    if (!this.props.subscription.hasActiveSubscription()) {
+      return this.disabledDropdown()
     }
+    return (
+      <View>
+        <DropDownMenu
+          options={this.props.campaigns}
+          selectedOption={this.props.selectedCampaign}
+          onOptionSelected={selected => {
+            this.props.selectCampaign(selected.id)
+          }}
+          titleProperty="name"
+          valueProperty="id"
+        />
+      </View>
+    )
   }
 }
 
@@ -104,6 +113,7 @@ export class EditSettlement extends React.Component {
 @inject(({ store }) => ({
   createCampaign: store.createCampaign,
   numCampaigns: store.numCampaigns,
+  subscription: store.subscription,
 }))
 @observer
 export class CreateSettlement extends React.Component {

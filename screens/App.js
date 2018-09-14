@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppState } from 'react-native'
+import { AppState, View } from 'react-native'
 import { StyleProvider } from '@shoutem/theme'
 import theme from '../src/theme'
 import { Provider } from 'mobx-react'
@@ -7,6 +7,7 @@ import { getSnapshot, setLivelynessChecking } from 'mobx-state-tree'
 import PropTypes from 'prop-types'
 import { save } from '../src/filesystem'
 import Navigator from './Navigator'
+import { SubscriptionUpdater } from '../components/Subscription'
 
 class ThemedApp extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class ThemedApp extends React.Component {
       this.state.appState.match(/inactive|background/) &&
       nextAppState === 'active'
     ) {
-      // do nothing
+      this.props.store.subscription.updateAppLastActiveAt()
     }
     if (
       this.state.appState === 'active' &&
@@ -42,11 +43,12 @@ class ThemedApp extends React.Component {
   }
 
   render() {
-    // console.log('store', getSnapshot(this.props.store))
     return (
       <StyleProvider style={theme}>
         <Provider store={this.props.store}>
-          <Navigator />
+          <SubscriptionUpdater>
+            <Navigator />
+          </SubscriptionUpdater>
         </Provider>
       </StyleProvider>
     )

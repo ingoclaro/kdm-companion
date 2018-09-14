@@ -1,26 +1,104 @@
 import { getSnapshot } from 'mobx-state-tree'
-import { Subscription } from './Subscription'
+import { advanceBy, advanceTo, clear } from 'jest-date-mock'
+import { Subscription, checkEvery, activeGracePeriod } from './Subscription'
 
-// afterEach(() => {
-//   jest.restoreAllMocks()
-// })
+const startTime = 1536939811199
 
-it('.shouldCheck with old date', () => {
-  let sub = Subscription.create({
-    id: 'test',
-    purchasedAt: Date.now() - 1000 * 60 * 60 * 24 * 31,
-    checkedAt: Date.now() - 1000 * 60 * 60 * 24 * 31,
+describe('.shouldCheck', () => {
+  let sub
+
+  beforeEach(() => {
+    advanceTo(startTime)
+    sub = Subscription.create({
+      transactionId: 'test',
+      purchasedAt: startTime,
+      checkedAt: startTime,
+    })
   })
 
-  expect(sub.shouldCheck).toBeTruthy()
+  afterEach(() => {
+    clear()
+  })
+
+  it('at moment of purchase', () => {
+    expect(sub.shouldCheck()).toBeFalsy()
+  })
+
+  it('with old date and an active subscription', () => {
+    advanceBy(checkEvery)
+
+    expect(sub.shouldCheck()).toBeTruthy()
+  })
+
+  it('with recent date and an active subscription', () => {
+    advanceBy(checkEvery - 1)
+
+    expect(sub.shouldCheck()).toBeFalsy()
+  })
+
+  it('with old date and an inactive subscription', () => {
+    advanceBy(activeGracePeriod)
+
+    expect(sub.shouldCheck()).toBeFalsy()
+    expect(sub.hasActiveSubscription()).toBeFalsy()
+  })
 })
 
-it('.shouldCheck with recent date', () => {
-  let sub = Subscription.create({
-    id: 'test',
-    purchasedAt: Date.now() - 1000 * 60 * 60 * 24 * 29,
-    checkedAt: Date.now() - 1000 * 60 * 60 * 24 * 29,
+describe('.purchased', () => {
+  beforeEach(() => {
+    advanceTo(startTime)
   })
 
-  expect(sub.shouldCheck).toBeFalsy()
+  afterEach(() => {
+    clear()
+  })
+
+  it('handles the IAP response', () => {
+    const purchaseResponse = {
+      autoRenewingAndroid: true,
+      dataAndroid:
+        "{orderId: GPA.3327-6252-8328-19548, packageName: 'com.github.ingoclaro.kdmcompanion', productId: 'premium_subscription_1', purchaseTime: 1536906424588, purchaseState: 0, purchaseToken: '[redacted]', autoRenewing: true}",
+      productId: 'premium_subscription_1',
+      purchaseToken: '[redacted]',
+      signatureAndroid: '[redacted]',
+      transactionDate: `${startTime}`,
+      transactionId: 'GPA.3327-6252-8328-19548',
+      transactionReceipt: '[redacted]',
+    }
+    let sub = Subscription.create()
+    sub.purchased(purchaseResponse)
+
+    expect(getSnapshot(sub)).toMatchSnapshot()
+  })
+})
+
+describe('.hasActiveSubscription', () => {
+  let sub
+
+  beforeEach(() => {
+    advanceTo(startTime)
+    sub = Subscription.create({
+      transactionId: 'test',
+      purchasedAt: startTime,
+      checkedAt: startTime,
+    })
+  })
+
+  afterEach(() => {
+    clear()
+  })
+
+  it('at moment of purchase', () => {
+    expect(sub.hasActiveSubscription()).toBeTruthy()
+  })
+
+  it('after checkEvery', () => {
+    advanceBy(checkEvery)
+    expect(sub.hasActiveSubscription()).toBeTruthy()
+  })
+
+  it('after activeGracePeriod', () => {
+    advanceBy(activeGracePeriod)
+    expect(sub.hasActiveSubscription()).toBeFalsy()
+  })
 })

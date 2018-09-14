@@ -76,8 +76,8 @@ switch to `detached` branch.
 To verify the app in development mode:
 
 ```
-exp publish
-exp start
+expo-cli publish
+expo-cli start
 
 # in a new window:
 cd android
@@ -89,8 +89,8 @@ If you have the emulator open, this should copy the apk to the emulator automati
 To create apk to submit to play store:
 
 ```
-exp publish
-exp fetch:android:keystore
+expo-cli publish
+expo-cli fetch:android:keystore
 ```
 
 Replace data
