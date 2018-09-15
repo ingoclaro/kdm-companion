@@ -25,7 +25,7 @@ If you do any changes to `app.json` or if you upgrade the Expo SDK you need to d
 To upload new version to Expo:
 
 ```
-exp publish
+expo-cli publish
 ```
 
 Note that apps in the internal test and beta channels are going to get the update automatically.
@@ -35,7 +35,7 @@ Note that apps in the internal test and beta channels are going to get the updat
 To upload the version to the `production` build, execute the following command:
 
 ```
-exp publish --release-channel production
+expo-cli publish --release-channel production
 ```
 
 This will distribute the update to the production app automatically.
@@ -45,7 +45,7 @@ This will distribute the update to the production app automatically.
 Create new package:
 
 ```
-exp build:android
+expo-cli build:android
 ```
 
 After the build has finished, download the signed package, you can install it in your phone locally with:
@@ -62,7 +62,7 @@ After trying it out you can promote it to the beta channel.
 To build the apk for production execute:
 
 ```
-exp build:android --release-channel production
+expo-cli build:android --release-channel production
 ```
 
 #### in-app purchases
@@ -103,6 +103,9 @@ storePassword 'XXX'
 
 in `android/app/build.gradle` with the stuff shown in the `exp fetch:android:keystore` command.
 dunno if storeFile can be a relative path, I just tried with an absolute one.
+In the same file also check that `versionCode` and `versionName` match app.json.
+
+Note that `versionCode` with **odd** numbers are for internal release, and the ones with **even** numbers are intended for production release. The only difference is the release-channel they have. Internal release uses **default** and the production release uses **production**.
 
 ```
 cd android
@@ -113,7 +116,7 @@ The apk is in `andoid/app/build/outputs/apk/prodMinSdkProdKernel/release/app-pro
 
 **NOTE**: this apk points to the default release channel of expo, which I'm using for development purposes, a different apk should be build to submit to the production release in the play store.
 
-TODO: see how to create apk that uses the production release channel of expo.
+To make the final production build you need to edit `android/app/src/main/java/host/exp/exponent/generated/AppConstants.java` and change RELEASE_CHANNEL from `default` to `production`.
 
 ### iOS app
 
