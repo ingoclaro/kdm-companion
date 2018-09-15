@@ -1,6 +1,19 @@
 import { getSnapshot } from 'mobx-state-tree'
 import RootStore from './RootStore'
+import R from 'ramda'
 import * as utils from '../utils'
+
+import expansionData from '../data/expansions'
+import locationsData from '../data/settlement_locations'
+import innovationsData from '../data/innovations'
+import resourceData from '../data/resources'
+// import monsterData from '../data/monsters'
+// import gearData from '../data/gear'
+// import abilitiesData from '../data/abilities'
+// import weaponProficiencyData from '../data/weaponProficiencies'
+// import disordersData from '../data/disorders'
+// import fightingArtsData from '../data/fightingArts'
+// import secretFightingArtsData from '../data/secretFightingArts'
 
 afterEach(() => {
   jest.restoreAllMocks()
@@ -78,22 +91,34 @@ it('all in', () => {
   store.createCampaign('test')
 
   // add all expansions
-  //TODO: read data file and activate all, same for the other stuff.
-  store.selectedCampaign.selectExpansion({ id: 'dbk' })
-  store.selectedCampaign.selectExpansion({ id: 'dk' })
-  store.selectedCampaign.selectExpansion({ id: 'fk' })
-  store.selectedCampaign.selectExpansion({ id: 'gka' })
-  store.selectedCampaign.selectExpansion({ id: 'gorm' })
-  store.selectedCampaign.selectExpansion({ id: 'lg' })
-  store.selectedCampaign.selectExpansion({ id: 'lk' })
-  store.selectedCampaign.selectExpansion({ id: 'lt' })
-  store.selectedCampaign.selectExpansion({ id: 'manhunter' })
-  store.selectedCampaign.selectExpansion({ id: 'slenderman' })
-  store.selectedCampaign.selectExpansion({ id: 'spidicules' })
-  store.selectedCampaign.selectExpansion({ id: 'sunstalker' })
+  R.forEachObjIndexed(
+    value => store.selectedCampaign.selectExpansion({ id: value.id }),
+    expansionData
+  )
 
-  store.selectedCampaign.selectLocation({ id: 'mask_maker' })
-  store.selectedCampaign.selectLocation({ id: 'the sun' })
+  // add all locations
+  R.forEachObjIndexed(
+    value => store.selectedCampaign.selectLocation({ id: value.id }),
+    locationsData
+  )
+
+  // add all innovations
+  R.forEachObjIndexed(
+    value => store.selectedCampaign.selectInnovation({ id: value.id }),
+    innovationsData
+  )
+
+  // add all principles (note that priciples override each other because some have the same id)
+  store.selectedCampaign.selectPrinciple('death', { id: 'cannibalize' })
+  store.selectedCampaign.selectPrinciple('newlife', { id: 'pty' })
+  store.selectedCampaign.selectPrinciple('society', { id: 'accept_darkness' })
+  store.selectedCampaign.selectPrinciple('conviction', { id: 'romantic' })
+
+  // one of each resource
+  R.forEachObjIndexed(
+    value => store.selectedCampaign.setResourceCount({ id: value.id }, 1),
+    resourceData
+  )
 
   expect(store.data).toMatchSnapshot()
 })
