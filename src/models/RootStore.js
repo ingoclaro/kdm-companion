@@ -79,7 +79,7 @@ export default types
       // here is where old versions could be upgraded if needed.
       if (!data.version) {
         // upgrade from first release.
-        data.version = 1
+        data.version = 2
       }
 
       self.campaigns = data.campaigns

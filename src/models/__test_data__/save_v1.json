@@ -1,2045 +1,1948 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`.load handles empty data 1`] = `
-Object {
-  "campaigns": Array [
-    Object {
-      "bonuses": Object {},
-      "endeavors": Object {},
-      "expansions": Object {
-        "core": "core",
+{
+  "campaigns": [
+    {
+      "bonuses": {},
+      "endeavors": {},
+      "expansions": {
+        "core": "core"
       },
       "hunting": null,
       "id": "new",
-      "innovations": Object {},
-      "locations": Object {},
-      "notes": "",
-      "principles": Object {
+      "innovations": {},
+      "locations": {},
+      "principles": {
         "conviction": null,
         "death": null,
         "newlife": null,
-        "society": null,
+        "society": null
       },
-      "settlement": Object {
+      "settlement": {
         "departing": null,
         "name": "New Settlement",
         "newborn": null,
         "showdown": null,
-        "survivalLimit": 1,
-        "survivors": Object {},
+        "survivalLimit": 1
       },
       "showdown": null,
-      "stored_resources": Object {},
+      "stored_resources": {}
     },
-  ],
-  "selectedCampaign": "new",
-  "subscription": Object {
-    "appLastActiveAt": 0,
-    "autoRenewing": false,
-    "checkedAt": 0,
-    "purchasedAt": 0,
-    "response": "",
-    "transactionId": undefined,
-  },
-  "version": 2,
-}
-`;
-
-exports[`.load loads saved data 1`] = `
-Object {
-  "campaigns": Array [
-    Object {
-      "bonuses": Object {},
-      "endeavors": Object {},
-      "expansions": Object {
-        "core": "core",
-      },
-      "hunting": null,
-      "id": "new",
-      "innovations": Object {},
-      "locations": Object {},
-      "notes": "my notes",
-      "principles": Object {
-        "conviction": null,
-        "death": null,
-        "newlife": null,
-        "society": null,
-      },
-      "settlement": Object {
-        "departing": null,
-        "name": "New Settlement",
-        "newborn": null,
-        "showdown": null,
-        "survivalLimit": 3,
-        "survivors": Object {},
-      },
-      "showdown": null,
-      "stored_resources": Object {},
-    },
-  ],
-  "selectedCampaign": "new",
-  "subscription": Object {
-    "appLastActiveAt": 0,
-    "autoRenewing": false,
-    "checkedAt": 0,
-    "purchasedAt": 0,
-    "response": "",
-    "transactionId": undefined,
-  },
-  "version": 1,
-}
-`;
-
-exports[`all in 1`] = `
-Object {
-  "campaigns": Array [
-    Object {
-      "bonuses": Object {},
-      "endeavors": Object {},
-      "expansions": Object {
-        "core": "core",
-      },
-      "hunting": null,
-      "id": "new",
-      "innovations": Object {},
-      "locations": Object {},
-      "notes": "",
-      "principles": Object {
-        "conviction": null,
-        "death": null,
-        "newlife": null,
-        "society": null,
-      },
-      "settlement": Object {
-        "departing": null,
-        "name": "New Settlement",
-        "newborn": null,
-        "showdown": null,
-        "survivalLimit": 1,
-        "survivors": Object {},
-      },
-      "showdown": null,
-      "stored_resources": Object {},
-    },
-    Object {
-      "bonuses": Object {
-        "conviction": Object {
-          "description": Array [
-            "When you gain a random FA, draw 3 cards and select one",
+    {
+      "bonuses": {
+        "conviction": {
+          "description": [
+            "When you gain a random FA, draw 3 cards and select one"
           ],
           "id": "conviction",
-          "name": "Romantic",
+          "name": "Romantic"
         },
-        "cooking": Object {
-          "description": Array [
-            "At the start of the Settlement phase gain +1 endeavor",
+        "cooking": {
+          "description": [
+            "At the start of the Settlement phase gain +1 endeavor"
           ],
           "id": "cooking",
-          "name": "Cooking",
+          "name": "Cooking"
         },
-        "death": Object {
-          "description": Array [
-            "Whenever a survivor dies, gain 1 random basic resource",
+        "death": {
+          "description": [
+            "Whenever a survivor dies, gain 1 random basic resource"
           ],
           "id": "death",
-          "name": "Cannibalize",
+          "name": "Cannibalize"
         },
-        "embolden": Object {
-          "description": Array [
+        "embolden": {
+          "description": [
             "All Surivors gain the **Embolden** survival action.",
-            "**Embolden**: Once per round, if you haven't any +1 Str tokens, spend 1 survival to gain +1 Str token. When you are knocked down loose all Str tokens.",
+            "**Embolden**: Once per round, if you haven't any +1 Str tokens, spend 1 survival to gain +1 Str token. When you are knocked down loose all Str tokens."
           ],
           "id": "embolden",
-          "name": "Embolden",
+          "name": "Embolden"
         },
-        "encourage": Object {
-          "description": Array [
+        "encourage": {
+          "description": [
             "All survivors gain **Encourage** survival action.",
-            "**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.",
+            "**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down."
           ],
           "id": "encourage",
-          "name": "Encourage",
+          "name": "Encourage"
         },
-        "filleting table": Object {
-          "description": Array [
-            "Once per settlement phase, if the survivors return victorious, gain 1 random basic resource.",
+        "filleting table": {
+          "description": [
+            "Once per settlement phase, if the survivors return victorious, gain 1 random basic resource."
           ],
           "id": "filleting table",
-          "name": "Filleting Table",
+          "name": "Filleting Table"
         },
-        "forbidden dance": Object {
-          "description": Array [
-            "When a survivor uses the Synchronized Strike SFA, reroll missed attack rolls once",
+        "forbidden dance": {
+          "description": [
+            "When a survivor uses the Synchronized Strike SFA, reroll missed attack rolls once"
           ],
           "id": "forbidden dance",
-          "name": "Forbidden Dance",
+          "name": "Forbidden Dance"
         },
-        "heart_flute": Object {
-          "description": Array [
-            "When using Synchronized Strike FA, the attack assist may spend 1 survival to change a monster's R to R Failure before any wound attempts",
+        "heart_flute": {
+          "description": [
+            "When using Synchronized Strike FA, the attack assist may spend 1 survival to change a monster's R to R Failure before any wound attempts"
           ],
           "id": "heart_flute",
-          "name": "Heart Flute",
+          "name": "Heart Flute"
         },
-        "newlife": Object {
-          "description": Array [
-            "When rolling on intimacy table, roll twice and pick 1 result",
+        "newlife": {
+          "description": [
+            "When rolling on intimacy table, roll twice and pick 1 result"
           ],
           "id": "newlife",
-          "name": "Protect the Young",
+          "name": "Protect the Young"
         },
-        "overcharge": Object {
-          "description": Array [
+        "overcharge": {
+          "description": [
             "All Surivors gain the **Overcharge** survival action.",
-            "**Overcharge**: If you have any +1 Str token, you may spend 1 survival to remove of them and gain devastating 1 to your next attack this round.",
+            "**Overcharge**: If you have any +1 Str token, you may spend 1 survival to remove of them and gain devastating 1 to your next attack this round."
           ],
           "id": "overcharge",
-          "name": "Overcharge",
+          "name": "Overcharge"
         },
-        "pictograph": Object {
-          "description": Array [
+        "pictograph": {
+          "description": [
             "At the start of a survivor's act, they may decide to skip their act and Run Away",
-            "After a hunt event is resolved, a survivor may Run Away",
+            "After a hunt event is resolved, a survivor may Run Away"
           ],
           "id": "pictograph",
-          "name": "Pictograph",
+          "name": "Pictograph"
         },
-        "society": Object {
-          "description": Array [
-            "Add +2 to all Brain Trauma Rolls.",
-          ],
+        "society": {
+          "description": ["Add +2 to all Brain Trauma Rolls."],
           "id": "society",
-          "name": "Accept Darkness",
+          "name": "Accept Darkness"
         },
-        "symposium": Object {
-          "description": Array [
-            "When a survivor innovates, draw an additional 2 innovation cards to choose from",
+        "symposium": {
+          "description": [
+            "When a survivor innovates, draw an additional 2 innovation cards to choose from"
           ],
           "id": "symposium",
-          "name": "Symposium",
+          "name": "Symposium"
         },
-        "the knowledge worm": Object {
-          "description": Array [
-            "At the start of each settlement phase add 1 scrap resource to storage",
+        "the knowledge worm": {
+          "description": [
+            "At the start of each settlement phase add 1 scrap resource to storage"
           ],
           "id": "the knowledge worm",
-          "name": "The Knowledge Worm",
-        },
+          "name": "The Knowledge Worm"
+        }
       },
-      "endeavors": Object {
-        "advance cutting": Object {
+      "endeavors": {
+        "advance cutting": {
           "expansion": "sunstalker",
           "id": "advance cutting",
           "name": "Advance Cutting",
-          "recipe": Object {
+          "recipe": {
             "innovation": "filleting table",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "albedo": Object {
+        "albedo": {
           "expansion": "gorm",
           "id": "albedo",
           "name": "Albedo",
-          "recipe": Object {
+          "recipe": {
             "innovation": "albedo",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 2,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "augury": Object {
+        "augury": {
           "expansion": "core",
           "id": "augury",
           "name": "Augury",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "organ_grinder",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "battle_paint": Object {
+        "battle_paint": {
           "expansion": "core",
           "id": "battle_paint",
           "name": "Battle Paint",
-          "recipe": Object {
+          "recipe": {
             "innovation": "face_painting",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "bed": Object {
+        "bed": {
           "expansion": "core",
           "id": "bed",
           "name": "Rest",
-          "recipe": Object {
+          "recipe": {
             "innovation": "bed",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "black_harvest": Object {
+        "black_harvest": {
           "expansion": "dbk",
           "id": "black_harvest",
           "name": "Black Harvest",
-          "recipe": Object {
+          "recipe": {
             "innovation": "subterranean agriculture",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "preserved caustic dung",
-              },
+                "resource": "preserved caustic dung"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "bloodletting": Object {
+        "bloodletting": {
           "expansion": "core",
           "id": "bloodletting",
           "name": "Braething a Vein",
-          "recipe": Object {
+          "recipe": {
             "innovation": "bloodletting",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "resource",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "bone_beats": Object {
+        "bone_beats": {
           "expansion": "core",
           "id": "bone_beats",
           "name": "Bone Beats",
-          "recipe": Object {
+          "recipe": {
             "innovation": "drums",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "build silk mill": Object {
+        "build silk mill": {
           "expansion": "spidicules",
           "id": "build silk mill",
           "name": "Build - Silk Mill",
-          "recipe": Object {
+          "recipe": {
             "innovation": "silk refining",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "silk",
                 "quantity": 2,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "bone",
                 "quantity": 1,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "organ",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": "silk mill",
-          },
+            "not_location": "silk mill"
+          }
         },
-        "build_blacksmith": Object {
+        "build_blacksmith": {
           "expansion": "core",
           "id": "build_blacksmith",
           "name": "Build - Blacksmith",
-          "recipe": Object {
+          "recipe": {
             "innovation": "scrap_smelting",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "bone",
                 "quantity": 6,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "scrap",
                 "quantity": 3,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": "blacksmith",
-          },
+            "not_location": "blacksmith"
+          }
         },
-        "build_bone_smith": Object {
+        "build_bone_smith": {
           "expansion": "dk",
           "id": "build_bone_smith",
           "name": "Build - Bone Smith",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "throne",
             "not_innovation": null,
-            "not_location": "bone_smith",
-          },
+            "not_location": "bone_smith"
+          }
         },
-        "build_leather_worker": Object {
+        "build_leather_worker": {
           "expansion": "core",
           "id": "build_leather_worker",
           "name": "Build - Leather Worker",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "organ",
                 "quantity": 1,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "hide",
                 "quantity": 3,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": "skinnery",
             "not_innovation": null,
-            "not_location": "leather_worker",
-          },
+            "not_location": "leather_worker"
+          }
         },
-        "build_organ_grinder": Object {
+        "build_organ_grinder": {
           "expansion": "dk",
           "id": "build_organ_grinder",
           "name": "Build - Organ Grinder",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "throne",
             "not_innovation": null,
-            "not_location": "organ_grinder",
-          },
+            "not_location": "organ_grinder"
+          }
         },
-        "build_skinnery": Object {
+        "build_skinnery": {
           "expansion": "dk",
           "id": "build_skinnery",
           "name": "Build - Skinnery",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "throne",
             "not_innovation": null,
-            "not_location": "skinnery",
-          },
+            "not_location": "skinnery"
+          }
         },
-        "build_stone_circle": Object {
+        "build_stone_circle": {
           "expansion": "core",
           "id": "build_stone_circle",
           "name": "Build - Stone Circle",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "organ",
                 "quantity": 3,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "hide",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": "organ_grinder",
             "not_innovation": null,
-            "not_location": "stone_circle",
-          },
+            "not_location": "stone_circle"
+          }
         },
-        "build_weapon_crafter": Object {
+        "build_weapon_crafter": {
           "expansion": "core",
           "id": "build_weapon_crafter",
           "name": "Build - Weapon Crafter",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "bone",
                 "quantity": 3,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "hide",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": "bone_smith",
             "not_innovation": null,
-            "not_location": "weapon_crafter",
-          },
+            "not_location": "weapon_crafter"
+          }
         },
-        "build_wet_resin_crafter": Object {
+        "build_wet_resin_crafter": {
           "expansion": "dbk",
           "id": "build_wet_resin_crafter",
           "name": "Build - Wet Resin Crafter",
-          "recipe": Object {
+          "recipe": {
             "innovation": "subterranean agriculture",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "organ",
                 "quantity": 2,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "bone",
                 "quantity": 2,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": "wet_resin_crafter",
-          },
+            "not_location": "wet_resin_crafter"
+          }
         },
-        "citrinitas": Object {
+        "citrinitas": {
           "expansion": "gorm",
           "id": "citrinitas",
           "name": "Citrinitas",
-          "recipe": Object {
+          "recipe": {
             "innovation": "citrinitas",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 3,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "cooking": Object {
+        "cooking": {
           "expansion": "core",
           "id": "cooking",
           "name": "Cooking",
-          "recipe": Object {
+          "recipe": {
             "innovation": "cooking",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "cooking_meal": Object {
+        "cooking_meal": {
           "expansion": "core",
           "id": "cooking_meal",
           "name": "Cook stone nose gruel",
-          "recipe": Object {
+          "recipe": {
             "innovation": "cooking",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "organ",
                 "quantity": 1,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "bone",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "create hide": Object {
+        "create hide": {
           "expansion": "spidicules",
           "id": "create hide",
           "name": "Create Hide",
-          "recipe": Object {
+          "recipe": {
             "innovation": "silk refining",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "crimson cannibalism": Object {
+        "crimson cannibalism": {
           "expansion": "manhunter",
           "id": "crimson cannibalism",
           "name": "Crimson Cannibalism",
-          "recipe": Object {
+          "recipe": {
             "innovation": "crimson candy",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "dark water research": Object {
+        "dark water research": {
           "expansion": "slenderman",
           "id": "dark water research",
           "name": "Dark Water Research",
-          "recipe": Object {
+          "recipe": {
             "innovation": "darkwater research",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "resource",
                 "quantity": 2,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 2,
-                "resource": "dark water",
-              },
+                "resource": "dark water"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "face the monster": Object {
+        "face the monster": {
           "expansion": "lk",
           "id": "face the monster",
           "name": "Face the monster",
-          "recipe": Object {
+          "recipe": {
             "innovation": "black mask",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 2,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "fear and trembling": Object {
+        "fear and trembling": {
           "expansion": "dk",
           "id": "fear and trembling",
           "name": "Fear and Trembling",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "throne",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "fermentation": Object {
+        "fermentation": {
           "expansion": "core",
           "id": "fermentation",
           "name": "Fermentation",
-          "recipe": Object {
+          "recipe": {
             "innovation": "pottery",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "organ",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "final dance": Object {
+        "final dance": {
           "expansion": "sunstalker",
           "id": "final dance",
           "name": "Final Dance",
-          "recipe": Object {
+          "recipe": {
             "innovation": "shadow dancing",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "forbidden dance": Object {
+        "forbidden dance": {
           "expansion": "core",
           "id": "forbidden dance",
           "name": "Forbidden Dance",
-          "recipe": Object {
+          "recipe": {
             "innovation": "forbidden dance",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "founders_eye": Object {
+        "founders_eye": {
           "expansion": "core",
           "id": "founders_eye",
           "name": "Founder's Eye",
-          "recipe": Object {
+          "recipe": {
             "innovation": "face_painting",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "get web silk": Object {
+        "get web silk": {
           "expansion": "spidicules",
           "id": "get web silk",
           "name": "Get Web Silk",
-          "recipe": Object {
+          "recipe": {
             "innovation": "legless ball",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "golden_eyed_king": Object {
+        "golden_eyed_king": {
           "expansion": "core",
           "id": "golden_eyed_king",
           "name": "Hunt the Golden Eyed King",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": "phoenix_mask",
                 "keyword": null,
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": "mask_maker",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "gormchymist": Object {
+        "gormchymist": {
           "expansion": "gorm",
           "id": "gormchymist",
           "name": "Get Gormchymy innovation",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "gorm brain",
+                "resource": "gorm brain"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "strange",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": "gormchymist",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "great_golden_cat": Object {
+        "great_golden_cat": {
           "expansion": "core",
           "id": "great_golden_cat",
           "name": "Hunt the Great Golden Cat",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": "white_lion_mask",
                 "keyword": null,
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": "mask_maker",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "guidepost": Object {
+        "guidepost": {
           "expansion": "core",
           "id": "guidepost",
           "name": "Guidepost",
-          "recipe": Object {
+          "recipe": {
             "innovation": "guidepost",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "harvest_ritual": Object {
+        "harvest_ritual": {
           "expansion": "core",
           "id": "harvest_ritual",
           "name": "Harvest Ritual",
-          "recipe": Object {
+          "recipe": {
             "innovation": "forbidden dance",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "stone_circle",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "heart_flute": Object {
+        "heart_flute": {
           "expansion": "core",
           "id": "heart_flute",
           "name": "Devil's Melody",
-          "recipe": Object {
+          "recipe": {
             "innovation": "heart_flute",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "innovate": Object {
+        "innovate": {
           "expansion": "dk",
           "id": "innovate",
           "name": "Innovate",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "bone",
                 "quantity": 1,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "organ",
                 "quantity": 1,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "hide",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": "throne",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "innovate pottery": Object {
+        "innovate pottery": {
           "expansion": "sunstalker",
           "id": "innovate pottery",
           "name": "Innovate Pottery",
-          "recipe": Object {
+          "recipe": {
             "innovation": "umbilical bank",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "organ",
                 "quantity": 3,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": null,
             "not_innovation": "pottery",
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "innovate_scrap_smelting": Object {
+        "innovate_scrap_smelting": {
           "expansion": "core",
           "id": "innovate_scrap_smelting",
           "name": "Innovate Scrap Smelting",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "scrap",
                 "quantity": 2,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "bone",
                 "quantity": 5,
-                "resource": null,
+                "resource": null
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "organ",
                 "quantity": 5,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": "weapon_crafter",
             "not_innovation": "scrap_smelting",
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "investigate": Object {
+        "investigate": {
           "expansion": "core",
           "id": "investigate",
           "name": "Investigate",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "exhausted_lantern_hoard",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "kill spidicules": Object {
+        "kill spidicules": {
           "expansion": "spidicules",
           "id": "kill spidicules",
           "name": "Kill Spidicules",
-          "recipe": Object {
+          "recipe": {
             "innovation": "legless ball",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "lantern_research": Object {
+        "lantern_research": {
           "expansion": "core",
           "id": "lantern_research",
           "name": "Lantern Research - Pulse Discoveries",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 2,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": "final_lantern",
                 "keyword": null,
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": "exhausted_lantern_hoard",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "leather_making": Object {
+        "leather_making": {
           "expansion": "core",
           "id": "leather_making",
           "name": "Leather Making",
-          "recipe": Object {
+          "recipe": {
             "innovation": "ammonia",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "hide",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": "leather_worker",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "leave offering": Object {
+        "leave offering": {
           "expansion": "lk",
           "id": "leave offering",
           "name": "Leave the monster an offering",
-          "recipe": Object {
+          "recipe": {
             "innovation": "white mask",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "light-forging": Object {
+        "light-forging": {
           "expansion": "slenderman",
           "id": "light-forging",
           "name": "Light-Forging",
-          "recipe": Object {
+          "recipe": {
             "innovation": "darkwater research",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "mad_steed": Object {
+        "mad_steed": {
           "expansion": "core",
           "id": "mad_steed",
           "name": "Hunt the Mad Streed",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": "antelope_mask",
                 "keyword": null,
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": "mask_maker",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "momento_mori": Object {
+        "momento_mori": {
           "expansion": "core",
           "id": "momento_mori",
           "name": "Momento Mori",
-          "recipe": Object {
+          "recipe": {
             "innovation": "momento_mori",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "new recruits": Object {
+        "new recruits": {
           "expansion": "manhunter",
           "id": "new recruits",
           "name": "New Recruits",
-          "recipe": Object {
+          "recipe": {
             "innovation": "settlement watch",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "nightmare training": Object {
+        "nightmare training": {
           "expansion": "core",
           "id": "nightmare training",
           "name": "Train",
-          "recipe": Object {
+          "recipe": {
             "innovation": "nightmare training",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "nigredo": Object {
+        "nigredo": {
           "expansion": "gorm",
           "id": "nigredo",
           "name": "Nigredo",
-          "recipe": Object {
+          "recipe": {
             "innovation": "nigredo",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "oxidation": Object {
+        "oxidation": {
           "expansion": "core",
           "id": "oxidation",
           "name": "Oxidation",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "exhausted_lantern_hoard",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "partnership": Object {
+        "partnership": {
           "expansion": "core",
           "id": "partnership",
           "name": "Partnership",
-          "recipe": Object {
+          "recipe": {
             "innovation": "partnership",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 2,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "purification": Object {
+        "purification": {
           "expansion": "core",
           "id": "purification",
           "name": "Purification",
-          "recipe": Object {
+          "recipe": {
             "innovation": "scrap_smelting",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "purification ceremony": Object {
+        "purification ceremony": {
           "expansion": "sunstalker",
           "id": "purification ceremony",
           "name": "Purification Ceremony",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 2,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "sacred pool",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "records": Object {
+        "records": {
           "expansion": "core",
           "id": "records",
           "name": "Create monster Volume",
-          "recipe": Object {
+          "recipe": {
             "innovation": "records",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "records_fa": Object {
+        "records_fa": {
           "expansion": "core",
           "id": "records_fa",
           "name": "Gain Scholar of Death SFA",
-          "recipe": Object {
+          "recipe": {
             "innovation": "records",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "ret": Object {
+        "ret": {
           "expansion": "core",
           "id": "ret",
           "name": "Ret",
-          "recipe": Object {
+          "recipe": {
             "innovation": "pottery",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "herb",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "round stone training": Object {
+        "round stone training": {
           "expansion": "dbk",
           "id": "round stone training",
           "name": "Train",
-          "recipe": Object {
+          "recipe": {
             "innovation": "round stone training",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "resource",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "rubedo": Object {
+        "rubedo": {
           "expansion": "gorm",
           "id": "rubedo",
           "name": "Rubedo",
-          "recipe": Object {
+          "recipe": {
             "innovation": "rubedo",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 4,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "sacred water": Object {
+        "sacred water": {
           "expansion": "sunstalker",
           "id": "sacred water",
           "name": "Sacred Water",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "sacred pool",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "sacrification": Object {
+        "sacrification": {
           "expansion": "core",
           "id": "sacrification",
           "name": "Initiation",
-          "recipe": Object {
+          "recipe": {
             "innovation": "sacrification",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "sacrifice": Object {
+        "sacrifice": {
           "expansion": "core",
           "id": "sacrifice",
           "name": "Death Ritual",
-          "recipe": Object {
+          "recipe": {
             "innovation": "sacrifice",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "scrap_scavenge": Object {
+        "scrap_scavenge": {
           "expansion": "core",
           "id": "scrap_scavenge",
           "name": "Scrap Scavenge",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "weapon_crafter",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "sculpture_statue": Object {
+        "sculpture_statue": {
           "expansion": "core",
           "id": "sculpture_statue",
           "name": "Sculpt Statue",
-          "recipe": Object {
+          "recipe": {
             "innovation": "sculpture",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "sculpture_study_statue": Object {
+        "sculpture_study_statue": {
           "expansion": "core",
           "id": "sculpture_study_statue",
           "name": "Study Statue",
-          "recipe": Object {
+          "recipe": {
             "innovation": "sculpture",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "shared_experience": Object {
+        "shared_experience": {
           "expansion": "core",
           "id": "shared_experience",
           "name": "Shared Experience",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "lantern_hoard",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "shrine": Object {
+        "shrine": {
           "expansion": "core",
           "id": "shrine",
           "name": "Armor Ritual",
-          "recipe": Object {
+          "recipe": {
             "innovation": "shrine",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "silk surgery": Object {
+        "silk surgery": {
           "expansion": "spidicules",
           "id": "silk surgery",
           "name": "Silk Surgery",
-          "recipe": Object {
+          "recipe": {
             "innovation": "silk refining",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "spar": Object {
+        "spar": {
           "expansion": "dk",
           "id": "spar",
           "name": "Spar",
-          "recipe": Object {
+          "recipe": {
             "innovation": "arena",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "iron",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "spider dance": Object {
+        "spider dance": {
           "expansion": "spidicules",
           "id": "spider dance",
           "name": "Spider Dance",
-          "recipe": Object {
+          "recipe": {
             "innovation": "choreia",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 2,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "stone_noses": Object {
+        "stone_noses": {
           "expansion": "core",
           "id": "stone_noses",
           "name": "Stone Noses",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "organ_grinder",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "storytelling": Object {
+        "storytelling": {
           "expansion": "core",
           "id": "storytelling",
           "name": "Story Time",
-          "recipe": Object {
+          "recipe": {
             "innovation": "storytelling",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 2,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "sun sealing": Object {
+        "sun sealing": {
           "expansion": "sunstalker",
           "id": "sun sealing",
           "name": "Sun Sealing",
-          "recipe": Object {
+          "recipe": {
             "innovation": "sauna shrine",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "sacred pool",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "survivors_lantern": Object {
+        "survivors_lantern": {
           "expansion": "core",
           "id": "survivors_lantern",
           "name": "Survivor's Lantern",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": "final_lantern",
                 "keyword": null,
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": "exhausted_lantern_hoard",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "trace petals": Object {
+        "trace petals": {
           "expansion": "fk",
           "id": "trace petals",
           "name": "Trace Petals",
-          "recipe": Object {
+          "recipe": {
             "innovation": "petal spiral",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "trepanning": Object {
+        "trepanning": {
           "expansion": "core",
           "id": "trepanning",
           "name": "Trepanning",
-          "recipe": Object {
+          "recipe": {
             "innovation": null,
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": "barber_surgeon",
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "tribute": Object {
+        "tribute": {
           "expansion": "sunstalker",
           "id": "tribute",
           "name": "Tribute",
-          "recipe": Object {
+          "recipe": {
             "innovation": "sauna shrine",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
+                "resource": "endeavor"
               },
-              Object {
+              {
                 "gear": null,
                 "keyword": "organ",
                 "quantity": 1,
-                "resource": null,
-              },
+                "resource": null
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "umbilical symbiosis": Object {
+        "umbilical symbiosis": {
           "expansion": "sunstalker",
           "id": "umbilical symbiosis",
           "name": "Umbilical Symbiosis",
-          "recipe": Object {
+          "recipe": {
             "innovation": "umbilical bank",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "underground_sow": Object {
+        "underground_sow": {
           "expansion": "dbk",
           "id": "underground_sow",
           "name": "Underground Sow",
-          "recipe": Object {
+          "recipe": {
             "innovation": "subterranean agriculture",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "underwater train": Object {
+        "underwater train": {
           "expansion": "sunstalker",
           "id": "underwater train",
           "name": "Underwater Train",
-          "recipe": Object {
+          "recipe": {
             "innovation": "filleting table",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "visit retinue": Object {
+        "visit retinue": {
           "expansion": "lk",
           "id": "visit retinue",
           "name": "Visit the retinue",
-          "recipe": Object {
+          "recipe": {
             "innovation": "white mask",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "war room": Object {
+        "war room": {
           "expansion": "manhunter",
           "id": "war room",
           "name": "Reroll 1 Hunt Event",
-          "recipe": Object {
+          "recipe": {
             "innovation": "war room",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
+            "not_location": null
+          }
         },
-        "worship monster": Object {
+        "worship monster": {
           "expansion": "lk",
           "id": "worship monster",
           "name": "Worship the monster",
-          "recipe": Object {
+          "recipe": {
             "innovation": "stoic statue",
-            "items": Array [
-              Object {
+            "items": [
+              {
                 "gear": null,
                 "keyword": null,
                 "quantity": 1,
-                "resource": "endeavor",
-              },
+                "resource": "endeavor"
+              }
             ],
             "location": null,
             "not_innovation": null,
-            "not_location": null,
-          },
-        },
+            "not_location": null
+          }
+        }
       },
-      "expansions": Object {
+      "expansions": {
         "core": "core",
         "dbk": "dbk",
         "dk": "dk",
@@ -2052,11 +1955,11 @@ Object {
         "manhunter": "manhunter",
         "slenderman": "slenderman",
         "spidicules": "spidicules",
-        "sunstalker": "sunstalker",
+        "sunstalker": "sunstalker"
       },
       "hunting": null,
-      "id": "960aa7ae-598a-49eb-888b-c6baa0006751",
-      "innovations": Object {
+      "id": "ca2f6efa-88a7-4de7-8ef1-40ec9cc447cb",
+      "innovations": {
         "albedo": "albedo",
         "ammonia": "ammonia",
         "aquarobics": "aquarobics",
@@ -2095,7 +1998,6 @@ Object {
         "mastery_fist_and_tooth": "mastery_fist_and_tooth",
         "mastery_grand_weapon": "mastery_grand_weapon",
         "mastery_katar": "mastery_katar",
-        "mastery_scythe": "mastery_scythe",
         "mastery_shield": "mastery_shield",
         "mastery_spear": "mastery_spear",
         "mastery_sword": "mastery_sword",
@@ -2133,9 +2035,9 @@ Object {
         "ultimate_weapon": "ultimate_weapon",
         "umbilical bank": "umbilical bank",
         "war room": "war room",
-        "white mask": "white mask",
+        "white mask": "white mask"
       },
-      "locations": Object {
+      "locations": {
         "barber_surgeon": "barber_surgeon",
         "blacksmith": "blacksmith",
         "bone_smith": "bone_smith",
@@ -2157,794 +2059,778 @@ Object {
         "the sun": "the sun",
         "throne": "throne",
         "weapon_crafter": "weapon_crafter",
-        "wet_resin_crafter": "wet_resin_crafter",
+        "wet_resin_crafter": "wet_resin_crafter"
       },
-      "notes": "",
-      "principles": Object {
+      "principles": {
         "conviction": "romantic",
         "death": "cannibalize",
         "newlife": "pty",
-        "society": "accept_darkness",
+        "society": "accept_darkness"
       },
-      "settlement": Object {
-        "departing": Object {
+      "settlement": {
+        "departing": {
           "accuracy": 0,
           "courage": 0,
-          "description": Array [
+          "description": [
             "**Song of the Brave**: During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave",
-            "**The Knowledge Worm**: survivors with 10+ insanity, \\"A Gracious Host\\"",
+            "**The Knowledge Worm**: survivors with 10+ insanity, \"A Gracious Host\"",
             "**War room**: Quarries can't move off the hunt board. If survivors would need to move backwards roll 1d10, on 4+ they don't.",
             "**Settlement Watch**: Survivors gain +2 survival when they depart for a Nemesis encounter or Special Showdown",
             "**Sauna Shrine**: When departing for a nemesis encounter or special showdown, gain +10 survival.",
-            "**Radiating Orb**: Survivors with a constellation gain +1 survival",
+            "**Radiating Orb**: Survivors with a constellation gain +1 survival"
           ],
           "evasion": 0,
           "hunt xp": 0,
           "insanity": 5,
           "strength": 0,
           "survival": 9,
-          "understanding": 0,
+          "understanding": 0
         },
         "name": "test",
-        "newborn": Object {
+        "newborn": {
           "accuracy": 1,
           "courage": 2,
-          "description": Array [
+          "description": [
             "**Family**: a newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency.",
             "**Umbilical Bank**: You may add 1 Life String strange resource to the storage.",
-            "**Bloodline**: inherit the following from parents:
-
-* The Oracle's Eye, Iridescent Hide or Pristine ability.
-* 1 Surname.
-* Half of the parent's weapon proficiency levels, rounded up.",
+            "**Bloodline**: inherit the following from parents: *The Oracle 's Eye, Iridescent Hide or Pristine ability. *1 Surname. *Half of the parent 's weapon proficiency levels, rounded up.",
             "**Empire**: gain **Pristine** ability",
-            "**Pristine**: when you suffer a dismembered severe injury, ignore it and gain 1 bleeding token instead.",
+            "**Pristine**: when you suffer a dismembered severe injury, ignore it and gain 1 bleeding token instead."
           ],
           "evasion": 1,
           "hunt xp": 2,
           "insanity": 0,
           "strength": 2,
           "survival": 1,
-          "understanding": 2,
+          "understanding": 2
         },
-        "showdown": Object {
+        "showdown": {
           "accuracy": 0,
           "courage": 0,
-          "description": Array [
+          "description": [
             "**Final Fighting Art**: Once per showdown you may select an AI card from the discard or wound pile and put it on top of AI deck",
             "**Song of the Brave**: On arrival each non-deaf survivor may remove 1 negative attribute token",
             "**Ultimate Weapon**: When you defeat a monster, gain 1 monster resource of your choice",
-            "**Crimson Candy**: At the start of the showdown each survivor gains * survival",
+            "**Crimson Candy**: At the start of the showdown each survivor gains * survival"
           ],
           "evasion": 0,
           "hunt xp": 0,
           "insanity": 0,
           "strength": 0,
           "survival": 0,
-          "understanding": 0,
+          "understanding": 0
         },
-        "survivalLimit": 20,
-        "survivors": Object {},
+        "survivalLimit": 20
       },
       "showdown": null,
-      "stored_resources": Object {
-        "1,000 year sunspot": Object {
+      "stored_resources": {
+        "1,000 year sunspot": {
           "id": "1,000 year sunspot",
           "quantity": 1,
-          "resource": "1,000 year sunspot",
+          "resource": "1,000 year sunspot"
         },
-        "3,000 year sunspot": Object {
+        "3,000 year sunspot": {
           "id": "3,000 year sunspot",
           "quantity": 1,
-          "resource": "3,000 year sunspot",
+          "resource": "3,000 year sunspot"
         },
-        "???": Object {
+        "???": {
           "id": "???",
           "quantity": 1,
-          "resource": "???",
+          "resource": "???"
         },
-        "acid gland": Object {
+        "acid gland": {
           "id": "acid gland",
           "quantity": 1,
-          "resource": "acid gland",
+          "resource": "acid gland"
         },
-        "aracnid heart": Object {
+        "aracnid heart": {
           "id": "aracnid heart",
           "quantity": 1,
-          "resource": "aracnid heart",
+          "resource": "aracnid heart"
         },
-        "beetle horn": Object {
+        "beetle horn": {
           "id": "beetle horn",
           "quantity": 1,
-          "resource": "beetle horn",
+          "resource": "beetle horn"
         },
-        "bird beak": Object {
+        "bird beak": {
           "id": "bird beak",
           "quantity": 1,
-          "resource": "bird beak",
+          "resource": "bird beak"
         },
-        "black lens": Object {
+        "black lens": {
           "id": "black lens",
           "quantity": 1,
-          "resource": "black lens",
+          "resource": "black lens"
         },
-        "black skull": Object {
+        "black skull": {
           "id": "black skull",
           "quantity": 1,
-          "resource": "black skull",
+          "resource": "black skull"
         },
-        "bladder": Object {
+        "bladder": {
           "id": "bladder",
           "quantity": 1,
-          "resource": "bladder",
+          "resource": "bladder"
         },
-        "blistering plasma fruit": Object {
+        "blistering plasma fruit": {
           "id": "blistering plasma fruit",
           "quantity": 1,
-          "resource": "blistering plasma fruit",
+          "resource": "blistering plasma fruit"
         },
-        "brain root": Object {
+        "brain root": {
           "id": "brain root",
           "quantity": 1,
-          "resource": "brain root",
+          "resource": "brain root"
         },
-        "broken lantern": Object {
+        "broken lantern": {
           "id": "broken lantern",
           "quantity": 1,
-          "resource": "broken lantern",
+          "resource": "broken lantern"
         },
-        "cabled vein": Object {
+        "cabled vein": {
           "id": "cabled vein",
           "quantity": 1,
-          "resource": "cabled vein",
+          "resource": "cabled vein"
         },
-        "canopic jar": Object {
+        "canopic jar": {
           "id": "canopic jar",
           "quantity": 1,
-          "resource": "canopic jar",
+          "resource": "canopic jar"
         },
-        "century fingernails": Object {
+        "century fingernails": {
           "id": "century fingernails",
           "quantity": 1,
-          "resource": "century fingernails",
+          "resource": "century fingernails"
         },
-        "century shell": Object {
+        "century shell": {
           "id": "century shell",
           "quantity": 1,
-          "resource": "century shell",
+          "resource": "century shell"
         },
-        "chitin": Object {
+        "chitin": {
           "id": "chitin",
           "quantity": 1,
-          "resource": "chitin",
+          "resource": "chitin"
         },
-        "compound eye": Object {
+        "compound eye": {
           "id": "compound eye",
           "quantity": 1,
-          "resource": "compound eye",
+          "resource": "compound eye"
         },
-        "crab spider": Object {
+        "crab spider": {
           "id": "crab spider",
           "quantity": 1,
-          "resource": "crab spider",
+          "resource": "crab spider"
         },
-        "crimson vial": Object {
+        "crimson vial": {
           "id": "crimson vial",
           "quantity": 1,
-          "resource": "crimson vial",
+          "resource": "crimson vial"
         },
-        "crystal sword mold": Object {
+        "crystal sword mold": {
           "id": "crystal sword mold",
           "quantity": 1,
-          "resource": "crystal sword mold",
+          "resource": "crystal sword mold"
         },
-        "curious hand": Object {
+        "curious hand": {
           "id": "curious hand",
           "quantity": 1,
-          "resource": "curious hand",
+          "resource": "curious hand"
         },
-        "cycloid scales": Object {
+        "cycloid scales": {
           "id": "cycloid scales",
           "quantity": 1,
-          "resource": "cycloid scales",
+          "resource": "cycloid scales"
         },
-        "cyclops fly": Object {
+        "cyclops fly": {
           "id": "cyclops fly",
           "quantity": 1,
-          "resource": "cyclops fly",
+          "resource": "cyclops fly"
         },
-        "dark water": Object {
+        "dark water": {
           "id": "dark water",
           "quantity": 1,
-          "resource": "dark water",
+          "resource": "dark water"
         },
-        "dense bone": Object {
+        "dense bone": {
           "id": "dense bone",
           "quantity": 1,
-          "resource": "dense bone",
+          "resource": "dense bone"
         },
-        "dragon iron": Object {
+        "dragon iron": {
           "id": "dragon iron",
           "quantity": 1,
-          "resource": "dragon iron",
+          "resource": "dragon iron"
         },
-        "drifting dream fruit": Object {
+        "drifting dream fruit": {
           "id": "drifting dream fruit",
           "quantity": 1,
-          "resource": "drifting dream fruit",
+          "resource": "drifting dream fruit"
         },
-        "elder cat teeth": Object {
+        "elder cat teeth": {
           "id": "elder cat teeth",
           "quantity": 1,
-          "resource": "elder cat teeth",
+          "resource": "elder cat teeth"
         },
-        "elytra": Object {
+        "elytra": {
           "id": "elytra",
           "quantity": 1,
-          "resource": "elytra",
+          "resource": "elytra"
         },
-        "endeavor": Object {
+        "endeavor": {
           "id": "endeavor",
           "quantity": 1,
-          "resource": "endeavor",
+          "resource": "endeavor"
         },
-        "exoskeleton": Object {
+        "exoskeleton": {
           "id": "exoskeleton",
           "quantity": 1,
-          "resource": "exoskeleton",
+          "resource": "exoskeleton"
         },
-        "eye of cat": Object {
+        "eye of cat": {
           "id": "eye of cat",
           "quantity": 1,
-          "resource": "eye of cat",
+          "resource": "eye of cat"
         },
-        "eyeballs": Object {
+        "eyeballs": {
           "id": "eyeballs",
           "quantity": 1,
-          "resource": "eyeballs",
+          "resource": "eyeballs"
         },
-        "fertility tentacle": Object {
+        "fertility tentacle": {
           "id": "fertility tentacle",
           "quantity": 1,
-          "resource": "fertility tentacle",
+          "resource": "fertility tentacle"
         },
-        "fresh acanthus": Object {
+        "fresh acanthus": {
           "id": "fresh acanthus",
           "quantity": 1,
-          "resource": "fresh acanthus",
+          "resource": "fresh acanthus"
         },
-        "golden whiskers": Object {
+        "golden whiskers": {
           "id": "golden whiskers",
           "quantity": 1,
-          "resource": "golden whiskers",
+          "resource": "golden whiskers"
         },
-        "gorm brain": Object {
+        "gorm brain": {
           "id": "gorm brain",
           "quantity": 1,
-          "resource": "gorm brain",
+          "resource": "gorm brain"
         },
-        "great cat bone": Object {
+        "great cat bone": {
           "id": "great cat bone",
           "quantity": 1,
-          "resource": "great cat bone",
+          "resource": "great cat bone"
         },
-        "hagfish": Object {
+        "hagfish": {
           "id": "hagfish",
           "quantity": 1,
-          "resource": "hagfish",
+          "resource": "hagfish"
         },
-        "handed skull": Object {
+        "handed skull": {
           "id": "handed skull",
           "quantity": 1,
-          "resource": "handed skull",
+          "resource": "handed skull"
         },
-        "hardened ribs": Object {
+        "hardened ribs": {
           "id": "hardened ribs",
           "quantity": 1,
-          "resource": "hardened ribs",
+          "resource": "hardened ribs"
         },
-        "hissing cockroach": Object {
+        "hissing cockroach": {
           "id": "hissing cockroach",
           "quantity": 1,
-          "resource": "hissing cockroach",
+          "resource": "hissing cockroach"
         },
-        "hollow wing bone": Object {
+        "hollow wing bone": {
           "id": "hollow wing bone",
           "quantity": 1,
-          "resource": "hollow wing bone",
+          "resource": "hollow wing bone"
         },
-        "horn fragment": Object {
+        "horn fragment": {
           "id": "horn fragment",
           "quantity": 1,
-          "resource": "horn fragment",
+          "resource": "horn fragment"
         },
-        "huge sunteeth": Object {
+        "huge sunteeth": {
           "id": "huge sunteeth",
           "quantity": 1,
-          "resource": "huge sunteeth",
+          "resource": "huge sunteeth"
         },
-        "husk": Object {
+        "husk": {
           "id": "husk",
           "quantity": 1,
-          "resource": "husk",
+          "resource": "husk"
         },
-        "inner shadow skin": Object {
+        "inner shadow skin": {
           "id": "inner shadow skin",
           "quantity": 1,
-          "resource": "inner shadow skin",
+          "resource": "inner shadow skin"
         },
-        "iron": Object {
+        "iron": {
           "id": "iron",
           "quantity": 1,
-          "resource": "iron",
+          "resource": "iron"
         },
-        "jagged marrow fruit": Object {
+        "jagged marrow fruit": {
           "id": "jagged marrow fruit",
           "quantity": 1,
-          "resource": "jagged marrow fruit",
+          "resource": "jagged marrow fruit"
         },
-        "jiggling lard": Object {
+        "jiggling lard": {
           "id": "jiggling lard",
           "quantity": 1,
-          "resource": "jiggling lard",
+          "resource": "jiggling lard"
         },
-        "jowls": Object {
+        "jowls": {
           "id": "jowls",
           "quantity": 1,
-          "resource": "jowls",
+          "resource": "jowls"
         },
-        "king's claws": Object {
+        "king's claws": {
           "id": "king's claws",
           "quantity": 1,
-          "resource": "king's claws",
+          "resource": "king's claws"
         },
-        "king's tongue": Object {
+        "king's tongue": {
           "id": "king's tongue",
           "quantity": 1,
-          "resource": "king's tongue",
+          "resource": "king's tongue"
         },
-        "lantern bloom": Object {
+        "lantern bloom": {
           "id": "lantern bloom",
           "quantity": 1,
-          "resource": "lantern bloom",
+          "resource": "lantern bloom"
         },
-        "lantern bud": Object {
+        "lantern bud": {
           "id": "lantern bud",
           "quantity": 1,
-          "resource": "lantern bud",
+          "resource": "lantern bud"
         },
-        "large appendage": Object {
+        "large appendage": {
           "id": "large appendage",
           "quantity": 1,
-          "resource": "large appendage",
+          "resource": "large appendage"
         },
-        "large flat tooth": Object {
+        "large flat tooth": {
           "id": "large flat tooth",
           "quantity": 1,
-          "resource": "large flat tooth",
+          "resource": "large flat tooth"
         },
-        "leather": Object {
+        "leather": {
           "id": "leather",
           "quantity": 1,
-          "resource": "leather",
+          "resource": "leather"
         },
-        "legendary horns": Object {
+        "legendary horns": {
           "id": "legendary horns",
           "quantity": 1,
-          "resource": "legendary horns",
+          "resource": "legendary horns"
         },
-        "lion claw": Object {
+        "lion claw": {
           "id": "lion claw",
           "quantity": 1,
-          "resource": "lion claw",
+          "resource": "lion claw"
         },
-        "lion tail": Object {
+        "lion tail": {
           "id": "lion tail",
           "quantity": 1,
-          "resource": "lion tail",
+          "resource": "lion tail"
         },
-        "lion testes": Object {
+        "lion testes": {
           "id": "lion testes",
           "quantity": 1,
-          "resource": "lion testes",
+          "resource": "lion testes"
         },
-        "lonely ant": Object {
+        "lonely ant": {
           "id": "lonely ant",
           "quantity": 1,
-          "resource": "lonely ant",
+          "resource": "lonely ant"
         },
-        "lonely fruit": Object {
+        "lonely fruit": {
           "id": "lonely fruit",
           "quantity": 1,
-          "resource": "lonely fruit",
+          "resource": "lonely fruit"
         },
-        "love juice": Object {
+        "love juice": {
           "id": "love juice",
           "quantity": 1,
-          "resource": "love juice",
+          "resource": "love juice"
         },
-        "mammoth hand": Object {
+        "mammoth hand": {
           "id": "mammoth hand",
           "quantity": 1,
-          "resource": "mammoth hand",
+          "resource": "mammoth hand"
         },
-        "meaty rib": Object {
+        "meaty rib": {
           "id": "meaty rib",
           "quantity": 1,
-          "resource": "meaty rib",
+          "resource": "meaty rib"
         },
-        "milky eye": Object {
+        "milky eye": {
           "id": "milky eye",
           "quantity": 1,
-          "resource": "milky eye",
+          "resource": "milky eye"
         },
-        "monster bone": Object {
+        "monster bone": {
           "id": "monster bone",
           "quantity": 1,
-          "resource": "monster bone",
+          "resource": "monster bone"
         },
-        "monster hide": Object {
+        "monster hide": {
           "id": "monster hide",
           "quantity": 1,
-          "resource": "monster hide",
+          "resource": "monster hide"
         },
-        "monster organ": Object {
+        "monster organ": {
           "id": "monster organ",
           "quantity": 1,
-          "resource": "monster organ",
+          "resource": "monster organ"
         },
-        "muculent droppings": Object {
+        "muculent droppings": {
           "id": "muculent droppings",
           "quantity": 1,
-          "resource": "muculent droppings",
+          "resource": "muculent droppings"
         },
-        "muscly gums": Object {
+        "muscly gums": {
           "id": "muscly gums",
           "quantity": 1,
-          "resource": "muscly gums",
+          "resource": "muscly gums"
         },
-        "nightmare tick": Object {
+        "nightmare tick": {
           "id": "nightmare tick",
           "quantity": 1,
-          "resource": "nightmare tick",
+          "resource": "nightmare tick"
         },
-        "old blue box": Object {
+        "old blue box": {
           "id": "old blue box",
           "quantity": 1,
-          "resource": "old blue box",
+          "resource": "old blue box"
         },
-        "osseous bloom": Object {
+        "osseous bloom": {
           "id": "osseous bloom",
           "quantity": 1,
-          "resource": "osseous bloom",
+          "resource": "osseous bloom"
         },
-        "pelt": Object {
+        "pelt": {
           "id": "pelt",
           "quantity": 1,
-          "resource": "pelt",
+          "resource": "pelt"
         },
-        "perfect crucible": Object {
+        "perfect crucible": {
           "id": "perfect crucible",
           "quantity": 1,
-          "resource": "perfect crucible",
+          "resource": "perfect crucible"
         },
-        "phoenix crest": Object {
+        "phoenix crest": {
           "id": "phoenix crest",
           "quantity": 1,
-          "resource": "phoenix crest",
+          "resource": "phoenix crest"
         },
-        "phoenix eye": Object {
+        "phoenix eye": {
           "id": "phoenix eye",
           "quantity": 1,
-          "resource": "phoenix eye",
+          "resource": "phoenix eye"
         },
-        "phoenix finger": Object {
+        "phoenix finger": {
           "id": "phoenix finger",
           "quantity": 1,
-          "resource": "phoenix finger",
+          "resource": "phoenix finger"
         },
-        "phoenix whisker": Object {
+        "phoenix whisker": {
           "id": "phoenix whisker",
           "quantity": 1,
-          "resource": "phoenix whisker",
+          "resource": "phoenix whisker"
         },
-        "pituitary gland": Object {
+        "pituitary gland": {
           "id": "pituitary gland",
           "quantity": 1,
-          "resource": "pituitary gland",
+          "resource": "pituitary gland"
         },
-        "porous flesh fruit": Object {
+        "porous flesh fruit": {
           "id": "porous flesh fruit",
           "quantity": 1,
-          "resource": "porous flesh fruit",
+          "resource": "porous flesh fruit"
         },
-        "preserved caustic dung": Object {
+        "preserved caustic dung": {
           "id": "preserved caustic dung",
           "quantity": 1,
-          "resource": "preserved caustic dung",
+          "resource": "preserved caustic dung"
         },
-        "prismatic gills": Object {
+        "prismatic gills": {
           "id": "prismatic gills",
           "quantity": 1,
-          "resource": "prismatic gills",
+          "resource": "prismatic gills"
         },
-        "pustules": Object {
+        "pustules": {
           "id": "pustules",
           "quantity": 1,
-          "resource": "pustules",
+          "resource": "pustules"
         },
-        "radiant heart": Object {
+        "radiant heart": {
           "id": "radiant heart",
           "quantity": 1,
-          "resource": "radiant heart",
+          "resource": "radiant heart"
         },
-        "radioactive dung": Object {
+        "radioactive dung": {
           "id": "radioactive dung",
           "quantity": 1,
-          "resource": "radioactive dung",
+          "resource": "radioactive dung"
         },
-        "rainbow droppings": Object {
+        "rainbow droppings": {
           "id": "rainbow droppings",
           "quantity": 1,
-          "resource": "rainbow droppings",
+          "resource": "rainbow droppings"
         },
-        "red vial": Object {
+        "red vial": {
           "id": "red vial",
           "quantity": 1,
-          "resource": "red vial",
+          "resource": "red vial"
         },
-        "salt": Object {
+        "salt": {
           "id": "salt",
           "quantity": 1,
-          "resource": "salt",
+          "resource": "salt"
         },
-        "sarcophagus": Object {
+        "sarcophagus": {
           "id": "sarcophagus",
           "quantity": 1,
-          "resource": "sarcophagus",
+          "resource": "sarcophagus"
         },
-        "scarab shell": Object {
+        "scarab shell": {
           "id": "scarab shell",
           "quantity": 1,
-          "resource": "scarab shell",
+          "resource": "scarab shell"
         },
-        "scarab wing": Object {
+        "scarab wing": {
           "id": "scarab wing",
           "quantity": 1,
-          "resource": "scarab wing",
+          "resource": "scarab wing"
         },
-        "scell": Object {
+        "scell": {
           "id": "scell",
           "quantity": 1,
-          "resource": "scell",
+          "resource": "scell"
         },
-        "screaming brain": Object {
+        "screaming brain": {
           "id": "screaming brain",
           "quantity": 1,
-          "resource": "screaming brain",
+          "resource": "screaming brain"
         },
-        "second heart": Object {
+        "second heart": {
           "id": "second heart",
           "quantity": 1,
-          "resource": "second heart",
+          "resource": "second heart"
         },
-        "serrated fangs": Object {
+        "serrated fangs": {
           "id": "serrated fangs",
           "quantity": 1,
-          "resource": "serrated fangs",
+          "resource": "serrated fangs"
         },
-        "shadow ink gland": Object {
+        "shadow ink gland": {
           "id": "shadow ink gland",
           "quantity": 1,
-          "resource": "shadow ink gland",
+          "resource": "shadow ink gland"
         },
-        "shadow tentacles": Object {
+        "shadow tentacles": {
           "id": "shadow tentacles",
           "quantity": 1,
-          "resource": "shadow tentacles",
+          "resource": "shadow tentacles"
         },
-        "shank bone": Object {
+        "shank bone": {
           "id": "shank bone",
           "quantity": 1,
-          "resource": "shank bone",
+          "resource": "shank bone"
         },
-        "shark tongue": Object {
+        "shark tongue": {
           "id": "shark tongue",
           "quantity": 1,
-          "resource": "shark tongue",
+          "resource": "shark tongue"
         },
-        "shimmering halo": Object {
+        "shimmering halo": {
           "id": "shimmering halo",
           "quantity": 1,
-          "resource": "shimmering halo",
+          "resource": "shimmering halo"
         },
-        "shimmering mane": Object {
+        "shimmering mane": {
           "id": "shimmering mane",
           "quantity": 1,
-          "resource": "shimmering mane",
+          "resource": "shimmering mane"
         },
-        "shining liver": Object {
+        "shining liver": {
           "id": "shining liver",
           "quantity": 1,
-          "resource": "shining liver",
+          "resource": "shining liver"
         },
-        "sighing bloom": Object {
+        "sighing bloom": {
           "id": "sighing bloom",
           "quantity": 1,
-          "resource": "sighing bloom",
+          "resource": "sighing bloom"
         },
-        "silken nervous system": Object {
+        "silken nervous system": {
           "id": "silken nervous system",
           "quantity": 1,
-          "resource": "silken nervous system",
+          "resource": "silken nervous system"
         },
-        "silver urn": Object {
+        "silver urn": {
           "id": "silver urn",
           "quantity": 1,
-          "resource": "silver urn",
+          "resource": "silver urn"
         },
-        "sinew": Object {
+        "sinew": {
           "id": "sinew",
           "quantity": 1,
-          "resource": "sinew",
+          "resource": "sinew"
         },
-        "skull": Object {
+        "skull": {
           "id": "skull",
           "quantity": 1,
-          "resource": "skull",
+          "resource": "skull"
         },
-        "small apendages": Object {
+        "small apendages": {
           "id": "small apendages",
           "quantity": 1,
-          "resource": "small apendages",
+          "resource": "small apendages"
         },
-        "small feathers": Object {
+        "small feathers": {
           "id": "small feathers",
           "quantity": 1,
-          "resource": "small feathers",
+          "resource": "small feathers"
         },
-        "small hand parasites": Object {
+        "small hand parasites": {
           "id": "small hand parasites",
           "quantity": 1,
-          "resource": "small hand parasites",
+          "resource": "small hand parasites"
         },
-        "small sunteeth": Object {
+        "small sunteeth": {
           "id": "small sunteeth",
           "quantity": 1,
-          "resource": "small sunteeth",
+          "resource": "small sunteeth"
         },
-        "spinnerets": Object {
+        "spinnerets": {
           "id": "spinnerets",
           "quantity": 1,
-          "resource": "spinnerets",
+          "resource": "spinnerets"
         },
-        "spiral horn": Object {
+        "spiral horn": {
           "id": "spiral horn",
           "quantity": 1,
-          "resource": "spiral horn",
+          "resource": "spiral horn"
         },
-        "stink gland": Object {
+        "stink gland": {
           "id": "stink gland",
           "quantity": 1,
-          "resource": "stink gland",
+          "resource": "stink gland"
         },
-        "stomach": Object {
+        "stomach": {
           "id": "stomach",
           "quantity": 1,
-          "resource": "stomach",
+          "resource": "stomach"
         },
-        "stout heart": Object {
+        "stout heart": {
           "id": "stout heart",
           "quantity": 1,
-          "resource": "stout heart",
+          "resource": "stout heart"
         },
-        "stout hide": Object {
+        "stout hide": {
           "id": "stout hide",
           "quantity": 1,
-          "resource": "stout hide",
+          "resource": "stout hide"
         },
-        "stout kidney": Object {
+        "stout kidney": {
           "id": "stout kidney",
           "quantity": 1,
-          "resource": "stout kidney",
+          "resource": "stout kidney"
         },
-        "stout vertebrae": Object {
+        "stout vertebrae": {
           "id": "stout vertebrae",
           "quantity": 1,
-          "resource": "stout vertebrae",
+          "resource": "stout vertebrae"
         },
-        "sunshark blubber": Object {
+        "sunshark blubber": {
           "id": "sunshark blubber",
           "quantity": 1,
-          "resource": "sunshark blubber",
+          "resource": "sunshark blubber"
         },
-        "sunshark bone": Object {
+        "sunshark bone": {
           "id": "sunshark bone",
           "quantity": 1,
-          "resource": "sunshark bone",
+          "resource": "sunshark bone"
         },
-        "sunshark fin": Object {
+        "sunshark fin": {
           "id": "sunshark fin",
           "quantity": 1,
-          "resource": "sunshark fin",
+          "resource": "sunshark fin"
         },
-        "sunstones": Object {
+        "sunstones": {
           "id": "sunstones",
           "quantity": 1,
-          "resource": "sunstones",
+          "resource": "sunstones"
         },
-        "sword beetle": Object {
+        "sword beetle": {
           "id": "sword beetle",
           "quantity": 1,
-          "resource": "sword beetle",
+          "resource": "sword beetle"
         },
-        "tail feathers": Object {
+        "tail feathers": {
           "id": "tail feathers",
           "quantity": 1,
-          "resource": "tail feathers",
+          "resource": "tail feathers"
         },
-        "thick web silk": Object {
+        "thick web silk": {
           "id": "thick web silk",
           "quantity": 1,
-          "resource": "thick web silk",
+          "resource": "thick web silk"
         },
-        "triptych": Object {
+        "triptych": {
           "id": "triptych",
           "quantity": 1,
-          "resource": "triptych",
+          "resource": "triptych"
         },
-        "underplate fungus": Object {
+        "underplate fungus": {
           "id": "underplate fungus",
           "quantity": 1,
-          "resource": "underplate fungus",
+          "resource": "underplate fungus"
         },
-        "unlaid eggs": Object {
+        "unlaid eggs": {
           "id": "unlaid eggs",
           "quantity": 1,
-          "resource": "unlaid eggs",
+          "resource": "unlaid eggs"
         },
-        "veined wing": Object {
+        "veined wing": {
           "id": "veined wing",
           "quantity": 1,
-          "resource": "veined wing",
+          "resource": "veined wing"
         },
-        "venom sac": Object {
+        "venom sac": {
           "id": "venom sac",
           "quantity": 1,
-          "resource": "venom sac",
+          "resource": "venom sac"
         },
-        "warbling bloom": Object {
+        "warbling bloom": {
           "id": "warbling bloom",
           "quantity": 1,
-          "resource": "warbling bloom",
+          "resource": "warbling bloom"
         },
-        "web silk": Object {
+        "web silk": {
           "id": "web silk",
           "quantity": 1,
-          "resource": "web silk",
+          "resource": "web silk"
         },
-        "whishbone": Object {
+        "whishbone": {
           "id": "whishbone",
           "quantity": 1,
-          "resource": "whishbone",
+          "resource": "whishbone"
         },
-        "white fur": Object {
+        "white fur": {
           "id": "white fur",
           "quantity": 1,
-          "resource": "white fur",
-        },
-      },
-    },
+          "resource": "white fur"
+        }
+      }
+    }
   ],
-  "selectedCampaign": "960aa7ae-598a-49eb-888b-c6baa0006751",
-  "subscription": Object {
-    "appLastActiveAt": 0,
-    "autoRenewing": false,
-    "checkedAt": 0,
-    "purchasedAt": 0,
-    "response": "",
-    "transactionId": undefined,
-  },
-  "version": 1,
+  "selectedCampaign": "ca2f6efa-88a7-4de7-8ef1-40ec9cc447cb"
 }
-`;

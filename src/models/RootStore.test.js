@@ -122,3 +122,9 @@ it('all in', () => {
 
   expect(store.data).toMatchSnapshot()
 })
+
+it('loads v1 save', () => {
+  const store = RootStore.create()
+  const data = require('./__test_data__/save_v1.json')
+  store.load(data)
+})

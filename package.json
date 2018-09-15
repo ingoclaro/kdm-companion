@@ -25,6 +25,14 @@
     "preset": "jest-expo",
     "setupFiles": [
       "jest-date-mock"
+    ],
+    "errorOnDeprecated": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/android/",
+      "/coverage/",
+      "__snapshots__/",
+      "/src/data/"
     ]
   },
   "lint-staged": {
