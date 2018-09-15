@@ -40,6 +40,8 @@ import SevereInjuryScreen from './SevereInjuryScreen'
 
 import SubscriptionScreen from './SubscriptionScreen'
 
+import AboutScreen from './AboutScreen'
+
 const styles = {
   tabBar: {
     backgroundColor: colors.grey900,
@@ -286,6 +288,12 @@ const MainNavigatorHeader = createStackNavigator(
       screen: SubscriptionScreen,
       navigationOptions: ({ navigation }) => ({
         header: <CampaignHeader navigation={navigation} />,
+      }),
+    },
+    About: {
+      screen: AboutScreen,
+      navigationOptions: ({ navigation }) => ({
+        header: <CampaignHeader navigation={navigation} title="About" />,
       }),
     },
   },

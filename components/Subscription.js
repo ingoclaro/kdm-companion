@@ -12,7 +12,7 @@ import {
   Title,
   View,
 } from '@shoutem/ui'
-import { Alert, Platform, NativeModules } from 'react-native'
+import { Alert, Platform, NativeModules, Linking } from 'react-native'
 import * as RNIap from 'react-native-iap'
 import { observer, inject } from 'mobx-react/native'
 
@@ -160,8 +160,8 @@ export default class Subscription extends React.Component {
     }
 
     const itemSkus = Platform.select({
-      ios: ['premium_subscription_1'],
-      android: ['premium_subscription_1'],
+      ios: ['premium_subscription_1', 'premium_subscription_2'],
+      android: ['premium_subscription_1', 'premium_subscription_2'],
     })
     let products = []
     try {
@@ -270,10 +270,20 @@ export default class Subscription extends React.Component {
   }
 
   subscribed() {
+    const url = `https://play.google.com/store/account/subscriptions?sku=${
+      this.props.subscription.productId
+    }&package=com.github.ingoclaro.kdmcompanion`
     return (
-      <Text>
-        Thanks for your support! you are already subscribed to Premium.
-      </Text>
+      <View>
+        <Text>
+          Thanks for your support! you are already subscribed to Premium.
+        </Text>
+        <Text>Your Order id is {this.props.subscription.transactionId}</Text>
+        <Divider />
+        <Button onPress={() => Linking.openURL(url)}>
+          <Text>Manage Subscription</Text>
+        </Button>
+      </View>
     )
   }
 
@@ -281,10 +291,24 @@ export default class Subscription extends React.Component {
     return (
       <View>
         <Text>This feature is only enabled for Premium users.</Text>
+
+        <Divider />
+
         <Text>
-          By becoming a Premium subscriber you can unlock advanced features of
-          the app and also you will be supporting further development of the
-          app.
+          It takes lots of time and effort to develop and maintain this
+          application, and I want it the best it can be. Other apps have ads,
+          but I don't like them because they clutter the interface and affect
+          the user experience, so instead this app has a subscription model to
+          unlock the more advanced features of the app. Please consider
+          supporting the app by becoming a subscriber.
+        </Text>
+
+        <Divider />
+
+        <Text>
+          By becoming a Premium subscriber you can unlock advanced features and
+          also you will be supporting further development of the app. If you
+          feel generous you can contribute more (buy me a coffee)
         </Text>
         <Divider />
         {this.state.error && (
@@ -296,16 +320,15 @@ export default class Subscription extends React.Component {
           </View>
         )}
 
-        {this.state.products.length > 0 && (
-          <Button
-            onPress={() =>
-              this.buySubscribeItem(this.state.products[0].productId)
-            }
-          >
-            {this.state.waiting && <Spinner style={styles.buttonSpinner} />}
-            <Text>Subscribe for {this.state.products[0].localizedPrice}</Text>
-          </Button>
-        )}
+        {this.state.products.map((prod, idx) => (
+          <View key={idx}>
+            <Button onPress={() => this.buySubscribeItem(prod.productId)}>
+              {this.state.waiting && <Spinner style={styles.buttonSpinner} />}
+              <Text>Subscribe for {prod.localizedPrice}</Text>
+            </Button>
+            <Divider />
+          </View>
+        ))}
       </View>
     )
   }

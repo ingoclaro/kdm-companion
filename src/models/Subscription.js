@@ -1,13 +1,14 @@
 import { types } from 'mobx-state-tree'
 
 const toDays = 1000 * 60 * 60 * 24
-//TODO: change dev setting
-export const checkEvery = 1000 * 60 * 7 //1 * toDays //420000
-export const activeGracePeriod = 2 * toDays // since last check
+
+export const checkEvery = 1 * toDays // 1000 * 60 * 7
+export const activeGracePeriod = 31 * toDays // since last check
 
 const Subscription = types
   .model('Subscription', {
     transactionId: types.maybe(types.string), // id of the subscription received.
+    productId: '', // product sku purchased.
     response: '', // full json response (in case we need somehting else)
     purchasedAt: 0, // timestamp the subscription was purchased
     autoRenewing: false, // if the subscription is autoRenewing, false => is not going to review, but it might still be active.
@@ -22,6 +23,7 @@ const Subscription = types
       if (!response || !response.transactionId) {
         self.response = ''
         self.transactionId = undefined
+        self.productId = ''
         self.autoRenewing = false
         self.purchasedAt = 0
         self.checkedAt = Date.now()
@@ -36,6 +38,7 @@ const Subscription = types
 
       self.response = JSON.stringify(response)
       self.transactionId = response.transactionId
+      self.productId = response.productId
       self.autoRenewing = response.autoRenewingAndroid
       self.purchasedAt = purchasedAt
       self.checkedAt = Date.now()

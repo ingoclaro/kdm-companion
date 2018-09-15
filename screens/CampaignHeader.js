@@ -4,10 +4,14 @@ import colors from '../src/colors'
 import { observer, inject } from 'mobx-react/native'
 
 @inject(({ store }) => ({
-  title: store.selectedCampaign.name,
+  campaignName: store.selectedCampaign.name,
 }))
 @observer
 export default class CampaignHeader extends React.Component {
+  static defaultProps = {
+    title: undefined,
+  }
+
   button() {
     return (
       <Button
@@ -29,7 +33,7 @@ export default class CampaignHeader extends React.Component {
     return (
       <NavigationBar
         style={styles.header}
-        title={this.props.title}
+        title={this.props.title || this.props.campaignName}
         rightComponent={rightComponent}
         hasHistory={back}
         navigateBack={() => this.props.navigation.goBack()}

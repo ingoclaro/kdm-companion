@@ -1,6 +1,6 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
-import { Screen, View, Button, Divider, Title, Text } from '@shoutem/ui'
+import { Screen, View, Button, Divider, Title, Text, Icon } from '@shoutem/ui'
 import Modal from 'react-native-modal'
 import {
   SettlementSelector,
@@ -68,6 +68,9 @@ export default class SettlementsScreen extends React.Component {
         <Divider />
 
         <Button onPress={this.showCreateModal}>
+          {!this.props.subscription.hasActiveSubscription() && (
+            <Icon name="lock" />
+          )}
           <Text>Create Settlement</Text>
         </Button>
 
@@ -85,6 +88,20 @@ export default class SettlementsScreen extends React.Component {
           }
         >
           <Text>Delete Settlement</Text>
+        </Button>
+
+        <Button
+          style={{
+            position: 'absolute',
+            bottom: 10,
+            left: 5,
+            width: 36,
+            height: 36,
+            padding: 4,
+          }}
+          onPress={() => this.props.navigation.navigate('About')}
+        >
+          <Icon style={{ margin: 0 }} name="about" />
         </Button>
 
         <Modal
