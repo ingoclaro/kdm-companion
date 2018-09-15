@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`.load handles empty data 1`] = `
+Object {
+  "campaigns": Array [
+    Object {
+      "bonuses": Object {},
+      "endeavors": Object {},
+      "expansions": Object {
+        "core": "core",
+      },
+      "hunting": null,
+      "id": "new",
+      "innovations": Object {},
+      "locations": Object {},
+      "notes": "",
+      "principles": Object {
+        "conviction": null,
+        "death": null,
+        "newlife": null,
+        "society": null,
+      },
+      "settlement": Object {
+        "departing": null,
+        "name": "New Settlement",
+        "newborn": null,
+        "showdown": null,
+        "survivalLimit": 1,
+        "survivors": Object {},
+      },
+      "showdown": null,
+      "stored_resources": Object {},
+    },
+  ],
+  "selectedCampaign": "new",
+  "subscription": Object {
+    "appLastActiveAt": 0,
+    "autoRenewing": false,
+    "checkedAt": 0,
+    "purchasedAt": 0,
+    "response": "",
+    "transactionId": undefined,
+  },
+  "version": 1,
+}
+`;
+
+exports[`.load loads saved data 1`] = `
+Object {
+  "campaigns": Array [
+    Object {
+      "bonuses": Object {},
+      "endeavors": Object {},
+      "expansions": Object {
+        "core": "core",
+      },
+      "hunting": null,
+      "id": "new",
+      "innovations": Object {},
+      "locations": Object {},
+      "notes": "my notes",
+      "principles": Object {
+        "conviction": null,
+        "death": null,
+        "newlife": null,
+        "society": null,
+      },
+      "settlement": Object {
+        "departing": null,
+        "name": "New Settlement",
+        "newborn": null,
+        "showdown": null,
+        "survivalLimit": 3,
+        "survivors": Object {},
+      },
+      "showdown": null,
+      "stored_resources": Object {},
+    },
+  ],
+  "selectedCampaign": "new",
+  "subscription": Object {
+    "appLastActiveAt": 0,
+    "autoRenewing": false,
+    "checkedAt": 0,
+    "purchasedAt": 0,
+    "response": "",
+    "transactionId": undefined,
+  },
+  "version": 1,
+}
+`;
+
+exports[`all in 1`] = `
+Object {
+  "campaigns": Array [
+    Object {
+      "bonuses": Object {},
+      "endeavors": Object {},
+      "expansions": Object {
+        "core": "core",
+      },
+      "hunting": null,
+      "id": "new",
+      "innovations": Object {},
+      "locations": Object {},
+      "notes": "",
+      "principles": Object {
+        "conviction": null,
+        "death": null,
+        "newlife": null,
+        "society": null,
+      },
+      "settlement": Object {
+        "departing": null,
+        "name": "New Settlement",
+        "newborn": null,
+        "showdown": null,
+        "survivalLimit": 1,
+        "survivors": Object {},
+      },
+      "showdown": null,
+      "stored_resources": Object {},
+    },
+    Object {
+      "bonuses": Object {},
+      "endeavors": Object {
+        "build_bone_smith": Object {
+          "expansion": "sunstalker",
+          "id": "build_bone_smith",
+          "name": "Build - Bone Smith",
+          "recipe": Object {
+            "innovation": null,
+            "items": Array [
+              Object {
+                "gear": null,
+                "keyword": null,
+                "quantity": 1,
+                "resource": "endeavor",
+              },
+            ],
+            "location": "the sun",
+            "not_innovation": null,
+            "not_location": "bone_smith",
+          },
+        },
+        "build_organ_grinder": Object {
+          "expansion": "sunstalker",
+          "id": "build_organ_grinder",
+          "name": "Build - Organ Grinder",
+          "recipe": Object {
+            "innovation": null,
+            "items": Array [
+              Object {
+                "gear": null,
+                "keyword": null,
+                "quantity": 1,
+                "resource": "endeavor",
+              },
+            ],
+            "location": "the sun",
+            "not_innovation": null,
+            "not_location": "organ_grinder",
+          },
+        },
+        "build_skinnery": Object {
+          "expansion": "sunstalker",
+          "id": "build_skinnery",
+          "name": "Build - Skinnery",
+          "recipe": Object {
+            "innovation": null,
+            "items": Array [
+              Object {
+                "gear": null,
+                "keyword": null,
+                "quantity": 1,
+                "resource": "endeavor",
+              },
+            ],
+            "location": "the sun",
+            "not_innovation": null,
+            "not_location": "skinnery",
+          },
+        },
+        "golden_eyed_king": Object {
+          "expansion": "core",
+          "id": "golden_eyed_king",
+          "name": "Hunt the Golden Eyed King",
+          "recipe": Object {
+            "innovation": null,
+            "items": Array [
+              Object {
+                "gear": null,
+                "keyword": null,
+                "quantity": 1,
+                "resource": "endeavor",
+              },
+              Object {
+                "gear": "phoenix_mask",
+                "keyword": null,
+                "quantity": 1,
+                "resource": null,
+              },
+            ],
+            "location": "mask_maker",
+            "not_innovation": null,
+            "not_location": null,
+          },
+        },
+        "great_golden_cat": Object {
+          "expansion": "core",
+          "id": "great_golden_cat",
+          "name": "Hunt the Great Golden Cat",
+          "recipe": Object {
+            "innovation": null,
+            "items": Array [
+              Object {
+                "gear": null,
+                "keyword": null,
+                "quantity": 1,
+                "resource": "endeavor",
+              },
+              Object {
+                "gear": "white_lion_mask",
+                "keyword": null,
+                "quantity": 1,
+                "resource": null,
+              },
+            ],
+            "location": "mask_maker",
+            "not_innovation": null,
+            "not_location": null,
+          },
+        },
+        "innovate": Object {
+          "expansion": "sunstalker",
+          "id": "innovate",
+          "name": "Innovate",
+          "recipe": Object {
+            "innovation": null,
+            "items": Array [
+              Object {
+                "gear": null,
+                "keyword": null,
+                "quantity": 1,
+                "resource": "endeavor",
+              },
+              Object {
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 1,
+                "resource": null,
+              },
+              Object {
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 1,
+                "resource": null,
+              },
+              Object {
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 1,
+                "resource": null,
+              },
+            ],
+            "location": "the sun",
+            "not_innovation": null,
+            "not_location": null,
+          },
+        },
+        "mad_steed": Object {
+          "expansion": "core",
+          "id": "mad_steed",
+          "name": "Hunt the Mad Streed",
+          "recipe": Object {
+            "innovation": null,
+            "items": Array [
+              Object {
+                "gear": null,
+                "keyword": null,
+                "quantity": 1,
+                "resource": "endeavor",
+              },
+              Object {
+                "gear": "antelope_mask",
+                "keyword": null,
+                "quantity": 1,
+                "resource": null,
+              },
+            ],
+            "location": "mask_maker",
+            "not_innovation": null,
+            "not_location": null,
+          },
+        },
+      },
+      "expansions": Object {
+        "core": "core",
+        "dbk": "dbk",
+        "dk": "dk",
+        "fk": "fk",
+        "gka": "gka",
+        "gorm": "gorm",
+        "lg": "lg",
+        "lk": "lk",
+        "lt": "lt",
+        "manhunter": "manhunter",
+        "slenderman": "slenderman",
+        "spidicules": "spidicules",
+        "sunstalker": "sunstalker",
+      },
+      "hunting": null,
+      "id": "960aa7ae-598a-49eb-888b-c6baa0006751",
+      "innovations": Object {},
+      "locations": Object {
+        "mask_maker": "mask_maker",
+        "the sun": "the sun",
+      },
+      "notes": "",
+      "principles": Object {
+        "conviction": null,
+        "death": null,
+        "newlife": null,
+        "society": null,
+      },
+      "settlement": Object {
+        "departing": null,
+        "name": "test",
+        "newborn": null,
+        "showdown": null,
+        "survivalLimit": 1,
+        "survivors": Object {},
+      },
+      "showdown": null,
+      "stored_resources": Object {},
+    },
+  ],
+  "selectedCampaign": "960aa7ae-598a-49eb-888b-c6baa0006751",
+  "subscription": Object {
+    "appLastActiveAt": 0,
+    "autoRenewing": false,
+    "checkedAt": 0,
+    "purchasedAt": 0,
+    "response": "",
+    "transactionId": undefined,
+  },
+  "version": 1,
+}
+`;

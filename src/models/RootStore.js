@@ -75,13 +75,16 @@ export default types
         self.selectedCampaign = self.campaigns[0]
       }
     },
-    setVersion(version) {
-      self.version = version
-    },
     load(data) {
+      // here is where old versions could be upgraded if needed.
+      if (!data.version) {
+        // upgrade from first release.
+        data.version = 1
+      }
+
       self.campaigns = data.campaigns
       self.selectedCampaign = data.selectedCampaign
-      self.version = data.version || 1
+      self.version = data.version
       self.subscription = data.subscription || {}
     },
   }))
