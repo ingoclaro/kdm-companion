@@ -9,8 +9,9 @@
     "lint-staged": "^7.2.0",
     "node-fetch": "^2.2.0",
     "prettier": "^1.14.2",
+    "react-dom": "^16.5.1",
     "react-native-scripts": "1.14.0",
-    "react-test-renderer": "16.4.2"
+    "react-test-renderer": "16.5.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -27,6 +28,9 @@
       "jest-date-mock"
     ],
     "errorOnDeprecated": true,
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|react-clone-referenced-element|expo(nent)?|@expo(nent)?/.*|expo-.*|react-navigation.*|sentry-expo|@shoutem|react-native.*)/)"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/android/",
@@ -55,7 +59,6 @@
     "react-native-fit-image": "^1.5.4",
     "react-native-iap": "^2.1.1",
     "react-native-markdown-renderer": "^3.2.8",
-    "react-native-markdown-view": "^1.1.4",
     "react-native-modal": "^6.5.0",
     "react-native-simple-stepper": "^1.18.0",
     "react-navigation": "2.12.x"

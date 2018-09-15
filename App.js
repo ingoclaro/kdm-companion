@@ -13,7 +13,9 @@ export default class App extends React.Component {
     super(props)
     // StatusBar.setBarStyle('light-content')
     // StatusBar.setHidden(false)
-    StatusBar.setBackgroundColor(colors.grey900)
+    if (Platform.OS === 'android') {
+      StatusBar.setBackgroundColor(colors.grey900)
+    }
 
     Segment.initialize({
       androidWriteKey: SEGMENT_ANDROID_KEY,
