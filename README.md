@@ -112,7 +112,7 @@ cd android
 ./gradlew assembleRelease
 ```
 
-The apk is in `andoid/app/build/outputs/apk/prodMinSdkProdKernel/release/app-prodMinSdk-prodKernel-release.apk`, upload it to the play store.
+The apk is in `android/app/build/outputs/apk/prodMinSdkProdKernel/release/app-prodMinSdk-prodKernel-release.apk`, upload it to the play store.
 
 **NOTE**: this apk points to the default release channel of expo, which I'm using for development purposes, a different apk should be build to submit to the production release in the play store.
 
