@@ -25,6 +25,7 @@ import R from 'ramda'
   survivor: store.selectedCampaign.settlement.survivors.get(props.survivorId),
   survivalLimit: store.selectedCampaign.settlement.survivalLimit,
   availableWeaponProficiencies: store.availableWeaponProficiencies,
+  hasReroll: store.selectedCampaign.settlement.hasSOTF,
 }))
 @observer
 export default class EditStats extends React.Component {
@@ -96,12 +97,42 @@ export default class EditStats extends React.Component {
           />
         </View>
 
-        <View styleName="horizontal v-center" style={styles.genderRow}>
-          <Text style={styles.genderText}>Gender:</Text>
-          <GenderButton
-            gender={this.props.survivor.gender}
-            changeGender={this.props.survivor.changeGender}
-          />
+        <View styleName="horizontal">
+          <View style={{ flex: 1 }}>
+            <View styleName="horizontal v-center" style={styles.genderRow}>
+              <Text style={styles.genderText}>Gender:</Text>
+              <GenderButton
+                gender={this.props.survivor.gender}
+                changeGender={this.props.survivor.changeGender}
+              />
+            </View>
+          </View>
+
+          <View style={{ flex: 1, alignItems: 'flex-end' }}>
+            {this.props.hasReroll && (
+              <Button
+                styleName="clear"
+                style={{ padding: 2, borderBottomWidth: 1 }}
+                onPress={() => this.props.survivor.toggleRerollUsed()}
+              >
+                {this.props.survivor.rerollUsed ? (
+                  <Text
+                    style={{
+                      textDecorationLine: 'line-through',
+                      color: colors.grey200,
+                      margin: 0,
+                    }}
+                  >
+                    Reroll used
+                  </Text>
+                ) : (
+                  <Text style={{ color: colors.grey200, margin: 0 }}>
+                    Reroll available
+                  </Text>
+                )}
+              </Button>
+            )}
+          </View>
         </View>
 
         <View styleName="horizontal v-center" style={{ paddingTop: 10 }}>

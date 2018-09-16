@@ -44,6 +44,7 @@ const Survivor = types
     cannotUseSurvival: false,
     cannotUseFightingArts: false,
     cannotUseAbilities: false,
+    rerollUsed: false, // was the reroll of survival of the fittest used?
   })
   .actions(self => ({
     addFA(fa) {
@@ -95,6 +96,9 @@ const Survivor = types
       let statusList = ['alive', 'dead', 'retired']
       let index = (statusList.indexOf(self.status) + 1) % statusList.length
       self.status = statusList[index]
+    },
+    toggleRerollUsed() {
+      self.rerollUsed = !self.rerollUsed
     },
     applyNewbornMilestones() {
       // handle newborn milestones derived by bonuses

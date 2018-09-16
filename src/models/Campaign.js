@@ -277,4 +277,7 @@ export const Campaign = types
 
       return { locations, innovations, resources, length }
     },
+    get hasSOTF() {
+      return self.principles.newlife && self.principles.newlife.id === 'sotf'
+    },
   }))

@@ -287,4 +287,15 @@ describe('with RootStore', () => {
       ).toMatchSnapshot()
     })
   })
+
+  describe('.hasSOTF', () => {
+    it('has not sotf', () => {
+      expect(store.selectedCampaign.hasSOTF).toBeFalsy()
+    })
+
+    it('has sotf', () => {
+      store.selectedCampaign.selectPrinciple('newlife', { id: 'sotf' })
+      expect(store.selectedCampaign.hasSOTF).toBeTruthy()
+    })
+  })
 })

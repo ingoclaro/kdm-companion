@@ -1,4 +1,4 @@
-import { types, getSnapshot } from 'mobx-state-tree'
+import { types, getSnapshot, getParent } from 'mobx-state-tree'
 import { SettlementBonus, init as defaultBonus } from './SettlementBonus'
 import { Survivor, init as defaultSurvivor } from './Survivor'
 import R from 'ramda'
@@ -93,5 +93,8 @@ export const Settlement = types
           return item.status === status
         }, values(self.survivors))
       }
+    },
+    get hasSOTF() {
+      return getParent(self).hasSOTF
     },
   }))

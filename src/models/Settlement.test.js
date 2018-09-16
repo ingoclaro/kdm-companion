@@ -1,6 +1,7 @@
 import { getSnapshot } from 'mobx-state-tree'
 import { Settlement } from './Settlement'
 import { init as defaultSurvivor } from './Survivor'
+import RootStore from './RootStore'
 
 import * as utils from '../utils'
 
@@ -123,5 +124,28 @@ describe('.filterSurvivors', () => {
 
     expect(deadList).toHaveLength(1)
     expect(deadList[0].id).toBe(survivor2.id)
+  })
+})
+
+it('.hasSOTF throws if not attached', () => {
+  let settlement = Settlement.create({})
+  expect(() => settlement.hasSOTF).toThrow()
+})
+
+describe('with RootStore', () => {
+  let store
+  beforeEach(() => {
+    store = RootStore.create()
+  })
+
+  describe('.hasSOTF', () => {
+    it('has not sotf', () => {
+      expect(store.selectedCampaign.settlement.hasSOTF).toBeFalsy()
+    })
+
+    it('has sotf', () => {
+      store.selectedCampaign.selectPrinciple('newlife', { id: 'sotf' })
+      expect(store.selectedCampaign.settlement.hasSOTF).toBeTruthy()
+    })
   })
 })

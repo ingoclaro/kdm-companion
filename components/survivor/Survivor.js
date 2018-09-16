@@ -45,6 +45,7 @@ const ico_death = require('../../images/icon_death.png')
   survivor: store.selectedCampaign.settlement.survivors.get(props.survivorId),
   survivalLimit: store.selectedCampaign.settlement.survivalLimit,
   showTooltip: store.selectedCampaign.settlement.survivors.size === 1,
+  hasReroll: store.selectedCampaign.settlement.hasSOTF,
 }))
 @observer
 export default class Survivor extends React.Component {
@@ -78,18 +79,33 @@ export default class Survivor extends React.Component {
 
     return (
       <View>
-        <View styleName="horizontal v-center">
-          <Subtitle>Gender:</Subtitle>
-          <Image
-            source={gender_icon}
-            style={{ width: 14, height: 14, marginLeft: 5 }}
-          />
-          {survivor.status === 'dead' ? (
-            <Image
-              source={ico_death}
-              style={{ width: 14, height: 16, marginLeft: 10 }}
-            />
-          ) : null}
+        <View styleName="horizontal">
+          <View style={{ flex: 1 }}>
+            <View styleName="horizontal v-center">
+              <Subtitle>Gender:</Subtitle>
+              <Image
+                source={gender_icon}
+                style={{ width: 14, height: 14, marginLeft: 5 }}
+              />
+              {survivor.status === 'dead' ? (
+                <Image
+                  source={ico_death}
+                  style={{ width: 14, height: 16, marginLeft: 10 }}
+                />
+              ) : null}
+            </View>
+          </View>
+
+          <View style={{ flex: 1 }}>
+            {this.props.hasReroll &&
+              !survivor.rerollUsed && <Text>Reroll available</Text>}
+            {this.props.hasReroll &&
+              survivor.rerollUsed && (
+                <Text style={{ textDecorationLine: 'line-through' }}>
+                  Reroll used
+                </Text>
+              )}
+          </View>
         </View>
 
         <View styleName="horizontal">
