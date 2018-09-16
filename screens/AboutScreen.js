@@ -154,8 +154,7 @@ export default class AboutScreen extends React.Component {
           enhancing the app, open an issue.
         </Text>
         <Text>
-          If you don't know how to code, you can support the app development by
-          becoming a subscriber.
+          You can also support the app development by becoming a subscriber.
         </Text>
 
         <Button onPress={() => this.props.navigation.navigate('Subscription')}>

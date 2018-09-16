@@ -11,7 +11,6 @@ import {
   Caption,
   Divider,
 } from '@shoutem/ui'
-
 import { observer, inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 
@@ -25,9 +24,9 @@ import EditableProperty from './EditableProperty'
 import EditableTextProperty from './EditableTextProperty'
 import FightingArts from './FightingArts'
 import GenderButton from './GenderButton'
-import WeaponProficiency from './WeaponProficiency'
-
 import Note from '../common/Note'
+import WeaponProficiency from './WeaponProficiency'
+import Tooltip from '../common/Tooltip'
 import colors from '../../src/colors'
 
 const ico_accuracy = require('../../images/icon_accuracy-24.png')
@@ -45,6 +44,7 @@ const ico_death = require('../../images/icon_death.png')
 @inject(({ store }, props) => ({
   survivor: store.selectedCampaign.settlement.survivors.get(props.survivorId),
   survivalLimit: store.selectedCampaign.settlement.survivalLimit,
+  showTooltip: store.selectedCampaign.settlement.survivors.size === 1,
 }))
 @observer
 export default class Survivor extends React.Component {
@@ -61,6 +61,10 @@ export default class Survivor extends React.Component {
   weaponProficiencyMilestones = {
     3: { description: 'Specialist' },
     8: { description: 'Master' },
+  }
+
+  state = {
+    toolTipVisible: true,
   }
 
   render() {
@@ -128,14 +132,25 @@ export default class Survivor extends React.Component {
         <Divider />
 
         <View>
-          <EditableProperty
-            label="Insanity"
-            minimumValue={0}
-            maximumValue={30}
-            showLabel={true}
-            quantity={survivor.insanity}
-            setQuantity={qty => survivor.setAttribute('insanity', qty)}
-          />
+          <View styleName="horizontal v-center">
+            <EditableProperty
+              label="Insanity"
+              minimumValue={0}
+              maximumValue={30}
+              showLabel={true}
+              quantity={survivor.insanity}
+              setQuantity={qty => {
+                survivor.setAttribute('insanity', qty)
+                this.setState({ toolTipVisible: false })
+              }}
+            />
+            <Tooltip
+              visible={this.props.showTooltip && this.state.toolTipVisible}
+            >
+              <Text style={styles.tooltipText}>Double tap to increase</Text>
+              <Text style={styles.tooltipText}>Long press to decrease</Text>
+            </Tooltip>
+          </View>
           <View styleName="horizontal v-center">
             <EditableProperty
               label="Survival"
@@ -231,4 +246,10 @@ export default class Survivor extends React.Component {
       </View>
     )
   }
+}
+
+const styles = {
+  tooltipText: {
+    fontSize: 9,
+  },
 }
