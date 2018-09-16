@@ -120,6 +120,26 @@ it('all in', () => {
     resourceData
   )
 
+  // add a couple of survivors
+  uuidMock.mockImplementation(() => '3352353f-f7df-44ab-8c13-a350c7e35a7b')
+  store.selectedCampaign.settlement.createSurvivor('survivor 1')
+
+  uuidMock.mockImplementation(() => '3792b21e-fc96-4a5e-a2cd-6cccff3747a8')
+  let survivor2 = store.selectedCampaign.settlement.createSurvivor('survivor 2')
+
+  // add some stuff to the survivor
+  survivor2.setWeaponProficiency({ id: 'fist & tooth' })
+  survivor2.addFA({ id: 'Acrobatics' })
+  survivor2.addFA({ id: 'Clutch Fighter' })
+  survivor2.addFA({ id: 'Clarity of Darkness' })
+  survivor2.addDisorder({ id: 'Absent Seizures' })
+  survivor2.addDisorder({ id: 'Fear of the Dark' })
+  survivor2.addDisorder({ id: 'Indecision' })
+  survivor2.addAbility({ id: 'Acid Palms' })
+  survivor2.addAbility({ id: 'Homing Instinct' })
+  survivor2.addAbility({ id: 'Metal Maw' })
+  survivor2.addAbility({ id: 'Way of the Rust' })
+
   expect(store.data).toMatchSnapshot()
 })
 

@@ -9,7 +9,7 @@ import R from 'ramda'
 const Survivor = types
   .model('Survivor', {
     id: types.identifier,
-    name: types.string,
+    name: 'Unnamed',
     gender: types.optional(types.enumeration(['male', 'female']), 'male'),
     status: types.optional(
       types.enumeration(['alive', 'dead', 'retired']),
@@ -50,7 +50,7 @@ const Survivor = types
     addFA(fa) {
       let found = R.find(item => fa.id === item.id, self.fightingArts)
       if (!found) {
-        self.fightingArts.push(fa)
+        self.fightingArts.push(fa.id)
       }
     },
     removeFA(fa) {
@@ -60,7 +60,7 @@ const Survivor = types
     addDisorder(disorder) {
       let found = R.find(item => disorder.id === item.id, self.disorders)
       if (!found) {
-        self.disorders.push(disorder)
+        self.disorders.push(disorder.id)
       }
     },
     removeDisorder(disorder) {
@@ -70,7 +70,7 @@ const Survivor = types
     addAbility(ability) {
       let found = R.find(item => ability.id === item.id, self.abilities)
       if (!found) {
-        self.abilities.push(ability)
+        self.abilities.push(ability.id)
       }
     },
     removeAbility(ability) {

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creates a survivor 1`] = `
+Object {
+  "abilities": Array [],
+  "accuracy": 0,
+  "cannotUseAbilities": false,
+  "cannotUseFightingArts": false,
+  "cannotUseSurvival": false,
+  "courage": 0,
+  "disorders": Array [],
+  "evasion": 0,
+  "fightingArts": Array [],
+  "gender": "male",
+  "hunt xp": 0,
+  "id": "test",
+  "insanity": 0,
+  "luck": 0,
+  "movement": 5,
+  "name": "Unnamed",
+  "notes": "",
+  "rerollUsed": false,
+  "speed": 0,
+  "status": "alive",
+  "strength": 0,
+  "survival": 1,
+  "understanding": 0,
+  "weaponProficiency": undefined,
+  "weaponProficiencyLevel": 0,
+}
+`;
