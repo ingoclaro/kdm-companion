@@ -3,6 +3,9 @@
 This tracks pending tasks and ideas for the app
 
 - [ ] Needed to fork @shoutem/ui to set the StatusBar color. Once this [pull request](https://github.com/shoutem/ui/pull/386) is merged we can switch back to upstream.
+- [ ] react-native-fit-image: waiting for [open PR](https://github.com/huiseoul/react-native-fit-image/pull/81) to be merged, for now patching package locally.
+
+- Known bug: add scroll to AbilityList, if you have a LOT of abilities/impairments the modal clips.
 
 v1.5:
 
@@ -47,9 +50,9 @@ v1.7:
 v1.8:
 
 - [x] Add support to manage Survivors
-  - [ ] Add, name with photo (camera roll)
-  - [ ] Update name and photo (camera roll)
-  - [ ] Kill/revive
+  - [ ] ~~Add, name with photo (camera roll)~~
+  - [ ] ~~Update name and photo (camera roll)~~
+  - [x] Kill/revive
 
 v2.0:
 
@@ -57,10 +60,10 @@ v2.0:
 
 v3.0:
 
-- [ ] Full fledged survivor management
+- [x] Full fledged survivor management
   - [x] Permanent stats
   - [x] Fighting arts
   - [x] Disorders
-  - [ ] Re-roll used (if survivor of the fittest)
+  - [x] Re-roll used (if survivor of the fittest)
   - [x] Gender
   - [x] Notes
