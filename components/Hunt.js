@@ -1,6 +1,7 @@
 import React from 'react'
 import { Screen, View, Text, Image, Divider, Row } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
+import RichText from './common/RichText'
 import colors from '../src/colors'
 
 @inject(({ store }) => ({
@@ -27,7 +28,7 @@ class Hunt extends React.Component {
     if (this.props.monsterLevel && this.props.monsterLevel.huntExtra) {
       return (
         <View>
-          <Text>{this.props.monsterLevel.huntExtra}</Text>
+          <RichText>{this.props.monsterLevel.huntExtra}</RichText>
           <Divider />
         </View>
       )
