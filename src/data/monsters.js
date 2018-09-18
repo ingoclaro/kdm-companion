@@ -520,6 +520,7 @@ export default {
     id: 'dbk',
     name: 'Dung Beetle Kinght',
     expansion: 'dbk',
+    type: 'quarry',
     instinct: {
       name: 'Defensive Spit Salve',
       description:
@@ -529,6 +530,7 @@ export default {
       1: {
         id: '1',
         name: '1',
+        huntboard: 'BBMMBXOMBBMBS',
         movement: 7,
         toughness: 12,
         deck: {
@@ -546,6 +548,7 @@ export default {
       2: {
         id: '2',
         name: '2',
+        huntboard: 'BBMMBBOMXBMBS',
         movement: 7,
         toughness: 14,
         speed: 1,
@@ -566,6 +569,7 @@ export default {
       3: {
         id: '3',
         name: '3',
+        huntboard: 'BBMMBBOMBBMXS',
         movement: 8,
         toughness: 18,
         speed: 2,
@@ -592,6 +596,7 @@ export default {
     id: 'fk',
     name: 'Flower Knight',
     expansion: 'fk',
+    type: 'quarry',
     instinct: {
       name: 'Germinate',
       description:
@@ -601,6 +606,9 @@ export default {
       1: {
         id: '1',
         name: '1',
+        huntboard: 'BBXBBBOMXMMMS',
+        huntExtra:
+          'When survivors land on the **Overwhelming Darkness** space, they instead resolve **The Forest Wants What it Wants**',
         movement: 7,
         toughness: 6,
         deck: {
@@ -613,6 +621,9 @@ export default {
       2: {
         id: '2',
         name: '2',
+        huntboard: 'BXBBBBOMMXMMS',
+        huntExtra:
+          'When survivors land on the **Overwhelming Darkness** space, they instead resolve **The Forest Wants What it Wants**',
         movement: 8,
         toughness: 8,
         damage: 1,
@@ -626,6 +637,9 @@ export default {
       3: {
         id: '3',
         name: '3',
+        huntboard: 'XBBBBBOMMMXMS',
+        huntExtra:
+          'When survivors land on the **Overwhelming Darkness** space, they instead resolve **The Forest Wants What it Wants**',
         movement: 9,
         toughness: 11,
         speed: 1,
@@ -710,6 +724,7 @@ export default {
     id: 'spidicules',
     name: 'Spidicules',
     expansion: 'spidicules',
+    type: 'quarry',
     instinct: {
       name: 'Spin',
       description:
@@ -719,6 +734,9 @@ export default {
       1: {
         id: '1',
         name: '1',
+        huntboard: 'BMMBXMOBMMBBS',
+        huntExtra:
+          'When survivors land on the **Overwhelming Darkness** space, they instead resolve **The Forest Wants What it Wants**.',
         movement: 11,
         toughness: 8,
         deck: {
@@ -736,6 +754,9 @@ export default {
       2: {
         id: '2',
         name: '2',
+        huntboard: 'BMMBBMOXMMBBS',
+        huntExtra:
+          'When survivors land on the **Overwhelming Darkness** space, they instead resolve **The Forest Wants What it Wants**.',
         movement: 14,
         toughness: 10,
         speed: 1,
@@ -756,6 +777,9 @@ export default {
       3: {
         id: '3',
         name: '3',
+        huntboard: 'BMMBBMOBMMXBS',
+        huntExtra:
+          'When survivors land on the **Overwhelming Darkness** space, they instead resolve **The Forest Wants What it Wants**.',
         movement: 16,
         toughness: 12,
         speed: 2,
@@ -780,6 +804,7 @@ export default {
     id: 'lg',
     name: 'Lion God',
     expansion: 'lg',
+    type: 'quarry',
     instinct: {
       name: 'Mourn',
       description:
@@ -789,6 +814,7 @@ export default {
       1: {
         id: '1',
         name: '1',
+        huntboard: 'BBMBMBOXMBMBS',
         movement: 8,
         toughness: 14,
         deck: {
@@ -801,6 +827,7 @@ export default {
       2: {
         id: '2',
         name: '2',
+        huntboard: 'BBMBMBOBMXMBS',
         movement: 9,
         toughness: 16,
         speed: 1,
@@ -816,6 +843,7 @@ export default {
       3: {
         id: '3',
         name: '3',
+        huntboard: 'BBMBMBOBMBMXS',
         movement: 10,
         toughness: 21,
         speed: 2,
@@ -1013,6 +1041,7 @@ export default {
     id: 'sunstalker',
     name: 'Sunstalker',
     expansion: 'sunstalker',
+    type: 'quarry',
     instinct: {
       name: 'Shadow Vibrations',
       description:
@@ -1022,6 +1051,7 @@ export default {
       1: {
         id: '1',
         name: '1',
+        huntboard: 'BBMMXBOMBBMBS',
         movement: 16,
         toughness: 10,
         deck: {
@@ -1040,6 +1070,7 @@ export default {
       2: {
         id: '2',
         name: '2',
+        huntboard: 'BBMMBBOMXBMBS',
         movement: 16,
         toughness: 12,
         speed: 1,
@@ -1061,6 +1092,7 @@ export default {
       3: {
         id: '3',
         name: '3',
+        huntboard: 'BBMMBBOMBBMXS',
         movement: 16,
         toughness: 16,
         speed: 2,
@@ -1088,6 +1120,7 @@ export default {
     id: 'dk',
     name: 'Dragon King',
     expansion: 'dk',
+    type: 'quarry',
     instinct: {
       name: 'Core Countdown',
       description:
@@ -1097,6 +1130,7 @@ export default {
       1: {
         id: '1',
         name: '1',
+        huntboard: 'BMBMMXOMBBMBS',
         movement: 10,
         toughness: 13,
         deck: {
@@ -1109,6 +1143,7 @@ export default {
       2: {
         id: '2',
         name: '2',
+        huntboard: 'BMBMMBOMXBMBS',
         movement: 10,
         toughness: 15,
         speed: 1,
@@ -1123,6 +1158,7 @@ export default {
       3: {
         id: '3',
         name: '3',
+        huntboard: 'BMBMMBOMBBMXS',
         movement: 10,
         toughness: 17,
         speed: 2,
@@ -1190,4 +1226,3 @@ export default {
     },
   },
 }
-//TODO: check which monsters are querries, add huntboard.
