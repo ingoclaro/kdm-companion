@@ -185,6 +185,18 @@ export default class AboutScreen extends React.Component {
           <Text>Show Licenses</Text>
         </Button>
 
+        <Divider />
+
+        <Button
+          onPress={() =>
+            Linking.openURL(
+              'https://www.freeprivacypolicy.com/privacy/view/55578ac8a64f32d4ff071ebeafb38111'
+            )
+          }
+        >
+          <Text>Privacy Policy</Text>
+        </Button>
+
         <Modal
           isVisible={this.state.showLicenses}
           onBackdropPress={() => this.setState({ showLicenses: false })}
