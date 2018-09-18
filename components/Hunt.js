@@ -14,7 +14,10 @@ class Hunt extends React.Component {
       return null
     }
     return this.props.monsterLevel.huntboard.split('').map((letter, idx) => {
-      let next = idx < 11 ? <Text> > </Text> : null
+      let next =
+        idx < this.props.monsterLevel.huntboard.length - 1 ? (
+          <Text> > </Text>
+        ) : null
       return (
         <View styleName="horizontal" key={idx}>
           <Text style={styles[letter]}>{letter}</Text>
@@ -50,7 +53,12 @@ class Hunt extends React.Component {
         <Text style={styles.M}>M: Monster hunt event</Text>
         <Text style={styles.X}>X: Monster</Text>
         <Text style={styles.O}>O: Overwhelming Darkness (p.147)</Text>
-        <Text>S: Starvation</Text>
+        <Text>S: Starvation. Lose 1d5 resources.</Text>
+        <Divider />
+        <Text style={{ color: colors.grey200 }}>
+          If the survivors perish on the hunt, the Hunt Phase ends, lose 1d5
+          resources.
+        </Text>
       </View>
     )
   }

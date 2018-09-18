@@ -58,7 +58,7 @@ export default {
       '3': {
         id: '3',
         name: '3',
-        huntboard: 'MMBBMOBMMBBXS',
+        huntboard: 'MMBBMOBMMBXS',
         movement: 8,
         toughness: 14,
         speed: 2,
@@ -530,7 +530,7 @@ export default {
       1: {
         id: '1',
         name: '1',
-        huntboard: 'BBMMBXOMBBMBS',
+        huntboard: 'BMMBXOMBBMBS',
         movement: 7,
         toughness: 12,
         deck: {
@@ -548,7 +548,7 @@ export default {
       2: {
         id: '2',
         name: '2',
-        huntboard: 'BBMMBBOMXBMBS',
+        huntboard: 'BMMBBOMXBMBS',
         movement: 7,
         toughness: 14,
         speed: 1,
@@ -569,7 +569,7 @@ export default {
       3: {
         id: '3',
         name: '3',
-        huntboard: 'BBMMBBOMBBMXS',
+        huntboard: 'BMMBBOMBBMXS',
         movement: 8,
         toughness: 18,
         speed: 2,
@@ -606,7 +606,7 @@ export default {
       1: {
         id: '1',
         name: '1',
-        huntboard: 'BBXBBBOMXMMMS',
+        huntboard: 'BBBOMXMMMS',
         huntExtra:
           'When survivors land on the **Overwhelming Darkness** space, they instead resolve **The Forest Wants What it Wants**',
         movement: 7,
@@ -621,7 +621,7 @@ export default {
       2: {
         id: '2',
         name: '2',
-        huntboard: 'BXBBBBOMMXMMS',
+        huntboard: 'BBBBOMMXMMS',
         huntExtra:
           'When survivors land on the **Overwhelming Darkness** space, they instead resolve **The Forest Wants What it Wants**',
         movement: 8,
@@ -637,7 +637,7 @@ export default {
       3: {
         id: '3',
         name: '3',
-        huntboard: 'XBBBBBOMMMXMS',
+        huntboard: 'BBBBBOMMMXMS',
         huntExtra:
           'When survivors land on the **Overwhelming Darkness** space, they instead resolve **The Forest Wants What it Wants**',
         movement: 9,
@@ -734,7 +734,7 @@ export default {
       1: {
         id: '1',
         name: '1',
-        huntboard: 'BMMBXMOBMMBBS',
+        huntboard: 'MMBXMOBMMBBS',
         huntExtra:
           'When survivors land on the **Overwhelming Darkness** space, they instead resolve **The Forest Wants What it Wants**.',
         movement: 11,
@@ -754,7 +754,7 @@ export default {
       2: {
         id: '2',
         name: '2',
-        huntboard: 'BMMBBMOXMMBBS',
+        huntboard: 'MMBBMOXMMBBS',
         huntExtra:
           'When survivors land on the **Overwhelming Darkness** space, they instead resolve **The Forest Wants What it Wants**.',
         movement: 14,
@@ -777,7 +777,7 @@ export default {
       3: {
         id: '3',
         name: '3',
-        huntboard: 'BMMBBMOBMMXBS',
+        huntboard: 'MMBBMOBMMXBS',
         huntExtra:
           'When survivors land on the **Overwhelming Darkness** space, they instead resolve **The Forest Wants What it Wants**.',
         movement: 16,
@@ -814,7 +814,7 @@ export default {
       1: {
         id: '1',
         name: '1',
-        huntboard: 'BBMBMBOXMBMBS',
+        huntboard: 'BMBMBOXMBMBS',
         movement: 8,
         toughness: 14,
         deck: {
@@ -827,7 +827,7 @@ export default {
       2: {
         id: '2',
         name: '2',
-        huntboard: 'BBMBMBOBMXMBS',
+        huntboard: 'BMBMBOBMXMBS',
         movement: 9,
         toughness: 16,
         speed: 1,
@@ -843,7 +843,7 @@ export default {
       3: {
         id: '3',
         name: '3',
-        huntboard: 'BBMBMBOBMBMXS',
+        huntboard: 'BMBMBOBMBMXS',
         movement: 10,
         toughness: 21,
         speed: 2,
@@ -1051,7 +1051,7 @@ export default {
       1: {
         id: '1',
         name: '1',
-        huntboard: 'BBMMXBOMBBMBS',
+        huntboard: 'BMMXBOMBBMBS',
         movement: 16,
         toughness: 10,
         deck: {
@@ -1070,7 +1070,7 @@ export default {
       2: {
         id: '2',
         name: '2',
-        huntboard: 'BBMMBBOMXBMBS',
+        huntboard: 'BMMBBOMXBMBS',
         movement: 16,
         toughness: 12,
         speed: 1,
@@ -1092,7 +1092,7 @@ export default {
       3: {
         id: '3',
         name: '3',
-        huntboard: 'BBMMBBOMBBMXS',
+        huntboard: 'BMMBBOMBBMXS',
         movement: 16,
         toughness: 16,
         speed: 2,
@@ -1130,7 +1130,7 @@ export default {
       1: {
         id: '1',
         name: '1',
-        huntboard: 'BMBMMXOMBBMBS',
+        huntboard: 'MBMMXOMBBMBS',
         movement: 10,
         toughness: 13,
         deck: {
@@ -1143,7 +1143,7 @@ export default {
       2: {
         id: '2',
         name: '2',
-        huntboard: 'BMBMMBOMXBMBS',
+        huntboard: 'MBMMBOMXBMBS',
         movement: 10,
         toughness: 15,
         speed: 1,
@@ -1158,7 +1158,7 @@ export default {
       3: {
         id: '3',
         name: '3',
-        huntboard: 'BMBMMBOMBBMXS',
+        huntboard: 'MBMMBOMBBMXS',
         movement: 10,
         toughness: 17,
         speed: 2,
