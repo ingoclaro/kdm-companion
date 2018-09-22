@@ -19,7 +19,7 @@ export default {
     instinct: {
       name: 'Sniff',
       description:
-        "The White Lion sniffs and ends it's turn. Until the end of the next round, all survivors are now threats. At level 3+ gain +1 accuracy token.",
+        "The White Lion sniffs and ends it's turn. Until the end of the next round, all survivors are now threats. At level 3+ it gains +1 accuracy token.",
     },
     levels: {
       prologue: {
@@ -69,7 +69,7 @@ export default {
           B: 10,
           A: 9,
           L: 2,
-          S: ['Cunning', 'Merciless'],
+          S: ['Cunning', 'Merciless', 'Indomitable'],
         },
       },
     },
@@ -126,15 +126,21 @@ export default {
         name: '3',
         huntboard: 'MBMBBOMBMXBS',
         movement: 8,
-        toughness: 12,
-        speed: 2,
+        toughness: 16, // extra tokens come from the Legendary Horns L card.
+        speed: 3,
         damage: 2,
         evasion: 1,
         deck: {
           B: 12,
           A: 8,
           L: 2,
-          S: ['Trample', 'Diabolical', 'Hypermetabolism'],
+          S: [
+            'Trample',
+            'Diabolical',
+            'Hypermetabolism',
+            'Legendary Horns',
+            'Indomitable',
+          ],
         },
       },
     },
@@ -163,7 +169,7 @@ export default {
     instinct: {
       name: 'Disdain',
       description:
-        'Place the Phoenix at the center of the Nightmare Tree. It emits a hissing moan. All non-deaf survivors suffer brain damage equal to monster level. Perform Spiral Age.',
+        "Place the Phoenix at the center of the Nightmare Tree. It emits a hissing moan. All non-deaf survivors suffer brain damage equal to monster level. Perform **Spiral Age**. End the Phoenix's turn.",
     },
     levels: {
       '1': {
@@ -205,11 +211,10 @@ export default {
         name: '3',
         huntboard: 'BMBMBOMBMBXS',
         movement: 8,
-        toughness: 16,
+        toughness: 17,
         speed: 2,
         damage: 3,
-        evasion: 1,
-        luck: 1,
+        luck: 2,
         deck: {
           B: 13,
           A: 7,
@@ -220,6 +225,7 @@ export default {
             'Zeal',
             'Dreaded Decade',
             'Top of the Food Chain',
+            'Indomitable',
           ],
         },
       },
@@ -267,7 +273,8 @@ export default {
         id: '2',
         name: '2',
         huntboard: 'MMBBMOXBMMBS',
-        huntExtra: 'If you depart to hunt the level 2 Gorm, "Fetid Grotto"',
+        huntExtra:
+          'If you depart to hunt the level 2 Gorm, ![book](book)**Fetid Grotto**',
         movement: 9,
         toughness: 11,
         speed: 1,
@@ -283,7 +290,8 @@ export default {
         id: '3',
         name: '3',
         huntboard: 'MMBBMOBBMMXS',
-        huntExtra: 'If you depart to hunt the level 3 Gorm, "Final March"',
+        huntExtra:
+          'If you depart to hunt the level 3 Gorm, ![book](book)**Final March**',
         movement: 8,
         toughness: 15,
         speed: 2,
@@ -347,7 +355,7 @@ export default {
       3: {
         id: '3',
         name: '3',
-        movement: 8,
+        movement: 5,
         toughness: 15,
         speed: 2,
         damage: 2,
@@ -362,6 +370,7 @@ export default {
             'Infectious Lunacy',
             'Invincible',
             'Dreaded Trophies',
+            'Indomitable',
           ],
         },
       },
@@ -374,7 +383,7 @@ export default {
     instinct: {
       name: 'The Penalty',
       description:
-        'The Hand points at a random survivor. Roll d10: 1 You die; 2+ no survival: die, loose all survival + "Broken Rips"',
+        'The Hand points at a random survivor. Roll d10: 1 You die; 2+ no survival: die, otherwise loose all survival + **Broken Ribs** severe body injury.',
     },
     levels: {
       1: {
@@ -438,6 +447,7 @@ export default {
             'Applause',
             'Impossible Eyes',
             'Polarized Aura',
+            'Indomitable',
           ],
         },
       },
@@ -511,6 +521,73 @@ export default {
             'Out-Fighting',
             'Battle Tempo',
             'Silent Hymn',
+            'Indomitable',
+          ],
+        },
+      },
+    },
+  },
+  watcher: {
+    id: 'watcher',
+    name: 'Watcher',
+    expansion: 'core',
+    instinct: {
+      name: 'Absorb',
+      description:
+        'Move the Watcher directly to the center of the showdown board. All survivors gain -1 strength token. Watcher heals 1d5 wounds.',
+    },
+    levels: {
+      1: {
+        // this monster has S Life and starts with 15 life points
+        id: '1',
+        name: '1',
+        showdownExtra:
+          'Thoughness = current lantern year. If settlement has **Records**, +2 Thoughness.',
+        movement: 99, // infinite
+        toughness: 20, // special
+        life: 15,
+        deck: {
+          B: 12,
+          A: 0,
+          L: 0,
+          S: [
+            'Audience',
+            'Retinue',
+            'Lantern Vortex',
+            'Vapor of Nothingness',
+            'Indomitable',
+            'Life',
+          ],
+        },
+      },
+    },
+  },
+  gsk: {
+    id: 'gsk',
+    name: 'Gold Smoke Knight',
+    expansion: 'core',
+    instinct: {
+      name: 'All is Ash',
+      description:
+        "Place the monster on the center of the showdown board. All survivors suffer **bash**, **bleed 1** and **knockback 8** towards the monster. End the monster's turn.",
+    },
+    levels: {
+      4: {
+        id: '4',
+        name: '4',
+        showdownExtra: 'The Gold Smoke Knight goes first.',
+        movement: 8,
+        toughness: 27,
+        deck: {
+          B: 9,
+          A: 7,
+          L: 2,
+          S: [
+            'Indomitable',
+            'Mauler',
+            'Secondary Forge',
+            'Frustration',
+            'Blacken',
           ],
         },
       },
@@ -878,6 +955,7 @@ export default {
       1: {
         id: '1',
         name: '1',
+        showdownExtra: 'The Manhunter goes first.',
         movement: 6,
         toughness: 8,
         deck: {
@@ -890,6 +968,7 @@ export default {
       2: {
         id: '2',
         name: '2',
+        showdownExtra: 'The Manhunter goes first.',
         movement: 7,
         toughness: 11,
         speed: 1,
@@ -904,6 +983,7 @@ export default {
       3: {
         id: '3',
         name: '3',
+        showdownExtra: 'The Manhunter goes first.',
         movement: 8,
         toughness: 11,
         speed: 1,
@@ -918,6 +998,7 @@ export default {
       4: {
         id: '4',
         name: '4',
+        showdownExtra: 'The Manhunter goes first.',
         movement: 9,
         toughness: 13,
         speed: 2,
@@ -1124,7 +1205,7 @@ export default {
     instinct: {
       name: 'Core Countdown',
       description:
-        "Full move towards the closest threat. Perform Irradiate. End the Dragon's King turn.",
+        "Full move towards the closest threat. Perform **Irradiate**. End the Dragon's King turn.",
     },
     levels: {
       1: {
@@ -1180,7 +1261,7 @@ export default {
     instinct: {
       name: 'Advance',
       description:
-        "Perform Crooked Step. Full move the monster towards the closest survivor. End the monster's turn.",
+        "Perform **Crooked Step**. Full move the monster towards the closest survivor. End the monster's turn.",
     },
     levels: {
       1: {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Screen, View, Title, Text } from '@shoutem/ui'
+import RichText from './common/RichText'
 import { observer, inject } from 'mobx-react/native'
 
 @inject(({ store }) => ({
@@ -16,7 +17,7 @@ export default class Instinct extends React.Component {
     return (
       <View>
         <Title>{this.props.instinct.name}</Title>
-        <Text>{this.props.instinct.description}</Text>
+        <RichText>{this.props.instinct.description}</RichText>
       </View>
     )
   }
