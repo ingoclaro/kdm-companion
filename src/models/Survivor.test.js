@@ -72,4 +72,8 @@ describe('with RootStore', () => {
     survivor.setWeaponProficiency({ id: 'fist & tooth' })
     expect(survivor.weaponProficiency.id).toBe('fist & tooth')
   })
+
+  it('has 1 survival', () => {
+    expect(survivor.survival).toBe(1)
+  })
 })
