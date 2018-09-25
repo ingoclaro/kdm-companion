@@ -8,11 +8,11 @@ import { values } from 'mobx'
 // TODO: this could be changed to optional and have always initialized data, should make the UI simpler and avoid null checks there.
 export const Settlement = types
   .model('Settlement', {
-    name: types.maybeNull(types.string),
-    survivalLimit: types.maybeNull(types.integer),
-    departing: types.maybeNull(SettlementBonus),
-    newborn: types.maybeNull(SettlementBonus),
-    showdown: types.maybeNull(SettlementBonus),
+    name: 'New Settlement',
+    survivalLimit: 0, // default is 0 because Settlement is also used for bonuses of innovations. This has to be setup to 1 for new Settlements.
+    departing: types.optional(SettlementBonus, {}),
+    newborn: types.optional(SettlementBonus, {}), // default survial = 1 needs to be setup for new settlements (same reason as above)
+    showdown: types.optional(SettlementBonus, {}),
     survivors: types.map(Survivor),
   })
   .actions(self => ({
@@ -67,9 +67,14 @@ export const Settlement = types
       }
     },
     createSurvivor(name = undefined) {
+      // TODO: this needs to be moved to the Survivor model!
       let survivorData = Object.assign(
         defaultSurvivor(),
         self.newborn ? self.newborn.bonus : {}
+      )
+      survivorData.survival = Math.min(
+        survivorData.survival,
+        self.survivalLimit
       )
       if (name) {
         survivorData.name = name
@@ -98,3 +103,9 @@ export const Settlement = types
       return getParent(self).hasSOTF
     },
   }))
+
+export const init = {
+  name: 'New Settlement',
+  survivalLimit: 1,
+  newborn: { survival: 1 },
+}

@@ -7,7 +7,7 @@ export function lateGear() {
     id: types.identifier,
     name: types.string,
     expansion: types.reference(Expansion),
-    recipes: types.maybeNull(types.array(types.late(lateRecipe))),
+    recipes: types.array(types.late(lateRecipe)),
   })
 }
 

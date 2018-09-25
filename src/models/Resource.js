@@ -7,12 +7,12 @@ const Resource = types
   .model('Resource', {
     id: types.identifier,
     // name: types.string,
-    monster: types.maybeNull(types.reference(Monster)),
-    type: types.maybeNull(
+    monster: types.maybe(types.reference(Monster)), // could be a monster resource or a generic type.
+    type: types.maybe(
       types.enumeration('Type', ['basic', 'strange', 'vermin', 'endeavor'])
     ),
     expansion: types.optional(types.reference(Expansion), 'core'),
-    keywords: types.maybeNull(types.array(types.string)),
+    keywords: types.array(types.string),
   })
   .views(self => ({
     get name() {

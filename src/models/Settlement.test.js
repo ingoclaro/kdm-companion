@@ -1,5 +1,5 @@
 import { getSnapshot } from 'mobx-state-tree'
-import { Settlement } from './Settlement'
+import { Settlement, init as newSettlementData } from './Settlement'
 import { init as defaultSurvivor } from './Survivor'
 import RootStore from './RootStore'
 
@@ -11,11 +11,7 @@ afterEach(() => {
 
 describe('.create', () => {
   it('creates a barebones settlement', () => {
-    let settlement = Settlement.create({
-      name: 'New Settlement',
-      survivalLimit: 1,
-      survivors: {},
-    })
+    let settlement = Settlement.create(newSettlementData)
 
     expect(getSnapshot(settlement)).toMatchSnapshot()
   })
@@ -29,11 +25,7 @@ describe('.create', () => {
 
 describe('.add', () => {
   it('adds bonuses to settlement', () => {
-    let settlement = Settlement.create({
-      name: 'New Settlement',
-      survivalLimit: 1,
-      survivors: {},
-    })
+    let settlement = Settlement.create(newSettlementData)
     let bonus = {
       survivalLimit: 1,
       departing: {
@@ -57,11 +49,7 @@ describe('.add', () => {
 
 describe('.remove', () => {
   it('removes bonuses from settlement', () => {
-    let settlement = Settlement.create({
-      name: 'New Settlement',
-      survivalLimit: 1,
-      survivors: {},
-    })
+    let settlement = Settlement.create(newSettlementData)
     let bonus = {
       survivalLimit: 1,
       departing: {
@@ -87,11 +75,7 @@ describe('.remove', () => {
 
 describe('.createSurvivor', () => {
   it('creates a survivor and assings it to the settlement', () => {
-    let settlement = Settlement.create({
-      name: 'New Settlement',
-      survivalLimit: 1,
-      survivors: {},
-    })
+    let settlement = Settlement.create(newSettlementData)
 
     let uuidMock = jest.spyOn(utils, 'uuid')
     uuidMock.mockImplementation(() => '4e55b990-5b16-480f-81d2-06765c52ec72')
@@ -107,14 +91,14 @@ describe('.filterSurvivors', () => {
     let survivor1 = defaultSurvivor()
     let survivor2 = Object.assign(defaultSurvivor(), { status: 'dead' })
 
-    let settlement = Settlement.create({
-      name: 'New Settlement',
-      survivalLimit: 1,
-      survivors: {
-        [survivor1.id]: survivor1,
-        [survivor2.id]: survivor2,
-      },
-    })
+    let settlement = Settlement.create(
+      Object.assign(newSettlementData, {
+        survivors: {
+          [survivor1.id]: survivor1,
+          [survivor2.id]: survivor2,
+        },
+      })
+    )
 
     let survivorList = settlement.filterSurvivors('alive')
     let deadList = settlement.filterSurvivors('dead')

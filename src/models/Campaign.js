@@ -5,7 +5,7 @@ import { Innovation } from './Innovation'
 import { Bonus } from './Bonus'
 import { Endeavor } from './Endeavor'
 import { Resource } from './Resource'
-import { Settlement } from './Settlement'
+import { Settlement, init as newSettlementData } from './Settlement'
 import { Expansion } from './Expansion'
 import { Principle } from './Principle'
 import { Monster } from './Monster'
@@ -28,11 +28,7 @@ const SelectedMonsterLevel = types.model('SelectedMonsterLevel', {
 export const Campaign = types
   .model('Campaign', {
     id: types.identifier,
-    settlement: types.optional(Settlement, {
-      name: 'New Settlement',
-      survivalLimit: 1,
-      survivors: {},
-    }),
+    settlement: types.optional(Settlement, newSettlementData),
     locations: types.map(types.reference(SettlementLocation)),
     innovations: types.map(types.reference(Innovation)),
     principles: types.optional(

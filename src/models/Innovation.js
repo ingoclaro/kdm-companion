@@ -8,9 +8,9 @@ const Innovation = types.model('Innovation', {
   id: types.identifier,
   name: types.string,
   expansion: types.reference(Expansion),
-  keywords: types.maybeNull(types.array(types.string)),
+  keywords: types.array(types.string),
   providesBonuses: types.array(Bonus),
-  settlement: types.maybeNull(Settlement),
+  settlement: types.optional(Settlement, {}),
   endeavors: types.array(types.late(lateEndeavor)),
 })
 

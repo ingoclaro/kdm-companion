@@ -21,6 +21,9 @@ afterEach(() => {
 
 it('initializes', () => {
   const store = RootStore.create()
+
+  expect(store.selectedCampaign.settlement.survivalLimit).toBe(1)
+  expect(store.selectedCampaign.settlement.newborn.survival).toBe(1)
 })
 
 describe('.load', () => {
@@ -36,6 +39,7 @@ describe('.load', () => {
   })
 
   it('loads saved data', () => {
+    // TODO: use an actual file.
     let data = {
       campaigns: [
         {

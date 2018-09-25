@@ -60,8 +60,10 @@ export default types
   })
   .actions(self => ({
     createCampaign(name) {
-      id = uuid()
-      self.campaigns.push({ id, settlement: { name: name, survivalLimit: 1 } })
+      let id = uuid()
+      let campaign = Campaign.create({ id })
+      campaign.settlement.updateName(name)
+      self.campaigns.push(campaign)
       self.selectCampaign(id)
     },
     selectCampaign(id) {
@@ -81,6 +83,28 @@ export default types
         // upgrade from first release.
         data.version = 2
       }
+      switch (data.version) {
+        case 1:
+        case 2:
+          if (data.campaigns) {
+            data.campaigns = data.campaigns.map(campaign => {
+              let newCampaign = Object.assign({}, campaign)
+              if (newCampaign.settlement.departing === null) {
+                newCampaign.settlement.departing = {}
+              }
+              if (newCampaign.settlement.newborn === null) {
+                newCampaign.settlement.newborn = { survival: 1 }
+              }
+              if (newCampaign.settlement.showdown === null) {
+                newCampaign.settlement.showdown = {}
+              }
+
+              return newCampaign
+            })
+          }
+          break
+      }
+      data.version = 3
 
       self.campaigns = data.campaigns
       self.selectedCampaign = data.selectedCampaign
