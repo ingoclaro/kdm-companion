@@ -1,12 +1,15 @@
 import React from 'react'
 import { View, Platform, StatusBar } from 'react-native'
 import Expo, { AppLoading, Segment } from 'expo'
+import Sentry from 'sentry-expo'
 import Application from './screens/App'
 import colors from './src/colors'
 import RootStore from './src/models/RootStore'
 import { load } from './src/filesystem'
 import env from './env.js'
-const { SEGMENT_ANDROID_KEY, SEGMENT_IOS_KEY } = env
+const { SEGMENT_ANDROID_KEY, SEGMENT_IOS_KEY, SENTRY_DSN } = env
+
+Sentry.config(SENTRY_DSN).install()
 
 export default class App extends React.Component {
   constructor(props) {
