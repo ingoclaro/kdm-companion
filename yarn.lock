@@ -7007,9 +7007,9 @@ sentence-case@^1.1.1, sentence-case@^1.1.2:
   dependencies:
     lower-case "^1.1.1"
 
-sentry-expo@^1.9.0:
+sentry-expo@byCedric/sentry-expo#622be7aaf83da7171550f7b227a9e4bc848878c8:
   version "1.9.0"
-  resolved "https://registry.yarnpkg.com/sentry-expo/-/sentry-expo-1.9.0.tgz#b0589bec4c0e56e9448464ca1808f37f35b70514"
+  resolved "https://codeload.github.com/byCedric/sentry-expo/tar.gz/622be7aaf83da7171550f7b227a9e4bc848878c8"
   dependencies:
     "@expo/spawn-async" "^1.2.8"
     mkdirp "^0.5.1"

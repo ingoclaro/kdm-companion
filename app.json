@@ -37,8 +37,7 @@
           "file": "sentry-expo/upload-sourcemaps",
           "config": {
             "organization": "ingo-claro",
-            "project": "kingdom-death-monster-companion",
-            "authToken": ""
+            "project": "kingdom-death-monster-companion"
           }
         }
       ]

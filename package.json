@@ -62,6 +62,6 @@
     "react-native-modal": "^6.5.0",
     "react-native-simple-stepper": "^1.18.0",
     "react-navigation": "2.12.x",
-    "sentry-expo": "^1.9.0"
+    "sentry-expo": "byCedric/sentry-expo#622be7aaf83da7171550f7b227a9e4bc848878c8"
   }
 }

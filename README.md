@@ -25,7 +25,7 @@ If you do any changes to `app.json` or if you upgrade the Expo SDK you need to d
 To upload new version to Expo:
 
 ```
-expo-cli publish
+SENTRY_AUTH_TOKEN=xxx expo-cli publish
 ```
 
 Note that apps in the internal test and beta channels are going to get the update automatically.
@@ -35,10 +35,12 @@ Note that apps in the internal test and beta channels are going to get the updat
 To upload the version to the `production` build, execute the following command:
 
 ```
-expo-cli publish --release-channel production
+SENTRY_AUTH_TOKEN=xxx expo-cli publish --release-channel production
 ```
 
 This will distribute the update to the production app automatically.
+
+SENTRY_AUTH_TOKEN should be taken from the following url: https://sentry.io/settings/account/api/auth-tokens/
 
 ### Android app
 
