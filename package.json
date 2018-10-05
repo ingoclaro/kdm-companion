@@ -3,6 +3,7 @@
   "version": "2.3.1",
   "private": true,
   "devDependencies": {
+    "expo-cli": "^2.2.0",
     "husky": "^0.14.3",
     "jest-date-mock": "^1.0.5",
     "jest-expo": "^29.0.0",

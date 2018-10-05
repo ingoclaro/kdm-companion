@@ -9,11 +9,20 @@ cache:
     - .jest
 script:
   - yarn jest --ci
+stages:
+  - name: devel-deploy
+    if: branch = master AND tag IS blank
+  - name: prod-deploy
+    if: (tag =~ /^[0-9]+\.[0-9]+\.[0-9]+$/) AND (branch = master)
 jobs:
   include:
-    - stage: deploy
+    - stage: devel-deploy
       node_js: lts/*
       script:
-        - expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
-        - expo publish --non-interactive
-      condition: (tag =~ /^[0-9]+\.[0-9]+\.[0-9]+$/) AND (branch = master)
+        - npx expo-cli login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+        - npx expo-cli publish --non-interactive
+    - stage: prod-deploy
+      node_js: lts/*
+      script:
+        - npx expo-cli login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+        - npx expo-cli publish --release-channel production --non-interactive
