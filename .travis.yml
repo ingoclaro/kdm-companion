@@ -15,15 +15,16 @@ stages:
     if: branch = master AND tag IS blank
   - name: prod-deploy
     if: (tag =~ /^[0-9]+\.[0-9]+\.[0-9]+$/) AND (branch = master)
-jobs:
-  include:
-    - stage: devel-deploy
-      node_js: lts/*
-      script:
-        - npx expo-cli login -u $EXPO_USERNAME -p $EXPO_PASSWORD
-        - npx expo-cli publish --non-interactive
-    - stage: prod-deploy
-      node_js: lts/*
-      script:
-        - npx expo-cli login -u $EXPO_USERNAME -p $EXPO_PASSWORD
-        - npx expo-cli publish --release-channel production --non-interactive
+# disabled until having a solution for env.js
+# jobs:
+#   include:
+#     - stage: devel-deploy
+#       node_js: lts/*
+#       script:
+#         - npx expo-cli login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+#         - npx expo-cli publish --non-interactive
+#     - stage: prod-deploy
+#       node_js: lts/*
+#       script:
+#         - npx expo-cli login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+#         - npx expo-cli publish --release-channel production --non-interactive
