@@ -4206,9 +4206,9 @@ jest-config@^23.4.2:
     jest-validate "^23.4.0"
     pretty-format "^23.2.0"
 
-jest-date-mock@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/jest-date-mock/-/jest-date-mock-1.0.4.tgz#14b95b9673a8bfd5c8d9728c8c8d9add36eb6ea9"
+jest-date-mock@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/jest-date-mock/-/jest-date-mock-1.0.5.tgz#b9a5ece8908338cac5ba1faec882e53aabbc7e9b"
 
 jest-diff@^23.2.0:
   version "23.2.0"
