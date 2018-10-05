@@ -1,0 +1,19 @@
+---
+language: node_js
+node_js:
+  - node
+  - lts/*
+cache:
+  yarn: true
+  directories:
+    - .jest
+script:
+  - yarn jest --ci
+jobs:
+  include:
+    - stage: deploy
+      node_js: lts/*
+      script:
+        - expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+        - expo publish --non-interactive
+      condition: (tag =~ /^[0-9]+\.[0-9]+\.[0-9]+$/) AND (branch = master)

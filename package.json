@@ -24,6 +24,7 @@
   },
   "jest": {
     "preset": "jest-expo",
+    "cacheDirectory": ".jest",
     "setupFiles": [
       "jest-date-mock"
     ],
