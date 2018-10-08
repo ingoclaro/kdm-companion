@@ -27,6 +27,14 @@ export default {
     description:
       'Each showdown, the first time you suffer the frenzy brain trauma, gain d10 survival. You may spend survival while **Frenzied**.',
   },
+  Blind: {
+    //TODO: can be recorded twice
+    id: 'Blind',
+    name: 'Blind',
+    expansion: 'core',
+    description:
+      'Lose an eye. Can be recorded twice. A survivor with two **blind** severe injuries retires at the end of the next showdown or settlement phase.',
+  },
   'Blue Life Exchange': {
     id: 'Blue Life Exchange',
     name: 'Blue Life Exchange',
@@ -38,8 +46,27 @@ export default {
     id: 'Bone Witch - Scarred Eyes',
     name: 'Bone Witch - Scarred Eyes',
     expansion: 'core',
-    description:
-      'Roll 1d5, suffer -X permanent **accuracy** and gain +X permanent **strength**. If you gain this result twice, you die.',
+    description: 'If you gain this result twice, you die.',
+  },
+  'Broken arm': {
+    //TODO: can be recorded twice.
+    id: 'Broken arm',
+    name: 'Broken arm',
+    expansion: 'core',
+    description: 'Your arm is broken.',
+  },
+  'Broken hip': {
+    id: 'Broken hip',
+    name: 'Broken hip',
+    expansion: 'core',
+    description: 'You can no longer **dodge**.',
+  },
+  'Broken Leg': {
+    //TODO: can be recorded twice.
+    id: 'Broken Leg',
+    name: 'Broken Leg',
+    expansion: 'core',
+    description: 'Your leg is broken.',
   },
   'Burnt Nerves': {
     id: 'Burnt Nerves',
@@ -67,12 +94,59 @@ export default {
     description:
       'You ignore **cursed** and cannot wear armor. When you **depart**, gain ![3](shield) to all hit locations. Suffer -2 to the result of all severe injury rolls. When you participate in **Intimacy**, newborns gain **Crystal Skin** in addition to any other roll results.',
   },
+  Deaf: {
+    id: 'Deaf',
+    name: 'Deaf',
+    expansion: 'core',
+    description: "You won't hear it coming",
+  },
   'Death Mehndi': {
     id: 'Death Mehndi',
     name: 'Death Mehndi',
     expansion: 'lg',
     description:
       'On a **Perfect hit**, gain 1d10 insanity. -4 to all brain trauma rolls.',
+  },
+  'Destroyed back': {
+    id: 'Destroyed back',
+    name: 'Destroyed back',
+    expansion: 'core',
+    description: 'You can no longer activate gear that has 2+ strength.',
+  },
+  'Destroyed genitals': {
+    id: 'Destroyed genitals',
+    name: 'Destroyed genitals',
+    expansion: 'core',
+    description: 'You cannot be nominated for the intimacy story event.',
+  },
+  Disemboweled: {
+    id: 'Disemboweled',
+    name: 'Disemboweled',
+    expansion: 'core',
+    description: 'Your movement is reduced to 1 until the showdown ends.',
+  },
+  'Dislocated shoulder': {
+    id: 'Dislocated shoulder',
+    name: 'Dislocated shoulder',
+    expansion: 'core',
+    description:
+      'You cannot activate two-handed or paired weapons or use block until showdown ends.',
+  },
+  'Dismembered Arm': {
+    //TODO: can be recorded twice.
+    id: 'Dismembered Arm',
+    name: 'Dismembered Arm',
+    expansion: 'core',
+    description:
+      'You can no longer activate two-handed weapons. A survivor with two **dismembered arm** severe injuries cannot activate any weapons.',
+  },
+  'Dismembered Leg': {
+    //TODO: can be recorded twice.
+    id: 'Dismembered Leg',
+    name: 'Dismembered Leg',
+    expansion: 'core',
+    description:
+      'You can no longer **dash**. A survivor with two **dismembered leg** severe injuries must retire at the end of the next showdown or settlement phase.',
   },
   Dormenatus: {
     id: 'Dormenatus',
@@ -124,8 +198,16 @@ export default {
     id: 'Forgettable',
     name: 'Forgettable',
     expansion: 'slenderman',
+    description: 'Forgettable survivors cannot be **encouraged**.',
+  },
+  Frenzy: {
+    id: 'Frenzy',
+    name: 'Frenzy',
+    expansion: 'core',
+    cannotUseSurvival: true,
+    cannotUseFightingArts: true,
     description:
-      'Gain +2 permanent evasion. Forgettable survivors cannot be **encouraged**.',
+      'Ignore **slow** on melee weapons. You may not spend survival. You may not use fighting arts. You may not use weapon specialization or mastery. Lasts until end of showdown.',
   },
   'Green Life Exchange': {
     id: 'Green Life Exchange',
@@ -133,6 +215,14 @@ export default {
     expansion: 'core',
     description:
       'In the **Aftermath**, gain 3 additional Hunt XP. You may not place **other** gear in your grid. Gain +1 permanent evasion with each **Age** milestone. When you retire, you cease to exist.',
+  },
+  Hamstrung: {
+    id: 'Hamstrung',
+    name: 'Hamstrung',
+    expansion: 'core',
+    cannotUseFightingArts: true,
+    cannotUseAbilities: true,
+    description: 'You can no longer use any fighting arts or abilities.',
   },
   'Heart of the Sword': {
     id: 'Heart of the Sword',
@@ -146,6 +236,19 @@ export default {
     name: 'Homing Instinct',
     expansion: 'core',
     description: 'Add +5 to your rolls on the Run Away story event.',
+  },
+  'Intestinal prolapse': {
+    id: 'Intestinal prolapse',
+    name: 'Intestinal prolapse',
+    expansion: 'core',
+    description: 'You can no longer equip any gear on your waist.',
+  },
+  'Intracranial hemorrhage': {
+    id: 'Intracranial hemorrhage',
+    name: 'Intracranial hemorrhage',
+    expansion: 'core',
+    cannotUseSurvival: true,
+    description: 'You can no longer use or gain survival.',
   },
   'Iridescent Hide': {
     id: 'Iridescent Hide',
@@ -321,18 +424,32 @@ export default {
     description:
       'Your complete affinities and incomplete affinity halves count as all colors. During the Showdown, after you perform a survival action, gain +1 survival.',
   },
-  "Rival's Scar": {
-    id: "Rival's Scar",
-    name: "Rival's Scar",
-    expansion: 'spidicules',
-    description: 'Gain +1 permanent strength and -1 permanent evasion.',
-  },
   'Rooted to All': {
     id: 'Rooted to All',
     name: 'Rooted to All',
     expansion: 'dk',
     description:
       'If you are standing at the start of your act, reveal the top 2 cards of the AI deck and put them back in any order.',
+  },
+  'Ruptured muscle': {
+    id: 'Ruptured muscle',
+    name: 'Ruptured muscle',
+    expansion: 'core',
+    cannotUseFightingArts: true,
+    description: 'You can no longer activate fighting arts.',
+  },
+  'Slashed Back': {
+    id: 'Slashed Back',
+    name: 'Slashed Back',
+    expansion: 'core',
+    description: 'You cannot **surge** until showdown ends.',
+  },
+  'Shattered Jaw': {
+    id: 'Shattered Jaw',
+    name: 'Shattered Jaw',
+    expansion: 'core',
+    description:
+      'You can not longer **consume** or be afected by events requiring you to **consume**. You can no longer **encourage**.',
   },
   'Sour Death': {
     id: 'Sour Death',
@@ -360,14 +477,14 @@ export default {
     name: 'Story of the Goblin',
     expansion: 'core',
     description:
-      'Once per showdown you may...roll 1d10. On a 3+, gain the priority target token and the monster gains +1 damage token.',
+      'You know the first sentence of the story. Once per showdown you may speak it out loud and roll a d10. On a 3+, gain the **priority target** token and the monster gains +1 damage token.',
   },
   'Story of the Young Hero': {
     id: 'Story of the Young Hero',
     name: 'Story of the Young Hero',
     expansion: 'core',
     description:
-      'At the start of your act, you may...[g]ain 2 bleeding tokens and +1 survival.',
+      'At the start of your act, you may recall the heroic sacrifice from the story and bite your wrist. Gain 2 bleeding tokens and +1 survival.',
   },
   'Sweet Battle': {
     id: 'Sweet Battle',
@@ -389,6 +506,19 @@ export default {
     expansion: 'core',
     description:
       'When you are a returning survivor, gain +1 Endeavor to use this settlement phase.',
+  },
+  'Torn Achilles Tendon': {
+    id: 'Torn Achilles Tendon',
+    name: 'Torn Achilles Tendon',
+    expansion: 'core',
+    description:
+      'Until the end of the showdown, whenever you suffer light, heavy or severe injury, you are also knocked down.',
+  },
+  'Torn muscle': {
+    id: 'Torn muscle',
+    name: 'Torn muscle',
+    expansion: 'core',
+    description: 'You cannot **dash** until the showdown ends.',
   },
   'Twelve Fingers': {
     id: 'Twelve Fingers',
