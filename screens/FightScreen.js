@@ -5,6 +5,7 @@ import { observer, inject } from 'mobx-react/native'
 import colors from '../src/colors'
 
 import { ShowdownMonsterSelector } from '../components/MonsterSelector'
+import MonsterSummary from '../components/MonsterSummary'
 import MonsterStats from '../components/MonsterStats'
 import StatItem from '../components/StatItem'
 import Instinct, { InstinctTitle } from '../components/Instinct'
@@ -15,14 +16,10 @@ import RichText from '../components/common/RichText'
 }))
 @observer
 export default class FightScreen extends React.Component {
-  static navigationOptions = {
-    tabBarLabel: 'Fight',
-  }
-
-  state = {
-    instinctVisible: false,
-  }
-
+  //TODO: move Brain Trauma and Severe Injury tables to this screen (buttons that show the table)
+  //TODO: add setup information (in screen, bellow the above buttons)
+  //TODO: should add losing/winning outcome?
+  //TODO: for more complex setup (eg: watcher), reference page number.
   render() {
     return (
       <Screen>
@@ -33,39 +30,9 @@ export default class FightScreen extends React.Component {
         {this.props.monsterLevel.showdownExtra && (
           <RichText>{this.props.monsterLevel.showdownExtra}</RichText>
         )}
-        <MonsterStats />
+        <MonsterSummary />
 
         <Divider />
-
-        <StatItem name="Life" baseValue={this.props.monsterLevel.life} />
-
-        <Divider />
-        <Divider />
-
-        <Button onPress={() => this.setState({ instinctVisible: true })}>
-          <InstinctTitle />
-        </Button>
-        <Modal
-          isVisible={this.state.instinctVisible}
-          onBackdropPress={() => this.setState({ instinctVisible: false })}
-          onBackButtonPress={() => this.setState({ instinctVisible: false })}
-          useNativeDriver={true}
-          backdropColor={colors.black}
-        >
-          <View
-            style={{
-              backgroundColor: colors.grey900,
-              paddingHorizontal: 15,
-              paddingVertical: 15,
-            }}
-          >
-            <Instinct />
-            <Divider />
-            <Button onPress={() => this.setState({ instinctVisible: false })}>
-              <Text>Close</Text>
-            </Button>
-          </View>
-        </Modal>
       </Screen>
     )
   }

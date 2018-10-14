@@ -109,6 +109,7 @@ export default class AboutScreen extends React.Component {
         Created by Arthur Shlain from Noun Project
         Created by Eyecon Design (Creative Commons (Attribution 3.0 Unported))
         Created by Lorc, Delapouite & contributors (CC Attribution 4.0)
+        Created by Skoll (CC BY 3.0)
         Created by Ahkâm (https://www.freeiconspng.com/img/35905)
         Game icons from kdm-manager.com`,
     },
