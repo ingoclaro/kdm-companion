@@ -1,6 +1,6 @@
 {
   "name": "kdm-gear-companion",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "private": true,
   "devDependencies": {
     "expo-cli": "^2.2.0",
