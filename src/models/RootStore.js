@@ -107,7 +107,14 @@ export default types
       data.version = 3
 
       self.campaigns = data.campaigns
-      self.selectedCampaign = data.selectedCampaign
+
+      if (
+        !self.campaigns.find(campaign => campaign.id === data.selectedCampaign)
+      ) {
+        self.selectedCampaign = self.campaigns[0].id
+      } else {
+        self.selectedCampaign = data.selectedCampaign
+      }
       self.version = data.version
       self.subscription = data.subscription || {}
     },

@@ -85,6 +85,53 @@ describe('.load', () => {
     store.load(data)
     expect(store.data).toMatchSnapshot()
   })
+
+  it('handles orphan selectedCampaign', () => {
+    let data = {
+      campaigns: [
+        {
+          bonuses: {},
+          endeavors: {},
+          expansions: {
+            core: 'core',
+          },
+          hunting: null,
+          id: 'new',
+          innovations: {},
+          locations: {},
+          notes: 'my notes',
+          principles: {
+            conviction: null,
+            death: null,
+            newlife: null,
+            society: null,
+          },
+          settlement: {
+            departing: null,
+            name: 'New Settlement',
+            newborn: null,
+            showdown: null,
+            survivalLimit: 3,
+            survivors: {},
+          },
+          showdown: null,
+          stored_resources: {},
+        },
+      ],
+      selectedCampaign: 'orphan',
+      subscription: {
+        appLastActiveAt: 0,
+        autoRenewing: false,
+        checkedAt: 0,
+        purchasedAt: 0,
+        response: '',
+        transactionId: undefined,
+      },
+      version: 1,
+    }
+    store.load(data)
+    expect(store.data).toMatchSnapshot()
+  })
 })
 
 it('all in', () => {

@@ -76,6 +76,82 @@ Object {
 }
 `;
 
+exports[`.load handles orphan selectedCampaign 1`] = `
+Object {
+  "campaigns": Array [
+    Object {
+      "bonuses": Object {},
+      "endeavors": Object {},
+      "expansions": Object {
+        "core": "core",
+      },
+      "hunting": null,
+      "id": "new",
+      "innovations": Object {},
+      "locations": Object {},
+      "notes": "my notes",
+      "principles": Object {
+        "conviction": null,
+        "death": null,
+        "newlife": null,
+        "society": null,
+      },
+      "settlement": Object {
+        "departing": Object {
+          "accuracy": 0,
+          "courage": 0,
+          "description": Array [],
+          "evasion": 0,
+          "hunt xp": 0,
+          "insanity": 0,
+          "strength": 0,
+          "survival": 0,
+          "understanding": 0,
+        },
+        "name": "New Settlement",
+        "newborn": Object {
+          "accuracy": 0,
+          "courage": 0,
+          "description": Array [],
+          "evasion": 0,
+          "hunt xp": 0,
+          "insanity": 0,
+          "strength": 0,
+          "survival": 1,
+          "understanding": 0,
+        },
+        "showdown": Object {
+          "accuracy": 0,
+          "courage": 0,
+          "description": Array [],
+          "evasion": 0,
+          "hunt xp": 0,
+          "insanity": 0,
+          "strength": 0,
+          "survival": 0,
+          "understanding": 0,
+        },
+        "survivalLimit": 3,
+        "survivors": Object {},
+      },
+      "showdown": null,
+      "stored_resources": Object {},
+    },
+  ],
+  "selectedCampaign": "new",
+  "subscription": Object {
+    "appLastActiveAt": 0,
+    "autoRenewing": false,
+    "checkedAt": 0,
+    "productId": "",
+    "purchasedAt": 0,
+    "response": "",
+    "transactionId": undefined,
+  },
+  "version": 3,
+}
+`;
+
 exports[`.load loads saved data 1`] = `
 Object {
   "campaigns": Array [
