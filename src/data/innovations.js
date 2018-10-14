@@ -1036,8 +1036,8 @@ export default {
         survival: 3,
         insanity: 3,
         description: [
-          '**The Knowledge Worm**: survivors with 10+ insanity, "A Gracious Host"',
-        ], //TODO: add book icon.
+          '**The Knowledge Worm**: survivors with 10+ insanity, ![book](book) "A Gracious Host"',
+        ],
       },
     },
   },
@@ -1392,10 +1392,7 @@ export default {
     settlement: {
       newborn: {
         strength: 1,
-        description: [
-          '**Empire**: gain **Pristine** ability',
-          '**Pristine**: when you suffer a dismembered severe injury, ignore it and gain 1 bleeding token instead.',
-        ],
+        description: ['**Empire**: gain **Pristine** ability'],
       },
     },
   },

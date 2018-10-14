@@ -4,8 +4,7 @@ import { Survivor, init as defaultSurvivor } from './Survivor'
 import R from 'ramda'
 import { values } from 'mobx'
 
-// all are maybe because it's used by innovations as well.
-// TODO: this could be changed to optional and have always initialized data, should make the UI simpler and avoid null checks there.
+// all are optional because it's used by innovations as well.
 export const Settlement = types
   .model('Settlement', {
     name: 'New Settlement',

@@ -28,9 +28,9 @@ export default {
       'Each showdown, the first time you suffer the frenzy brain trauma, gain d10 survival. You may spend survival while **Frenzied**.',
   },
   Blind: {
-    //TODO: can be recorded twice
     id: 'Blind',
     name: 'Blind',
+    max: 2,
     expansion: 'core',
     description:
       'Lose an eye. Can be recorded twice. A survivor with two **blind** severe injuries retires at the end of the next showdown or settlement phase.',
@@ -45,13 +45,14 @@ export default {
   'Bone Witch - Scarred Eyes': {
     id: 'Bone Witch - Scarred Eyes',
     name: 'Bone Witch - Scarred Eyes',
+    max: 2,
     expansion: 'core',
     description: 'If you gain this result twice, you die.',
   },
   'Broken arm': {
-    //TODO: can be recorded twice.
     id: 'Broken arm',
     name: 'Broken arm',
+    max: 2,
     expansion: 'core',
     description: 'Your arm is broken.',
   },
@@ -62,9 +63,9 @@ export default {
     description: 'You can no longer **dodge**.',
   },
   'Broken Leg': {
-    //TODO: can be recorded twice.
     id: 'Broken Leg',
     name: 'Broken Leg',
+    max: 2,
     expansion: 'core',
     description: 'Your leg is broken.',
   },
@@ -133,17 +134,17 @@ export default {
       'You cannot activate two-handed or paired weapons or use block until showdown ends.',
   },
   'Dismembered Arm': {
-    //TODO: can be recorded twice.
     id: 'Dismembered Arm',
     name: 'Dismembered Arm',
+    max: 2,
     expansion: 'core',
     description:
       'You can no longer activate two-handed weapons. A survivor with two **dismembered arm** severe injuries cannot activate any weapons.',
   },
   'Dismembered Leg': {
-    //TODO: can be recorded twice.
     id: 'Dismembered Leg',
     name: 'Dismembered Leg',
+    max: 2,
     expansion: 'core',
     description:
       'You can no longer **dash**. A survivor with two **dismembered leg** severe injuries must retire at the end of the next showdown or settlement phase.',

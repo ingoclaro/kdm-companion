@@ -2340,7 +2340,7 @@ Object {
           "courage": 0,
           "description": Array [
             "**Song of the Brave**: During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave",
-            "**The Knowledge Worm**: survivors with 10+ insanity, \\"A Gracious Host\\"",
+            "**The Knowledge Worm**: survivors with 10+ insanity, ![book](book) \\"A Gracious Host\\"",
             "**War room**: Quarries can't move off the hunt board. If survivors would need to move backwards roll 1d10, on 4+ they don't.",
             "**Settlement Watch**: Survivors gain +2 survival when they depart for a Nemesis encounter or Special Showdown",
             "**Sauna Shrine**: When departing for a nemesis encounter or special showdown, gain +10 survival.",
@@ -2366,7 +2366,6 @@ Object {
 * 1 Surname.
 * Half of the parent's weapon proficiency levels, rounded up.",
             "**Empire**: gain **Pristine** ability",
-            "**Pristine**: when you suffer a dismembered severe injury, ignore it and gain 1 bleeding token instead.",
           ],
           "evasion": 1,
           "hunt xp": 2,

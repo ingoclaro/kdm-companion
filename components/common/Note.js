@@ -56,7 +56,6 @@ export default class Note extends React.Component {
     this.hideEditor()
   }
 
-  //TODO: make text editor.
   render() {
     return (
       <View>

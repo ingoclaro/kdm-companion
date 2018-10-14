@@ -51,7 +51,7 @@ export default class CourageMilestone extends React.Component {
       {
         numbers: '1-3',
         description:
-          'May reroll 1 ![endeavor](endeavor) this settlement phase.', // TODO: replace {} tokens in code
+          'May reroll 1 ![endeavor](endeavor) this settlement phase.',
       },
       {
         numbers: '4-7',

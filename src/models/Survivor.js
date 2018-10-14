@@ -48,34 +48,39 @@ const Survivor = types
   })
   .actions(self => ({
     addFA(fa) {
-      let found = R.find(item => fa.id === item.id, self.fightingArts)
+      let found = self.fightingArts.find(item => item.id === fa.id)
       if (!found) {
         self.fightingArts.push(fa.id)
       }
     },
     removeFA(fa) {
-      self.fightingArts = R.reject(item => fa.id === item.id, self.fightingArts)
-      // self.fightingArts.remove(fa) this throws an error.
+      self.fightingArts = self.fightingArts.filter(item => item.id !== fa.id)
     },
     addDisorder(disorder) {
-      let found = R.find(item => disorder.id === item.id, self.disorders)
+      let found = self.disorders.find(item => item.id === disorder.id)
       if (!found) {
         self.disorders.push(disorder.id)
       }
     },
     removeDisorder(disorder) {
-      self.disorders = R.reject(item => disorder.id === item.id, self.disorders)
-      // self.disorders.remove(disorder)
+      self.disorders = self.disorders.filter(item => item.id !== disorder.id)
     },
     addAbility(ability) {
-      let found = R.find(item => ability.id === item.id, self.abilities)
-      if (!found) {
+      let numFound = self.abilities.filter(item => item.id === ability.id)
+        .length
+      if (numFound === 0 || numFound < ability.max) {
         self.abilities.push(ability.id)
       }
     },
     removeAbility(ability) {
-      self.abilities = R.reject(item => ability.id === item.id, self.abilities)
-      // self.abilities.remove(ability)
+      let idx = self.abilities.findIndex(item => item.id === ability.id)
+      if (idx === 0) {
+        self.abilities = self.abilities.slice(1)
+      } else if (idx > 0) {
+        self.abilities = self.abilities
+          .slice(0, idx)
+          .concat(self.abilities.slice(idx + 1))
+      }
     },
     changeGender() {
       let gender = self.gender === 'male' ? 'female' : 'male'

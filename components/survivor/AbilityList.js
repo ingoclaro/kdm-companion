@@ -21,8 +21,8 @@ export default class AbilityList extends React.Component {
   render() {
     return (
       <View>
-        {this.props.items.map(item => (
-          <View key={item.id}>
+        {this.props.items.map((item, idx) => (
+          <View key={idx}>
             <View styleName="horizontal v-center">
               <Text>{item.name}</Text>
               {this.props.editable && (
