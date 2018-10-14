@@ -4,7 +4,7 @@
     "name": "Kingdom Death: Monster Companion",
     "slug": "kdm-companion",
     "icon": "./images/icon_lantern.png",
-    "version": "2.5.0",
+    "version": "2.5.1",
     "githubUrl": "https://github.com/ingoclaro/kdm-companion",
     "orientation": "portrait",
     "assetBundlePatterns": ["images/*"],
@@ -21,9 +21,6 @@
     "ios": {
       "bundleIdentifier": "com.github.ingoclaro.kdmcompanion",
       "buildNumber": "2018091702"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
     },
     "splash": {
       "image": "./images/logo.png",
