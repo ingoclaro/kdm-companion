@@ -3,6 +3,7 @@ import { FightingArt, SecretFightingArt } from './FightingArt'
 import { Disorder } from './Disorder'
 import { Ability } from './Ability'
 import { WeaponProficiency } from './WeaponProficiency'
+import { DragonTraits } from './DragonTraits'
 import { uuid } from '../utils'
 import R from 'ramda'
 
@@ -45,6 +46,10 @@ const Survivor = types
     cannotUseFightingArts: false,
     cannotUseAbilities: false,
     rerollUsed: false, // was the reroll of survival of the fittest used?
+
+    // People of the Stars Campaign
+    dragonTraits: types.optional(DragonTraits, {}),
+    // End People of the Stars Campaign
   })
   .actions(self => ({
     addFA(fa) {
@@ -52,6 +57,7 @@ const Survivor = types
       if (!found) {
         self.fightingArts.push(fa.id)
       }
+      self.dragonTraits.handleFAChange(self)
     },
     removeFA(fa) {
       self.fightingArts = self.fightingArts.filter(item => item.id !== fa.id)
@@ -61,6 +67,7 @@ const Survivor = types
       if (!found) {
         self.disorders.push(disorder.id)
       }
+      self.dragonTraits.handleDisorderChange(self)
     },
     removeDisorder(disorder) {
       self.disorders = self.disorders.filter(item => item.id !== disorder.id)
@@ -71,6 +78,7 @@ const Survivor = types
       if (numFound === 0 || numFound < ability.max) {
         self.abilities.push(ability.id)
       }
+      self.dragonTraits.handleAbilityChange(self)
     },
     removeAbility(ability) {
       let idx = self.abilities.findIndex(item => item.id === ability.id)
@@ -93,6 +101,7 @@ const Survivor = types
       if (self['hunt xp'] >= 16) {
         self.status = 'retired'
       }
+      self.dragonTraits.handleAttributeChange(self)
     },
     saveNotes(notes) {
       self.notes = notes
@@ -137,6 +146,9 @@ const Survivor = types
       }
     },
   }))
-const init = () => ({ id: uuid(), name: 'Unnamed' })
+const init = () => ({
+  id: uuid(),
+  name: 'Unnamed',
+})
 
 export { Survivor, init }

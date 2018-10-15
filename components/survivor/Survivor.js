@@ -15,18 +15,15 @@ import { observer, inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 
 import { ageMilestones } from './AgeMilestone'
-import { courageMilestones } from './CourageMilestone'
 import Abilities from './Abilities'
-import AbilityList from './AbilityList'
 import AttributeLarge from './AttributeLarge'
 import Disorders from './Disorders'
 import EditableProperty from './EditableProperty'
-import EditableTextProperty from './EditableTextProperty'
 import FightingArts from './FightingArts'
-import GenderButton from './GenderButton'
 import Note from '../common/Note'
 import WeaponProficiency from './WeaponProficiency'
 import Tooltip from '../common/Tooltip'
+import DragonTraits from './DragonTraits'
 import colors from '../../src/colors'
 
 const ico_accuracy = require('../../images/icon_accuracy-24.png')
@@ -46,17 +43,14 @@ const ico_death = require('../../images/icon_death.png')
   survivalLimit: store.selectedCampaign.settlement.survivalLimit,
   showTooltip: store.selectedCampaign.settlement.survivors.size === 1,
   hasReroll: store.selectedCampaign.settlement.hasSOTF,
+  showConstellation: store.selectedCampaign.type.id === 'pots',
+  courageMilestones: store.selectedCampaign.courageMilestones,
+  understandingMilestones: store.selectedCampaign.understandingMilestones,
 }))
 @observer
 export default class Survivor extends React.Component {
   static propTypes = {
     survivorId: PropTypes.string.isRequired, // ID of the survivor to show
-  }
-
-  //TODO: move this to it's own class after resolving for CourageMilestone
-  understandingMilestones = {
-    3: { description: '![book](book) Insight (p.131)' },
-    9: { description: '![book](book) White Secret (p.181)' },
   }
 
   weaponProficiencyMilestones = {
@@ -198,7 +192,7 @@ export default class Survivor extends React.Component {
             showLabel={true}
             quantity={survivor.courage}
             setQuantity={qty => survivor.setAttribute('courage', qty)}
-            milestones={courageMilestones}
+            milestones={this.props.courageMilestones}
           />
           <EditableProperty
             label="Understanding"
@@ -207,7 +201,7 @@ export default class Survivor extends React.Component {
             showLabel={true}
             quantity={survivor.understanding}
             setQuantity={qty => survivor.setAttribute('understanding', qty)}
-            milestones={this.understandingMilestones}
+            milestones={this.props.understandingMilestones}
           />
         </View>
 
@@ -227,6 +221,13 @@ export default class Survivor extends React.Component {
         <WeaponProficiency survivor={survivor} />
 
         <Divider />
+
+        {this.props.showConstellation && (
+          <View>
+            <DragonTraits survivor={this.props.survivor} />
+            <Divider />
+          </View>
+        )}
 
         <FightingArts
           fightingArts={survivor.fightingArts}

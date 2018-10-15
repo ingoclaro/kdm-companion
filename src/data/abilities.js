@@ -229,6 +229,7 @@ export default {
     id: 'Heart of the Sword',
     name: 'Heart of the Sword',
     expansion: 'dk',
+    campaign: 'pots',
     description:
       'If you gain weapon proficiency during the Aftermath, gain +3 additional ranks. You cough up a hunk of your own solidified blood and gain +1 **Iron** strange resource.',
   },
@@ -255,6 +256,7 @@ export default {
     id: 'Iridescent Hide',
     name: 'Iridescent Hide',
     expansion: 'dk',
+    campaign: 'pots',
     description:
       'Gain +![1](shield) to all hit locations for each different-colored affinity in your gear grid.',
   },
@@ -303,6 +305,7 @@ export default {
     id: 'Limb-maker',
     name: 'Limb-maker',
     expansion: 'dk',
+    campaign: 'pots',
     description:
       "Once per settlement phase, spend 2 ![endeavor](endeavor) to carve a prosthetic limb. Remove a survivor's **dismembered** injury and add 1 bone to the settlement's storage.",
   },
@@ -352,6 +355,7 @@ export default {
     id: "Oracle's Eye",
     name: "Oracle's Eye",
     expansion: 'dk',
+    campaign: 'pots',
     description:
       'At the start of the showdown, look through the AI deck then shuffle.',
   },
@@ -387,6 +391,7 @@ export default {
     id: 'Presage',
     name: 'Presage',
     expansion: 'dk',
+    campaign: 'pots',
     description:
       'Each time you attack, before drawing hit locations, loudly say a name. You lightly bite the eye in your cheek to see what it sees. If you draw any hit locations with that name, gain +3 insanity and +10 strength when attempting to wound them.',
   },
@@ -401,6 +406,7 @@ export default {
     id: 'Psychovore',
     name: 'Psychovore',
     expansion: 'dk',
+    campaign: 'pots',
     description:
       "Once per showdown, you may eat an adjacent survivor's disorder. If you do, remove the disorder. They gain 1 bleeding token and you gain +1 permanent strength. At the end of the showdown, if you haven't eaten a disorder, you die.",
   },
@@ -429,6 +435,7 @@ export default {
     id: 'Rooted to All',
     name: 'Rooted to All',
     expansion: 'dk',
+    campaign: 'pots',
     description:
       'If you are standing at the start of your act, reveal the top 2 cards of the AI deck and put them back in any order.',
   },
@@ -525,6 +532,7 @@ export default {
     id: 'Twelve Fingers',
     name: 'Twelve Fingers',
     expansion: 'dk',
+    campaign: 'pots',
     description:
       'You cannot carry two-handed gear. On a Perfect hit, your right hand pulses. Gain +5 insanity and +1 luck for the attack. However, for each natural 1 rolled when attempting to hit, your left hand shakes. Suffer 5 brain damage and -1 luck for the attack.',
   },
@@ -539,6 +547,28 @@ export default {
     id: 'Way of the Rust',
     name: 'Way of the Rust',
     expansion: 'dk',
+    campaign: 'pots',
     description: 'Your bleeding tokens are also +1 evasion tokens.',
+  },
+  Noble: {
+    id: 'Noble',
+    name: 'Noble surname',
+    expansion: 'dk',
+    campaign: 'pots',
+    description: 'You have the Noble surname (Dragon Trait)',
+  },
+  Reincarnated: {
+    id: 'Reincarnated',
+    name: 'Reincarnated surname',
+    expansion: 'dk',
+    campaign: 'pots',
+    description: 'You have the Reincarnated surname (Dragon Trait)',
+  },
+  Scar: {
+    id: 'Scar',
+    name: 'Scar',
+    expansion: 'dk',
+    campaign: 'pots',
+    description: 'You have a Scar (Dragon Trait)',
   },
 }

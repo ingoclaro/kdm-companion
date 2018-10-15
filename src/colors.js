@@ -2,6 +2,8 @@
 export default {
   black: '#000000',
   blue900: '#0D47A1',
+  blue600: '#1e88e5',
+  blue400: '#42a5f5',
   bluegrey300: '#90A4AE',
   bluegrey400: '#78909C',
   bluegrey500: '#607D8B',
@@ -25,6 +27,8 @@ export default {
   grey900: '#212121',
   red800: '#C62828',
   red900: '#B71C1C',
+  red500: '#f44336',
   white: '#FFFFFF',
   yellow600: '#FDD835',
+  orange800: '#d84315',
 }

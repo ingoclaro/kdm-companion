@@ -19,6 +19,7 @@ import SurvivorScreen from './SurvivorScreen'
 // Campaign
 import SettlementsScreen from './SettlementsScreen'
 import ExpansionsScreen from './ExpansionsScreen'
+import CampaignScreen from './CampaignScreen'
 
 // Settlement
 import SummaryScreen from './SummaryScreen'
@@ -166,13 +167,19 @@ const CampaignNavigator = createMaterialTopTabNavigator(
     Settlements: {
       screen: SettlementsScreen,
       navigationOptions: {
-        title: 'Settlement Admin',
+        title: 'Admin',
       },
     },
     Expansions: {
       screen: ExpansionsScreen,
       navigationOptions: {
         title: 'Expansions',
+      },
+    },
+    Campaign: {
+      screen: CampaignScreen,
+      navigationOptions: {
+        title: 'Campaign',
       },
     },
   },

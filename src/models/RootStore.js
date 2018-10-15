@@ -12,6 +12,7 @@ import { Disorder } from './Disorder'
 import { Ability } from './Ability'
 import { WeaponProficiency } from './WeaponProficiency'
 import { Subscription } from './Subscription'
+import { CampaignType } from './CampaignType'
 import { uuid } from '../utils'
 import R from 'ramda'
 
@@ -27,6 +28,7 @@ import expansionData from '../data/expansions'
 import principlesData from '../data/principles'
 import abilitiesData from '../data/abilities'
 import weaponProficiencyData from '../data/weaponProficiencies'
+import campaignTypeData from '../data/campaignTypes'
 
 export default types
   .model('RootStore', {
@@ -44,6 +46,7 @@ export default types
     expansions: types.optional(types.map(Expansion), expansionData),
     principles: types.optional(types.map(Principle), principlesData),
     abilities: types.optional(types.map(Ability), abilitiesData),
+    campaignTypes: types.optional(types.map(CampaignType), campaignTypeData),
     weaponProficiencies: types.optional(
       types.map(WeaponProficiency),
       weaponProficiencyData
@@ -141,6 +144,9 @@ export default types
       )
     },
     get availableInnovations() {
+      //TODO: filter innovations for campaign, maybe defer to Campaign model?
+      // pots: removes Language, Lantern Oven, Family & Clan of Death. adds Dragon Speech, Bloodline, Empire, Radiant Orb, Arena.
+      // potentially add CampaignType reference to innovations and filter by that.
       return R.sortBy(
         R.prop('name'),
         self.selectedExpansionFilter(self.innovations)

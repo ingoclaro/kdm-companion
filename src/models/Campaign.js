@@ -9,6 +9,7 @@ import { Settlement, init as newSettlementData } from './Settlement'
 import { Expansion } from './Expansion'
 import { Principle } from './Principle'
 import { Monster } from './Monster'
+import { CampaignType } from './CampaignType'
 
 import R from 'ramda'
 
@@ -49,6 +50,7 @@ export const Campaign = types
     hunting: types.maybeNull(SelectedMonsterLevel),
     showdown: types.maybeNull(SelectedMonsterLevel),
     notes: '',
+    type: types.optional(types.reference(CampaignType), 'potl'),
   })
   .actions(self => ({
     selectLocation(location) {
@@ -213,6 +215,16 @@ export const Campaign = types
     saveNotes(notes) {
       self.notes = notes
     },
+    setCampaignType(type) {
+      self.type = type
+      switch (type) {
+        case 'pots':
+          if (!self.expansions.get('dk')) {
+            self.expansions.set('dk', 'dk')
+          }
+          break
+      }
+    },
   }))
   .views(self => ({
     get name() {
@@ -235,11 +247,16 @@ export const Campaign = types
     selectedExpansionFilter(map) {
       return R.filter(
         item => {
-          let id = false
+          let include = false
           if (item.expansion) {
-            id = item.expansion.id ? item.expansion.id : item.expansion
+            include = self.expansionList.includes(item.expansion.id)
+          } else {
+            include = true
           }
-          return !id || self.expansionList.includes(id)
+          if (include && item.campaign) {
+            include = item.campaign.id === self.type.id
+          }
+          return include
         },
         map.get //is it a real map?
           ? values(map)
@@ -275,5 +292,29 @@ export const Campaign = types
     },
     get hasSOTF() {
       return self.principles.newlife && self.principles.newlife.id === 'sotf'
+    },
+    get courageMilestones() {
+      if (self.type === 'pots') {
+        return {
+          3: { description: '![book](book) Awake (DK p.11)' },
+          9: { description: '![book](book) See the Truth (p.167)' },
+        }
+      }
+      return {
+        3: { description: '![book](book) Bold (p.113)' },
+        9: { description: '![book](book) See the Truth (p.167)' },
+      }
+    },
+    get understandingMilestones() {
+      if (self.type === 'pots') {
+        return {
+          3: { description: '![book](book) Awake (DK p.11)' },
+          9: { description: '![book](book) White Secret (p.181)' },
+        }
+      }
+      return {
+        3: { description: '![book](book) Insight (p.131)' },
+        9: { description: '![book](book) White Secret (p.181)' },
+      }
     },
   }))
