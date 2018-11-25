@@ -83,6 +83,33 @@ export default class Survivor extends React.Component {
                 source={gender_icon}
                 style={{ width: 14, height: 14, marginLeft: 5 }}
               />
+            </View>
+          </View>
+
+          <View style={{ flex: 1 }}>
+            <View styleName="horizontal v-center">
+              {this.props.hasReroll &&
+                (survivor.rerollUsed ? (
+                  <Image
+                    source={ico_d10}
+                    style={{
+                      width: 16,
+                      height: 16,
+                      transform: [{ rotateY: '180deg' }, { rotateZ: '180deg' }],
+                    }}
+                    tintColor={colors.red800}
+                  />
+                ) : (
+                  <Image
+                    source={ico_d10}
+                    style={{
+                      width: 16,
+                      height: 16,
+                      transform: [{ rotateY: '180deg' }, { rotateZ: '180deg' }],
+                    }}
+                    tintColor={colors.green800}
+                  />
+                ))}
               {survivor.skipNextHunt && (
                 <Image
                   source={ico_skip_hunt}
@@ -96,17 +123,6 @@ export default class Survivor extends React.Component {
                 />
               )}
             </View>
-          </View>
-
-          <View style={{ flex: 1 }}>
-            {this.props.hasReroll &&
-              !survivor.rerollUsed && <Text>Reroll available</Text>}
-            {this.props.hasReroll &&
-              survivor.rerollUsed && (
-                <Text style={{ textDecorationLine: 'line-through' }}>
-                  Reroll used
-                </Text>
-              )}
           </View>
         </View>
 
@@ -276,5 +292,12 @@ export default class Survivor extends React.Component {
 const styles = {
   tooltipText: {
     fontSize: 9,
+  },
+  rerollAvailable: {
+    color: colors.green800,
+  },
+  rerollUsed: {
+    color: colors.grey700,
+    textDecorationLine: 'line-through',
   },
 }

@@ -17,6 +17,7 @@ import { observer, inject } from 'mobx-react/native'
 import SimpleStepper from 'react-native-simple-stepper'
 import CheckboxListItem from '../common/CheckboxListItem'
 import GenderButton from './GenderButton'
+import Tooltip from '../common/Tooltip'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 import R from 'ramda'
@@ -131,6 +132,16 @@ export default class EditStats extends React.Component {
             </Text>
           </Button>
 
+          <Tooltip
+            visible={
+              this.props.hasReroll &&
+              !this.props.survivor.rerollUsed &&
+              this.props.survivor.status === 'dead'
+            }
+          >
+            <Text style={styles.tooltipText}>Use the reroll?</Text>
+          </Tooltip>
+
           <View style={{ flex: 1, alignItems: 'flex-end' }}>
             {this.props.hasReroll && (
               <Button
@@ -139,19 +150,9 @@ export default class EditStats extends React.Component {
                 onPress={() => this.props.survivor.toggleRerollUsed()}
               >
                 {this.props.survivor.rerollUsed ? (
-                  <Text
-                    style={{
-                      textDecorationLine: 'line-through',
-                      color: colors.grey200,
-                      margin: 0,
-                    }}
-                  >
-                    Reroll used
-                  </Text>
+                  <Text style={styles.rerollUsed}>Reroll used</Text>
                 ) : (
-                  <Text style={{ color: colors.grey200, margin: 0 }}>
-                    Reroll available
-                  </Text>
+                  <Text style={styles.rerollAvailable}>Reroll available</Text>
                 )}
               </Button>
             )}
@@ -318,5 +319,17 @@ const styles = {
   },
   genderText: {
     paddingRight: 5,
+  },
+  rerollAvailable: {
+    color: colors.green800,
+    margin: 0,
+  },
+  rerollUsed: {
+    textDecorationLine: 'line-through',
+    color: colors.grey400,
+    margin: 0,
+  },
+  tooltipText: {
+    fontSize: 9,
   },
 }
