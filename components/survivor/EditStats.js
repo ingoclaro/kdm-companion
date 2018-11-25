@@ -109,6 +109,29 @@ export default class EditStats extends React.Component {
           </View>
 
           <View style={{ flex: 1, alignItems: 'flex-end' }}>
+            <CheckboxListItem
+              styleName="small"
+              onPressItem={() => this.props.survivor.toggleSkipNextHunt()}
+              title="Skip next Hunt"
+              id="skipNextHunt"
+              selected={this.props.survivor.skipNextHunt}
+            />
+          </View>
+        </View>
+
+        <View styleName="horizontal v-center" style={{ paddingTop: 10 }}>
+          <Text>Status: </Text>
+          <Button
+            styleName="clear"
+            style={{ paddingLeft: 5, borderBottomWidth: 1 }}
+            onPress={() => this.props.survivor.cycleStatus()}
+          >
+            <Text style={{ color: colors.grey200, margin: 0 }}>
+              {this.props.survivor.status}
+            </Text>
+          </Button>
+
+          <View style={{ flex: 1, alignItems: 'flex-end' }}>
             {this.props.hasReroll && (
               <Button
                 styleName="clear"
@@ -133,19 +156,6 @@ export default class EditStats extends React.Component {
               </Button>
             )}
           </View>
-        </View>
-
-        <View styleName="horizontal v-center" style={{ paddingTop: 10 }}>
-          <Text>Status: </Text>
-          <Button
-            styleName="clear"
-            style={{ paddingLeft: 5, borderBottomWidth: 1 }}
-            onPress={() => this.props.survivor.cycleStatus()}
-          >
-            <Text style={{ color: colors.grey200, margin: 0 }}>
-              {this.props.survivor.status}
-            </Text>
-          </Button>
         </View>
 
         {this.state.showBottomPart && (

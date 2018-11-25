@@ -27,6 +27,8 @@ const ico_male = require('../../images/male-32.png')
 const ico_movement = require('../../images/icon_movement-24.png')
 const ico_strength = require('../../images/icon_strength-24.png')
 
+const ico_skip_hunt = require('../../images/icon_skip_hunt.png')
+
 @inject(({ store }) => ({
   // survivors: Array.from(store.selectedCampaign.settlement.survivors),
   filterSurvivors: store.selectedCampaign.settlement.filterSurvivors,
@@ -78,6 +80,12 @@ export default class SurvivorList extends React.Component {
                   <Icon name="right-arrow" />
                 </Button>
                 <View styleName="horizontal">
+                  {survivor.skipNextHunt && (
+                    <Image
+                      source={ico_skip_hunt}
+                      style={{ width: 20, height: 16, marginRight: -12 }}
+                    />
+                  )}
                   <AttributeSmall text="S" value={survivor.survival} />
                   <AttributeSmall
                     icon={ico_insanity}

@@ -46,6 +46,7 @@ const Survivor = types
     cannotUseFightingArts: false,
     cannotUseAbilities: false,
     rerollUsed: false, // was the reroll of survival of the fittest used?
+    skipNextHunt: false, // should the survivor skip the next hunt?
 
     // People of the Stars Campaign
     dragonTraits: types.optional(DragonTraits, {}),
@@ -113,6 +114,9 @@ const Survivor = types
     },
     toggleRerollUsed() {
       self.rerollUsed = !self.rerollUsed
+    },
+    toggleSkipNextHunt() {
+      self.skipNextHunt = !self.skipNextHunt
     },
     applyNewbornMilestones() {
       // handle newborn milestones derived by bonuses

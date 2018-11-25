@@ -37,6 +37,8 @@ const ico_movement = require('../../images/icon_movement-24.png')
 const ico_strength = require('../../images/icon_strength-24.png')
 const ico_death = require('../../images/icon_death.png')
 
+const ico_skip_hunt = require('../../images/icon_skip_hunt.png')
+
 // This is the individual survivor screen
 @inject(({ store }, props) => ({
   survivor: store.selectedCampaign.settlement.survivors.get(props.survivorId),
@@ -81,12 +83,18 @@ export default class Survivor extends React.Component {
                 source={gender_icon}
                 style={{ width: 14, height: 14, marginLeft: 5 }}
               />
-              {survivor.status === 'dead' ? (
+              {survivor.skipNextHunt && (
+                <Image
+                  source={ico_skip_hunt}
+                  style={{ width: 20, height: 16, marginLeft: 14 }}
+                />
+              )}
+              {survivor.status === 'dead' && (
                 <Image
                   source={ico_death}
-                  style={{ width: 14, height: 16, marginLeft: 10 }}
+                  style={{ width: 14, height: 16, marginLeft: 14 }}
                 />
-              ) : null}
+              )}
             </View>
           </View>
 

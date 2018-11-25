@@ -202,6 +202,7 @@ Object {
       "name": "test name",
       "notes": "",
       "rerollUsed": false,
+      "skipNextHunt": false,
       "speed": 0,
       "status": "alive",
       "strength": 0,
