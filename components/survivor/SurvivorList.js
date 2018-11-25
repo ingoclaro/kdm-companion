@@ -62,11 +62,11 @@ export default class SurvivorList extends React.Component {
           />
         </View>
         <View>
-          {survivors.map(survivor => {
+          {survivors.map((survivor, idx) => {
             let gender_icon = survivor.gender === 'male' ? ico_male : ico_female
-
+            let rowStyle = idx % 2 === 0 ? styles.oddRow : styles.evenRow
             return (
-              <View key={survivor.id}>
+              <View key={survivor.id} style={rowStyle}>
                 <Button
                   styleName="textual"
                   style={{ alignSelf: 'flex-start' }}
@@ -132,7 +132,6 @@ export default class SurvivorList extends React.Component {
                 <Text>
                   {survivor.abilities.map(item => item.name).join(', ')}
                 </Text>
-                <Divider styleName="line" />
               </View>
             )
           })}
@@ -140,4 +139,11 @@ export default class SurvivorList extends React.Component {
       </View>
     )
   }
+}
+
+const styles = {
+  evenRow: {
+    backgroundColor: colors.grey900,
+  },
+  oddRow: {},
 }
