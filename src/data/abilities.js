@@ -32,6 +32,16 @@ export default {
     name: 'Blind',
     max: 2,
     expansion: 'core',
+    survivorEffects: [
+      {
+        accuracy: -1,
+        bleedingTokens: 1,
+      },
+      {
+        accuracy: -4,
+        bleedingTokens: 1,
+      },
+    ],
     description:
       'Lose an eye. Can be recorded twice. A survivor with two **blind** severe injuries retires at the end of the next showdown or settlement phase.',
   },
@@ -47,6 +57,15 @@ export default {
     name: 'Bone Witch - Scarred Eyes',
     max: 2,
     expansion: 'core',
+    survivorEffects: [
+      {
+        accuracy: -4,
+        strength: 4,
+      },
+      {
+        status: 'dead',
+      },
+    ],
     description: 'If you gain this result twice, you die.',
   },
   'Broken arm': {
@@ -54,12 +73,30 @@ export default {
     name: 'Broken arm',
     max: 2,
     expansion: 'core',
+    survivorEffects: [
+      {
+        accuracy: -1,
+        strength: -1,
+        bleedingTokens: 1,
+      },
+      {
+        accuracy: -1,
+        strength: -1,
+        bleedingTokens: 1,
+      },
+    ],
     description: 'Your arm is broken.',
   },
   'Broken hip': {
     id: 'Broken hip',
     name: 'Broken hip',
     expansion: 'core',
+    survivorEffects: [
+      {
+        movement: -1,
+        bleedingTokens: 1,
+      },
+    ],
     description: 'You can no longer **dodge**.',
   },
   'Broken Leg': {
@@ -67,7 +104,50 @@ export default {
     name: 'Broken Leg',
     max: 2,
     expansion: 'core',
+    survivorEffects: [
+      {
+        movement: -1,
+        bleedingTokens: 1,
+      },
+      {
+        movement: -1,
+        bleedingTokens: 1,
+      },
+    ],
     description: 'Your leg is broken.',
+  },
+  'Broken rib': {
+    id: 'Broken rib',
+    name: 'Broken rib',
+    expansion: 'core',
+    max: 6,
+    survivorEffects: [
+      {
+        speed: -1,
+        bleedingTokens: 1,
+      },
+      {
+        speed: -1,
+        bleedingTokens: 1,
+      },
+      {
+        speed: -1,
+        bleedingTokens: 1,
+      },
+      {
+        speed: -1,
+        bleedingTokens: 1,
+      },
+      {
+        speed: -1,
+        bleedingTokens: 1,
+      },
+      {
+        speed: -1,
+        bleedingTokens: 1,
+      },
+    ],
+    description: 'You have a broken rib.',
   },
   'Burnt Nerves': {
     id: 'Burnt Nerves',
@@ -88,6 +168,39 @@ export default {
     description:
       'Before making an attack roll, you may declare "Caratosis X" in a loud, booming voice. If you do, that attack gains X automatic hits. X cannot be more than your total red affinities. When the attack ends, gain +X hunt Xp. When you trigger Age 2, gain the **Beast of Caratosis** secret fighting art.',
   },
+  Contracture: {
+    id: 'Contracture',
+    name: 'Contracture',
+    expansion: 'core',
+    max: 6,
+    survivorEffects: [
+      {
+        accuracy: -1,
+        bleedingTokens: 1,
+      },
+      {
+        accuracy: -1,
+        bleedingTokens: 1,
+      },
+      {
+        accuracy: -1,
+        bleedingTokens: 1,
+      },
+      {
+        accuracy: -1,
+        bleedingTokens: 1,
+      },
+      {
+        accuracy: -1,
+        bleedingTokens: 1,
+      },
+      {
+        accuracy: -1,
+        bleedingTokens: 1,
+      },
+    ],
+    description: 'The arm will never be the same',
+  },
   'Crystal Skin': {
     id: 'Crystal Skin',
     name: 'Crystal Skin',
@@ -99,6 +212,12 @@ export default {
     id: 'Deaf',
     name: 'Deaf',
     expansion: 'core',
+    survivorEffects: [
+      {
+        bleedingTokens: 1,
+        evasion: -1,
+      },
+    ],
     description: "You won't hear it coming",
   },
   'Death Mehndi': {
@@ -112,24 +231,48 @@ export default {
     id: 'Destroyed back',
     name: 'Destroyed back',
     expansion: 'core',
+    survivorEffects: [
+      {
+        movement: -2,
+        bleedingTokens: 1,
+      },
+    ],
     description: 'You can no longer activate gear that has 2+ strength.',
   },
   'Destroyed genitals': {
     id: 'Destroyed genitals',
     name: 'Destroyed genitals',
     expansion: 'core',
+    survivorEffects: [
+      {
+        insanity: 3,
+        bleedingTokens: 1,
+        gainDisorder: true,
+      },
+    ],
     description: 'You cannot be nominated for the intimacy story event.',
   },
   Disemboweled: {
     id: 'Disemboweled',
     name: 'Disemboweled',
     expansion: 'core',
+    survivorEffects: [
+      {
+        bleedingTokens: 1,
+        skipNextHunt: true,
+      },
+    ],
     description: 'Your movement is reduced to 1 until the showdown ends.',
   },
   'Dislocated shoulder': {
     id: 'Dislocated shoulder',
     name: 'Dislocated shoulder',
     expansion: 'core',
+    survivorEffects: [
+      {
+        bleedingTokens: 1,
+      },
+    ],
     description:
       'You cannot activate two-handed or paired weapons or use block until showdown ends.',
   },
@@ -138,6 +281,14 @@ export default {
     name: 'Dismembered Arm',
     max: 2,
     expansion: 'core',
+    survivorEffects: [
+      {
+        bleedingTokens: 1,
+      },
+      {
+        bleedingTokens: 1,
+      },
+    ],
     description:
       'You can no longer activate two-handed weapons. A survivor with two **dismembered arm** severe injuries cannot activate any weapons.',
   },
@@ -146,6 +297,16 @@ export default {
     name: 'Dismembered Leg',
     max: 2,
     expansion: 'core',
+    survivorEffects: [
+      {
+        movement: -2,
+        bleedingTokens: 1,
+      },
+      {
+        movement: -2,
+        bleedingTokens: 1,
+      },
+    ],
     description:
       'You can no longer **dash**. A survivor with two **dismembered leg** severe injuries must retire at the end of the next showdown or settlement phase.',
   },
@@ -205,10 +366,47 @@ export default {
     id: 'Frenzy',
     name: 'Frenzy',
     expansion: 'core',
-    cannotUseSurvival: true,
-    cannotUseFightingArts: true,
+    survivorEffects: [
+      {
+        cannotUseSurvival: true,
+        cannotUseFightingArts: true,
+      },
+    ],
     description:
       'Ignore **slow** on melee weapons. You may not spend survival. You may not use fighting arts. You may not use weapon specialization or mastery. Lasts until end of showdown.',
+  },
+  'Gaping chest wound': {
+    id: 'Gaping chest wound',
+    name: 'Gaping chest wound',
+    expansion: 'core',
+    max: 6,
+    survivorEffects: [
+      {
+        strength: -1,
+        bleedingTokens: 1,
+      },
+      {
+        strength: -1,
+        bleedingTokens: 1,
+      },
+      {
+        strength: -1,
+        bleedingTokens: 1,
+      },
+      {
+        strength: -1,
+        bleedingTokens: 1,
+      },
+      {
+        strength: -1,
+        bleedingTokens: 1,
+      },
+      {
+        strength: -1,
+        bleedingTokens: 1,
+      },
+    ],
+    description: 'You have a big chest wound.',
   },
   'Green Life Exchange': {
     id: 'Green Life Exchange',
@@ -221,8 +419,12 @@ export default {
     id: 'Hamstrung',
     name: 'Hamstrung',
     expansion: 'core',
-    cannotUseFightingArts: true,
-    cannotUseAbilities: true,
+    survivorEffects: [
+      {
+        cannotUseFightingArts: true,
+        cannotUseAbilities: true,
+      },
+    ],
     description: 'You can no longer use any fighting arts or abilities.',
   },
   'Heart of the Sword': {
@@ -237,19 +439,35 @@ export default {
     id: 'Homing Instinct',
     name: 'Homing Instinct',
     expansion: 'core',
+    survivorEffects: [
+      {
+        insanity: 2,
+        understanding: 1,
+      },
+    ],
     description: 'Add +5 to your rolls on the Run Away story event.',
   },
   'Intestinal prolapse': {
     id: 'Intestinal prolapse',
     name: 'Intestinal prolapse',
     expansion: 'core',
+    survivorEffects: [
+      {
+        bleedingTokens: 1,
+      },
+    ],
     description: 'You can no longer equip any gear on your waist.',
   },
   'Intracranial hemorrhage': {
     id: 'Intracranial hemorrhage',
     name: 'Intracranial hemorrhage',
     expansion: 'core',
-    cannotUseSurvival: true,
+    survivorEffects: [
+      {
+        cannotUseSurvival: true,
+        bleedingTokens: 1,
+      },
+    ],
     description: 'You can no longer use or gain survival.',
   },
   'Iridescent Hide': {
@@ -443,7 +661,12 @@ export default {
     id: 'Ruptured muscle',
     name: 'Ruptured muscle',
     expansion: 'core',
-    cannotUseFightingArts: true,
+    survivorEffects: [
+      {
+        cannotUseFightingArts: true,
+        bleedingTokens: 1,
+      },
+    ],
     description: 'You can no longer activate fighting arts.',
   },
   'Slashed Back': {
@@ -456,6 +679,11 @@ export default {
     id: 'Shattered Jaw',
     name: 'Shattered Jaw',
     expansion: 'core',
+    survivorEffects: [
+      {
+        bleedingTokens: 1,
+      },
+    ],
     description:
       'You can not longer **consume** or be afected by events requiring you to **consume**. You can no longer **encourage**.',
   },
@@ -519,6 +747,12 @@ export default {
     id: 'Torn Achilles Tendon',
     name: 'Torn Achilles Tendon',
     expansion: 'core',
+    survivorEffects: [
+      {
+        skipNextHunt: true,
+        bleedingTokens: 1,
+      },
+    ],
     description:
       'Until the end of the showdown, whenever you suffer light, heavy or severe injury, you are also knocked down.',
   },
@@ -526,6 +760,12 @@ export default {
     id: 'Torn muscle',
     name: 'Torn muscle',
     expansion: 'core',
+    survivorEffects: [
+      {
+        skipNextHunt: true,
+        bleedingTokens: 1,
+      },
+    ],
     description: 'You cannot **dash** until the showdown ends.',
   },
   'Twelve Fingers': {
@@ -570,5 +810,38 @@ export default {
     expansion: 'dk',
     campaign: 'pots',
     description: 'You have a Scar (Dragon Trait)',
+  },
+  'Warped pelvis': {
+    id: 'Warped pelvis',
+    name: 'Warped pelvis',
+    expansion: 'core',
+    max: 6,
+    survivorEffects: [
+      {
+        luck: -1,
+        bleedingTokens: 1,
+      },
+      {
+        luck: -1,
+        bleedingTokens: 1,
+      },
+      {
+        luck: -1,
+        bleedingTokens: 1,
+      },
+      {
+        luck: -1,
+        bleedingTokens: 1,
+      },
+      {
+        luck: -1,
+        bleedingTokens: 1,
+      },
+      {
+        luck: -1,
+        bleedingTokens: 1,
+      },
+    ],
+    description: 'Your pelvis is warped.',
   },
 }
