@@ -11,7 +11,7 @@ import {
   Icon,
 } from '@shoutem/ui'
 import Accordion from './common/Accordion'
-import SimpleStepper from 'react-native-simple-stepper'
+import { SimpleStepper } from 'react-native-simple-stepper'
 import { observer, inject } from 'mobx-react/native'
 import { values } from 'mobx'
 import PropTypes from 'prop-types'
@@ -202,6 +202,10 @@ export default class Resources extends React.Component {
         <SimpleStepper
           tintColor="white"
           initialValue={quantity}
+          value={quantity}
+          imageHeight={24}
+          imageWidth={24}
+          padding={4}
           valueChanged={value => {
             this.props.setResourceCount(data.item, value)
           }}

@@ -14,7 +14,7 @@ import {
 } from '@shoutem/ui'
 import { Keyboard } from 'react-native'
 import { observer, inject } from 'mobx-react/native'
-import SimpleStepper from 'react-native-simple-stepper'
+import { SimpleStepper } from 'react-native-simple-stepper'
 import CheckboxListItem from '../common/CheckboxListItem'
 import GenderButton from './GenderButton'
 import Tooltip from '../common/Tooltip'
@@ -168,6 +168,10 @@ export default class EditStats extends React.Component {
               <SimpleStepper
                 tintColor="white"
                 initialValue={this.props.survivor.movement}
+                value={this.props.survivor.movement}
+                imageHeight={24}
+                imageWidth={24}
+                padding={4}
                 minimumValue={1}
                 maximumValue={10}
                 valueChanged={qty =>
@@ -181,6 +185,10 @@ export default class EditStats extends React.Component {
               <SimpleStepper
                 tintColor="white"
                 initialValue={this.props.survivor.accuracy}
+                value={this.props.survivor.accuracy}
+                imageHeight={24}
+                imageWidth={24}
+                padding={4}
                 minimumValue={-10}
                 maximumValue={10}
                 valueChanged={qty =>
@@ -194,6 +202,10 @@ export default class EditStats extends React.Component {
               <SimpleStepper
                 tintColor="white"
                 initialValue={this.props.survivor.strength}
+                value={this.props.survivor.strength}
+                imageHeight={24}
+                imageWidth={24}
+                padding={4}
                 minimumValue={-10}
                 maximumValue={10}
                 valueChanged={qty =>
@@ -207,6 +219,10 @@ export default class EditStats extends React.Component {
               <SimpleStepper
                 tintColor="white"
                 initialValue={this.props.survivor.evasion}
+                value={this.props.survivor.evasion}
+                imageHeight={24}
+                imageWidth={24}
+                padding={4}
                 minimumValue={-10}
                 maximumValue={10}
                 valueChanged={qty =>
@@ -220,6 +236,10 @@ export default class EditStats extends React.Component {
               <SimpleStepper
                 tintColor="white"
                 initialValue={this.props.survivor.luck}
+                value={this.props.survivor.luck}
+                imageHeight={24}
+                imageWidth={24}
+                padding={4}
                 minimumValue={-10}
                 maximumValue={10}
                 valueChanged={qty =>
@@ -233,6 +253,10 @@ export default class EditStats extends React.Component {
               <SimpleStepper
                 tintColor="white"
                 initialValue={this.props.survivor.speed}
+                value={this.props.survivor.speed}
+                imageHeight={24}
+                imageWidth={24}
+                padding={4}
                 minimumValue={-10}
                 maximumValue={10}
                 valueChanged={qty =>
