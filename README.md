@@ -130,8 +130,9 @@ so that I can acquire and keep the developer's license. Anything helps, ideally 
 
 To create the detached branch I followed these steps:
 
-- exp detach
-- exp prepare-detached-build
+- brew cask install android-sdk
+- yarn eject
+- expo-cli prepare-detached-build
 - react-native link react-native-iap
 
 Check manual setup instructions of react-native-iap project and make sure everything was correctly applied.
