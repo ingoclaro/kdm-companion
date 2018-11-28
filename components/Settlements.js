@@ -15,7 +15,7 @@ import { Segment } from 'expo'
 import colors from '../src/colors'
 
 @inject(({ store }) => ({
-  campaigns: store.campaigns.peek(),
+  campaigns: store.campaigns,
   selectedCampaign: store.selectedCampaign,
   selectCampaign: store.selectCampaign,
   campaignName: store.selectedCampaign.name, // map it so that it redraws when renaming.
