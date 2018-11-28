@@ -92,7 +92,7 @@ describe('.filterSurvivors', () => {
     let survivor2 = Object.assign(defaultSurvivor(), { status: 'dead' })
 
     let settlement = Settlement.create(
-      Object.assign(newSettlementData, {
+      Object.assign({}, newSettlementData, {
         survivors: {
           [survivor1.id]: survivor1,
           [survivor2.id]: survivor2,

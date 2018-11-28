@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, Platform, StatusBar } from 'react-native'
-import Expo, { AppLoading, Segment } from 'expo'
+import { View, Platform, StatusBar, YellowBox } from 'react-native'
+import { AppLoading, Segment, Font, Image, Asset } from 'expo'
 import Sentry from 'sentry-expo'
 import Application from './screens/App'
 import colors from './src/colors'
@@ -8,6 +8,9 @@ import RootStore from './src/models/RootStore'
 import { load } from './src/filesystem'
 import env from './env.js'
 const { SEGMENT_ANDROID_KEY, SEGMENT_IOS_KEY, SENTRY_DSN } = env
+
+// ignore showing warnings of things we can't do anything about.
+YellowBox.ignoreWarnings(['Require cycle:', 'Warning: "Provider":'])
 
 Sentry.config(SENTRY_DSN).install()
 
@@ -59,7 +62,7 @@ export default class App extends React.Component {
     ])
 
     await Promise.all([
-      Expo.Font.loadAsync({
+      Font.loadAsync({
         'rubicon-icon-font': require('@shoutem/ui/fonts/rubicon-icon-font.ttf'),
         'Rubik-Black': require('@shoutem/ui/fonts/Rubik-Black.ttf'),
         'Rubik-BlackItalic': require('@shoutem/ui/fonts/Rubik-BlackItalic.ttf'),
@@ -82,9 +85,9 @@ export default class App extends React.Component {
 function cacheImages(images) {
   return images.map(image => {
     if (typeof image === 'string') {
-      return Expo.Image.prefetch(image)
+      return Image.prefetch(image)
     } else {
-      return Expo.Asset.fromModule(image).downloadAsync()
+      return Asset.fromModule(image).downloadAsync()
     }
   })
 }

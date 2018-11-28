@@ -35,7 +35,7 @@ export default class AbilitySection extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     dropdownTitle: PropTypes.string.isRequired,
-    items: PropTypes.object.isRequired, // items selected TODO: should be array, but since it's array of references it seems it's received as an object instead.
+    items: PropTypes.array.isRequired, // items selected
     availableItems: PropTypes.array.isRequired, // list of all items for the dropdown
     addItem: PropTypes.func.isRequired, // @params item: item to add to selected list
     removeItem: PropTypes.func.isRequired, // @params item: item to remove from selected list
