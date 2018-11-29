@@ -37,9 +37,6 @@ import FightScreen from './FightScreen'
 import BrainTraumaScreen from './BrainTraumaScreen'
 import SevereInjuryScreen from './SevereInjuryScreen'
 
-// import TerrainScreen from './TerrainScreen'
-// import ResultScreen from './ResultScreen'
-
 import SubscriptionScreen from './SubscriptionScreen'
 
 import AboutScreen from './AboutScreen'
@@ -80,12 +77,6 @@ const settlementStyles = {
 
 const ShowdownNavigator = createMaterialTopTabNavigator(
   {
-    // Setup: {
-    //   screen: BlankScreen, //TerrainScreen,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Setup',
-    //   },
-    // },
     Fight: {
       screen: FightScreen,
       navigationOptions: {
@@ -104,12 +95,6 @@ const ShowdownNavigator = createMaterialTopTabNavigator(
         tabBarLabel: 'Severe Injury',
       },
     },
-    // Result: {
-    //   screen: BlankScreen, //ResultScreen,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Result',
-    //   },
-    // },
   },
   {
     tabBarPosition: 'top',
