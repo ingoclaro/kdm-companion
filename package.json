@@ -64,7 +64,7 @@
     "react-native-markdown-renderer": "^3.2.8",
     "react-native-modal": "^7.0.0",
     "react-native-simple-stepper": "^2.0.0",
-    "react-navigation": "^2.18.2",
+    "react-navigation": "^3.0.0",
     "sentry-expo": "^1.10.0"
   }
 }

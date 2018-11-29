@@ -4,6 +4,7 @@ import {
   createBottomTabNavigator,
   createMaterialTopTabNavigator,
   createStackNavigator,
+  createAppContainer,
 } from 'react-navigation'
 import TabBar from './TabBar'
 import { Image } from '@shoutem/ui'
@@ -342,9 +343,11 @@ function getCurrentRouteName(navigationState) {
   return route.routeName
 }
 
+const App = createAppContainer(MainNavigatorHeader)
+
 // export default MainNavigatorHeader
 export default () => (
-  <MainNavigatorHeader
+  <App
     onNavigationStateChange={(prevState, currentState) => {
       const currentScreen = getCurrentRouteName(currentState)
       const prevScreen = getCurrentRouteName(prevState)
