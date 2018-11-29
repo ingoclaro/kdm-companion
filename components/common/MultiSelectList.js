@@ -33,7 +33,6 @@ class MultiSelectList extends React.PureComponent {
         extraData={this.props}
         keyExtractor={this._keyExtractor}
         renderItem={this._renderItem}
-        disableVirtualization
       />
     )
   }
