@@ -343,11 +343,11 @@ function getCurrentRouteName(navigationState) {
   return route.routeName
 }
 
-const App = createAppContainer(MainNavigatorHeader)
+const NavigatorApp = createAppContainer(MainNavigatorHeader)
 
 // export default MainNavigatorHeader
 export default () => (
-  <App
+  <NavigatorApp
     onNavigationStateChange={(prevState, currentState) => {
       const currentScreen = getCurrentRouteName(currentState)
       const prevScreen = getCurrentRouteName(prevState)
