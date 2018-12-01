@@ -146,10 +146,14 @@ export default class SurvivorList extends React.Component {
       this.state.selected === 'dead'
         ? this.props.deadSurvivors
         : this.props.aliveSurvivors
-
     return (
-      <View>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+      <View style={{ flex: 1 }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}
+        >
           <Title>Survivors</Title>
 
           <CheckboxListItem
@@ -167,6 +171,7 @@ export default class SurvivorList extends React.Component {
             selected={this.state.selected === 'dead'}
           />
         </View>
+
         <DraggableFlatList
           data={survivors}
           renderItem={this.touchableRow}
