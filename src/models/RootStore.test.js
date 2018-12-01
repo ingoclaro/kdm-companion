@@ -200,7 +200,7 @@ it('all in', done => {
   expect(store.data).toMatchSnapshot()
   done()
 
-  // fs.writeFile('save_v3.json', JSON.stringify(store.data), err => {
+  // fs.writeFile('save_v4.json', JSON.stringify(store.data), err => {
   //   if (err) throw err
   //   done()
   // })
@@ -217,6 +217,14 @@ it('loads v1 save', () => {
 it('loads v3 save', () => {
   const store = RootStore.create()
   const data = require('./__test_data__/save_v3.json')
+  store.load(data)
+  // expect(store.data).toEqual(data) // to compare upgrade
+  expect(store.data).toMatchSnapshot()
+})
+
+it('loads v4 save', () => {
+  const store = RootStore.create()
+  const data = require('./__test_data__/save_v4.json')
   store.load(data)
   // expect(store.data).toEqual(data) // to compare upgrade
   expect(store.data).toMatchSnapshot()

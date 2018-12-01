@@ -1,0 +1,3032 @@
+{
+  "campaigns": [
+    {
+      "id": "new",
+      "settlement": {
+        "name": "New Settlement",
+        "survivalLimit": 1,
+        "departing": {
+          "survival": 0,
+          "accuracy": 0,
+          "strength": 0,
+          "evasion": 0,
+          "insanity": 0,
+          "courage": 0,
+          "understanding": 0,
+          "hunt xp": 0,
+          "description": []
+        },
+        "newborn": {
+          "survival": 1,
+          "accuracy": 0,
+          "strength": 0,
+          "evasion": 0,
+          "insanity": 0,
+          "courage": 0,
+          "understanding": 0,
+          "hunt xp": 0,
+          "description": []
+        },
+        "showdown": {
+          "survival": 0,
+          "accuracy": 0,
+          "strength": 0,
+          "evasion": 0,
+          "insanity": 0,
+          "courage": 0,
+          "understanding": 0,
+          "hunt xp": 0,
+          "description": []
+        },
+        "survivors": {},
+        "activeSurvivorsList": []
+      },
+      "locations": {},
+      "innovations": {},
+      "principles": {
+        "death": null,
+        "newlife": null,
+        "society": null,
+        "conviction": null
+      },
+      "bonuses": {},
+      "endeavors": {},
+      "stored_resources": {},
+      "expansions": {
+        "core": "core"
+      },
+      "hunting": null,
+      "showdown": null,
+      "notes": "",
+      "type": "potl"
+    },
+    {
+      "id": "960aa7ae-598a-49eb-888b-c6baa0006751",
+      "settlement": {
+        "name": "test",
+        "survivalLimit": 20,
+        "departing": {
+          "survival": 9,
+          "accuracy": 0,
+          "strength": 0,
+          "evasion": 0,
+          "insanity": 5,
+          "courage": 0,
+          "understanding": 0,
+          "hunt xp": 0,
+          "description": [
+            "**Song of the Brave**: During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave",
+            "**The Knowledge Worm**: survivors with 10+ insanity, ![book](book) \"A Gracious Host\"",
+            "**War room**: Quarries can't move off the hunt board. If survivors would need to move backwards roll 1d10, on 4+ they don't.",
+            "**Settlement Watch**: Survivors gain +2 survival when they depart for a Nemesis encounter or Special Showdown",
+            "**Sauna Shrine**: When departing for a nemesis encounter or special showdown, gain +10 survival.",
+            "**Radiating Orb**: Survivors with a constellation gain +1 survival"
+          ]
+        },
+        "newborn": {
+          "survival": 2,
+          "accuracy": 1,
+          "strength": 2,
+          "evasion": 1,
+          "insanity": 0,
+          "courage": 2,
+          "understanding": 2,
+          "hunt xp": 2,
+          "description": [
+            "**Family**: a newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency.",
+            "**Umbilical Bank**: You may add 1 Life String strange resource to the storage.",
+            "**Bloodline**: inherit the following from parents:\n\n* The Oracle's Eye, Iridescent Hide or Pristine ability.\n* 1 Surname.\n* Half of the parent's weapon proficiency levels, rounded up.",
+            "**Empire**: gain **Pristine** ability"
+          ]
+        },
+        "showdown": {
+          "survival": 0,
+          "accuracy": 0,
+          "strength": 0,
+          "evasion": 0,
+          "insanity": 0,
+          "courage": 0,
+          "understanding": 0,
+          "hunt xp": 0,
+          "description": [
+            "**Final Fighting Art**: Once per showdown you may select an AI card from the discard or wound pile and put it on top of AI deck",
+            "**Song of the Brave**: On arrival each non-deaf survivor may remove 1 negative attribute token",
+            "**Ultimate Weapon**: When you defeat a monster, gain 1 monster resource of your choice",
+            "**Crimson Candy**: At the start of the showdown each survivor gains * survival"
+          ]
+        },
+        "survivors": {
+          "3352353f-f7df-44ab-8c13-a350c7e35a7b": {
+            "id": "3352353f-f7df-44ab-8c13-a350c7e35a7b",
+            "name": "survivor 1",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 2,
+            "movement": 5,
+            "accuracy": 1,
+            "strength": 2,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 2,
+            "understanding": 2,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "3792b21e-fc96-4a5e-a2cd-6cccff3747a8": {
+            "id": "3792b21e-fc96-4a5e-a2cd-6cccff3747a8",
+            "name": "survivor 2",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": [
+              "Acrobatics",
+              "Clutch Fighter",
+              "Clarity of Darkness"
+            ],
+            "disorders": ["Absent Seizures", "Fear of the Dark", "Indecision"],
+            "abilities": [
+              "Acid Palms",
+              "Homing Instinct",
+              "Metal Maw",
+              "Way of the Rust"
+            ],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 2,
+            "movement": 5,
+            "accuracy": 1,
+            "strength": 2,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 2,
+            "understanding": 2,
+            "notes": "",
+            "weaponProficiency": "fist & tooth",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "4452353f-f7df-44ab-8c13-a350c7e35a7b": {
+            "id": "4452353f-f7df-44ab-8c13-a350c7e35a7b",
+            "name": "survivor 3",
+            "gender": "male",
+            "status": "dead",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 2,
+            "movement": 5,
+            "accuracy": 1,
+            "strength": 2,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 2,
+            "understanding": 2,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          }
+        },
+        "activeSurvivorsList": [
+          "3352353f-f7df-44ab-8c13-a350c7e35a7b",
+          "3792b21e-fc96-4a5e-a2cd-6cccff3747a8"
+        ]
+      },
+      "locations": {
+        "catarium": "catarium",
+        "stone_circle": "stone_circle",
+        "weapon_crafter": "weapon_crafter",
+        "leather_worker": "leather_worker",
+        "plumery": "plumery",
+        "blacksmith": "blacksmith",
+        "bone_smith": "bone_smith",
+        "barber_surgeon": "barber_surgeon",
+        "skinnery": "skinnery",
+        "organ_grinder": "organ_grinder",
+        "mask_maker": "mask_maker",
+        "exhausted_lantern_hoard": "exhausted_lantern_hoard",
+        "lantern_hoard": "lantern_hoard",
+        "gormchymist": "gormchymist",
+        "gormery": "gormery",
+        "wet_resin_crafter": "wet_resin_crafter",
+        "silk mill": "silk mill",
+        "the sun": "the sun",
+        "skyreef sanctuary": "skyreef sanctuary",
+        "sacred pool": "sacred pool",
+        "throne": "throne",
+        "dragon armory": "dragon armory"
+      },
+      "innovations": {
+        "ammonia": "ammonia",
+        "bed": "bed",
+        "bloodletting": "bloodletting",
+        "clan_of_death": "clan_of_death",
+        "cooking": "cooking",
+        "drums": "drums",
+        "destiny": "destiny",
+        "face_painting": "face_painting",
+        "family": "family",
+        "final_fighting_art": "final_fighting_art",
+        "forbidden dance": "forbidden dance",
+        "guidepost": "guidepost",
+        "heart_flute": "heart_flute",
+        "hovel": "hovel",
+        "inner_lantern": "inner_lantern",
+        "language": "language",
+        "lantern_oven": "lantern_oven",
+        "mastery_axe": "mastery_axe",
+        "mastery_bow": "mastery_bow",
+        "mastery_club": "mastery_club",
+        "mastery_dagger": "mastery_dagger",
+        "mastery_fist_and_tooth": "mastery_fist_and_tooth",
+        "mastery_grand_weapon": "mastery_grand_weapon",
+        "mastery_katar": "mastery_katar",
+        "mastery_scythe": "mastery_scythe",
+        "mastery_shield": "mastery_shield",
+        "mastery_spear": "mastery_spear",
+        "mastery_sword": "mastery_sword",
+        "mastery_twilight_sword": "mastery_twilight_sword",
+        "mastery_whip": "mastery_whip",
+        "momento_mori": "momento_mori",
+        "nightmare training": "nightmare training",
+        "paint": "paint",
+        "partnership": "partnership",
+        "pictograph": "pictograph",
+        "pottery": "pottery",
+        "records": "records",
+        "sacrifice": "sacrifice",
+        "sacrification": "sacrification",
+        "saga": "saga",
+        "scrap_smelting": "scrap_smelting",
+        "sculpture": "sculpture",
+        "shrine": "shrine",
+        "song_of_the_brave": "song_of_the_brave",
+        "storytelling": "storytelling",
+        "symposium": "symposium",
+        "ultimate_weapon": "ultimate_weapon",
+        "rubedo": "rubedo",
+        "nigredo": "nigredo",
+        "citrinitas": "citrinitas",
+        "albedo": "albedo",
+        "subterranean agriculture": "subterranean agriculture",
+        "round stone training": "round stone training",
+        "petal spiral": "petal spiral",
+        "black mask": "black mask",
+        "white mask": "white mask",
+        "stoic statue": "stoic statue",
+        "legless ball": "legless ball",
+        "silk refining": "silk refining",
+        "choreia": "choreia",
+        "the knowledge worm": "the knowledge worm",
+        "crimson candy": "crimson candy",
+        "war room": "war room",
+        "settlement watch": "settlement watch",
+        "darkwater research": "darkwater research",
+        "sun language": "sun language",
+        "umbilical bank": "umbilical bank",
+        "sauna shrine": "sauna shrine",
+        "shadow dancing": "shadow dancing",
+        "filleting table": "filleting table",
+        "hands of the sun": "hands of the sun",
+        "aquarobics": "aquarobics",
+        "dragon speech": "dragon speech",
+        "radiating orb": "radiating orb",
+        "arena": "arena",
+        "bloodline": "bloodline",
+        "empire": "empire"
+      },
+      "principles": {
+        "death": "cannibalize",
+        "newlife": "pty",
+        "society": "accept_darkness",
+        "conviction": "romantic"
+      },
+      "bonuses": {
+        "cooking": {
+          "id": "cooking",
+          "name": "Cooking",
+          "description": [
+            "At the start of the Settlement phase gain +1 endeavor"
+          ]
+        },
+        "forbidden dance": {
+          "id": "forbidden dance",
+          "name": "Forbidden Dance",
+          "description": [
+            "When a survivor uses the Synchronized Strike SFA, reroll missed attack rolls once"
+          ]
+        },
+        "heart_flute": {
+          "id": "heart_flute",
+          "name": "Heart Flute",
+          "description": [
+            "When using Synchronized Strike FA, the attack assist may spend 1 survival to change a monster's R to R Failure before any wound attempts"
+          ]
+        },
+        "encourage": {
+          "id": "encourage",
+          "name": "Encourage",
+          "description": [
+            "All survivors gain **Encourage** survival action.",
+            "**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down."
+          ]
+        },
+        "pictograph": {
+          "id": "pictograph",
+          "name": "Pictograph",
+          "description": [
+            "At the start of a survivor's act, they may decide to skip their act and Run Away",
+            "After a hunt event is resolved, a survivor may Run Away"
+          ]
+        },
+        "symposium": {
+          "id": "symposium",
+          "name": "Symposium",
+          "description": [
+            "When a survivor innovates, draw an additional 2 innovation cards to choose from"
+          ]
+        },
+        "the knowledge worm": {
+          "id": "the knowledge worm",
+          "name": "The Knowledge Worm",
+          "description": [
+            "At the start of each settlement phase add 1 scrap resource to storage"
+          ]
+        },
+        "embolden": {
+          "id": "embolden",
+          "name": "Embolden",
+          "description": [
+            "All Surivors gain the **Embolden** survival action.",
+            "**Embolden**: Once per round, if you haven't any +1 Str tokens, spend 1 survival to gain +1 Str token. When you are knocked down loose all Str tokens."
+          ]
+        },
+        "filleting table": {
+          "id": "filleting table",
+          "name": "Filleting Table",
+          "description": [
+            "Once per settlement phase, if the survivors return victorious, gain 1 random basic resource."
+          ]
+        },
+        "overcharge": {
+          "id": "overcharge",
+          "name": "Overcharge",
+          "description": [
+            "All Surivors gain the **Overcharge** survival action.",
+            "**Overcharge**: If you have any +1 Str token, you may spend 1 survival to remove of them and gain devastating 1 to your next attack this round."
+          ]
+        },
+        "death": {
+          "id": "death",
+          "name": "Cannibalize",
+          "description": [
+            "Whenever a survivor dies, gain 1 random basic resource"
+          ]
+        },
+        "newlife": {
+          "id": "newlife",
+          "name": "Protect the Young",
+          "description": [
+            "When rolling on intimacy table, roll twice and pick 1 result"
+          ]
+        },
+        "society": {
+          "id": "society",
+          "name": "Accept Darkness",
+          "description": ["Add +2 to all Brain Trauma Rolls."]
+        },
+        "conviction": {
+          "id": "conviction",
+          "name": "Romantic",
+          "description": [
+            "When you gain a random FA, draw 3 cards and select one"
+          ]
+        }
+      },
+      "endeavors": {
+        "harvest_ritual": {
+          "id": "harvest_ritual",
+          "name": "Harvest Ritual",
+          "expansion": "core",
+          "recipe": {
+            "location": "stone_circle",
+            "not_location": null,
+            "innovation": "forbidden dance",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "scrap_scavenge": {
+          "id": "scrap_scavenge",
+          "name": "Scrap Scavenge",
+          "expansion": "core",
+          "recipe": {
+            "location": "weapon_crafter",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "innovate_scrap_smelting": {
+          "id": "innovate_scrap_smelting",
+          "name": "Innovate Scrap Smelting",
+          "expansion": "core",
+          "recipe": {
+            "location": "weapon_crafter",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": "scrap_smelting",
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "scrap",
+                "quantity": 2
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 5
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 5
+              }
+            ]
+          }
+        },
+        "leather_making": {
+          "id": "leather_making",
+          "name": "Leather Making",
+          "expansion": "core",
+          "recipe": {
+            "location": "leather_worker",
+            "not_location": null,
+            "innovation": "ammonia",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_weapon_crafter": {
+          "id": "build_weapon_crafter",
+          "name": "Build - Weapon Crafter",
+          "expansion": "core",
+          "recipe": {
+            "location": "bone_smith",
+            "not_location": "weapon_crafter",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 3
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "trepanning": {
+          "id": "trepanning",
+          "name": "Trepanning",
+          "expansion": "core",
+          "recipe": {
+            "location": "barber_surgeon",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_leather_worker": {
+          "id": "build_leather_worker",
+          "name": "Build - Leather Worker",
+          "expansion": "core",
+          "recipe": {
+            "location": "skinnery",
+            "not_location": "leather_worker",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 3
+              }
+            ]
+          }
+        },
+        "augury": {
+          "id": "augury",
+          "name": "Augury",
+          "expansion": "core",
+          "recipe": {
+            "location": "organ_grinder",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "stone_noses": {
+          "id": "stone_noses",
+          "name": "Stone Noses",
+          "expansion": "core",
+          "recipe": {
+            "location": "organ_grinder",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_stone_circle": {
+          "id": "build_stone_circle",
+          "name": "Build - Stone Circle",
+          "expansion": "core",
+          "recipe": {
+            "location": "organ_grinder",
+            "not_location": "stone_circle",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 3
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "great_golden_cat": {
+          "id": "great_golden_cat",
+          "name": "Hunt the Great Golden Cat",
+          "expansion": "core",
+          "recipe": {
+            "location": "mask_maker",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": "white_lion_mask",
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "mad_steed": {
+          "id": "mad_steed",
+          "name": "Hunt the Mad Streed",
+          "expansion": "core",
+          "recipe": {
+            "location": "mask_maker",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": "antelope_mask",
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "golden_eyed_king": {
+          "id": "golden_eyed_king",
+          "name": "Hunt the Golden Eyed King",
+          "expansion": "core",
+          "recipe": {
+            "location": "mask_maker",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": "phoenix_mask",
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "lantern_research": {
+          "id": "lantern_research",
+          "name": "Lantern Research - Pulse Discoveries",
+          "expansion": "core",
+          "recipe": {
+            "location": "exhausted_lantern_hoard",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 2
+              },
+              {
+                "resource": null,
+                "gear": "final_lantern",
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "oxidation": {
+          "id": "oxidation",
+          "name": "Oxidation",
+          "expansion": "core",
+          "recipe": {
+            "location": "exhausted_lantern_hoard",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "survivors_lantern": {
+          "id": "survivors_lantern",
+          "name": "Survivor's Lantern",
+          "expansion": "core",
+          "recipe": {
+            "location": "exhausted_lantern_hoard",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": "final_lantern",
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "investigate": {
+          "id": "investigate",
+          "name": "Investigate",
+          "expansion": "core",
+          "recipe": {
+            "location": "exhausted_lantern_hoard",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "innovate": {
+          "id": "innovate",
+          "name": "Innovate",
+          "expansion": "dk",
+          "recipe": {
+            "location": "throne",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "shared_experience": {
+          "id": "shared_experience",
+          "name": "Shared Experience",
+          "expansion": "core",
+          "recipe": {
+            "location": "lantern_hoard",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_bone_smith": {
+          "id": "build_bone_smith",
+          "name": "Build - Bone Smith",
+          "expansion": "dk",
+          "recipe": {
+            "location": "throne",
+            "not_location": "bone_smith",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_skinnery": {
+          "id": "build_skinnery",
+          "name": "Build - Skinnery",
+          "expansion": "dk",
+          "recipe": {
+            "location": "throne",
+            "not_location": "skinnery",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_organ_grinder": {
+          "id": "build_organ_grinder",
+          "name": "Build - Organ Grinder",
+          "expansion": "dk",
+          "recipe": {
+            "location": "throne",
+            "not_location": "organ_grinder",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "gormchymist": {
+          "id": "gormchymist",
+          "name": "Get Gormchymy innovation",
+          "expansion": "gorm",
+          "recipe": {
+            "location": "gormchymist",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": "gorm brain",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "strange",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "sacred water": {
+          "id": "sacred water",
+          "name": "Sacred Water",
+          "expansion": "sunstalker",
+          "recipe": {
+            "location": "sacred pool",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "purification ceremony": {
+          "id": "purification ceremony",
+          "name": "Purification Ceremony",
+          "expansion": "sunstalker",
+          "recipe": {
+            "location": "sacred pool",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 2
+              }
+            ]
+          }
+        },
+        "sun sealing": {
+          "id": "sun sealing",
+          "name": "Sun Sealing",
+          "expansion": "sunstalker",
+          "recipe": {
+            "location": "sacred pool",
+            "not_location": null,
+            "innovation": "sauna shrine",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "fear and trembling": {
+          "id": "fear and trembling",
+          "name": "Fear and Trembling",
+          "expansion": "dk",
+          "recipe": {
+            "location": "throne",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "bed": {
+          "id": "bed",
+          "name": "Rest",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "bed",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "bloodletting": {
+          "id": "bloodletting",
+          "name": "Braething a Vein",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "bloodletting",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "resource",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "cooking": {
+          "id": "cooking",
+          "name": "Cooking",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "cooking",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "cooking_meal": {
+          "id": "cooking_meal",
+          "name": "Cook stone nose gruel",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "cooking",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "bone_beats": {
+          "id": "bone_beats",
+          "name": "Bone Beats",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "drums",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "battle_paint": {
+          "id": "battle_paint",
+          "name": "Battle Paint",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "face_painting",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "founders_eye": {
+          "id": "founders_eye",
+          "name": "Founder's Eye",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "face_painting",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "forbidden dance": {
+          "id": "forbidden dance",
+          "name": "Forbidden Dance",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "forbidden dance",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "guidepost": {
+          "id": "guidepost",
+          "name": "Guidepost",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "guidepost",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "heart_flute": {
+          "id": "heart_flute",
+          "name": "Devil's Melody",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "heart_flute",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "momento_mori": {
+          "id": "momento_mori",
+          "name": "Momento Mori",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "momento_mori",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "nightmare training": {
+          "id": "nightmare training",
+          "name": "Train",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "nightmare training",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "partnership": {
+          "id": "partnership",
+          "name": "Partnership",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "partnership",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 2
+              }
+            ]
+          }
+        },
+        "fermentation": {
+          "id": "fermentation",
+          "name": "Fermentation",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "pottery",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "ret": {
+          "id": "ret",
+          "name": "Ret",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "pottery",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "herb",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "records_fa": {
+          "id": "records_fa",
+          "name": "Gain Scholar of Death SFA",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "records",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "records": {
+          "id": "records",
+          "name": "Create monster Volume",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "records",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "sacrifice": {
+          "id": "sacrifice",
+          "name": "Death Ritual",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "sacrifice",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "sacrification": {
+          "id": "sacrification",
+          "name": "Initiation",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "sacrification",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "purification": {
+          "id": "purification",
+          "name": "Purification",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "scrap_smelting",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_blacksmith": {
+          "id": "build_blacksmith",
+          "name": "Build - Blacksmith",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": "blacksmith",
+            "innovation": "scrap_smelting",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 6
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "scrap",
+                "quantity": 3
+              }
+            ]
+          }
+        },
+        "sculpture_statue": {
+          "id": "sculpture_statue",
+          "name": "Sculpt Statue",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "sculpture",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "sculpture_study_statue": {
+          "id": "sculpture_study_statue",
+          "name": "Study Statue",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "sculpture",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "shrine": {
+          "id": "shrine",
+          "name": "Armor Ritual",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "shrine",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "storytelling": {
+          "id": "storytelling",
+          "name": "Story Time",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "storytelling",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 2
+              }
+            ]
+          }
+        },
+        "rubedo": {
+          "id": "rubedo",
+          "name": "Rubedo",
+          "expansion": "gorm",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "rubedo",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 4
+              }
+            ]
+          }
+        },
+        "nigredo": {
+          "id": "nigredo",
+          "name": "Nigredo",
+          "expansion": "gorm",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "nigredo",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "citrinitas": {
+          "id": "citrinitas",
+          "name": "Citrinitas",
+          "expansion": "gorm",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "citrinitas",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 3
+              }
+            ]
+          }
+        },
+        "albedo": {
+          "id": "albedo",
+          "name": "Albedo",
+          "expansion": "gorm",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "albedo",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 2
+              }
+            ]
+          }
+        },
+        "underground_sow": {
+          "id": "underground_sow",
+          "name": "Underground Sow",
+          "expansion": "dbk",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "subterranean agriculture",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "black_harvest": {
+          "id": "black_harvest",
+          "name": "Black Harvest",
+          "expansion": "dbk",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "subterranean agriculture",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": "preserved caustic dung",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_wet_resin_crafter": {
+          "id": "build_wet_resin_crafter",
+          "name": "Build - Wet Resin Crafter",
+          "expansion": "dbk",
+          "recipe": {
+            "location": null,
+            "not_location": "wet_resin_crafter",
+            "innovation": "subterranean agriculture",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 2
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 2
+              }
+            ]
+          }
+        },
+        "round stone training": {
+          "id": "round stone training",
+          "name": "Train",
+          "expansion": "dbk",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "round stone training",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "resource",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "trace petals": {
+          "id": "trace petals",
+          "name": "Trace Petals",
+          "expansion": "fk",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "petal spiral",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "visit retinue": {
+          "id": "visit retinue",
+          "name": "Visit the retinue",
+          "expansion": "lk",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "white mask",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "face the monster": {
+          "id": "face the monster",
+          "name": "Face the monster",
+          "expansion": "lk",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "black mask",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 2
+              }
+            ]
+          }
+        },
+        "leave offering": {
+          "id": "leave offering",
+          "name": "Leave the monster an offering",
+          "expansion": "lk",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "white mask",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "worship monster": {
+          "id": "worship monster",
+          "name": "Worship the monster",
+          "expansion": "lk",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "stoic statue",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "get web silk": {
+          "id": "get web silk",
+          "name": "Get Web Silk",
+          "expansion": "spidicules",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "legless ball",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "kill spidicules": {
+          "id": "kill spidicules",
+          "name": "Kill Spidicules",
+          "expansion": "spidicules",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "legless ball",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "silk surgery": {
+          "id": "silk surgery",
+          "name": "Silk Surgery",
+          "expansion": "spidicules",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "silk refining",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "create hide": {
+          "id": "create hide",
+          "name": "Create Hide",
+          "expansion": "spidicules",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "silk refining",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build silk mill": {
+          "id": "build silk mill",
+          "name": "Build - Silk Mill",
+          "expansion": "spidicules",
+          "recipe": {
+            "location": null,
+            "not_location": "silk mill",
+            "innovation": "silk refining",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "silk",
+                "quantity": 2
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "spider dance": {
+          "id": "spider dance",
+          "name": "Spider Dance",
+          "expansion": "spidicules",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "choreia",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 2
+              }
+            ]
+          }
+        },
+        "crimson cannibalism": {
+          "id": "crimson cannibalism",
+          "name": "Crimson Cannibalism",
+          "expansion": "manhunter",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "crimson candy",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "war room": {
+          "id": "war room",
+          "name": "Reroll 1 Hunt Event",
+          "expansion": "manhunter",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "war room",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "new recruits": {
+          "id": "new recruits",
+          "name": "New Recruits",
+          "expansion": "manhunter",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "settlement watch",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "light-forging": {
+          "id": "light-forging",
+          "name": "Light-Forging",
+          "expansion": "slenderman",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "darkwater research",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "dark water research": {
+          "id": "dark water research",
+          "name": "Dark Water Research",
+          "expansion": "slenderman",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "darkwater research",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "resource",
+                "quantity": 2
+              },
+              {
+                "resource": "dark water",
+                "gear": null,
+                "keyword": null,
+                "quantity": 2
+              }
+            ]
+          }
+        },
+        "umbilical symbiosis": {
+          "id": "umbilical symbiosis",
+          "name": "Umbilical Symbiosis",
+          "expansion": "sunstalker",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "umbilical bank",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "innovate pottery": {
+          "id": "innovate pottery",
+          "name": "Innovate Pottery",
+          "expansion": "sunstalker",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "umbilical bank",
+            "not_innovation": "pottery",
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 3
+              }
+            ]
+          }
+        },
+        "tribute": {
+          "id": "tribute",
+          "name": "Tribute",
+          "expansion": "sunstalker",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "sauna shrine",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "final dance": {
+          "id": "final dance",
+          "name": "Final Dance",
+          "expansion": "sunstalker",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "shadow dancing",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "advance cutting": {
+          "id": "advance cutting",
+          "name": "Advance Cutting",
+          "expansion": "sunstalker",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "filleting table",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "underwater train": {
+          "id": "underwater train",
+          "name": "Underwater Train",
+          "expansion": "sunstalker",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "filleting table",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "spar": {
+          "id": "spar",
+          "name": "Spar",
+          "expansion": "dk",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "arena",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "iron",
+                "quantity": 1
+              }
+            ]
+          }
+        }
+      },
+      "stored_resources": {
+        "endeavor": {
+          "id": "endeavor",
+          "resource": "endeavor",
+          "quantity": 1
+        },
+        "sinew": {
+          "id": "sinew",
+          "resource": "sinew",
+          "quantity": 1
+        },
+        "white fur": {
+          "id": "white fur",
+          "resource": "white fur",
+          "quantity": 1
+        },
+        "great cat bone": {
+          "id": "great cat bone",
+          "resource": "great cat bone",
+          "quantity": 1
+        },
+        "lion claw": {
+          "id": "lion claw",
+          "resource": "lion claw",
+          "quantity": 1
+        },
+        "elder cat teeth": {
+          "id": "elder cat teeth",
+          "resource": "elder cat teeth",
+          "quantity": 1
+        },
+        "eye of cat": {
+          "id": "eye of cat",
+          "resource": "eye of cat",
+          "quantity": 1
+        },
+        "golden whiskers": {
+          "id": "golden whiskers",
+          "resource": "golden whiskers",
+          "quantity": 1
+        },
+        "shimmering mane": {
+          "id": "shimmering mane",
+          "resource": "shimmering mane",
+          "quantity": 1
+        },
+        "lion testes": {
+          "id": "lion testes",
+          "resource": "lion testes",
+          "quantity": 1
+        },
+        "lion tail": {
+          "id": "lion tail",
+          "resource": "lion tail",
+          "quantity": 1
+        },
+        "curious hand": {
+          "id": "curious hand",
+          "resource": "curious hand",
+          "quantity": 1
+        },
+        "whishbone": {
+          "id": "whishbone",
+          "resource": "whishbone",
+          "quantity": 1
+        },
+        "tail feathers": {
+          "id": "tail feathers",
+          "resource": "tail feathers",
+          "quantity": 1
+        },
+        "shimmering halo": {
+          "id": "shimmering halo",
+          "resource": "shimmering halo",
+          "quantity": 1
+        },
+        "small hand parasites": {
+          "id": "small hand parasites",
+          "resource": "small hand parasites",
+          "quantity": 1
+        },
+        "small feathers": {
+          "id": "small feathers",
+          "resource": "small feathers",
+          "quantity": 1
+        },
+        "rainbow droppings": {
+          "id": "rainbow droppings",
+          "resource": "rainbow droppings",
+          "quantity": 1
+        },
+        "bladder": {
+          "id": "bladder",
+          "resource": "bladder",
+          "quantity": 1
+        },
+        "bird beak": {
+          "id": "bird beak",
+          "resource": "bird beak",
+          "quantity": 1
+        },
+        "black skull": {
+          "id": "black skull",
+          "resource": "black skull",
+          "quantity": 1
+        },
+        "skull": {
+          "id": "skull",
+          "resource": "skull",
+          "quantity": 1
+        },
+        "monster bone": {
+          "id": "monster bone",
+          "resource": "monster bone",
+          "quantity": 1
+        },
+        "???": {
+          "id": "???",
+          "resource": "???",
+          "quantity": 1
+        },
+        "love juice": {
+          "id": "love juice",
+          "resource": "love juice",
+          "quantity": 1
+        },
+        "monster hide": {
+          "id": "monster hide",
+          "resource": "monster hide",
+          "quantity": 1
+        },
+        "monster organ": {
+          "id": "monster organ",
+          "resource": "monster organ",
+          "quantity": 1
+        },
+        "hollow wing bone": {
+          "id": "hollow wing bone",
+          "resource": "hollow wing bone",
+          "quantity": 1
+        },
+        "muculent droppings": {
+          "id": "muculent droppings",
+          "resource": "muculent droppings",
+          "quantity": 1
+        },
+        "phoenix eye": {
+          "id": "phoenix eye",
+          "resource": "phoenix eye",
+          "quantity": 1
+        },
+        "phoenix finger": {
+          "id": "phoenix finger",
+          "resource": "phoenix finger",
+          "quantity": 1
+        },
+        "phoenix whisker": {
+          "id": "phoenix whisker",
+          "resource": "phoenix whisker",
+          "quantity": 1
+        },
+        "pustules": {
+          "id": "pustules",
+          "resource": "pustules",
+          "quantity": 1
+        },
+        "large flat tooth": {
+          "id": "large flat tooth",
+          "resource": "large flat tooth",
+          "quantity": 1
+        },
+        "muscly gums": {
+          "id": "muscly gums",
+          "resource": "muscly gums",
+          "quantity": 1
+        },
+        "spiral horn": {
+          "id": "spiral horn",
+          "resource": "spiral horn",
+          "quantity": 1
+        },
+        "shank bone": {
+          "id": "shank bone",
+          "resource": "shank bone",
+          "quantity": 1
+        },
+        "screaming brain": {
+          "id": "screaming brain",
+          "resource": "screaming brain",
+          "quantity": 1
+        },
+        "pelt": {
+          "id": "pelt",
+          "resource": "pelt",
+          "quantity": 1
+        },
+        "second heart": {
+          "id": "second heart",
+          "resource": "second heart",
+          "quantity": 1
+        },
+        "phoenix crest": {
+          "id": "phoenix crest",
+          "resource": "phoenix crest",
+          "quantity": 1
+        },
+        "perfect crucible": {
+          "id": "perfect crucible",
+          "resource": "perfect crucible",
+          "quantity": 1
+        },
+        "legendary horns": {
+          "id": "legendary horns",
+          "resource": "legendary horns",
+          "quantity": 1
+        },
+        "leather": {
+          "id": "leather",
+          "resource": "leather",
+          "quantity": 1
+        },
+        "iron": {
+          "id": "iron",
+          "resource": "iron",
+          "quantity": 1
+        },
+        "fresh acanthus": {
+          "id": "fresh acanthus",
+          "resource": "fresh acanthus",
+          "quantity": 1
+        },
+        "broken lantern": {
+          "id": "broken lantern",
+          "resource": "broken lantern",
+          "quantity": 1
+        },
+        "nightmare tick": {
+          "id": "nightmare tick",
+          "resource": "nightmare tick",
+          "quantity": 1
+        },
+        "hissing cockroach": {
+          "id": "hissing cockroach",
+          "resource": "hissing cockroach",
+          "quantity": 1
+        },
+        "crab spider": {
+          "id": "crab spider",
+          "resource": "crab spider",
+          "quantity": 1
+        },
+        "sword beetle": {
+          "id": "sword beetle",
+          "resource": "sword beetle",
+          "quantity": 1
+        },
+        "cyclops fly": {
+          "id": "cyclops fly",
+          "resource": "cyclops fly",
+          "quantity": 1
+        },
+        "lonely ant": {
+          "id": "lonely ant",
+          "resource": "lonely ant",
+          "quantity": 1
+        },
+        "mammoth hand": {
+          "id": "mammoth hand",
+          "resource": "mammoth hand",
+          "quantity": 1
+        },
+        "jiggling lard": {
+          "id": "jiggling lard",
+          "resource": "jiggling lard",
+          "quantity": 1
+        },
+        "stout kidney": {
+          "id": "stout kidney",
+          "resource": "stout kidney",
+          "quantity": 1
+        },
+        "stout heart": {
+          "id": "stout heart",
+          "resource": "stout heart",
+          "quantity": 1
+        },
+        "milky eye": {
+          "id": "milky eye",
+          "resource": "milky eye",
+          "quantity": 1
+        },
+        "acid gland": {
+          "id": "acid gland",
+          "resource": "acid gland",
+          "quantity": 1
+        },
+        "gorm brain": {
+          "id": "gorm brain",
+          "resource": "gorm brain",
+          "quantity": 1
+        },
+        "stout hide": {
+          "id": "stout hide",
+          "resource": "stout hide",
+          "quantity": 1
+        },
+        "meaty rib": {
+          "id": "meaty rib",
+          "resource": "meaty rib",
+          "quantity": 1
+        },
+        "stout vertebrae": {
+          "id": "stout vertebrae",
+          "resource": "stout vertebrae",
+          "quantity": 1
+        },
+        "handed skull": {
+          "id": "handed skull",
+          "resource": "handed skull",
+          "quantity": 1
+        },
+        "dense bone": {
+          "id": "dense bone",
+          "resource": "dense bone",
+          "quantity": 1
+        },
+        "drifting dream fruit": {
+          "id": "drifting dream fruit",
+          "resource": "drifting dream fruit",
+          "quantity": 1
+        },
+        "blistering plasma fruit": {
+          "id": "blistering plasma fruit",
+          "resource": "blistering plasma fruit",
+          "quantity": 1
+        },
+        "jagged marrow fruit": {
+          "id": "jagged marrow fruit",
+          "resource": "jagged marrow fruit",
+          "quantity": 1
+        },
+        "porous flesh fruit": {
+          "id": "porous flesh fruit",
+          "resource": "porous flesh fruit",
+          "quantity": 1
+        },
+        "lonely fruit": {
+          "id": "lonely fruit",
+          "resource": "lonely fruit",
+          "quantity": 1
+        },
+        "century fingernails": {
+          "id": "century fingernails",
+          "resource": "century fingernails",
+          "quantity": 1
+        },
+        "beetle horn": {
+          "id": "beetle horn",
+          "resource": "beetle horn",
+          "quantity": 1
+        },
+        "elytra": {
+          "id": "elytra",
+          "resource": "elytra",
+          "quantity": 1
+        },
+        "compound eye": {
+          "id": "compound eye",
+          "resource": "compound eye",
+          "quantity": 1
+        },
+        "century shell": {
+          "id": "century shell",
+          "resource": "century shell",
+          "quantity": 1
+        },
+        "scarab wing": {
+          "id": "scarab wing",
+          "resource": "scarab wing",
+          "quantity": 1
+        },
+        "underplate fungus": {
+          "id": "underplate fungus",
+          "resource": "underplate fungus",
+          "quantity": 1
+        },
+        "scarab shell": {
+          "id": "scarab shell",
+          "resource": "scarab shell",
+          "quantity": 1
+        },
+        "preserved caustic dung": {
+          "id": "preserved caustic dung",
+          "resource": "preserved caustic dung",
+          "quantity": 1
+        },
+        "scell": {
+          "id": "scell",
+          "resource": "scell",
+          "quantity": 1
+        },
+        "warbling bloom": {
+          "id": "warbling bloom",
+          "resource": "warbling bloom",
+          "quantity": 1
+        },
+        "lantern bud": {
+          "id": "lantern bud",
+          "resource": "lantern bud",
+          "quantity": 1
+        },
+        "lantern bloom": {
+          "id": "lantern bloom",
+          "resource": "lantern bloom",
+          "quantity": 1
+        },
+        "osseous bloom": {
+          "id": "osseous bloom",
+          "resource": "osseous bloom",
+          "quantity": 1
+        },
+        "sighing bloom": {
+          "id": "sighing bloom",
+          "resource": "sighing bloom",
+          "quantity": 1
+        },
+        "small apendages": {
+          "id": "small apendages",
+          "resource": "small apendages",
+          "quantity": 1
+        },
+        "venom sac": {
+          "id": "venom sac",
+          "resource": "venom sac",
+          "quantity": 1
+        },
+        "aracnid heart": {
+          "id": "aracnid heart",
+          "resource": "aracnid heart",
+          "quantity": 1
+        },
+        "unlaid eggs": {
+          "id": "unlaid eggs",
+          "resource": "unlaid eggs",
+          "quantity": 1
+        },
+        "thick web silk": {
+          "id": "thick web silk",
+          "resource": "thick web silk",
+          "quantity": 1
+        },
+        "stomach": {
+          "id": "stomach",
+          "resource": "stomach",
+          "quantity": 1
+        },
+        "spinnerets": {
+          "id": "spinnerets",
+          "resource": "spinnerets",
+          "quantity": 1
+        },
+        "exoskeleton": {
+          "id": "exoskeleton",
+          "resource": "exoskeleton",
+          "quantity": 1
+        },
+        "chitin": {
+          "id": "chitin",
+          "resource": "chitin",
+          "quantity": 1
+        },
+        "eyeballs": {
+          "id": "eyeballs",
+          "resource": "eyeballs",
+          "quantity": 1
+        },
+        "serrated fangs": {
+          "id": "serrated fangs",
+          "resource": "serrated fangs",
+          "quantity": 1
+        },
+        "large appendage": {
+          "id": "large appendage",
+          "resource": "large appendage",
+          "quantity": 1
+        },
+        "web silk": {
+          "id": "web silk",
+          "resource": "web silk",
+          "quantity": 1
+        },
+        "silken nervous system": {
+          "id": "silken nervous system",
+          "resource": "silken nervous system",
+          "quantity": 1
+        },
+        "sarcophagus": {
+          "id": "sarcophagus",
+          "resource": "sarcophagus",
+          "quantity": 1
+        },
+        "triptych": {
+          "id": "triptych",
+          "resource": "triptych",
+          "quantity": 1
+        },
+        "canopic jar": {
+          "id": "canopic jar",
+          "resource": "canopic jar",
+          "quantity": 1
+        },
+        "silver urn": {
+          "id": "silver urn",
+          "resource": "silver urn",
+          "quantity": 1
+        },
+        "old blue box": {
+          "id": "old blue box",
+          "resource": "old blue box",
+          "quantity": 1
+        },
+        "crimson vial": {
+          "id": "crimson vial",
+          "resource": "crimson vial",
+          "quantity": 1
+        },
+        "red vial": {
+          "id": "red vial",
+          "resource": "red vial",
+          "quantity": 1
+        },
+        "dark water": {
+          "id": "dark water",
+          "resource": "dark water",
+          "quantity": 1
+        },
+        "crystal sword mold": {
+          "id": "crystal sword mold",
+          "resource": "crystal sword mold",
+          "quantity": 1
+        },
+        "salt": {
+          "id": "salt",
+          "resource": "salt",
+          "quantity": 1
+        },
+        "hagfish": {
+          "id": "hagfish",
+          "resource": "hagfish",
+          "quantity": 1
+        },
+        "sunstones": {
+          "id": "sunstones",
+          "resource": "sunstones",
+          "quantity": 1
+        },
+        "jowls": {
+          "id": "jowls",
+          "resource": "jowls",
+          "quantity": 1
+        },
+        "1,000 year sunspot": {
+          "id": "1,000 year sunspot",
+          "resource": "1,000 year sunspot",
+          "quantity": 1
+        },
+        "3,000 year sunspot": {
+          "id": "3,000 year sunspot",
+          "resource": "3,000 year sunspot",
+          "quantity": 1
+        },
+        "shadow tentacles": {
+          "id": "shadow tentacles",
+          "resource": "shadow tentacles",
+          "quantity": 1
+        },
+        "sunshark fin": {
+          "id": "sunshark fin",
+          "resource": "sunshark fin",
+          "quantity": 1
+        },
+        "prismatic gills": {
+          "id": "prismatic gills",
+          "resource": "prismatic gills",
+          "quantity": 1
+        },
+        "shadow ink gland": {
+          "id": "shadow ink gland",
+          "resource": "shadow ink gland",
+          "quantity": 1
+        },
+        "shark tongue": {
+          "id": "shark tongue",
+          "resource": "shark tongue",
+          "quantity": 1
+        },
+        "stink gland": {
+          "id": "stink gland",
+          "resource": "stink gland",
+          "quantity": 1
+        },
+        "sunshark blubber": {
+          "id": "sunshark blubber",
+          "resource": "sunshark blubber",
+          "quantity": 1
+        },
+        "sunshark bone": {
+          "id": "sunshark bone",
+          "resource": "sunshark bone",
+          "quantity": 1
+        },
+        "inner shadow skin": {
+          "id": "inner shadow skin",
+          "resource": "inner shadow skin",
+          "quantity": 1
+        },
+        "brain root": {
+          "id": "brain root",
+          "resource": "brain root",
+          "quantity": 1
+        },
+        "fertility tentacle": {
+          "id": "fertility tentacle",
+          "resource": "fertility tentacle",
+          "quantity": 1
+        },
+        "black lens": {
+          "id": "black lens",
+          "resource": "black lens",
+          "quantity": 1
+        },
+        "small sunteeth": {
+          "id": "small sunteeth",
+          "resource": "small sunteeth",
+          "quantity": 1
+        },
+        "huge sunteeth": {
+          "id": "huge sunteeth",
+          "resource": "huge sunteeth",
+          "quantity": 1
+        },
+        "cycloid scales": {
+          "id": "cycloid scales",
+          "resource": "cycloid scales",
+          "quantity": 1
+        },
+        "radiant heart": {
+          "id": "radiant heart",
+          "resource": "radiant heart",
+          "quantity": 1
+        },
+        "pituitary gland": {
+          "id": "pituitary gland",
+          "resource": "pituitary gland",
+          "quantity": 1
+        },
+        "shining liver": {
+          "id": "shining liver",
+          "resource": "shining liver",
+          "quantity": 1
+        },
+        "radioactive dung": {
+          "id": "radioactive dung",
+          "resource": "radioactive dung",
+          "quantity": 1
+        },
+        "king's tongue": {
+          "id": "king's tongue",
+          "resource": "king's tongue",
+          "quantity": 1
+        },
+        "hardened ribs": {
+          "id": "hardened ribs",
+          "resource": "hardened ribs",
+          "quantity": 1
+        },
+        "dragon iron": {
+          "id": "dragon iron",
+          "resource": "dragon iron",
+          "quantity": 1
+        },
+        "husk": {
+          "id": "husk",
+          "resource": "husk",
+          "quantity": 1
+        },
+        "veined wing": {
+          "id": "veined wing",
+          "resource": "veined wing",
+          "quantity": 1
+        },
+        "king's claws": {
+          "id": "king's claws",
+          "resource": "king's claws",
+          "quantity": 1
+        },
+        "horn fragment": {
+          "id": "horn fragment",
+          "resource": "horn fragment",
+          "quantity": 1
+        },
+        "cabled vein": {
+          "id": "cabled vein",
+          "resource": "cabled vein",
+          "quantity": 1
+        }
+      },
+      "expansions": {
+        "core": "core",
+        "dbk": "dbk",
+        "dk": "dk",
+        "fk": "fk",
+        "gka": "gka",
+        "gorm": "gorm",
+        "lg": "lg",
+        "lk": "lk",
+        "lt": "lt",
+        "manhunter": "manhunter",
+        "slenderman": "slenderman",
+        "spidicules": "spidicules",
+        "sunstalker": "sunstalker"
+      },
+      "hunting": null,
+      "showdown": null,
+      "notes": "",
+      "type": "potl"
+    }
+  ],
+  "selectedCampaign": "960aa7ae-598a-49eb-888b-c6baa0006751",
+  "version": 1,
+  "subscription": {
+    "productId": "",
+    "response": "",
+    "purchasedAt": 0,
+    "autoRenewing": false,
+    "checkedAt": 0,
+    "appLastActiveAt": 0
+  }
+}
