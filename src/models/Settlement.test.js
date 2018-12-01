@@ -130,8 +130,6 @@ describe('.reorderSurvivor', () => {
 
     let survivorList = settlement.activeSurvivorsList
 
-    console.log('survivorList', survivorList)
-
     expect(survivorList[0].id).toBe(surv3.id)
     expect(survivorList[1].id).toBe(surv1.id)
     expect(survivorList[2].id).toBe(surv2.id)

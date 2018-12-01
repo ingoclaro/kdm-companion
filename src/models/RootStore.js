@@ -89,6 +89,7 @@ export default types
       switch (data.version) {
         case 1:
         case 2:
+        case 3:
           if (data.campaigns) {
             data.campaigns = data.campaigns.map(campaign => {
               let newCampaign = Object.assign({}, campaign)
@@ -102,12 +103,23 @@ export default types
                 newCampaign.settlement.showdown = {}
               }
 
+              // v3
+              let survivorKeys = Object.keys(
+                newCampaign.settlement.survivors || []
+              )
+              newCampaign.settlement.activeSurvivorsList = []
+              survivorKeys.forEach(key => {
+                if (newCampaign.settlement.survivors[key].status !== 'dead') {
+                  newCampaign.settlement.activeSurvivorsList.push(key)
+                }
+              })
+
               return newCampaign
             })
           }
           break
       }
-      data.version = 3
+      data.version = 4
 
       self.campaigns = data.campaigns
 
