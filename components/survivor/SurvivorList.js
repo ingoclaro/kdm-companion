@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  View,
   Text,
   Title,
   Subtitle,
@@ -11,6 +10,7 @@ import {
   Caption,
   Divider,
 } from '@shoutem/ui'
+import { View } from 'react-native'
 import AttributeSmall from './AttributeSmall'
 import CheckboxListItem from '../common/CheckboxListItem'
 import { TouchableOpacity } from 'react-native'
@@ -58,14 +58,8 @@ export default class SurvivorList extends React.Component {
 
   survivorRow = (survivor, index, isActive = false) => {
     let gender_icon = survivor.gender === 'male' ? ico_male : ico_female
-    let rowStyle =
-      index % 2 === 0
-        ? isActive
-          ? styles.activeOddRow
-          : styles.oddRow
-        : isActive
-        ? styles.activeEvenRow
-        : styles.evenRow
+    let stripes = index % 2 === 0 ? styles.oddRow : styles.evenRow
+    let rowStyle = [stripes, isActive ? styles.active : null]
     return (
       <Observer>
         {() => (
@@ -82,7 +76,7 @@ export default class SurvivorList extends React.Component {
               <Title>{survivor.name}</Title>
               <Icon name="right-arrow" />
             </Button>
-            <View styleName="horizontal">
+            <View style={{ flexDirection: 'row' }}>
               {survivor.skipNextHunt && (
                 <Image
                   source={ico_skip_hunt}
@@ -152,8 +146,9 @@ export default class SurvivorList extends React.Component {
 
     return (
       <View>
-        <View styleName="horizontal space-between">
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Title>Survivors</Title>
+
           <CheckboxListItem
             styleName="title"
             onPressItem={() => this.setState({ selected: 'alive' })}
@@ -189,17 +184,10 @@ const styles = {
   evenRow: {
     backgroundColor: colors.grey900,
   },
-  activeEvenRow: {
-    backgroundColor: colors.grey900,
-    borderBottomWidth: 2,
-    borderRightWidth: 2,
-    borderColor: colors.bluegrey800,
-  },
   oddRow: {
     backgroundColor: colors.black,
   },
-  activeOddRow: {
-    backgroundColor: colors.black,
+  active: {
     borderBottomWidth: 2,
     borderRightWidth: 2,
     borderColor: colors.bluegrey800,
