@@ -58,11 +58,18 @@ export default class SurvivorList extends React.Component {
 
   survivorRow = (survivor, index, isActive = false) => {
     let gender_icon = survivor.gender === 'male' ? ico_male : ico_female
-    let rowStyle = index % 2 === 0 ? styles.oddRow : styles.evenRow
+    let rowStyle =
+      index % 2 === 0
+        ? isActive
+          ? styles.activeOddRow
+          : styles.oddRow
+        : isActive
+        ? styles.activeEvenRow
+        : styles.evenRow
     return (
       <Observer>
         {() => (
-          <View style={isActive ? styles.activeRow : rowStyle}>
+          <View style={rowStyle}>
             <Button
               styleName="textual"
               style={{ alignSelf: 'flex-start' }}
@@ -182,10 +189,16 @@ const styles = {
   evenRow: {
     backgroundColor: colors.grey900,
   },
+  activeEvenRow: {
+    backgroundColor: colors.grey900,
+    borderBottomWidth: 2,
+    borderRightWidth: 2,
+    borderColor: colors.bluegrey800,
+  },
   oddRow: {
     backgroundColor: colors.black,
   },
-  activeRow: {
+  activeOddRow: {
     backgroundColor: colors.black,
     borderBottomWidth: 2,
     borderRightWidth: 2,
