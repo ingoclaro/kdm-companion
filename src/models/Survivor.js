@@ -1,21 +1,19 @@
-import { types } from 'mobx-state-tree'
+import { types, getParent } from 'mobx-state-tree'
 import { FightingArt, SecretFightingArt } from './FightingArt'
 import { Disorder } from './Disorder'
 import { Ability } from './Ability'
 import { WeaponProficiency } from './WeaponProficiency'
 import { DragonTraits } from './DragonTraits'
 import { uuid } from '../utils'
-import R from 'ramda'
+
+const statusList = ['alive', 'dead', 'retired']
 
 const Survivor = types
   .model('Survivor', {
     id: types.identifier,
     name: 'Unnamed',
     gender: types.optional(types.enumeration(['male', 'female']), 'male'),
-    status: types.optional(
-      types.enumeration(['alive', 'dead', 'retired']),
-      'alive'
-    ),
+    status: types.optional(types.enumeration(statusList), statusList[0]),
 
     fightingArts: types.array(
       types.reference(types.union(FightingArt, SecretFightingArt))
@@ -83,13 +81,10 @@ const Survivor = types
     },
     removeAbility(ability) {
       let idx = self.abilities.findIndex(item => item.id === ability.id)
-      if (idx === 0) {
-        self.abilities = self.abilities.slice(1)
-      } else if (idx > 0) {
-        self.abilities = self.abilities
-          .slice(0, idx)
-          .concat(self.abilities.slice(idx + 1))
-      }
+
+      self.abilities = self.abilities
+        .slice(0, idx)
+        .concat(self.abilities.slice(idx + 1))
     },
     changeGender() {
       let gender = self.gender === 'male' ? 'female' : 'male'
@@ -101,6 +96,10 @@ const Survivor = types
       }
       if (self['hunt xp'] >= 16) {
         self.status = 'retired'
+        self.handleStatusChange()
+      }
+      if (attribute === 'status') {
+        self.handleStatusChange()
       }
       self.dragonTraits.handleAttributeChange(self)
     },
@@ -108,9 +107,10 @@ const Survivor = types
       self.notes = notes
     },
     cycleStatus() {
-      let statusList = ['alive', 'dead', 'retired']
       let index = (statusList.indexOf(self.status) + 1) % statusList.length
       self.status = statusList[index]
+
+      self.handleStatusChange()
     },
     toggleRerollUsed() {
       self.rerollUsed = !self.rerollUsed
@@ -131,6 +131,14 @@ const Survivor = types
       if (!self.weaponProficiency || self.weaponProficiency.id !== prof.id) {
         self.weaponProficiencyLevel = 0
         self.weaponProficiency = prof.id
+      }
+    },
+    handleStatusChange() {
+      try {
+        let settlement = getParent(self, 2)
+        settlement.handleSurvivorStatusChange(self)
+      } catch (e) {
+        // not attached to a settlement
       }
     },
   }))

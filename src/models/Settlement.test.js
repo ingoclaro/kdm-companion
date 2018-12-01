@@ -1,6 +1,6 @@
 import { getSnapshot } from 'mobx-state-tree'
 import { Settlement, init as newSettlementData } from './Settlement'
-import { init as defaultSurvivor } from './Survivor'
+import { Survivor, init as defaultSurvivor } from './Survivor'
 import RootStore from './RootStore'
 
 import * as utils from '../utils'
@@ -86,28 +86,88 @@ describe('.createSurvivor', () => {
   })
 })
 
+it('keeps activeSurvivorsList up to date', () => {
+  let settlement = Settlement.create({})
+  let surv1 = settlement.createSurvivor()
+  let surv2 = settlement.createSurvivor()
+
+  expect(settlement.activeSurvivorsList).toHaveLength(2)
+  surv2.cycleStatus()
+  expect(settlement.activeSurvivorsList).toHaveLength(1)
+  expect(settlement.activeSurvivorsList[0].id).toBe(surv1.id)
+})
+
 describe('.filterSurvivors', () => {
   it('filters survivors by status', () => {
-    let survivor1 = defaultSurvivor()
-    let survivor2 = Object.assign(defaultSurvivor(), { status: 'dead' })
+    let settlement = Settlement.create({})
+    let surv1 = settlement.createSurvivor()
+    let surv2 = settlement.createSurvivor()
 
-    let settlement = Settlement.create(
-      Object.assign({}, newSettlementData, {
-        survivors: {
-          [survivor1.id]: survivor1,
-          [survivor2.id]: survivor2,
-        },
-      })
-    )
+    surv2.cycleStatus()
 
     let survivorList = settlement.filterSurvivors('alive')
     let deadList = settlement.filterSurvivors('dead')
 
     expect(survivorList).toHaveLength(1)
-    expect(survivorList[0].id).toBe(survivor1.id)
+    expect(survivorList[0].id).toBe(surv1.id)
 
     expect(deadList).toHaveLength(1)
-    expect(deadList[0].id).toBe(survivor2.id)
+    expect(deadList[0].id).toBe(surv2.id)
+  })
+})
+
+describe('.reorderSurvivor', () => {
+  it('moves survivor to the top', () => {
+    let settlement = Settlement.create({})
+    let surv1 = settlement.createSurvivor()
+    let surv2 = settlement.createSurvivor()
+    let surv3 = settlement.createSurvivor()
+    let surv4 = settlement.createSurvivor()
+
+    expect(settlement.activeSurvivorsList).toHaveLength(4)
+    settlement.reorderSurvivor(surv3, 0)
+    expect(settlement.activeSurvivorsList).toHaveLength(4)
+
+    let survivorList = settlement.activeSurvivorsList
+
+    console.log('survivorList', survivorList)
+
+    expect(survivorList[0].id).toBe(surv3.id)
+    expect(survivorList[1].id).toBe(surv1.id)
+    expect(survivorList[2].id).toBe(surv2.id)
+    expect(survivorList[3].id).toBe(surv4.id)
+  })
+
+  it('moves survivor to 2nd position', () => {
+    let settlement = Settlement.create({})
+    let surv1 = settlement.createSurvivor()
+    let surv2 = settlement.createSurvivor()
+    let surv3 = settlement.createSurvivor()
+    let surv4 = settlement.createSurvivor()
+
+    settlement.reorderSurvivor(surv3, 1)
+    let survivorList = settlement.activeSurvivorsList
+
+    expect(survivorList[0].id).toBe(surv1.id)
+    expect(survivorList[1].id).toBe(surv3.id)
+    expect(survivorList[2].id).toBe(surv2.id)
+    expect(survivorList[3].id).toBe(surv4.id)
+  })
+
+  it('moves survivor to last position', () => {
+    let settlement = Settlement.create({})
+    let surv1 = settlement.createSurvivor()
+    let surv2 = settlement.createSurvivor()
+    let surv3 = settlement.createSurvivor()
+    let surv4 = settlement.createSurvivor()
+
+    settlement.reorderSurvivor(surv1, 3)
+    let survivorList = settlement.activeSurvivorsList
+
+    expect(survivorList[0].id).toBe(surv2.id)
+    expect(survivorList[1].id).toBe(surv3.id)
+    expect(survivorList[2].id).toBe(surv4.id)
+    expect(survivorList[3].id).toBe(surv1.id)
   })
 })
 

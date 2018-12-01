@@ -13,6 +13,7 @@ export const Settlement = types
     newborn: types.optional(SettlementBonus, {}), // default survial = 1 needs to be setup for new settlements (same reason as above)
     showdown: types.optional(SettlementBonus, {}),
     survivors: types.map(Survivor),
+    activeSurvivorsList: types.array(types.reference(Survivor)),
   })
   .actions(self => ({
     updateName(name) {
@@ -81,17 +82,52 @@ export const Settlement = types
       let survivor = Survivor.create(survivorData)
       survivor.applyNewbornMilestones() // TODO: this could be moved to afterCreate if that hook is only called when creating models and not when applying a snapshot.
       self.survivors.put(survivor)
+      self.activeSurvivorsList.push(survivor)
 
       return survivor
+    },
+    handleSurvivorStatusChange(survivor) {
+      if (survivor.status === 'dead') {
+        self.deactivateSurvivor(survivor)
+      } else {
+        self.activateSurvivor(survivor)
+      }
+    },
+    activateSurvivor(survivor) {
+      if (!self.activeSurvivorsList.find(item => item.id === survivor.id)) {
+        self.activeSurvivorsList.push(survivor.id)
+      }
+    },
+    deactivateSurvivor(survivor) {
+      let idx
+      if (
+        (idx = self.activeSurvivorsList.findIndex(
+          item => item.id === survivor.id
+        ))
+      ) {
+        self.activeSurvivorsList = self.activeSurvivorsList
+          .slice(0, idx)
+          .concat(self.activeSurvivorsList.slice(idx + 1))
+      }
+    },
+    reorderSurvivor(survivor, position) {
+      let idx = self.activeSurvivorsList.findIndex(
+        item => item.id === survivor.id
+      )
+      if (idx >= 0) {
+        // remove from array
+        self.activeSurvivorsList = self.activeSurvivorsList
+          .slice(0, idx)
+          .concat(self.activeSurvivorsList.slice(idx + 1))
+        // add in new position
+        self.activeSurvivorsList.splice(position, 0, survivor.id)
+      }
     },
   }))
   .views(self => ({
     filterSurvivors(status = 'alive') {
       if (status === 'alive') {
-        return R.filter(
-          item => item.status === 'alive' || item.status === 'retired',
-          values(self.survivors)
-        )
+        return self.activeSurvivorsList
       } else {
         return R.filter(item => {
           return item.status === status

@@ -21,6 +21,7 @@ Object {
         "society": null,
       },
       "settlement": Object {
+        "activeSurvivorsList": Array [],
         "departing": Object {
           "accuracy": 0,
           "courage": 0,
@@ -98,6 +99,7 @@ Object {
         "society": null,
       },
       "settlement": Object {
+        "activeSurvivorsList": Array [],
         "departing": Object {
           "accuracy": 0,
           "courage": 0,
@@ -175,6 +177,7 @@ Object {
         "society": null,
       },
       "settlement": Object {
+        "activeSurvivorsList": Array [],
         "departing": Object {
           "accuracy": 0,
           "courage": 0,
@@ -252,6 +255,7 @@ Object {
         "society": null,
       },
       "settlement": Object {
+        "activeSurvivorsList": Array [],
         "departing": Object {
           "accuracy": 0,
           "courage": 0,
@@ -2339,6 +2343,10 @@ Object {
         "society": "accept_darkness",
       },
       "settlement": Object {
+        "activeSurvivorsList": Array [
+          "3352353f-f7df-44ab-8c13-a350c7e35a7b",
+          "3792b21e-fc96-4a5e-a2cd-6cccff3747a8",
+        ],
         "departing": Object {
           "accuracy": 0,
           "courage": 0,

@@ -8,6 +8,8 @@ export default {
   bluegrey400: '#78909C',
   bluegrey500: '#607D8B',
   bluegrey600: '#546E7A',
+  bluegrey700: '#455A64',
+  bluegrey800: '#37474F',
   brown200: '#BCAAA4',
   brown300: '#A1887F',
   brown400: '#8D6E63',

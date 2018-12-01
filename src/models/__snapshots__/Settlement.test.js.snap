@@ -2,6 +2,7 @@
 
 exports[`.add adds bonuses to settlement 1`] = `
 Object {
+  "activeSurvivorsList": Array [],
   "departing": Object {
     "accuracy": 0,
     "courage": 0,
@@ -47,6 +48,7 @@ Object {
 
 exports[`.create creates a barebones settlement 1`] = `
 Object {
+  "activeSurvivorsList": Array [],
   "departing": Object {
     "accuracy": 0,
     "courage": 0,
@@ -88,6 +90,7 @@ Object {
 
 exports[`.create works with empty data 1`] = `
 Object {
+  "activeSurvivorsList": Array [],
   "departing": Object {
     "accuracy": 0,
     "courage": 0,
@@ -129,6 +132,9 @@ Object {
 
 exports[`.createSurvivor creates a survivor and assings it to the settlement 1`] = `
 Object {
+  "activeSurvivorsList": Array [
+    "4e55b990-5b16-480f-81d2-06765c52ec72",
+  ],
   "departing": Object {
     "accuracy": 0,
     "courage": 0,
@@ -217,6 +223,7 @@ Object {
 
 exports[`.remove removes bonuses from settlement 1`] = `
 Object {
+  "activeSurvivorsList": Array [],
   "departing": Object {
     "accuracy": 0,
     "courage": 0,
