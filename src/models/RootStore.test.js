@@ -15,6 +15,8 @@ import resourceData from '../data/resources'
 // import fightingArtsData from '../data/fightingArts'
 // import secretFightingArtsData from '../data/secretFightingArts'
 
+const fs = require('fs')
+
 afterEach(() => {
   jest.restoreAllMocks()
 })
@@ -134,7 +136,7 @@ describe('.load', () => {
   })
 })
 
-it('all in', () => {
+it('all in', done => {
   const store = RootStore.create()
 
   let uuidMock = jest.spyOn(utils, 'uuid')
@@ -191,11 +193,31 @@ it('all in', () => {
   survivor2.addAbility({ id: 'Metal Maw' })
   survivor2.addAbility({ id: 'Way of the Rust' })
 
+  uuidMock.mockImplementation(() => '4452353f-f7df-44ab-8c13-a350c7e35a7b')
+  let survivor3 = store.selectedCampaign.settlement.createSurvivor('survivor 3')
+  survivor3.cycleStatus()
+
   expect(store.data).toMatchSnapshot()
+  done()
+
+  // fs.writeFile('save_v3.json', JSON.stringify(store.data), err => {
+  //   if (err) throw err
+  //   done()
+  // })
 })
 
 it('loads v1 save', () => {
   const store = RootStore.create()
   const data = require('./__test_data__/save_v1.json')
   store.load(data)
+  // expect(store.data).toEqual(data) // to compare upgrade
+  expect(store.data).toMatchSnapshot()
+})
+
+it('loads v3 save', () => {
+  const store = RootStore.create()
+  const data = require('./__test_data__/save_v3.json')
+  store.load(data)
+  // expect(store.data).toEqual(data) // to compare upgrade
+  expect(store.data).toMatchSnapshot()
 })
