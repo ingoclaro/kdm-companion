@@ -38,11 +38,9 @@ export default class SurvivorScreen extends React.Component {
           paddingLeft: 5,
         }}
       >
-        <ScrollView>
-          <SurvivorList navigate={this.navigate} />
-          <Divider />
-          <CreateButton navigate={this.navigate} />
-        </ScrollView>
+        <SurvivorList navigate={this.navigate} />
+        <Divider />
+        <CreateButton navigate={this.navigate} />
       </Screen>
     )
   }

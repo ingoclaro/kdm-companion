@@ -60,6 +60,9 @@ export default class SurvivorList extends React.Component {
     let gender_icon = survivor.gender === 'male' ? ico_male : ico_female
     let stripes = index % 2 === 0 ? styles.oddRow : styles.evenRow
     let rowStyle = [stripes, isActive ? styles.active : null]
+    if (index < 4 && survivor.status !== 'dead') {
+      rowStyle.push(departingStyles[index])
+    }
     return (
       <Observer>
         {() => (
@@ -168,6 +171,7 @@ export default class SurvivorList extends React.Component {
           data={survivors}
           renderItem={this.touchableRow}
           keyExtractor={this._keyExtractor}
+          scrollPercent={5}
           onMoveEnd={({ data, row, from, to }) => {
             if (from !== to) {
               this.props.reorderSurvivor(row, to)
@@ -180,6 +184,21 @@ export default class SurvivorList extends React.Component {
   }
 }
 
+const departingStyles = [
+  {
+    backgroundColor: `${colors.red900}77`,
+  },
+  {
+    backgroundColor: colors.brown800,
+  },
+  {
+    backgroundColor: colors.green800,
+  },
+  {
+    backgroundColor: colors.blue800,
+  },
+]
+
 const styles = {
   evenRow: {
     backgroundColor: colors.grey900,
@@ -191,6 +210,7 @@ const styles = {
     borderBottomWidth: 2,
     borderRightWidth: 2,
     borderColor: colors.bluegrey800,
+    opacity: 0.8,
   },
   hiddenRow: {
     flex: 1,
