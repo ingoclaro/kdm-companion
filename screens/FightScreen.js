@@ -31,7 +31,7 @@ export default class FightScreen extends React.Component {
 
   render() {
     return (
-      <Screen>
+      <Screen style={styles.screen}>
         <View styleName="horizontal v-center">
           <Text>Monster:</Text>
           <ShowdownMonsterSelector />
@@ -48,4 +48,15 @@ export default class FightScreen extends React.Component {
       </Screen>
     )
   }
+}
+
+const styles = {
+  screen: {
+    paddingTop: 5,
+    paddingLeft: 5,
+  },
+  modal: {
+    backgroundColor: colors.grey900,
+    padding: 8,
+  },
 }

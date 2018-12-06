@@ -28,44 +28,66 @@ import EditStats from '../components/survivor/EditStats'
 }))
 @observer
 export default class SurvivorShowdownScreen extends React.Component {
-  constructor(props) {
-    super(props)
-    this.showEditor = this.showEditor.bind(this)
-    this.hideEditor = this.hideEditor.bind(this)
-  }
-
-  componentDidMount() {
-    this.props.navigation.setParams({ editSurvivor: this.editSurvivor })
-    if (this.props.navigation.getParam('edit') === true) {
-      this.setState({ visible: true })
-    }
-  }
-
-  editSurvivor = () => {
-    this.showEditor()
-  }
-
   state = {
     visible: false,
   }
 
-  showEditor() {
+  showEditor = () => {
     this.setState({ visible: true })
   }
 
-  hideEditor() {
+  hideEditor = () => {
     this.setState({ visible: false })
   }
 
   render() {
-    const survivor = this.props.survivorList[
-      this.props.navigation.getParam('survivorPosition')
-    ]
+    const idx = this.props.navigation.getParam('survivorPosition')
+    const survivor =
+      this.props.survivorList.length > idx
+        ? this.props.survivorList[idx]
+        : undefined
+
+    if (!survivor) {
+      return (
+        <Screen style={styles.screen}>
+          <Title>No Survivor</Title>
+        </Screen>
+      )
+    }
     return (
       <Screen style={styles.screen}>
         <ScrollView>
-          <Title>{survivor.name}</Title>
+          <View style={{ flexDirection: 'row' }}>
+            <Title>{survivor.name}</Title>
+            {/* TODO: fix killing survivor <Button
+              style={{
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+              }}
+              onPress={() => this.showEditor()}
+            >
+              <Icon name="edit" style={{ color: colors.grey50 }} />
+            </Button> */}
+          </View>
+
           <Survivor survivorId={survivor.id} />
+
+          <Modal
+            isVisible={this.state.visible}
+            onBackdropPress={() => this.hideEditor()}
+            onBackButtonPress={() => this.hideEditor()}
+            useNativeDriver={true}
+            backdropColor={colors.black}
+            avoidKeyboard={false}
+          >
+            <View style={styles.modal}>
+              <EditStats survivorId={survivor.id} />
+              <Divider />
+              <Button onPress={() => this.hideEditor()}>
+                <Text>Close</Text>
+              </Button>
+            </View>
+          </Modal>
         </ScrollView>
       </Screen>
     )

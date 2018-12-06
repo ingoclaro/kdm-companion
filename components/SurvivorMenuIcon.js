@@ -4,7 +4,10 @@ import { observer, inject } from 'mobx-react/native'
 
 @inject(({ store }, props) => ({
   survivor:
-    store.selectedCampaign.settlement.activeSurvivorsList[props.position],
+    store.selectedCampaign.settlement.activeSurvivorsList.length >
+    props.position
+      ? store.selectedCampaign.settlement.activeSurvivorsList[props.position]
+      : {},
 }))
 @observer
 export default class SurvivorMenuIcon extends React.Component {

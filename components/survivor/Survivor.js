@@ -95,6 +95,7 @@ export default class Survivor extends React.Component {
                     style={{
                       width: 16,
                       height: 16,
+                      marginRight: 14,
                       transform: [{ rotateY: '180deg' }, { rotateZ: '180deg' }],
                     }}
                     tintColor={colors.red800}
@@ -105,6 +106,7 @@ export default class Survivor extends React.Component {
                     style={{
                       width: 16,
                       height: 16,
+                      marginRight: 14,
                       transform: [{ rotateY: '180deg' }, { rotateZ: '180deg' }],
                     }}
                     tintColor={colors.green800}
@@ -113,13 +115,13 @@ export default class Survivor extends React.Component {
               {survivor.skipNextHunt && (
                 <Image
                   source={ico_skip_hunt}
-                  style={{ width: 20, height: 16, marginLeft: 14 }}
+                  style={{ width: 20, height: 16, marginRight: 14 }}
                 />
               )}
               {survivor.status === 'dead' && (
                 <Image
                   source={ico_death}
-                  style={{ width: 14, height: 16, marginLeft: 14 }}
+                  style={{ width: 14, height: 16, marginRight: 14 }}
                 />
               )}
             </View>
