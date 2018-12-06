@@ -208,6 +208,21 @@ export default {
     keywords: ['iron'],
     type: 'strange',
   },
+  'black lichen': {
+    id: 'black lichen',
+    keywords: ['bone', 'organ', 'hide', 'consumable', 'other'],
+    type: 'strange',
+  },
+  'cocoon membrane': {
+    id: 'cocoon membrane',
+    keywords: ['organ', 'other'],
+    type: 'strange',
+  },
+  'lantern tube': {
+    id: 'lantern tube',
+    keywords: ['organ', 'scrap'],
+    type: 'strange',
+  },
   'legendary horns': {
     id: 'legendary horns',
     keywords: ['bone', 'scrap'],
@@ -322,6 +337,30 @@ export default {
     id: 'dense bone',
     keywords: ['bone'],
     monster: 'gorm',
+  },
+  'pure bulb': {
+    id: 'pure bulb',
+    keywords: ['organ'],
+    type: 'strange',
+    expansion: 'gorm',
+  },
+  'stomach lining': {
+    id: 'stomach lining',
+    keywords: ['organ'],
+    type: 'strange',
+    expansion: 'gorm',
+  },
+  'active thyroid': {
+    id: 'active thyroid',
+    keywords: ['organ', 'consumable'],
+    type: 'strange',
+    expansion: 'gorm',
+  },
+  gormite: {
+    id: 'gormite',
+    keywords: ['scrap', 'iron'],
+    type: 'strange',
+    expansion: 'gorm',
   },
   'drifting dream fruit': {
     id: 'drifting dream fruit',

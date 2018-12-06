@@ -2579,6 +2579,11 @@ Object {
           "quantity": 1,
           "resource": "acid gland",
         },
+        "active thyroid": Object {
+          "id": "active thyroid",
+          "quantity": 1,
+          "resource": "active thyroid",
+        },
         "aracnid heart": Object {
           "id": "aracnid heart",
           "quantity": 1,
@@ -2598,6 +2603,11 @@ Object {
           "id": "black lens",
           "quantity": 1,
           "resource": "black lens",
+        },
+        "black lichen": Object {
+          "id": "black lichen",
+          "quantity": 1,
+          "resource": "black lichen",
         },
         "black skull": Object {
           "id": "black skull",
@@ -2648,6 +2658,11 @@ Object {
           "id": "chitin",
           "quantity": 1,
           "resource": "chitin",
+        },
+        "cocoon membrane": Object {
+          "id": "cocoon membrane",
+          "quantity": 1,
+          "resource": "cocoon membrane",
         },
         "compound eye": Object {
           "id": "compound eye",
@@ -2754,6 +2769,11 @@ Object {
           "quantity": 1,
           "resource": "gorm brain",
         },
+        "gormite": Object {
+          "id": "gormite",
+          "quantity": 1,
+          "resource": "gormite",
+        },
         "great cat bone": Object {
           "id": "great cat bone",
           "quantity": 1,
@@ -2843,6 +2863,11 @@ Object {
           "id": "lantern bud",
           "quantity": 1,
           "resource": "lantern bud",
+        },
+        "lantern tube": Object {
+          "id": "lantern tube",
+          "quantity": 1,
+          "resource": "lantern tube",
         },
         "large appendage": Object {
           "id": "large appendage",
@@ -2998,6 +3023,11 @@ Object {
           "id": "prismatic gills",
           "quantity": 1,
           "resource": "prismatic gills",
+        },
+        "pure bulb": Object {
+          "id": "pure bulb",
+          "quantity": 1,
+          "resource": "pure bulb",
         },
         "pustules": Object {
           "id": "pustules",
@@ -3163,6 +3193,11 @@ Object {
           "id": "stomach",
           "quantity": 1,
           "resource": "stomach",
+        },
+        "stomach lining": Object {
+          "id": "stomach lining",
+          "quantity": 1,
+          "resource": "stomach lining",
         },
         "stout heart": Object {
           "id": "stout heart",
