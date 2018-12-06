@@ -1,5 +1,14 @@
 import React from 'react'
-import { Screen, View, Text, Image, Button, Row, Divider } from '@shoutem/ui'
+import {
+  Screen,
+  View,
+  Text,
+  Icon,
+  Image,
+  Button,
+  Row,
+  Divider,
+} from '@shoutem/ui'
 import Modal from 'react-native-modal'
 import { observer, inject } from 'mobx-react/native'
 import colors from '../src/colors'
@@ -16,10 +25,10 @@ import RichText from '../components/common/RichText'
 }))
 @observer
 export default class FightScreen extends React.Component {
-  //TODO: move Brain Trauma and Severe Injury tables to this screen (buttons that show the table)
   //TODO: add setup information (in screen, bellow the above buttons)
   //TODO: should add losing/winning outcome?
   //TODO: for more complex setup (eg: watcher), reference page number.
+
   render() {
     return (
       <Screen>
@@ -30,7 +39,10 @@ export default class FightScreen extends React.Component {
         {this.props.monsterLevel.showdownExtra && (
           <RichText>{this.props.monsterLevel.showdownExtra}</RichText>
         )}
-        <MonsterSummary />
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Text>Stats: </Text>
+          <MonsterSummary />
+        </View>
 
         <Divider />
       </Screen>
