@@ -19,6 +19,7 @@ Object {
     "society": null,
   },
   "settlement": Object {
+    "activeSurvivorsList": Array [],
     "departing": Object {
       "accuracy": 0,
       "courage": 0,
@@ -58,6 +59,7 @@ Object {
   },
   "showdown": null,
   "stored_resources": Object {},
+  "type": "potl",
 }
 `;
 
@@ -74,6 +76,7 @@ Object {
       "name": "Radiating Orb",
       "providesBonuses": Array [],
       "settlement": Object {
+        "activeSurvivorsList": Array [],
         "departing": Object {
           "accuracy": 0,
           "courage": 0,
@@ -300,6 +303,7 @@ Object {
     "society": null,
   },
   "settlement": Object {
+    "activeSurvivorsList": Array [],
     "departing": Object {
       "accuracy": 0,
       "courage": 0,
@@ -350,6 +354,7 @@ Object {
       "resource": "pituitary gland",
     },
   },
+  "type": "potl",
 }
 `;
 
@@ -433,6 +438,7 @@ Object {
     "society": null,
   },
   "settlement": Object {
+    "activeSurvivorsList": Array [],
     "departing": Object {
       "accuracy": 0,
       "courage": 0,
@@ -472,6 +478,7 @@ Object {
   },
   "showdown": null,
   "stored_resources": Object {},
+  "type": "potl",
 }
 `;
 
@@ -496,6 +503,7 @@ Object {
     "society": null,
   },
   "settlement": Object {
+    "activeSurvivorsList": Array [],
     "departing": Object {
       "accuracy": 0,
       "courage": 0,
@@ -535,6 +543,7 @@ Object {
   },
   "showdown": null,
   "stored_resources": Object {},
+  "type": "potl",
 }
 `;
 
@@ -557,6 +566,7 @@ Object {
     "society": null,
   },
   "settlement": Object {
+    "activeSurvivorsList": Array [],
     "departing": Object {
       "accuracy": 0,
       "courage": 0,
@@ -596,6 +606,7 @@ Object {
   },
   "showdown": null,
   "stored_resources": Object {},
+  "type": "potl",
 }
 `;
 
@@ -618,6 +629,7 @@ Object {
     "society": null,
   },
   "settlement": Object {
+    "activeSurvivorsList": Array [],
     "departing": Object {
       "accuracy": 0,
       "courage": 0,
@@ -657,6 +669,7 @@ Object {
   },
   "showdown": null,
   "stored_resources": Object {},
+  "type": "potl",
 }
 `;
 
@@ -701,6 +714,7 @@ Object {
     "society": null,
   },
   "settlement": Object {
+    "activeSurvivorsList": Array [],
     "departing": Object {
       "accuracy": 0,
       "courage": 0,
@@ -740,6 +754,7 @@ Object {
   },
   "showdown": null,
   "stored_resources": Object {},
+  "type": "potl",
 }
 `;
 
@@ -764,6 +779,7 @@ Object {
     "society": null,
   },
   "settlement": Object {
+    "activeSurvivorsList": Array [],
     "departing": Object {
       "accuracy": 0,
       "courage": 0,
@@ -803,6 +819,7 @@ Object {
   },
   "showdown": null,
   "stored_resources": Object {},
+  "type": "potl",
 }
 `;
 
@@ -825,6 +842,7 @@ Object {
     "society": null,
   },
   "settlement": Object {
+    "activeSurvivorsList": Array [],
     "departing": Object {
       "accuracy": 0,
       "courage": 0,
@@ -864,6 +882,7 @@ Object {
   },
   "showdown": null,
   "stored_resources": Object {},
+  "type": "potl",
 }
 `;
 
@@ -886,6 +905,7 @@ Object {
     "society": null,
   },
   "settlement": Object {
+    "activeSurvivorsList": Array [],
     "departing": Object {
       "accuracy": 0,
       "courage": 0,
@@ -925,6 +945,7 @@ Object {
   },
   "showdown": null,
   "stored_resources": Object {},
+  "type": "potl",
 }
 `;
 
@@ -955,6 +976,7 @@ Object {
     "society": null,
   },
   "settlement": Object {
+    "activeSurvivorsList": Array [],
     "departing": Object {
       "accuracy": 0,
       "courage": 0,
@@ -994,6 +1016,7 @@ Object {
   },
   "showdown": null,
   "stored_resources": Object {},
+  "type": "potl",
 }
 `;
 
@@ -1016,6 +1039,7 @@ Object {
     "society": null,
   },
   "settlement": Object {
+    "activeSurvivorsList": Array [],
     "departing": Object {
       "accuracy": 0,
       "courage": 0,
@@ -1055,6 +1079,7 @@ Object {
   },
   "showdown": null,
   "stored_resources": Object {},
+  "type": "potl",
 }
 `;
 

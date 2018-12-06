@@ -4,9 +4,6 @@ This tracks pending tasks and ideas for the app
 
 - [ ] Needed to fork @shoutem/ui to set the StatusBar color. Once this [pull request](https://github.com/shoutem/ui/pull/386) is merged we can switch back to upstream.
 - [ ] react-native-fit-image: waiting for [open PR](https://github.com/huiseoul/react-native-fit-image/pull/81) to be merged, for now patching package locally.
-- [ ] sentry-expo: move to upstream once the [open PR](https://github.com/expo/sentry-expo/pull/33) is merged.
-
-- Known bug: add scroll to AbilityList, if you have a LOT of abilities/impairments the modal clips.
 
 v1.5:
 
@@ -57,7 +54,7 @@ v1.8:
 
 v2.0:
 
-- [ ] Add support for other campaigns (people of the xxx)
+- [x] Add support for other campaigns (people of the xxx)
 
 v3.0:
 

@@ -4,8 +4,6 @@ import {
   Divider,
   DropDownMenu,
   Icon,
-  Image,
-  Row,
   Text,
   TextInput,
   Title,
@@ -13,12 +11,11 @@ import {
   View,
 } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
-import Modal from 'react-native-modal'
 import { Segment } from 'expo'
 import colors from '../src/colors'
 
 @inject(({ store }) => ({
-  campaigns: store.campaigns.peek(),
+  campaigns: store.campaigns,
   selectedCampaign: store.selectedCampaign,
   selectCampaign: store.selectCampaign,
   campaignName: store.selectedCampaign.name, // map it so that it redraws when renaming.
@@ -30,17 +27,18 @@ export class SettlementSelector extends React.Component {
     super(props)
   }
 
-  state = {
-    showSubscriptionWarning: false,
-  }
-
   disabledDropdown() {
     return (
       <View>
         <TouchableOpacity onPress={this.props.subscribeButton}>
           <View styleName="horizontal v-center h-center">
             <Text>{this.props.selectedCampaign.name}</Text>
-            <Icon name="drop-down" style={{ color: colors.grey200 }} />
+            <Icon
+              name="drop-down"
+              style={{
+                color: colors.grey200,
+              }}
+            />
           </View>
         </TouchableOpacity>
       </View>

@@ -49,6 +49,9 @@ const styles = {
       '.title': {
         fontSize: 20,
       },
+      '.small': {
+        fontSize: 18,
+      },
     },
   },
 }

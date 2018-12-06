@@ -15,18 +15,15 @@ import { observer, inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 
 import { ageMilestones } from './AgeMilestone'
-import { courageMilestones } from './CourageMilestone'
 import Abilities from './Abilities'
-import AbilityList from './AbilityList'
 import AttributeLarge from './AttributeLarge'
 import Disorders from './Disorders'
 import EditableProperty from './EditableProperty'
-import EditableTextProperty from './EditableTextProperty'
 import FightingArts from './FightingArts'
-import GenderButton from './GenderButton'
 import Note from '../common/Note'
 import WeaponProficiency from './WeaponProficiency'
 import Tooltip from '../common/Tooltip'
+import DragonTraits from './DragonTraits'
 import colors from '../../src/colors'
 
 const ico_accuracy = require('../../images/icon_accuracy-24.png')
@@ -40,23 +37,22 @@ const ico_movement = require('../../images/icon_movement-24.png')
 const ico_strength = require('../../images/icon_strength-24.png')
 const ico_death = require('../../images/icon_death.png')
 
+const ico_skip_hunt = require('../../images/icon_skip_hunt.png')
+
 // This is the individual survivor screen
 @inject(({ store }, props) => ({
   survivor: store.selectedCampaign.settlement.survivors.get(props.survivorId),
   survivalLimit: store.selectedCampaign.settlement.survivalLimit,
   showTooltip: store.selectedCampaign.settlement.survivors.size === 1,
   hasReroll: store.selectedCampaign.settlement.hasSOTF,
+  showConstellation: store.selectedCampaign.type.id === 'pots',
+  courageMilestones: store.selectedCampaign.courageMilestones,
+  understandingMilestones: store.selectedCampaign.understandingMilestones,
 }))
 @observer
 export default class Survivor extends React.Component {
   static propTypes = {
     survivorId: PropTypes.string.isRequired, // ID of the survivor to show
-  }
-
-  //TODO: move this to it's own class after resolving for CourageMilestone
-  understandingMilestones = {
-    3: { description: '![book](book) Insight (p.131)' },
-    9: { description: '![book](book) White Secret (p.181)' },
   }
 
   weaponProficiencyMilestones = {
@@ -87,24 +83,46 @@ export default class Survivor extends React.Component {
                 source={gender_icon}
                 style={{ width: 14, height: 14, marginLeft: 5 }}
               />
-              {survivor.status === 'dead' ? (
-                <Image
-                  source={ico_death}
-                  style={{ width: 14, height: 16, marginLeft: 10 }}
-                />
-              ) : null}
             </View>
           </View>
 
           <View style={{ flex: 1 }}>
-            {this.props.hasReroll &&
-              !survivor.rerollUsed && <Text>Reroll available</Text>}
-            {this.props.hasReroll &&
-              survivor.rerollUsed && (
-                <Text style={{ textDecorationLine: 'line-through' }}>
-                  Reroll used
-                </Text>
+            <View styleName="horizontal v-center">
+              {this.props.hasReroll &&
+                (survivor.rerollUsed ? (
+                  <Image
+                    source={ico_d10}
+                    style={{
+                      width: 16,
+                      height: 16,
+                      transform: [{ rotateY: '180deg' }, { rotateZ: '180deg' }],
+                    }}
+                    tintColor={colors.red800}
+                  />
+                ) : (
+                  <Image
+                    source={ico_d10}
+                    style={{
+                      width: 16,
+                      height: 16,
+                      transform: [{ rotateY: '180deg' }, { rotateZ: '180deg' }],
+                    }}
+                    tintColor={colors.green800}
+                  />
+                ))}
+              {survivor.skipNextHunt && (
+                <Image
+                  source={ico_skip_hunt}
+                  style={{ width: 20, height: 16, marginLeft: 14 }}
+                />
               )}
+              {survivor.status === 'dead' && (
+                <Image
+                  source={ico_death}
+                  style={{ width: 14, height: 16, marginLeft: 14 }}
+                />
+              )}
+            </View>
           </View>
         </View>
 
@@ -198,7 +216,7 @@ export default class Survivor extends React.Component {
             showLabel={true}
             quantity={survivor.courage}
             setQuantity={qty => survivor.setAttribute('courage', qty)}
-            milestones={courageMilestones}
+            milestones={this.props.courageMilestones}
           />
           <EditableProperty
             label="Understanding"
@@ -207,7 +225,7 @@ export default class Survivor extends React.Component {
             showLabel={true}
             quantity={survivor.understanding}
             setQuantity={qty => survivor.setAttribute('understanding', qty)}
-            milestones={this.understandingMilestones}
+            milestones={this.props.understandingMilestones}
           />
         </View>
 
@@ -227,6 +245,13 @@ export default class Survivor extends React.Component {
         <WeaponProficiency survivor={survivor} />
 
         <Divider />
+
+        {this.props.showConstellation && (
+          <View>
+            <DragonTraits survivor={this.props.survivor} />
+            <Divider />
+          </View>
+        )}
 
         <FightingArts
           fightingArts={survivor.fightingArts}
@@ -267,5 +292,12 @@ export default class Survivor extends React.Component {
 const styles = {
   tooltipText: {
     fontSize: 9,
+  },
+  rerollAvailable: {
+    color: colors.green800,
+  },
+  rerollUsed: {
+    color: colors.grey700,
+    textDecorationLine: 'line-through',
   },
 }

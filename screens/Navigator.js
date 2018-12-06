@@ -4,6 +4,7 @@ import {
   createBottomTabNavigator,
   createMaterialTopTabNavigator,
   createStackNavigator,
+  createAppContainer,
 } from 'react-navigation'
 import TabBar from './TabBar'
 import { Image } from '@shoutem/ui'
@@ -19,6 +20,7 @@ import SurvivorScreen from './SurvivorScreen'
 // Campaign
 import SettlementsScreen from './SettlementsScreen'
 import ExpansionsScreen from './ExpansionsScreen'
+import CampaignScreen from './CampaignScreen'
 
 // Settlement
 import SummaryScreen from './SummaryScreen'
@@ -34,9 +36,6 @@ import HuntScreen from './HuntScreen'
 import FightScreen from './FightScreen'
 import BrainTraumaScreen from './BrainTraumaScreen'
 import SevereInjuryScreen from './SevereInjuryScreen'
-
-// import TerrainScreen from './TerrainScreen'
-// import ResultScreen from './ResultScreen'
 
 import SubscriptionScreen from './SubscriptionScreen'
 
@@ -78,12 +77,6 @@ const settlementStyles = {
 
 const ShowdownNavigator = createMaterialTopTabNavigator(
   {
-    // Setup: {
-    //   screen: BlankScreen, //TerrainScreen,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Setup',
-    //   },
-    // },
     Fight: {
       screen: FightScreen,
       navigationOptions: {
@@ -102,12 +95,6 @@ const ShowdownNavigator = createMaterialTopTabNavigator(
         tabBarLabel: 'Severe Injury',
       },
     },
-    // Result: {
-    //   screen: BlankScreen, //ResultScreen,
-    //   navigationOptions: {
-    //     tabBarLabel: 'Result',
-    //   },
-    // },
   },
   {
     tabBarPosition: 'top',
@@ -166,13 +153,19 @@ const CampaignNavigator = createMaterialTopTabNavigator(
     Settlements: {
       screen: SettlementsScreen,
       navigationOptions: {
-        title: 'Settlement Admin',
+        title: 'Admin',
       },
     },
     Expansions: {
       screen: ExpansionsScreen,
       navigationOptions: {
         title: 'Expansions',
+      },
+    },
+    Campaign: {
+      screen: CampaignScreen,
+      navigationOptions: {
+        title: 'Campaign',
       },
     },
   },
@@ -335,9 +328,11 @@ function getCurrentRouteName(navigationState) {
   return route.routeName
 }
 
+const NavigatorApp = createAppContainer(MainNavigatorHeader)
+
 // export default MainNavigatorHeader
 export default () => (
-  <MainNavigatorHeader
+  <NavigatorApp
     onNavigationStateChange={(prevState, currentState) => {
       const currentScreen = getCurrentRouteName(currentState)
       const prevScreen = getCurrentRouteName(prevState)

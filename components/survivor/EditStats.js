@@ -14,9 +14,10 @@ import {
 } from '@shoutem/ui'
 import { Keyboard } from 'react-native'
 import { observer, inject } from 'mobx-react/native'
-import SimpleStepper from 'react-native-simple-stepper'
+import { SimpleStepper } from 'react-native-simple-stepper'
 import CheckboxListItem from '../common/CheckboxListItem'
 import GenderButton from './GenderButton'
+import Tooltip from '../common/Tooltip'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 import R from 'ramda'
@@ -109,29 +110,13 @@ export default class EditStats extends React.Component {
           </View>
 
           <View style={{ flex: 1, alignItems: 'flex-end' }}>
-            {this.props.hasReroll && (
-              <Button
-                styleName="clear"
-                style={{ padding: 2, borderBottomWidth: 1 }}
-                onPress={() => this.props.survivor.toggleRerollUsed()}
-              >
-                {this.props.survivor.rerollUsed ? (
-                  <Text
-                    style={{
-                      textDecorationLine: 'line-through',
-                      color: colors.grey200,
-                      margin: 0,
-                    }}
-                  >
-                    Reroll used
-                  </Text>
-                ) : (
-                  <Text style={{ color: colors.grey200, margin: 0 }}>
-                    Reroll available
-                  </Text>
-                )}
-              </Button>
-            )}
+            <CheckboxListItem
+              styleName="small"
+              onPressItem={() => this.props.survivor.toggleSkipNextHunt()}
+              title="Skip next Hunt"
+              id="skipNextHunt"
+              selected={this.props.survivor.skipNextHunt}
+            />
           </View>
         </View>
 
@@ -146,6 +131,32 @@ export default class EditStats extends React.Component {
               {this.props.survivor.status}
             </Text>
           </Button>
+
+          <Tooltip
+            visible={
+              this.props.hasReroll &&
+              !this.props.survivor.rerollUsed &&
+              this.props.survivor.status === 'dead'
+            }
+          >
+            <Text style={styles.tooltipText}>Use the reroll?</Text>
+          </Tooltip>
+
+          <View style={{ flex: 1, alignItems: 'flex-end' }}>
+            {this.props.hasReroll && (
+              <Button
+                styleName="clear"
+                style={{ padding: 2, borderBottomWidth: 1 }}
+                onPress={() => this.props.survivor.toggleRerollUsed()}
+              >
+                {this.props.survivor.rerollUsed ? (
+                  <Text style={styles.rerollUsed}>Reroll used</Text>
+                ) : (
+                  <Text style={styles.rerollAvailable}>Reroll available</Text>
+                )}
+              </Button>
+            )}
+          </View>
         </View>
 
         {this.state.showBottomPart && (
@@ -157,6 +168,10 @@ export default class EditStats extends React.Component {
               <SimpleStepper
                 tintColor="white"
                 initialValue={this.props.survivor.movement}
+                value={this.props.survivor.movement}
+                imageHeight={24}
+                imageWidth={24}
+                padding={4}
                 minimumValue={1}
                 maximumValue={10}
                 valueChanged={qty =>
@@ -170,6 +185,10 @@ export default class EditStats extends React.Component {
               <SimpleStepper
                 tintColor="white"
                 initialValue={this.props.survivor.accuracy}
+                value={this.props.survivor.accuracy}
+                imageHeight={24}
+                imageWidth={24}
+                padding={4}
                 minimumValue={-10}
                 maximumValue={10}
                 valueChanged={qty =>
@@ -183,6 +202,10 @@ export default class EditStats extends React.Component {
               <SimpleStepper
                 tintColor="white"
                 initialValue={this.props.survivor.strength}
+                value={this.props.survivor.strength}
+                imageHeight={24}
+                imageWidth={24}
+                padding={4}
                 minimumValue={-10}
                 maximumValue={10}
                 valueChanged={qty =>
@@ -196,6 +219,10 @@ export default class EditStats extends React.Component {
               <SimpleStepper
                 tintColor="white"
                 initialValue={this.props.survivor.evasion}
+                value={this.props.survivor.evasion}
+                imageHeight={24}
+                imageWidth={24}
+                padding={4}
                 minimumValue={-10}
                 maximumValue={10}
                 valueChanged={qty =>
@@ -209,6 +236,10 @@ export default class EditStats extends React.Component {
               <SimpleStepper
                 tintColor="white"
                 initialValue={this.props.survivor.luck}
+                value={this.props.survivor.luck}
+                imageHeight={24}
+                imageWidth={24}
+                padding={4}
                 minimumValue={-10}
                 maximumValue={10}
                 valueChanged={qty =>
@@ -222,6 +253,10 @@ export default class EditStats extends React.Component {
               <SimpleStepper
                 tintColor="white"
                 initialValue={this.props.survivor.speed}
+                value={this.props.survivor.speed}
+                imageHeight={24}
+                imageWidth={24}
+                padding={4}
                 minimumValue={-10}
                 maximumValue={10}
                 valueChanged={qty =>
@@ -308,5 +343,17 @@ const styles = {
   },
   genderText: {
     paddingRight: 5,
+  },
+  rerollAvailable: {
+    color: colors.green800,
+    margin: 0,
+  },
+  rerollUsed: {
+    textDecorationLine: 'line-through',
+    color: colors.grey400,
+    margin: 0,
+  },
+  tooltipText: {
+    fontSize: 9,
   },
 }

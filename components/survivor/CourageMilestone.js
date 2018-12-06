@@ -126,8 +126,3 @@ export default class CourageMilestone extends React.Component {
     )
   }
 }
-
-export const courageMilestones = {
-  3: { description: '![book](book) Bold (p.113)' }, //TODO: add details: <CourageMilestone />
-  9: { description: '![book](book) See the Truth (p.167)' },
-}

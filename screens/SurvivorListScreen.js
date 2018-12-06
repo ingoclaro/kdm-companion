@@ -17,7 +17,7 @@ import { ScrollView } from 'react-native'
 import SurvivorList from '../components/survivor/SurvivorList'
 import CreateButton from '../components/survivor/CreateButton'
 
-export default class SurvivorScreen extends React.Component {
+export default class SurvivorListScreen extends React.Component {
   constructor(props) {
     super(props)
     this.navigate = this.navigate.bind(this)
@@ -36,13 +36,12 @@ export default class SurvivorScreen extends React.Component {
         style={{
           paddingTop: 5,
           paddingLeft: 5,
+          justifyContent: 'space-between',
         }}
       >
-        <ScrollView>
-          <SurvivorList navigate={this.navigate} />
-          <Divider />
-          <CreateButton navigate={this.navigate} />
-        </ScrollView>
+        <SurvivorList navigate={this.navigate} />
+
+        <CreateButton navigate={this.navigate} />
       </Screen>
     )
   }

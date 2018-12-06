@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Subtitle, Title } from '@shoutem/ui'
-import SimpleStepper from 'react-native-simple-stepper'
+import { SimpleStepper } from 'react-native-simple-stepper'
 import PropTypes from 'prop-types'
 import colors from '../src/colors'
 
@@ -33,6 +33,10 @@ export default class StatItem extends React.Component {
         <SimpleStepper
           tintColor="white"
           initialValue={this.state.value}
+          value={this.state.value}
+          imageHeight={24}
+          imageWidth={24}
+          padding={4}
           minimumValue={-10}
           valueChanged={value => this.setState({ value })}
           style={styles.stepper}

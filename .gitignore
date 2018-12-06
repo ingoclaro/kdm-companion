@@ -1,8 +1,11 @@
-node_modules/
-.expo/
+node_modules/**/*
+.expo/*
 npm-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision
 .env*
 /env.js
-/kdm-companion.jks
 /coverage
 /.jest

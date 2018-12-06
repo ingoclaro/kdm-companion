@@ -272,6 +272,48 @@ describe('with RootStore', () => {
         { id: 'test2', expansion: { id: 'dk' } },
       ])
     })
+
+    it('filters campaigns', () => {
+      store.selectedCampaign.setCampaignType('pots')
+
+      let items = observable.map(
+        new Map([
+          ['test0', { id: 'test0' }],
+          ['test1', { id: 'test1', expansion: { id: 'core' } }],
+          ['test2', { id: 'test2', expansion: { id: 'dk' } }],
+          ['test3', { id: 'test3', expansion: { id: 'gorm' } }],
+          [
+            'test4',
+            {
+              id: 'test4',
+              expansion: { id: 'core' },
+              campaign: { id: 'potl' },
+            },
+          ],
+          [
+            'test5',
+            { id: 'test5', expansion: { id: 'dk' }, campaign: { id: 'pots' } },
+          ],
+        ])
+      )
+
+      let filtered = store.selectedCampaign.selectedExpansionFilter(items)
+      expect(filtered).toEqual([
+        { id: 'test0' },
+        { id: 'test1', expansion: { id: 'core' } },
+        { id: 'test2', expansion: { id: 'dk' } },
+        { id: 'test5', expansion: { id: 'dk' }, campaign: { id: 'pots' } },
+      ])
+
+      store.selectedCampaign.setCampaignType('potl')
+      filtered = store.selectedCampaign.selectedExpansionFilter(items)
+      expect(filtered).toEqual([
+        { id: 'test0' },
+        { id: 'test1', expansion: { id: 'core' } },
+        { id: 'test2', expansion: { id: 'dk' } },
+        { id: 'test4', expansion: { id: 'core' }, campaign: { id: 'potl' } },
+      ])
+    })
   })
 
   describe('.expansionContent', () => {

@@ -10,9 +10,6 @@ import colors from '../src/colors'
 @observer
 class Hunt extends React.Component {
   board() {
-    if (!this.props.monsterLevel) {
-      return null
-    }
     return this.props.monsterLevel.huntboard.split('').map((letter, idx) => {
       let next =
         idx < this.props.monsterLevel.huntboard.length - 1 ? (
@@ -28,7 +25,7 @@ class Hunt extends React.Component {
   }
 
   extra() {
-    if (this.props.monsterLevel && this.props.monsterLevel.huntExtra) {
+    if (this.props.monsterLevel.huntExtra) {
       return (
         <View>
           <RichText>{this.props.monsterLevel.huntExtra}</RichText>
@@ -39,6 +36,9 @@ class Hunt extends React.Component {
   }
 
   render() {
+    if (!this.props.monsterLevel || !this.props.monsterLevel.huntboard) {
+      return null
+    }
     return (
       <View>
         {this.extra()}

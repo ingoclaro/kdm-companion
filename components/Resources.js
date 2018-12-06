@@ -11,7 +11,7 @@ import {
   Icon,
 } from '@shoutem/ui'
 import Accordion from './common/Accordion'
-import SimpleStepper from 'react-native-simple-stepper'
+import { SimpleStepper } from 'react-native-simple-stepper'
 import { observer, inject } from 'mobx-react/native'
 import { values } from 'mobx'
 import PropTypes from 'prop-types'
@@ -24,87 +24,88 @@ function resources_structure(global_resources, settlement_resources, filter) {
     basic: {
       id: 'basic',
       title: 'Basic',
-      expansion: 'core',
+      expansion: { id: 'core' },
       count: 0,
       data: [],
     },
     strange: {
       id: 'strange',
       title: 'Strange',
-      expansion: 'core',
+      expansion: { id: 'core' },
       count: 0,
       data: [],
     },
     vermin: {
       id: 'vermin',
       title: 'Vermin',
-      expansion: 'core',
+      expansion: { id: 'core' },
       count: 0,
       data: [],
     },
     white_lion: {
       id: 'white_lion',
       title: 'White Lion',
-      expansion: 'core',
+      expansion: { id: 'core' },
       count: 0,
       data: [],
     },
     screaming_antelope: {
       id: 'screaming_antelope',
       title: 'Screaming Antelope',
-      expansion: 'core',
+      expansion: { id: 'core' },
       count: 0,
       data: [],
     },
     phoenix: {
       id: 'phoenix',
       title: 'Phoenix',
-      expansion: 'core',
+      expansion: { id: 'core' },
       count: 0,
       data: [],
     },
     gorm: {
       id: 'gorm',
       title: 'Gorm',
-      expansion: 'gorm',
+      expansion: { id: 'gorm' },
       count: 0,
       data: [],
     },
     dbk: {
       id: 'dbk',
       title: 'Dung Beetle Knight',
-      expansion: 'dbk',
+      expansion: { id: 'dbk' },
       count: 0,
       data: [],
     },
     fk: {
       id: 'fk',
       title: 'Flower Knight',
-      expansion: 'fk',
+      expansion: { id: 'fk' },
       count: 0,
       data: [],
     },
     spidicules: {
       id: 'spidicules',
       title: 'Spidicules',
-      expansion: 'spidicules',
+      expansion: { id: 'spidicules' },
       count: 0,
       data: [],
     },
     sunstalker: {
       id: 'sunstalker',
       title: 'Sunstalker',
-      expansion: 'sunstalker',
+      expansion: { id: 'sunstalker' },
       count: 0,
       data: [],
     },
     dk: {
       id: 'dk',
       title: 'Dragon King',
-      expansion: 'dk',
+      expansion: { id: 'dk' },
       count: 0,
       data: [],
     },
+    //TODO: check if all monsters that have resources are here
   }
 
   const data = R.reduce(
@@ -201,6 +202,10 @@ export default class Resources extends React.Component {
         <SimpleStepper
           tintColor="white"
           initialValue={quantity}
+          value={quantity}
+          imageHeight={24}
+          imageWidth={24}
+          padding={4}
           valueChanged={value => {
             this.props.setResourceCount(data.item, value)
           }}
