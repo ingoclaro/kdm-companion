@@ -601,6 +601,12 @@ export default {
     type: 'strange',
     expansion: 'sunstalker',
   },
+  bugfish: {
+    id: 'bugfish',
+    keywords: ['fish', 'organ'],
+    type: 'strange',
+    expansion: 'sunstalker',
+  },
   hagfish: {
     id: 'hagfish',
     keywords: ['fish', 'bone', 'hide'],

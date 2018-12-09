@@ -2634,6 +2634,11 @@ Object {
           "quantity": 1,
           "resource": "broken lantern",
         },
+        "bugfish": Object {
+          "id": "bugfish",
+          "quantity": 1,
+          "resource": "bugfish",
+        },
         "cabled vein": Object {
           "id": "cabled vein",
           "quantity": 1,

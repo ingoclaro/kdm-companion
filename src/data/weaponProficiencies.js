@@ -62,6 +62,14 @@ export default {
     masterBonus:
       'If you are a Katar Master, gain a +1 evasion token on a **perfect hit** with a katar. When you are knocked down, remove all +1 evasion tokens.',
   },
+  katana: {
+    id: 'katana',
+    name: 'Katana',
+    expansion: 'sunstalker',
+    specialistBonus:
+      'You may not select this as your weapon type. If you are **blind** and have 4+ levels of Katana proficiency, gain the following: On your first **Perfect Hit** each attack with a katana, do not draw a hit location. The monster suffers 1 wound.',
+    masterBonus: '',
+  },
   scythe: {
     id: 'scythe',
     name: 'Scythe',
