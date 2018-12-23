@@ -13,7 +13,7 @@ import { CampaignType } from './CampaignType'
 
 import R from 'ramda'
 
-import { expansionFilter } from '../utils'
+import { expansionFilter, uuid } from '../utils'
 
 const StoredResource = types.model('StoredResource', {
   id: types.identifier,
@@ -28,7 +28,7 @@ const SelectedMonsterLevel = types.model('SelectedMonsterLevel', {
 
 export const Campaign = types
   .model('Campaign', {
-    id: types.identifier,
+    id: types.optional(types.identifier, () => uuid()),
     settlement: types.optional(Settlement, newSettlementData),
     locations: types.map(types.reference(SettlementLocation)),
     innovations: types.map(types.reference(Innovation)),
@@ -224,6 +224,9 @@ export const Campaign = types
           }
           break
       }
+    },
+    updateName(name) {
+      self.settlement.updateName(name)
     },
   }))
   .views(self => ({

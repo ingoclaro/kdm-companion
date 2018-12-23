@@ -2,6 +2,7 @@ import { getSnapshot } from 'mobx-state-tree'
 import { observable } from 'mobx'
 import { Campaign } from './Campaign'
 import RootStore from './RootStore'
+import * as utils from '../utils'
 
 afterEach(() => {
   jest.restoreAllMocks()
@@ -9,8 +10,14 @@ afterEach(() => {
 
 describe('.create', () => {
   it('creates a barebones campaign', () => {
-    let campaign = Campaign.create({ id: 'new' })
+    const uuid = '960aa7ae-598a-49eb-888b-c6baa0006751'
+    let uuidMock = jest.spyOn(utils, 'uuid')
+    uuidMock.mockImplementation(() => uuid)
 
+    let campaign = Campaign.create()
+
+    expect(campaign).toBeDefined()
+    expect(campaign.id).toBe(uuid)
     expect(getSnapshot(campaign)).toMatchSnapshot()
   })
 })
@@ -18,6 +25,9 @@ describe('.create', () => {
 describe('with RootStore', () => {
   let store
   beforeEach(() => {
+    const uuid = '960aa7ae-598a-49eb-888b-c6baa0006751'
+    let uuidMock = jest.spyOn(utils, 'uuid')
+    uuidMock.mockImplementation(() => uuid)
     store = RootStore.create()
   })
 

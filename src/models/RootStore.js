@@ -13,8 +13,8 @@ import { Ability } from './Ability'
 import { WeaponProficiency } from './WeaponProficiency'
 import { Subscription } from './Subscription'
 import { CampaignType } from './CampaignType'
-import { uuid } from '../utils'
 import R from 'ramda'
+import { uuid } from '../utils'
 
 import locationsData from '../data/settlement_locations'
 import innovationsData from '../data/innovations'
@@ -53,21 +53,23 @@ export default types
     ),
     // stuff stored to disc after this
     version: 1,
-    campaigns: types.optional(types.array(Campaign), [
-      {
-        id: 'new',
-      },
-    ]),
-    selectedCampaign: types.optional(types.reference(Campaign), 'new'),
+    campaigns: types.optional(types.array(Campaign), [{}]),
+    selectedCampaign: types.maybe(types.reference(Campaign)),
     subscription: types.optional(Subscription, {}),
   })
   .actions(self => ({
+    afterCreate() {
+      // auto select the default campaign
+      if (!self.selectedCampaign) {
+        self.selectCampaign(self.campaigns[0].id)
+      }
+    },
     createCampaign(name) {
-      let id = uuid()
-      let campaign = Campaign.create({ id })
-      campaign.settlement.updateName(name)
+      let campaign = Campaign.create()
+      campaign.updateName(name)
       self.campaigns.push(campaign)
-      self.selectCampaign(id)
+      self.selectCampaign(campaign.id)
+      return campaign
     },
     selectCampaign(id) {
       self.selectedCampaign = id
@@ -76,9 +78,9 @@ export default types
       self.campaigns = R.reject(c => c.id === id, self.campaigns)
       if (self.campaigns.length === 0) {
         self.createCampaign('New Settlement')
-      } else {
-        self.selectedCampaign = self.campaigns[0]
       }
+
+      self.selectCampaign(self.campaigns[0].id)
     },
     load(data) {
       // here is where old versions could be upgraded if needed.
@@ -93,6 +95,8 @@ export default types
           if (data.campaigns) {
             data.campaigns = data.campaigns.map(campaign => {
               let newCampaign = Object.assign({}, campaign)
+
+              // upgrade null data to empty objects
               if (newCampaign.settlement.departing === null) {
                 newCampaign.settlement.departing = {}
               }
@@ -101,6 +105,11 @@ export default types
               }
               if (newCampaign.settlement.showdown === null) {
                 newCampaign.settlement.showdown = {}
+              }
+
+              // change 'new' id into a uuid
+              if (newCampaign.id === 'new') {
+                newCampaign.id = uuid()
               }
 
               // v3
@@ -123,6 +132,7 @@ export default types
 
       self.campaigns = data.campaigns
 
+      // handle orphan selectedCampaign
       if (
         !self.campaigns.find(campaign => campaign.id === data.selectedCampaign)
       ) {
@@ -130,7 +140,11 @@ export default types
       } else {
         self.selectedCampaign = data.selectedCampaign
       }
+
+      // upgrade version
       self.version = data.version
+
+      // initialize subscription
       self.subscription = data.subscription || {}
     },
   }))

@@ -24,24 +24,67 @@ afterEach(() => {
 it('initializes', () => {
   const store = RootStore.create()
 
+  expect(store).toBeDefined()
+  expect(store.selectedCampaign).toBeDefined()
   expect(store.selectedCampaign.settlement.survivalLimit).toBe(1)
   expect(store.selectedCampaign.settlement.newborn.survival).toBe(1)
 })
 
+it('creates random id for default campaign', () => {
+  const uuid = '960aa7ae-598a-49eb-888b-c6baa0006751'
+  let uuidMock = jest.spyOn(utils, 'uuid')
+  uuidMock.mockImplementation(() => uuid)
+
+  const store = RootStore.create()
+  expect(store.campaigns).toHaveLength(1)
+  expect(store.selectedCampaign.id).toBe(store.campaigns[0].id)
+  expect(store.campaigns[0].id).toBe(uuid)
+})
+
+describe('.createCampaign', () => {
+  it('selects the created campaign', () => {
+    const store = RootStore.create()
+    let campaign = store.createCampaign('my test')
+
+    expect(store.selectedCampaign.id).toBe(campaign.id)
+    expect(store.selectedCampaign.name).toBe('my test')
+  })
+})
+
+describe('.deleteCampaign', () => {
+  it('creates new campaign when deleting the last one', () => {
+    const store = RootStore.create()
+    const previousId = store.selectCampaign.id
+    store.deleteCampaign(store.selectCampaign.id)
+
+    expect(store.campaigns).toHaveLength(1)
+    expect(store.selectedCampaign).toBeDefined()
+    expect(store.selectedCampaign.id).not.toBe(previousId)
+    expect(store.selectedCampaign.id).toBe(store.campaigns[0].id)
+  })
+})
+
 describe('.load', () => {
   let store
+  let uuidMock
+  const uuid = '960aa7ae-598a-49eb-888b-c6baa0006751'
 
   beforeEach(() => {
+    uuidMock = jest.spyOn(utils, 'uuid')
+    uuidMock.mockImplementation(() => uuid)
     store = RootStore.create()
   })
 
   it('handles empty data', () => {
+    uuidMock.mockImplementation(() => '11111111-598a-49eb-888b-c6baa0006751')
     store.load({})
     expect(store.data).toMatchSnapshot()
   })
 
   it('loads saved data', () => {
-    // TODO: use an actual file.
+    let updateUuid = '11111111-598a-49eb-888b-c6baa0006751'
+    uuidMock.mockImplementation(() => updateUuid)
+
     let data = {
       campaigns: [
         {
@@ -85,6 +128,9 @@ describe('.load', () => {
       version: 1,
     }
     store.load(data)
+
+    // should convert 'new' id to an uuid
+    expect(store.selectedCampaign.id).toBe(updateUuid)
     expect(store.data).toMatchSnapshot()
   })
 
@@ -134,12 +180,40 @@ describe('.load', () => {
     store.load(data)
     expect(store.data).toMatchSnapshot()
   })
+
+  describe('loading previous versions', () => {
+    beforeEach(() => {
+      uuidMock.mockImplementation(() => '11111111-598a-49eb-888b-c6baa0006751')
+    })
+
+    it('loads v1 save', () => {
+      const data = require('./__test_data__/save_v1.json')
+      store.load(data)
+      // expect(store.data).toEqual(data) // to compare upgrade
+      expect(store.data).toMatchSnapshot()
+    })
+
+    it('loads v3 save', () => {
+      const data = require('./__test_data__/save_v3.json')
+      store.load(data)
+      // expect(store.data).toEqual(data) // to compare upgrade
+      expect(store.data).toMatchSnapshot()
+    })
+
+    it('loads v4 save', () => {
+      const data = require('./__test_data__/save_v4.json')
+      store.load(data)
+      // expect(store.data).toEqual(data) // to compare upgrade
+      expect(store.data).toMatchSnapshot()
+    })
+  })
 })
 
 it('all in', done => {
+  let uuidMock = jest.spyOn(utils, 'uuid')
+  uuidMock.mockImplementation(() => '11111111-598a-49eb-888b-c6baa0006751')
   const store = RootStore.create()
 
-  let uuidMock = jest.spyOn(utils, 'uuid')
   uuidMock.mockImplementation(() => '960aa7ae-598a-49eb-888b-c6baa0006751')
   store.createCampaign('test')
 
@@ -204,28 +278,4 @@ it('all in', done => {
   //   if (err) throw err
   //   done()
   // })
-})
-
-it('loads v1 save', () => {
-  const store = RootStore.create()
-  const data = require('./__test_data__/save_v1.json')
-  store.load(data)
-  // expect(store.data).toEqual(data) // to compare upgrade
-  expect(store.data).toMatchSnapshot()
-})
-
-it('loads v3 save', () => {
-  const store = RootStore.create()
-  const data = require('./__test_data__/save_v3.json')
-  store.load(data)
-  // expect(store.data).toEqual(data) // to compare upgrade
-  expect(store.data).toMatchSnapshot()
-})
-
-it('loads v4 save', () => {
-  const store = RootStore.create()
-  const data = require('./__test_data__/save_v4.json')
-  store.load(data)
-  // expect(store.data).toEqual(data) // to compare upgrade
-  expect(store.data).toMatchSnapshot()
 })
