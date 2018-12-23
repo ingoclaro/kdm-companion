@@ -13,11 +13,19 @@ import {
 import { ScrollView, Linking } from 'react-native'
 import Modal from 'react-native-modal'
 import { Constants } from 'expo'
+import Developer from '../components/Developer'
 import colors from '../src/colors'
 
 export default class AboutScreen extends React.Component {
   state = {
     showLicenses: false,
+  }
+
+  showDev = () => {
+    return (
+      Constants.manifest.releaseChannel === undefined ||
+      Constants.manifest.releaseChannel === 'default'
+    )
   }
 
   openStoreLink = () => {
@@ -136,67 +144,76 @@ export default class AboutScreen extends React.Component {
     return (
       <Screen style={styles.screen}>
         <Title>Kingdom Death: Monster Companion</Title>
+
         <View styleName="horizontal">
           <Subtitle>Version: </Subtitle>
-          <Text>{Constants.manifest.version}</Text>
+          <Text>
+            {Constants.manifest.version}-{Constants.manifest.releaseChannel}
+          </Text>
         </View>
 
         <Divider />
+        <ScrollView>
+          {this.showDev && <Developer />}
+          <Text>
+            This application is not developed, maintained, authorized or in any
+            other way supported by or affiliated with Kingdom Death or Adam
+            Poots Games.
+          </Text>
 
-        <Text>
-          This application is not developed, maintained, authorized or in any
-          other way supported by or affiliated with Kingdom Death or Adam Poots
-          Games.
-        </Text>
+          <Divider />
+          <Text>
+            This app is open source, if you are a developer and want to
+            contribute enhancing the app, open an issue.
+          </Text>
+          <Text>
+            You can also support the app development by becoming a subscriber.
+          </Text>
 
-        <Divider />
-        <Text>
-          This app is open source, if you are a developer and want to contribute
-          enhancing the app, open an issue.
-        </Text>
-        <Text>
-          You can also support the app development by becoming a subscriber.
-        </Text>
+          <Button
+            onPress={() => this.props.navigation.navigate('Subscription')}
+          >
+            <Text>Subscription Status</Text>
+          </Button>
 
-        <Button onPress={() => this.props.navigation.navigate('Subscription')}>
-          <Text>Subscription Status</Text>
-        </Button>
+          <Divider />
 
-        <Divider />
+          <Button
+            onPress={() =>
+              Linking.openURL(
+                'https://github.com/ingoclaro/kdm-companion/issues'
+              )
+            }
+          >
+            <Icon name="comment" />
+            <Text>Report an issue</Text>
+          </Button>
 
-        <Button
-          onPress={() =>
-            Linking.openURL('https://github.com/ingoclaro/kdm-companion/issues')
-          }
-        >
-          <Icon name="comment" />
-          <Text>Report an issue</Text>
-        </Button>
+          <Divider />
 
-        <Divider />
+          <Button onPress={this.openStoreLink}>
+            <Icon name="add-to-favorites-on" />
+            <Text>Rate the App</Text>
+          </Button>
 
-        <Button onPress={this.openStoreLink}>
-          <Icon name="add-to-favorites-on" />
-          <Text>Rate the App</Text>
-        </Button>
+          <Divider />
 
-        <Divider />
+          <Button onPress={() => this.setState({ showLicenses: true })}>
+            <Text>Show Licenses</Text>
+          </Button>
 
-        <Button onPress={() => this.setState({ showLicenses: true })}>
-          <Text>Show Licenses</Text>
-        </Button>
+          <Divider />
 
-        <Divider />
-
-        <Button
-          onPress={() =>
-            Linking.openURL(
-              'https://www.freeprivacypolicy.com/privacy/view/55578ac8a64f32d4ff071ebeafb38111'
-            )
-          }
-        >
-          <Text>Privacy Policy</Text>
-        </Button>
+          <Button
+            onPress={() =>
+              Linking.openURL(
+                'https://www.freeprivacypolicy.com/privacy/view/55578ac8a64f32d4ff071ebeafb38111'
+              )
+            }
+          >
+            <Text>Privacy Policy</Text>
+          </Button>
+        </ScrollView>
 
         <Modal
           isVisible={this.state.showLicenses}
