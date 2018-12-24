@@ -320,4 +320,7 @@ export const Campaign = types
         9: { description: '![book](book) White Secret (p.181)' },
       }
     },
+    get data() {
+      return getSnapshot(self)
+    },
   }))
