@@ -19,6 +19,8 @@ import MonsterStats from '../components/MonsterStats'
 import StatItem from '../components/StatItem'
 import Instinct, { InstinctTitle } from '../components/Instinct'
 import RichText from '../components/common/RichText'
+import SevereInjuryTable from '../components/SevereInjuryTable'
+import BrainTraumaTable from '../components/BrainTraumaTable'
 
 @inject(({ store }) => ({
   monsterLevel: store.selectedCampaign.showdownMonsterLevel || {},
@@ -28,6 +30,11 @@ export default class FightScreen extends React.Component {
   //TODO: add setup information (in screen, bellow the above buttons)
   //TODO: should add losing/winning outcome?
   //TODO: for more complex setup (eg: watcher), reference page number.
+
+  state = {
+    severeInjuryVisible: false,
+    brainTraumaVisible: false,
+  }
 
   render() {
     return (
@@ -45,6 +52,45 @@ export default class FightScreen extends React.Component {
         </View>
 
         <Divider />
+
+        <Button onPress={() => this.setState({ severeInjuryVisible: true })}>
+          <Text>Severe Injury</Text>
+        </Button>
+        <Divider />
+        <Button onPress={() => this.setState({ brainTraumaVisible: true })}>
+          <Text>Brain Trauma</Text>
+        </Button>
+        <Modal
+          style={styles.modal}
+          isVisible={this.state.severeInjuryVisible}
+          onBackdropPress={() => this.setState({ severeInjuryVisible: false })}
+          onBackButtonPress={() =>
+            this.setState({ severeInjuryVisible: false })
+          }
+          useNativeDriver={true}
+          backdropColor={colors.black}
+          avoidKeyboard={false}
+        >
+          <SevereInjuryTable />
+          <Button onPress={() => this.setState({ severeInjuryVisible: false })}>
+            <Text>Close</Text>
+          </Button>
+        </Modal>
+        <Modal
+          style={styles.modal}
+          isVisible={this.state.brainTraumaVisible}
+          onBackdropPress={() => this.setState({ brainTraumaVisible: false })}
+          onBackButtonPress={() => this.setState({ brainTraumaVisible: false })}
+          useNativeDriver={true}
+          backdropColor={colors.black}
+          avoidKeyboard={false}
+        >
+          <BrainTraumaTable />
+
+          <Button onPress={() => this.setState({ brainTraumaVisible: false })}>
+            <Text>Close</Text>
+          </Button>
+        </Modal>
       </Screen>
     )
   }
@@ -57,6 +103,6 @@ const styles = {
   },
   modal: {
     backgroundColor: colors.grey900,
-    padding: 8,
+    padding: 4,
   },
 }
