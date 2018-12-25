@@ -1,6 +1,6 @@
 import React from 'react'
 import { Screen, View } from '@shoutem/ui'
-import Bonuses from '../components/Bonuses'
+import Bonuses from '../components/settlement/Bonuses'
 
 export default class BonusesScreen extends React.Component {
   static navigationOptions = {

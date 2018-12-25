@@ -1,6 +1,6 @@
 import React from 'react'
 import { Screen } from '@shoutem/ui'
-import Endeavors from '../components/Endeavors'
+import Endeavors from '../components/settlement/Endeavors'
 
 export default class EndeavorsScreen extends React.Component {
   static navigationOptions = {

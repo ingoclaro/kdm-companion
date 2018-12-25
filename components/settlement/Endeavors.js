@@ -3,7 +3,7 @@ import { View, Text, Row, Title, Subtitle, ListView } from '@shoutem/ui'
 import { values } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
 import PropTypes from 'prop-types'
-import colors from '../src/colors'
+import colors from '../../src/colors'
 import R from 'ramda'
 
 const filter_locations = locations => {

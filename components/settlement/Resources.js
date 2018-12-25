@@ -10,14 +10,13 @@ import {
   Row,
   Icon,
 } from '@shoutem/ui'
-import Accordion from './common/Accordion'
+import Accordion from '../common/Accordion'
 import { SimpleStepper } from 'react-native-simple-stepper'
 import { observer, inject } from 'mobx-react/native'
-import { values } from 'mobx'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import colors from '../src/colors'
+import colors from '../../src/colors'
 
 function resources_structure(global_resources, settlement_resources, filter) {
   const sections = {
