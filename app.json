@@ -4,7 +4,7 @@
     "name": "Kingdom Death: Monster Companion",
     "slug": "kdm-companion",
     "icon": "./images/icon_lantern.png",
-    "version": "4.2.0",
+    "version": "4.3.0",
     "githubUrl": "https://github.com/ingoclaro/kdm-companion",
     "orientation": "portrait",
     "assetBundlePatterns": ["images/*"],
