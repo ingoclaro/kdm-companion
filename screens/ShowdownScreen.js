@@ -26,7 +26,7 @@ import BrainTraumaTable from '../components/BrainTraumaTable'
   monsterLevel: store.selectedCampaign.showdownMonsterLevel || {},
 }))
 @observer
-export default class FightScreen extends React.Component {
+export default class ShowdownScreen extends React.Component {
   //TODO: add setup information (in screen, bellow the above buttons)
   //TODO: should add losing/winning outcome?
   //TODO: for more complex setup (eg: watcher), reference page number.
@@ -51,6 +51,7 @@ export default class FightScreen extends React.Component {
           <MonsterSummary />
         </View>
 
+        <Divider />
         <Divider />
 
         <Button onPress={() => this.setState({ severeInjuryVisible: true })}>

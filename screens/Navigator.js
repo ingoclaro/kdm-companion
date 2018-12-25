@@ -35,9 +35,7 @@ import HuntScreen from './HuntScreen'
 
 // Showdown
 
-import FightScreen from './FightScreen'
-import BrainTraumaScreen from './BrainTraumaScreen'
-import SevereInjuryScreen from './SevereInjuryScreen'
+import ShowdownScreen from './ShowdownScreen'
 
 import SubscriptionScreen from './SubscriptionScreen'
 
@@ -80,7 +78,7 @@ const settlementStyles = {
 const ShowdownNavigator = createMaterialTopTabNavigator(
   {
     Monster: {
-      screen: FightScreen,
+      screen: ShowdownScreen,
       navigationOptions: {
         tabBarLabel: icon(require('../images/icon_monster.png'), {
           width: 28,

@@ -1,5 +1,5 @@
 import React from 'react'
-import SevereInjuryScreen from './SevereInjuryScreen'
+import ShowdownScreen from './ShowdownScreen'
 import RootStore from '../src/models/RootStore'
 import renderer from 'react-test-renderer'
 import { Provider } from 'mobx-react'
@@ -14,7 +14,7 @@ it('renders without crashing', () => {
   const tree = renderer
     .create(
       <Provider store={store}>
-        <SevereInjuryScreen navigation={navigation} />
+        <ShowdownScreen navigation={navigation} />
       </Provider>
     )
     .toJSON()

@@ -71,10 +71,10 @@ export default class BrainTraumaTable extends React.Component {
     return (
       <View key={key} style={styles.row}>
         <View style={styles.numberContainer}>
-          <Text style={styles.numbers}>{item.numbers}</Text>
+          <Text style={[styles.text, styles.numbers]}>{item.numbers}</Text>
         </View>
         <View style={styles.itemContainer}>
-          <Text style={styles.subTitle}>{item.title}</Text>
+          <Text style={[styles.text, styles.subTitle]}>{item.title}</Text>
           <RichText>{item.description}</RichText>
         </View>
       </View>
@@ -97,7 +97,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    color: colors.grey100,
     fontSize: 20,
   },
   table: {
@@ -122,5 +121,12 @@ const styles = StyleSheet.create({
   subTitle: {
     color: colors.grey200,
     fontSize: 15,
+  },
+  text: {
+    fontFamily: 'Rubik-Regular',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 15,
+    color: colors.grey100,
   },
 })

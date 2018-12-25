@@ -1,10 +1,11 @@
 //https://material.io/design/color/the-color-system.html#tools-for-picking-colors
 export default {
   black: '#000000',
-  blue900: '#0D47A1',
-  blue600: '#1e88e5',
   blue400: '#42a5f5',
+  blue600: '#1e88e5',
+  blue700: '#1976d2',
   blue800: '#1565C0',
+  blue900: '#0D47A1',
   bluegrey300: '#90A4AE',
   bluegrey400: '#78909C',
   bluegrey500: '#607D8B',
@@ -29,11 +30,11 @@ export default {
   grey700: '#616161',
   grey800: '#424242',
   grey900: '#212121',
+  orange800: '#d84315',
   red200: '#ef9a9a',
+  red500: '#f44336',
   red800: '#C62828',
   red900: '#B71C1C',
-  red500: '#f44336',
   white: '#FFFFFF',
   yellow600: '#FDD835',
-  orange800: '#d84315',
 }
