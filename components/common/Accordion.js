@@ -1,27 +1,16 @@
 import React from 'react'
+import { Icon } from '@shoutem/ui'
 import {
   View,
   Text,
-  Row,
-  Title,
-  Subtitle,
-  Icon,
+  StyleSheet,
   TouchableOpacity,
-} from '@shoutem/ui'
-import { SectionList } from 'react-native'
+  SectionList,
+} from 'react-native'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 
 export default class Accordion extends React.Component {
-  constructor(props) {
-    super(props)
-    this._row = this._row.bind(this) // so that we can access this.props from within the function
-    this._header = this._header.bind(this)
-    this._sectionHeader = this._sectionHeader.bind(this)
-    this._sectionClick = this._sectionClick.bind(this)
-    this._defaultSectionHeader = this._defaultSectionHeader.bind(this)
-  }
-
   state = {
     openSection: null,
   }
@@ -33,25 +22,25 @@ export default class Accordion extends React.Component {
     renderHeader: PropTypes.func, // @params: section_id, isActive
   }
 
-  _row(data) {
+  _row = data => {
     if (this.state.openSection !== data.section.id) {
       return null
     }
     return this.props.renderContent ? (
       this.props.renderContent(data)
     ) : (
-      <Text>{data.item.text}</Text>
+      <Text style={styles.text}>{data.item.text}</Text>
     )
   }
 
-  _header() {
+  _header = () => {
     if (!this.props.title) {
       return null
     }
-    return <Title>{this.props.title}</Title>
+    return <Text styles={[styles.text, styles.title]}>{this.props.title}</Text>
   }
 
-  _sectionHeader(data) {
+  _sectionHeader = data => {
     let isActive = this.state.openSection === data.section.id
     let renderer = this.props.renderHeader
       ? this.props.renderHeader(data.section, isActive)
@@ -64,7 +53,7 @@ export default class Accordion extends React.Component {
     )
   }
 
-  _defaultSectionHeader(section, isActive) {
+  _defaultSectionHeader = (section, isActive) => {
     let icon = isActive ? (
       <Icon name="up-arrow" style={styles.headerArrow} />
     ) : (
@@ -72,14 +61,16 @@ export default class Accordion extends React.Component {
     )
 
     return (
-      <Row>
-        <Title>{section.title}</Title>
+      <View style={styles.row}>
+        <Text style={[styles.text, styles.title, styles.sectionTitle]}>
+          {section.title}
+        </Text>
         {icon}
-      </Row>
+      </View>
     )
   }
 
-  _sectionClick(section_id) {
+  _sectionClick = section_id => {
     let openSection = section_id
     if (this.state.openSection === section_id) {
       openSection = null
@@ -108,8 +99,31 @@ export default class Accordion extends React.Component {
   }
 }
 
-const styles = {
+const styles = StyleSheet.create({
   headerArrow: {
     color: colors.grey100,
+    marginRight: 15,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
-}
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 15,
+    backgroundColor: colors.grey900,
+  },
+  title: {
+    fontSize: 20,
+  },
+  text: {
+    fontFamily: 'Rubik-Regular',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 15,
+    color: colors.grey100,
+  },
+  sectionTitle: {
+    flex: 1,
+    lineHeight: 25,
+  },
+})

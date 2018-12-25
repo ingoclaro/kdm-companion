@@ -1,7 +1,6 @@
 import React from 'react'
-import { View, Title, Text, Row, ListView } from '@shoutem/ui'
+import { View, Text, ScrollView, StyleSheet } from 'react-native'
 import RichText from './common/RichText'
-import { Dimensions } from 'react-native'
 import colors from '../src/colors'
 
 export default class BrainTraumaTable extends React.Component {
@@ -20,7 +19,7 @@ export default class BrainTraumaTable extends React.Component {
       numbers: '4',
       title: 'Flee',
       description:
-        'You are knockdown and suffer knockeback equal to your movement towards the closest board edge. Gain 1d5 insanity.',
+        'You are knockdown and suffer knockback equal to your movement towards the closest board edge. Gain 1d5 insanity.',
     },
     {
       numbers: '5 - 6',
@@ -64,40 +63,51 @@ export default class BrainTraumaTable extends React.Component {
     },
   ]
 
-  _title() {
+  title = () => {
     return <Title>Brain Trauma Table</Title>
   }
 
-  _row(item) {
-    //TODO: remove this hack to avoid text clipping (galaxy S8)
-    let width = Dimensions.get('window').width - 45
-
+  row = (item, key) => {
     return (
-      <View styleName="horizontal v-start">
+      <View key={key} style={styles.row}>
         <View style={styles.numberContainer}>
-          <Text style={styles.numbers}>{item.numbers}</Text>
+          <Text style={[styles.text, styles.numbers]}>{item.numbers}</Text>
         </View>
-        <View styleName="vertical h-start">
-          <Text style={styles.title}>{item.title}</Text>
-          <View style={{ width: width }}>
-            <RichText>{item.description}</RichText>
-          </View>
+        <View style={styles.itemContainer}>
+          <Text style={[styles.text, styles.subTitle]}>{item.title}</Text>
+          <RichText>{item.description}</RichText>
         </View>
       </View>
     )
   }
 
   render() {
-    return <ListView data={this.data} renderRow={this._row} />
+    return (
+      <ScrollView style={styles.container}>
+        <View style={styles.table}>
+          {this.data.map((item, idx) => this.row(item, idx))}
+        </View>
+      </ScrollView>
+    )
   }
 }
 
-const styles = {
-  // itemContainer: {
-  //   flex: 1,
-  //   alignItems: 'flex-start',
-  //   paddingVertical: 3,
-  // },
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  title: {
+    fontSize: 20,
+  },
+  table: {
+    flex: 1,
+  },
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    paddingVertical: 2,
+  },
   numberContainer: {
     paddingRight: 5,
     width: 38,
@@ -105,8 +115,18 @@ const styles = {
   numbers: {
     color: colors.brown400,
   },
-  textContainer: {
-    // flex: 1,
+  itemContainer: {
+    flex: 1,
   },
-  title: {},
-}
+  subTitle: {
+    color: colors.grey200,
+    fontSize: 15,
+  },
+  text: {
+    fontFamily: 'Rubik-Regular',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 15,
+    color: colors.grey100,
+  },
+})

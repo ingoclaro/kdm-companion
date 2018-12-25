@@ -7,15 +7,17 @@ import {
   createAppContainer,
 } from 'react-navigation'
 import TabBar from './TabBar'
-import { Image } from '@shoutem/ui'
+import { View, Text, Image } from '@shoutem/ui'
 import { Segment } from 'expo'
 import { observer, inject } from 'mobx-react/native'
 import colors from '../src/colors'
 import CampaignHeader from './CampaignHeader'
 import SurvivorHeader from './SurvivorHeader'
+import SurvivorMenuIcon from '../components/SurvivorMenuIcon'
 
 import SurvivorListScreen from './SurvivorListScreen'
 import SurvivorScreen from './SurvivorScreen'
+import SurvivorShowdownScreen from './SurvivorShowdownScreen'
 
 // Campaign
 import SettlementsScreen from './SettlementsScreen'
@@ -33,9 +35,7 @@ import HuntScreen from './HuntScreen'
 
 // Showdown
 
-import FightScreen from './FightScreen'
-import BrainTraumaScreen from './BrainTraumaScreen'
-import SevereInjuryScreen from './SevereInjuryScreen'
+import ShowdownScreen from './ShowdownScreen'
 
 import SubscriptionScreen from './SubscriptionScreen'
 
@@ -77,22 +77,73 @@ const settlementStyles = {
 
 const ShowdownNavigator = createMaterialTopTabNavigator(
   {
-    Fight: {
-      screen: FightScreen,
+    Monster: {
+      screen: ShowdownScreen,
       navigationOptions: {
-        tabBarLabel: 'Fight',
+        tabBarLabel: icon(require('../images/icon_monster.png'), {
+          width: 28,
+          heigh: 28,
+        }),
       },
     },
-    BrainTrauma: {
-      screen: BrainTraumaScreen,
+    RedSurvivor: {
+      screen: SurvivorShowdownScreen,
+      params: {
+        survivorPosition: 0,
+      },
       navigationOptions: {
-        tabBarLabel: 'Brain Trauma',
+        tabBarLabel: ({ focused }) => (
+          <SurvivorMenuIcon
+            focused={focused}
+            position={0}
+            color={colors.red800}
+          />
+        ),
       },
     },
-    SevereInjury: {
-      screen: SevereInjuryScreen,
+    BrownSurvivor: {
+      screen: SurvivorShowdownScreen,
+      params: {
+        survivorPosition: 1,
+      },
       navigationOptions: {
-        tabBarLabel: 'Severe Injury',
+        tabBarLabel: ({ focused }) => (
+          <SurvivorMenuIcon
+            focused={focused}
+            position={1}
+            color={colors.brown800}
+          />
+        ),
+      },
+    },
+    GreenSurvivor: {
+      screen: SurvivorShowdownScreen,
+      params: {
+        survivorPosition: 2,
+      },
+      navigationOptions: {
+        tabBarLabel: ({ focused }) => (
+          <SurvivorMenuIcon
+            focused={focused}
+            position={2}
+            color={colors.green800}
+          />
+        ),
+      },
+    },
+    BlueSurvivor: {
+      screen: SurvivorShowdownScreen,
+      params: {
+        survivorPosition: 3,
+      },
+      navigationOptions: {
+        tabBarLabel: ({ focused }) => (
+          <SurvivorMenuIcon
+            focused={focused}
+            position={3}
+            color={colors.blue800}
+          />
+        ),
       },
     },
   },
@@ -102,7 +153,6 @@ const ShowdownNavigator = createMaterialTopTabNavigator(
     swipeEnabled: true,
     lazy: false,
     optimizationsEnabled: true,
-
     tabBarOptions: {
       upperCaseLabel: false,
       activeTintColor: colors.grey50,
@@ -297,18 +347,24 @@ const MainNavigatorHeader = createStackNavigator(
   }
 )
 
-function icon(image) {
+function icon(image, options) {
+  const defaultOptions = {
+    width: 40,
+    height: 40,
+    tintColor: colors.grey400,
+  }
+  const opt = Object.assign({}, defaultOptions, options)
   return ({ focused }) => {
     let opacity = focused ? 0.7 : 0.4
     return (
       <Image
         source={image}
         style={{
-          width: 40,
-          height: 40,
+          width: opt.width,
+          height: opt.width,
         }}
         resizeMode="contain"
-        tintColor={colors.grey400}
+        tintColor={opt.tintColor}
         opacity={opacity}
       />
     )

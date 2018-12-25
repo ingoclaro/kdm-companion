@@ -1,16 +1,10 @@
 import React from 'react'
-import { Screen, View, Title, Text, Row, Icon } from '@shoutem/ui'
+import { View, Text, StyleSheet } from 'react-native'
 import RichText from './common/RichText'
-import { Dimensions } from 'react-native'
 import Accordion from './common/Accordion'
 import colors from '../src/colors'
 
 export default class SevereInjuryTable extends React.Component {
-  constructor(props) {
-    super(props)
-    this._renderContent = this._renderContent.bind(this)
-  }
-
   data = [
     {
       id: 'head',
@@ -298,20 +292,15 @@ export default class SevereInjuryTable extends React.Component {
     },
   ]
 
-  _renderContent(data) {
-    //TODO: remove this hack to avoid text clipping (galaxy S8)
-    let width = Dimensions.get('window').width - 48
-
+  _renderContent = data => {
     return (
-      <View styleName="horizontal v-start">
+      <View style={styles.row}>
         <View style={styles.numberContainer}>
-          <Text style={styles.numbers}>{data.item.numbers}</Text>
+          <Text style={[styles.text, styles.numbers]}>{data.item.numbers}</Text>
         </View>
-        <View styleName="vertical h-start">
-          <Text style={styles.title}>{data.item.title}</Text>
-          <View style={{ width }}>
-            <RichText>{data.item.description}</RichText>
-          </View>
+        <View style={styles.itemContainer}>
+          <Text style={[styles.text, styles.subTitle]}>{data.item.title}</Text>
+          <RichText>{data.item.description}</RichText>
         </View>
       </View>
     )
@@ -322,13 +311,33 @@ export default class SevereInjuryTable extends React.Component {
   }
 }
 
-const styles = {
+const styles = StyleSheet.create({
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    paddingVertical: 3,
+    backgroundColor: colors.black,
+  },
   numberContainer: {
     paddingRight: 5,
     width: 38,
   },
   numbers: {
-    color: colors.brown400,
+    color: colors.blue700,
   },
-  title: {},
-}
+  itemContainer: {
+    flex: 1,
+  },
+  subTitle: {
+    color: colors.grey200,
+    fontSize: 15,
+  },
+  text: {
+    fontFamily: 'Rubik-Regular',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 15,
+    color: colors.grey100,
+  },
+})

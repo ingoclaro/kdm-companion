@@ -13,12 +13,12 @@ import {
 import Modal from 'react-native-modal'
 import { observer, inject } from 'mobx-react/native'
 
-import colors from '../src/colors'
+import colors from '../../src/colors'
 
 import Innovations, { InnovationsItems } from './Innovations'
 import Locations, { LocationItems } from './Locations'
 import Principles, { PrinciplesItems } from './Principles'
-import Note from './common/Note'
+import Note from '../common/Note'
 
 @inject(({ store }) => ({
   notes: store.selectedCampaign.notes,

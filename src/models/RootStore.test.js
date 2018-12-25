@@ -206,6 +206,14 @@ describe('.load', () => {
       // expect(store.data).toEqual(data) // to compare upgrade
       expect(store.data).toMatchSnapshot()
     })
+
+    it('loads real life data', () => {
+      const data = require('./__test_data__/real_example.json')
+      store.load(data)
+      // expect(store.data).toEqual(data) // to compare upgrade
+      expect(store).toBeDefined()
+      expect(store.data).toMatchSnapshot() // not sure about this one...
+    })
   })
 })
 

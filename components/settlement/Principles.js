@@ -12,7 +12,7 @@ import {
 } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
 import R from 'ramda'
-import colors from '../src/colors'
+import colors from '../../src/colors'
 
 @inject(({ store }) => ({
   selectedPrinciples: store.selectedCampaign.principles,

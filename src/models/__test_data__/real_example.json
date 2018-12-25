@@ -1,0 +1,3676 @@
+{
+  "campaigns": [
+    {
+      "id": "c7a5543a-87eb-4dc0-b5cb-9ced8902c341",
+      "settlement": {
+        "name": "Ian",
+        "survivalLimit": 8,
+        "departing": {
+          "survival": 4,
+          "accuracy": 0,
+          "strength": 0,
+          "evasion": 0,
+          "insanity": 0,
+          "courage": 0,
+          "understanding": 0,
+          "hunt xp": 0,
+          "description": [
+            "**Song of the Brave**: During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave"
+          ]
+        },
+        "newborn": {
+          "survival": 1,
+          "accuracy": 1,
+          "strength": 1,
+          "evasion": 1,
+          "insanity": 0,
+          "courage": 2,
+          "understanding": 3,
+          "hunt xp": 2,
+          "description": [
+            "**Family**: a newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency."
+          ]
+        },
+        "showdown": {
+          "survival": 0,
+          "accuracy": 0,
+          "strength": 0,
+          "evasion": 0,
+          "insanity": 0,
+          "courage": 0,
+          "understanding": 0,
+          "hunt xp": 0,
+          "description": [
+            "**Song of the Brave**: On arrival each non-deaf survivor may remove 1 negative attribute token"
+          ]
+        },
+        "survivors": {
+          "30a68af4-50b6-4b52-ab4e-e4bef12720e8": {
+            "id": "30a68af4-50b6-4b52-ab4e-e4bef12720e8",
+            "name": "Ned",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": [
+              "Timeless Eye",
+              "Unconscious Fighter",
+              "Extra Sense"
+            ],
+            "disorders": ["Hoarder", "Honorable"],
+            "abilities": ["Tinker", "Prepared", "Leyline Walker", "Sour Death"],
+            "survival": 3,
+            "insanity": 3,
+            "hunt xp": 14,
+            "movement": 5,
+            "accuracy": 1,
+            "strength": 5,
+            "evasion": 4,
+            "luck": 0,
+            "speed": 0,
+            "courage": 9,
+            "understanding": 9,
+            "notes": "",
+            "weaponProficiency": "shield",
+            "weaponProficiencyLevel": 2,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "9d82ede5-d4fe-4d0c-8170-877328c77644": {
+            "id": "9d82ede5-d4fe-4d0c-8170-877328c77644",
+            "name": "Accuracy",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": ["Mighty Strike", "Leader"],
+            "disorders": ["Secretive"],
+            "abilities": ["Tinker", "Prepared"],
+            "survival": 4,
+            "insanity": 10,
+            "hunt xp": 9,
+            "movement": 6,
+            "accuracy": 3,
+            "strength": 8,
+            "evasion": 4,
+            "luck": -1,
+            "speed": 0,
+            "courage": 6,
+            "understanding": 7,
+            "notes": "",
+            "weaponProficiency": "axe",
+            "weaponProficiencyLevel": 8,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "ed3de7a4-2209-4090-b420-d12c491f8904": {
+            "id": "ed3de7a4-2209-4090-b420-d12c491f8904",
+            "name": "Drago",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": ["Timeless Eye", "Berserker", "Leader"],
+            "disorders": [],
+            "abilities": ["Tinker", "Stalwart"],
+            "survival": 4,
+            "insanity": 3,
+            "hunt xp": 12,
+            "movement": 6,
+            "accuracy": 3,
+            "strength": 6,
+            "evasion": 2,
+            "luck": 0,
+            "speed": 0,
+            "courage": 7,
+            "understanding": 4,
+            "notes": "",
+            "weaponProficiency": "grand weapon",
+            "weaponProficiencyLevel": 8,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "72feca60-695a-4fe9-9d1b-0f5ff4854188": {
+            "id": "72feca60-695a-4fe9-9d1b-0f5ff4854188",
+            "name": "Timeless",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": ["Thrill Seeker", "King's Step", "Double Dash"],
+            "disorders": ["Quixotic"],
+            "abilities": ["Tinker", "Prepared", "Peerless"],
+            "survival": 8,
+            "insanity": 8,
+            "hunt xp": 13,
+            "movement": 6,
+            "accuracy": 2,
+            "strength": 10,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 1,
+            "courage": 7,
+            "understanding": 9,
+            "notes": "",
+            "weaponProficiency": "axe",
+            "weaponProficiencyLevel": 8,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "8d398dc3-42c4-4cd4-84ab-a6c36c4408a5": {
+            "id": "8d398dc3-42c4-4cd4-84ab-a6c36c4408a5",
+            "name": "Shae",
+            "gender": "female",
+            "status": "dead",
+            "fightingArts": ["Monster Claw Style"],
+            "disorders": ["Monster Panic"],
+            "abilities": ["Tinker", "Stalwart"],
+            "survival": 5,
+            "insanity": 24,
+            "hunt xp": 10,
+            "movement": 4,
+            "accuracy": 3,
+            "strength": 7,
+            "evasion": 0,
+            "luck": 0,
+            "speed": 0,
+            "courage": 8,
+            "understanding": 9,
+            "notes": "",
+            "weaponProficiency": "fist & tooth",
+            "weaponProficiencyLevel": 8,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "7cec23c0-6861-4c7b-8f8d-13c328069c91": {
+            "id": "7cec23c0-6861-4c7b-8f8d-13c328069c91",
+            "name": "Myrcella",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": ["Strategist", "Tough"],
+            "disorders": [],
+            "abilities": ["Tinker", "Prepared"],
+            "survival": 1,
+            "insanity": 0,
+            "hunt xp": 2,
+            "movement": 5,
+            "accuracy": 2,
+            "strength": 4,
+            "evasion": 1,
+            "luck": 1,
+            "speed": 0,
+            "courage": 2,
+            "understanding": 3,
+            "notes": "Blue Savior",
+            "weaponProficiency": "spear",
+            "weaponProficiencyLevel": 6,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "8b79531d-cd5e-4dc1-9604-8d0e56d43a53": {
+            "id": "8b79531d-cd5e-4dc1-9604-8d0e56d43a53",
+            "name": "Benjen",
+            "gender": "male",
+            "status": "retired",
+            "fightingArts": ["Extra Sense"],
+            "disorders": [],
+            "abilities": ["Tinker", "Prepared", "Leyline Walker"],
+            "survival": 7,
+            "insanity": 0,
+            "hunt xp": 15,
+            "movement": 6,
+            "accuracy": 1,
+            "strength": 4,
+            "evasion": 0,
+            "luck": 1,
+            "speed": 0,
+            "courage": 5,
+            "understanding": 9,
+            "notes": "",
+            "weaponProficiency": "grand weapon",
+            "weaponProficiencyLevel": 8,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "cad014ce-fac3-4214-b2d9-2be7f4519b4e": {
+            "id": "cad014ce-fac3-4214-b2d9-2be7f4519b4e",
+            "name": "Daario",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": ["Thrill Seeker"],
+            "disorders": [],
+            "abilities": ["Tinker", "Stalwart", "Twilight Sword"],
+            "survival": 5,
+            "insanity": 20,
+            "hunt xp": 9,
+            "movement": 5,
+            "accuracy": 1,
+            "strength": 5,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 3,
+            "understanding": 4,
+            "notes": "",
+            "weaponProficiency": "sword",
+            "weaponProficiencyLevel": 3,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "cd4ee3b3-3c0a-4394-a9c4-56cacf079b45": {
+            "id": "cd4ee3b3-3c0a-4394-a9c4-56cacf079b45",
+            "name": "53",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": ["Thrill Seeker"],
+            "disorders": ["Immortal"],
+            "abilities": ["Tinker"],
+            "survival": 1,
+            "insanity": 10,
+            "hunt xp": 2,
+            "movement": 5,
+            "accuracy": 1,
+            "strength": 6,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 2,
+            "understanding": 3,
+            "notes": "",
+            "weaponProficiency": "shield",
+            "weaponProficiencyLevel": 4,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          }
+        },
+        "activeSurvivorsList": [
+          "30a68af4-50b6-4b52-ab4e-e4bef12720e8",
+          "9d82ede5-d4fe-4d0c-8170-877328c77644",
+          "ed3de7a4-2209-4090-b420-d12c491f8904",
+          "72feca60-695a-4fe9-9d1b-0f5ff4854188",
+          "7cec23c0-6861-4c7b-8f8d-13c328069c91",
+          "8b79531d-cd5e-4dc1-9604-8d0e56d43a53",
+          "cad014ce-fac3-4214-b2d9-2be7f4519b4e",
+          "cd4ee3b3-3c0a-4394-a9c4-56cacf079b45"
+        ]
+      },
+      "locations": {
+        "exhausted_lantern_hoard": "exhausted_lantern_hoard",
+        "barber_surgeon": "barber_surgeon",
+        "blacksmith": "blacksmith",
+        "bone_smith": "bone_smith",
+        "catarium": "catarium",
+        "leather_worker": "leather_worker",
+        "mask_maker": "mask_maker",
+        "organ_grinder": "organ_grinder",
+        "plumery": "plumery",
+        "skinnery": "skinnery",
+        "stone_circle": "stone_circle",
+        "weapon_crafter": "weapon_crafter"
+      },
+      "innovations": {
+        "language": "language",
+        "paint": "paint",
+        "symposium": "symposium",
+        "inner_lantern": "inner_lantern",
+        "drums": "drums",
+        "hovel": "hovel",
+        "ammonia": "ammonia",
+        "face_painting": "face_painting",
+        "sculpture": "sculpture",
+        "nightmare training": "nightmare training",
+        "sacrification": "sacrification",
+        "shrine": "shrine",
+        "forbidden dance": "forbidden dance",
+        "song_of_the_brave": "song_of_the_brave",
+        "bed": "bed",
+        "family": "family",
+        "bloodletting": "bloodletting",
+        "lantern_oven": "lantern_oven",
+        "saga": "saga",
+        "clan_of_death": "clan_of_death",
+        "cooking": "cooking",
+        "scrap_smelting": "scrap_smelting",
+        "mastery_axe": "mastery_axe",
+        "mastery_bow": "mastery_bow",
+        "mastery_fist_and_tooth": "mastery_fist_and_tooth",
+        "mastery_grand_weapon": "mastery_grand_weapon",
+        "mastery_katar": "mastery_katar",
+        "mastery_shield": "mastery_shield",
+        "mastery_spear": "mastery_spear",
+        "destiny": "destiny"
+      },
+      "principles": {
+        "death": "graves",
+        "newlife": "pty",
+        "society": "collective_toil",
+        "conviction": "romantic"
+      },
+      "bonuses": {
+        "death": {
+          "id": "death",
+          "name": "Graves",
+          "description": [
+            "When a survivor dies during hunt or showdown phase, gain +2 endeavors",
+            "When a survivor dies during settlement phase, gain +1 endeavors"
+          ]
+        },
+        "newlife": {
+          "id": "newlife",
+          "name": "Protect the Young",
+          "description": [
+            "When rolling on intimacy table, roll twice and pick 1 result"
+          ]
+        },
+        "society": {
+          "id": "society",
+          "name": "Collective Toil",
+          "description": [
+            "At the start of the settlement phase gain +1 endeavor for every 10 population"
+          ]
+        },
+        "conviction": {
+          "id": "conviction",
+          "name": "Romantic",
+          "description": [
+            "When you gain a random FA, draw 3 cards and select one"
+          ]
+        },
+        "encourage": {
+          "id": "encourage",
+          "name": "Encourage",
+          "description": [
+            "All  survivors gain **Encourage** survival action.",
+            "**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down."
+          ]
+        },
+        "symposium": {
+          "id": "symposium",
+          "name": "Symposium",
+          "description": [
+            "When a survivor innovates, draw an additional 2 innovation cards to choose from"
+          ]
+        },
+        "forbidden dance": {
+          "id": "forbidden dance",
+          "name": "Forbidden Dance",
+          "description": [
+            "When a survivor uses the Synchronized Strike SFA, reroll missed attack rolls once"
+          ]
+        },
+        "cooking": {
+          "id": "cooking",
+          "name": "Cooking",
+          "description": [
+            "At the start of the Settlement phase gain +1 endeavor"
+          ]
+        }
+      },
+      "endeavors": {
+        "lantern_research": {
+          "id": "lantern_research",
+          "name": "Lantern Research - Pulse Discoveries",
+          "expansion": "core",
+          "recipe": {
+            "location": "exhausted_lantern_hoard",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 2
+              },
+              {
+                "resource": null,
+                "gear": "final_lantern",
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "oxidation": {
+          "id": "oxidation",
+          "name": "Oxidation",
+          "expansion": "core",
+          "recipe": {
+            "location": "exhausted_lantern_hoard",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "survivors_lantern": {
+          "id": "survivors_lantern",
+          "name": "Survivor's Lantern",
+          "expansion": "core",
+          "recipe": {
+            "location": "exhausted_lantern_hoard",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": "final_lantern",
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "investigate": {
+          "id": "investigate",
+          "name": "Investigate",
+          "expansion": "core",
+          "recipe": {
+            "location": "exhausted_lantern_hoard",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "trepanning": {
+          "id": "trepanning",
+          "name": "Trepanning",
+          "expansion": "core",
+          "recipe": {
+            "location": "barber_surgeon",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_weapon_crafter": {
+          "id": "build_weapon_crafter",
+          "name": "Build - Weapon Crafter",
+          "expansion": "core",
+          "recipe": {
+            "location": "bone_smith",
+            "not_location": "weapon_crafter",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 3
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "leather_making": {
+          "id": "leather_making",
+          "name": "Leather Making",
+          "expansion": "core",
+          "recipe": {
+            "location": "leather_worker",
+            "not_location": null,
+            "innovation": "ammonia",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "great_golden_cat": {
+          "id": "great_golden_cat",
+          "name": "Hunt the Great Golden Cat",
+          "expansion": "core",
+          "recipe": {
+            "location": "mask_maker",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": "white_lion_mask",
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "mad_steed": {
+          "id": "mad_steed",
+          "name": "Hunt the Mad Streed",
+          "expansion": "core",
+          "recipe": {
+            "location": "mask_maker",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": "antelope_mask",
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "golden_eyed_king": {
+          "id": "golden_eyed_king",
+          "name": "Hunt the Golden Eyed King",
+          "expansion": "core",
+          "recipe": {
+            "location": "mask_maker",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": "phoenix_mask",
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "augury": {
+          "id": "augury",
+          "name": "Augury",
+          "expansion": "core",
+          "recipe": {
+            "location": "organ_grinder",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "stone_noses": {
+          "id": "stone_noses",
+          "name": "Stone Noses",
+          "expansion": "core",
+          "recipe": {
+            "location": "organ_grinder",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_stone_circle": {
+          "id": "build_stone_circle",
+          "name": "Build - Stone Circle",
+          "expansion": "core",
+          "recipe": {
+            "location": "organ_grinder",
+            "not_location": "stone_circle",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 3
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_leather_worker": {
+          "id": "build_leather_worker",
+          "name": "Build - Leather Worker",
+          "expansion": "core",
+          "recipe": {
+            "location": "skinnery",
+            "not_location": "leather_worker",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 3
+              }
+            ]
+          }
+        },
+        "harvest_ritual": {
+          "id": "harvest_ritual",
+          "name": "Harvest Ritual",
+          "expansion": "core",
+          "recipe": {
+            "location": "stone_circle",
+            "not_location": null,
+            "innovation": "forbidden dance",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "scrap_scavenge": {
+          "id": "scrap_scavenge",
+          "name": "Scrap Scavenge",
+          "expansion": "core",
+          "recipe": {
+            "location": "weapon_crafter",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "innovate_scrap_smelting": {
+          "id": "innovate_scrap_smelting",
+          "name": "Innovate Scrap Smelting",
+          "expansion": "core",
+          "recipe": {
+            "location": "weapon_crafter",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": "scrap_smelting",
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "scrap",
+                "quantity": 2
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 5
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 5
+              }
+            ]
+          }
+        },
+        "bone_beats": {
+          "id": "bone_beats",
+          "name": "Bone Beats",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "drums",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "battle_paint": {
+          "id": "battle_paint",
+          "name": "Battle Paint",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "face_painting",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "founders_eye": {
+          "id": "founders_eye",
+          "name": "Founder's Eye",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "face_painting",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "sculpture_statue": {
+          "id": "sculpture_statue",
+          "name": "Sculpt Statue",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "sculpture",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "sculpture_study_statue": {
+          "id": "sculpture_study_statue",
+          "name": "Study Statue",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "sculpture",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "nightmare training": {
+          "id": "nightmare training",
+          "name": "Train",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "nightmare training",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "sacrification": {
+          "id": "sacrification",
+          "name": "Initiation",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "sacrification",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "shrine": {
+          "id": "shrine",
+          "name": "Armor Ritual",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "shrine",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "forbidden dance": {
+          "id": "forbidden dance",
+          "name": "Forbidden Dance",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "forbidden dance",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "bed": {
+          "id": "bed",
+          "name": "Rest",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "bed",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "bloodletting": {
+          "id": "bloodletting",
+          "name": "Braething a Vein",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "bloodletting",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "resource",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "cooking": {
+          "id": "cooking",
+          "name": "Cooking",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "cooking",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "cooking_meal": {
+          "id": "cooking_meal",
+          "name": "Cook stone nose gruel",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "cooking",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "purification": {
+          "id": "purification",
+          "name": "Purification",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "scrap_smelting",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_blacksmith": {
+          "id": "build_blacksmith",
+          "name": "Build - Blacksmith",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": "blacksmith",
+            "innovation": "scrap_smelting",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 6
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "scrap",
+                "quantity": 3
+              }
+            ]
+          }
+        }
+      },
+      "stored_resources": {},
+      "expansions": {
+        "core": "core"
+      },
+      "hunting": null,
+      "showdown": {
+        "monster": "gsk",
+        "level": "4"
+      },
+      "notes": "",
+      "type": "potl"
+    },
+    {
+      "id": "4ffb66cf-05ce-4c11-9cd7-00eb43636520",
+      "settlement": {
+        "name": "Tatooine",
+        "survivalLimit": 5,
+        "departing": {
+          "survival": 3,
+          "accuracy": 0,
+          "strength": 0,
+          "evasion": 0,
+          "insanity": 0,
+          "courage": 0,
+          "understanding": 0,
+          "hunt xp": 0,
+          "description": [
+            "**Radiating Orb**: Survivors with a constellation gain +1 survival",
+            "**Song of the Brave**: During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave"
+          ]
+        },
+        "newborn": {
+          "survival": 2,
+          "accuracy": 0,
+          "strength": 1,
+          "evasion": 1,
+          "insanity": 0,
+          "courage": 2,
+          "understanding": 3,
+          "hunt xp": 2,
+          "description": []
+        },
+        "showdown": {
+          "survival": 0,
+          "accuracy": 0,
+          "strength": 0,
+          "evasion": 0,
+          "insanity": 0,
+          "courage": 0,
+          "understanding": 0,
+          "hunt xp": 0,
+          "description": [
+            "**Song of the Brave**: On arrival each non-deaf survivor may remove 1 negative attribute token"
+          ]
+        },
+        "survivors": {
+          "b30f0567-e22a-4e45-9efa-2fda6eed363e": {
+            "id": "b30f0567-e22a-4e45-9efa-2fda6eed363e",
+            "name": "Han",
+            "gender": "male",
+            "status": "dead",
+            "fightingArts": ["Champion's Rite"],
+            "disorders": [],
+            "abilities": ["Reincarnated", "Analyze"],
+            "survival": 5,
+            "insanity": 3,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 1,
+            "strength": 2,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 1,
+            "understanding": 3,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": true,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": true,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": true,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": true,
+              "courage": false
+            }
+          },
+          "80fa6c63-6229-4ea1-8be6-b5693b68b2b6": {
+            "id": "80fa6c63-6229-4ea1-8be6-b5693b68b2b6",
+            "name": "Jar jar",
+            "gender": "male",
+            "status": "dead",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 5,
+            "insanity": 3,
+            "hunt xp": 1,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 0,
+            "evasion": 0,
+            "luck": 1,
+            "speed": 0,
+            "courage": 1,
+            "understanding": 0,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "1810d9f6-7fe4-4f21-9576-c96c872eb5b3": {
+            "id": "1810d9f6-7fe4-4f21-9576-c96c872eb5b3",
+            "name": "Ray",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": ["Mammoth Hunting"],
+            "disorders": ["Seizures", "Honorable"],
+            "abilities": ["Blind", "Scar", "Iridescent Hide", "Matchmaker"],
+            "survival": 4,
+            "insanity": 4,
+            "hunt xp": 5,
+            "movement": 5,
+            "accuracy": -1,
+            "strength": 5,
+            "evasion": 2,
+            "luck": 0,
+            "speed": -1,
+            "courage": 5,
+            "understanding": 0,
+            "notes": "",
+            "weaponProficiency": "sword",
+            "weaponProficiencyLevel": 2,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": true,
+              "championsRite": false,
+              "scar": true,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": true,
+              "courage": false
+            }
+          },
+          "a4404b70-b6f5-45bf-a54e-a05a37266aca": {
+            "id": "a4404b70-b6f5-45bf-a54e-a05a37266aca",
+            "name": "Captain phantasm",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": ["Acrobatics", "Frozen Star", "Propulsion Drive"],
+            "disorders": ["Destined"],
+            "abilities": [
+              "Reincarnated",
+              "Prepared",
+              "Iridescent Hide",
+              "Tinker"
+            ],
+            "survival": 3,
+            "insanity": 15,
+            "hunt xp": 10,
+            "movement": 5,
+            "accuracy": 1,
+            "strength": 1,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 1,
+            "courage": 7,
+            "understanding": 6,
+            "notes": "",
+            "weaponProficiency": "shield",
+            "weaponProficiencyLevel": 8,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": true,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": true,
+              "frozenStar": true,
+              "iridescentHide": true,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": true,
+              "accuracy": true,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "7ac125a4-a00d-4dfa-b943-a36d8d86f51f": {
+            "id": "7ac125a4-a00d-4dfa-b943-a36d8d86f51f",
+            "name": "Greedo",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": ["Frozen Star", "Unbreakable", "Unrelenting"],
+            "disorders": [],
+            "abilities": [
+              "Scar",
+              "Noble",
+              "Shattered Jaw",
+              "Way of the Rust",
+              "Acid Palms"
+            ],
+            "survival": 4,
+            "insanity": 9,
+            "hunt xp": 8,
+            "movement": 4,
+            "accuracy": 1,
+            "strength": 5,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 6,
+            "understanding": 2,
+            "notes": "",
+            "weaponProficiency": "katar",
+            "weaponProficiencyLevel": 5,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": true,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": true,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": true,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": true,
+              "noble": true,
+              "weaponMaster": false,
+              "accuracy": true,
+              "oraclesEye": false,
+              "unbreakable": true,
+              "strength": true,
+              "courage": false
+            }
+          },
+          "a1842c8e-8413-4a24-95b3-61559fad29fa": {
+            "id": "a1842c8e-8413-4a24-95b3-61559fad29fa",
+            "name": "Queen Amidala",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": ["Unbreakable"],
+            "disorders": ["Destined"],
+            "abilities": ["Prepared", "Blind", "Explore"],
+            "survival": 0,
+            "insanity": 5,
+            "hunt xp": 4,
+            "movement": 5,
+            "accuracy": -1,
+            "strength": 1,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 1,
+            "courage": 4,
+            "understanding": 6,
+            "notes": "",
+            "weaponProficiency": "axe",
+            "weaponProficiencyLevel": 1,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": true,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": true,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "b5f55c49-3114-4d8e-a1bf-774e6b29df41": {
+            "id": "b5f55c49-3114-4d8e-a1bf-774e6b29df41",
+            "name": "Unnamed",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": ["Destroyed genitals", "Scar"],
+            "survival": 1,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 2,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 1,
+            "understanding": 0,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": true,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "756368c0-1fa8-4313-a11f-e0552edd1145": {
+            "id": "756368c0-1fa8-4313-a11f-e0552edd1145",
+            "name": "Ackbar",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": ["Champion's Rite", "Tough", "Mighty Strike"],
+            "disorders": ["Seizures", "Enfeebled", "Hyperactive"],
+            "abilities": [
+              "Matchmaker",
+              "Noble",
+              "Destroyed genitals",
+              "Tinker",
+              "Sour Death",
+              "Blind"
+            ],
+            "survival": 0,
+            "insanity": 5,
+            "hunt xp": 2,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 3,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 9,
+            "understanding": 5,
+            "notes": "",
+            "weaponProficiency": "grand weapon",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": true,
+              "scar": false,
+              "noble": true,
+              "weaponMaster": false,
+              "accuracy": true,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": true,
+              "courage": true
+            }
+          },
+          "0c964968-3d0f-428c-84a5-ed7cf6a05630": {
+            "id": "0c964968-3d0f-428c-84a5-ed7cf6a05630",
+            "name": "Anakin",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": ["Red Fist", "Tumble"],
+            "disorders": ["Hemophobia", "Arithmophilia"],
+            "abilities": [
+              "Pristine",
+              "Matchmaker",
+              "Tinker",
+              "Noble",
+              "Acid Palms"
+            ],
+            "survival": 1,
+            "insanity": 2,
+            "hunt xp": 4,
+            "movement": 2,
+            "accuracy": 0,
+            "strength": 2,
+            "evasion": 1,
+            "luck": 0,
+            "speed": -1,
+            "courage": 7,
+            "understanding": 4,
+            "notes": "",
+            "weaponProficiency": "grand weapon",
+            "weaponProficiencyLevel": 2,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": true,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": true,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": true,
+              "courage": false
+            }
+          },
+          "076ffb4e-967b-4191-9f1e-d546cd70f9de": {
+            "id": "076ffb4e-967b-4191-9f1e-d546cd70f9de",
+            "name": "Padme",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": ["Vermin Obsession"],
+            "abilities": ["Explore", "Legendcaller"],
+            "survival": 0,
+            "insanity": 0,
+            "hunt xp": 1,
+            "movement": 5,
+            "accuracy": 1,
+            "strength": 3,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 0,
+            "understanding": 7,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": true,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": true,
+              "courage": false
+            }
+          },
+          "d28fadfe-ca2b-4f14-ab24-1c91099ac68f": {
+            "id": "d28fadfe-ca2b-4f14-ab24-1c91099ac68f",
+            "name": "Fin",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 1,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 2,
+            "understanding": 1,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "da78059d-f2de-4d1d-9ad6-378925f4b594": {
+            "id": "da78059d-f2de-4d1d-9ad6-378925f4b594",
+            "name": "Unnamed",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": ["Leader", "Orator of Death"],
+            "disorders": ["Quixotic"],
+            "abilities": ["Tinker"],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 1,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 2,
+            "understanding": 3,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "7e7aa9a5-c883-4125-b908-f99547f5b708": {
+            "id": "7e7aa9a5-c883-4125-b908-f99547f5b708",
+            "name": "Unnamed",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": ["Tinker"],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 1,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 2,
+            "understanding": 3,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": true,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "f5a46d3c-09a5-471f-87f6-d6665b74ce3e": {
+            "id": "f5a46d3c-09a5-471f-87f6-d6665b74ce3e",
+            "name": "Unnamed",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 1,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 0,
+            "evasion": 0,
+            "luck": 0,
+            "speed": 0,
+            "courage": 0,
+            "understanding": 0,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": true,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "e9ec1ece-6b64-404d-a412-71da35575c86": {
+            "id": "e9ec1ece-6b64-404d-a412-71da35575c86",
+            "name": "Unnamed",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 2,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 0,
+            "understanding": 1,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "dc6f02f6-90b2-4fdf-ac20-b18a56f9f7ee": {
+            "id": "dc6f02f6-90b2-4fdf-ac20-b18a56f9f7ee",
+            "name": "Mina Montary",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": ["Megalophobia"],
+            "abilities": ["Matchmaker", "Tinker"],
+            "survival": 2,
+            "insanity": 7,
+            "hunt xp": 4,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 1,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 5,
+            "understanding": 4,
+            "notes": "",
+            "weaponProficiency": "axe",
+            "weaponProficiencyLevel": 1,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "869978d0-706e-4489-821d-b5817a6c0643": {
+            "id": "869978d0-706e-4489-821d-b5817a6c0643",
+            "name": "Test",
+            "gender": "male",
+            "status": "dead",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 1,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 0,
+            "understanding": 1,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "7815f815-265b-4b98-be7b-8cab26c1242e": {
+            "id": "7815f815-265b-4b98-be7b-8cab26c1242e",
+            "name": "Test",
+            "gender": "male",
+            "status": "dead",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 1,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 0,
+            "understanding": 1,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "7c9e7991-0f8a-471a-be9b-fdf1ace26ef5": {
+            "id": "7c9e7991-0f8a-471a-be9b-fdf1ace26ef5",
+            "name": "Unnamed",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 1,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 0,
+            "understanding": 1,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "23134ab4-a49b-4df2-98ba-c58eb648fd3b": {
+            "id": "23134ab4-a49b-4df2-98ba-c58eb648fd3b",
+            "name": "Unnamed",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 1,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 0,
+            "understanding": 1,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "099a8105-9dfe-403c-aa95-212c4c51fc20": {
+            "id": "099a8105-9dfe-403c-aa95-212c4c51fc20",
+            "name": "Unnamed",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 2,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 0,
+            "understanding": 1,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "83507329-4857-470b-83ec-18ad9a300ae1": {
+            "id": "83507329-4857-470b-83ec-18ad9a300ae1",
+            "name": "Unnamed",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 2,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 0,
+            "understanding": 1,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": true,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "0d66e69a-13fd-4b1a-86d8-ef6381d4be87": {
+            "id": "0d66e69a-13fd-4b1a-86d8-ef6381d4be87",
+            "name": "Quaigon",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": ["Tumble"],
+            "disorders": [],
+            "abilities": ["Matchmaker"],
+            "survival": 5,
+            "insanity": 0,
+            "hunt xp": 1,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 3,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 3,
+            "understanding": 2,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": true,
+              "courage": false
+            }
+          },
+          "b779da66-0cf3-44cc-b73b-1d0650eaca33": {
+            "id": "b779da66-0cf3-44cc-b73b-1d0650eaca33",
+            "name": "Unnamed",
+            "gender": "female",
+            "status": "alive",
+            "fightingArts": ["Champion's Rite", "Unbreakable"],
+            "disorders": [],
+            "abilities": [],
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 1,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 0,
+            "understanding": 1,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": true,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": true,
+              "strength": false,
+              "courage": false
+            }
+          }
+        },
+        "activeSurvivorsList": [
+          "a4404b70-b6f5-45bf-a54e-a05a37266aca",
+          "7ac125a4-a00d-4dfa-b943-a36d8d86f51f",
+          "0d66e69a-13fd-4b1a-86d8-ef6381d4be87",
+          "076ffb4e-967b-4191-9f1e-d546cd70f9de",
+          "a1842c8e-8413-4a24-95b3-61559fad29fa",
+          "dc6f02f6-90b2-4fdf-ac20-b18a56f9f7ee",
+          "756368c0-1fa8-4313-a11f-e0552edd1145",
+          "1810d9f6-7fe4-4f21-9576-c96c872eb5b3",
+          "b5f55c49-3114-4d8e-a1bf-774e6b29df41",
+          "e9ec1ece-6b64-404d-a412-71da35575c86",
+          "099a8105-9dfe-403c-aa95-212c4c51fc20",
+          "83507329-4857-470b-83ec-18ad9a300ae1",
+          "b779da66-0cf3-44cc-b73b-1d0650eaca33",
+          "0c964968-3d0f-428c-84a5-ed7cf6a05630",
+          "d28fadfe-ca2b-4f14-ab24-1c91099ac68f",
+          "da78059d-f2de-4d1d-9ad6-378925f4b594",
+          "7e7aa9a5-c883-4125-b908-f99547f5b708",
+          "f5a46d3c-09a5-471f-87f6-d6665b74ce3e",
+          "7c9e7991-0f8a-471a-be9b-fdf1ace26ef5",
+          "23134ab4-a49b-4df2-98ba-c58eb648fd3b"
+        ]
+      },
+      "locations": {
+        "throne": "throne",
+        "gormery": "gormery",
+        "gormchymist": "gormchymist",
+        "skinnery": "skinnery",
+        "organ_grinder": "organ_grinder",
+        "catarium": "catarium",
+        "bone_smith": "bone_smith",
+        "leather_worker": "leather_worker"
+      },
+      "innovations": {
+        "hovel": "hovel",
+        "dragon speech": "dragon speech",
+        "radiating orb": "radiating orb",
+        "nigredo": "nigredo",
+        "symposium": "symposium",
+        "inner_lantern": "inner_lantern",
+        "paint": "paint",
+        "drums": "drums",
+        "song_of_the_brave": "song_of_the_brave",
+        "ammonia": "ammonia",
+        "round stone training": "round stone training",
+        "subterranean agriculture": "subterranean agriculture",
+        "saga": "saga"
+      },
+      "principles": {
+        "death": "graves",
+        "newlife": "sotf",
+        "society": null,
+        "conviction": null
+      },
+      "bonuses": {
+        "encourage": {
+          "id": "encourage",
+          "name": "Encourage",
+          "description": [
+            "All survivors gain **Encourage** survival action.",
+            "**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down."
+          ]
+        },
+        "symposium": {
+          "id": "symposium",
+          "name": "Symposium",
+          "description": [
+            "When a survivor innovates, draw an additional 2 innovation cards to choose from"
+          ]
+        },
+        "death": {
+          "id": "death",
+          "name": "Graves",
+          "description": [
+            "When a survivor dies during hunt or showdown phase, gain +2 endeavors",
+            "When a survivor dies during settlement phase, gain +1 endeavors"
+          ]
+        },
+        "newlife": {
+          "id": "newlife",
+          "name": "Survival of the Fittests",
+          "description": [
+            "When rolling on intimacy table, roll twice and keep lowest result",
+            "Once per lifetime, a survivor may reroll a single roll result"
+          ]
+        }
+      },
+      "endeavors": {
+        "innovate": {
+          "id": "innovate",
+          "name": "Innovate",
+          "expansion": "dk",
+          "recipe": {
+            "location": "throne",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "fear and trembling": {
+          "id": "fear and trembling",
+          "name": "Fear and Trembling",
+          "expansion": "dk",
+          "recipe": {
+            "location": "throne",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_bone_smith": {
+          "id": "build_bone_smith",
+          "name": "Build - Bone Smith",
+          "expansion": "dk",
+          "recipe": {
+            "location": "throne",
+            "not_location": "bone_smith",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_skinnery": {
+          "id": "build_skinnery",
+          "name": "Build - Skinnery",
+          "expansion": "dk",
+          "recipe": {
+            "location": "throne",
+            "not_location": "skinnery",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_organ_grinder": {
+          "id": "build_organ_grinder",
+          "name": "Build - Organ Grinder",
+          "expansion": "dk",
+          "recipe": {
+            "location": "throne",
+            "not_location": "organ_grinder",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "gormchymist": {
+          "id": "gormchymist",
+          "name": "Get Gormchymy innovation",
+          "expansion": "gorm",
+          "recipe": {
+            "location": "gormchymist",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": "gorm brain",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "strange",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "nigredo": {
+          "id": "nigredo",
+          "name": "Nigredo",
+          "expansion": "gorm",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "nigredo",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_leather_worker": {
+          "id": "build_leather_worker",
+          "name": "Build - Leather Worker",
+          "expansion": "core",
+          "recipe": {
+            "location": "skinnery",
+            "not_location": "leather_worker",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 3
+              }
+            ]
+          }
+        },
+        "augury": {
+          "id": "augury",
+          "name": "Augury",
+          "expansion": "core",
+          "recipe": {
+            "location": "organ_grinder",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "stone_noses": {
+          "id": "stone_noses",
+          "name": "Stone Noses",
+          "expansion": "core",
+          "recipe": {
+            "location": "organ_grinder",
+            "not_location": null,
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_stone_circle": {
+          "id": "build_stone_circle",
+          "name": "Build - Stone Circle",
+          "expansion": "core",
+          "recipe": {
+            "location": "organ_grinder",
+            "not_location": "stone_circle",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 3
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "bone_beats": {
+          "id": "bone_beats",
+          "name": "Bone Beats",
+          "expansion": "core",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "drums",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_weapon_crafter": {
+          "id": "build_weapon_crafter",
+          "name": "Build - Weapon Crafter",
+          "expansion": "core",
+          "recipe": {
+            "location": "bone_smith",
+            "not_location": "weapon_crafter",
+            "innovation": null,
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 3
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "leather_making": {
+          "id": "leather_making",
+          "name": "Leather Making",
+          "expansion": "core",
+          "recipe": {
+            "location": "leather_worker",
+            "not_location": null,
+            "innovation": "ammonia",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "hide",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "round stone training": {
+          "id": "round stone training",
+          "name": "Train",
+          "expansion": "dbk",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "round stone training",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "resource",
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "underground_sow": {
+          "id": "underground_sow",
+          "name": "Underground Sow",
+          "expansion": "dbk",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "subterranean agriculture",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "black_harvest": {
+          "id": "black_harvest",
+          "name": "Black Harvest",
+          "expansion": "dbk",
+          "recipe": {
+            "location": null,
+            "not_location": null,
+            "innovation": "subterranean agriculture",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": "preserved caustic dung",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        "build_wet_resin_crafter": {
+          "id": "build_wet_resin_crafter",
+          "name": "Build - Wet Resin Crafter",
+          "expansion": "dbk",
+          "recipe": {
+            "location": null,
+            "not_location": "wet_resin_crafter",
+            "innovation": "subterranean agriculture",
+            "not_innovation": null,
+            "items": [
+              {
+                "resource": "endeavor",
+                "gear": null,
+                "keyword": null,
+                "quantity": 1
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "organ",
+                "quantity": 2
+              },
+              {
+                "resource": null,
+                "gear": null,
+                "keyword": "bone",
+                "quantity": 2
+              }
+            ]
+          }
+        }
+      },
+      "stored_resources": {
+        "radioactive dung": {
+          "id": "radioactive dung",
+          "resource": "radioactive dung",
+          "quantity": 0
+        },
+        "king's tongue": {
+          "id": "king's tongue",
+          "resource": "king's tongue",
+          "quantity": 0
+        },
+        "hardened ribs": {
+          "id": "hardened ribs",
+          "resource": "hardened ribs",
+          "quantity": 0
+        },
+        "dragon iron": {
+          "id": "dragon iron",
+          "resource": "dragon iron",
+          "quantity": 0
+        },
+        "husk": {
+          "id": "husk",
+          "resource": "husk",
+          "quantity": 0
+        },
+        "veined wing": {
+          "id": "veined wing",
+          "resource": "veined wing",
+          "quantity": 0
+        },
+        "king's claws": {
+          "id": "king's claws",
+          "resource": "king's claws",
+          "quantity": 0
+        },
+        "horn fragment": {
+          "id": "horn fragment",
+          "resource": "horn fragment",
+          "quantity": 0
+        },
+        "cabled vein": {
+          "id": "cabled vein",
+          "resource": "cabled vein",
+          "quantity": 0
+        },
+        "skull": {
+          "id": "skull",
+          "resource": "skull",
+          "quantity": 0
+        },
+        "monster bone": {
+          "id": "monster bone",
+          "resource": "monster bone",
+          "quantity": 0
+        },
+        "???": {
+          "id": "???",
+          "resource": "???",
+          "quantity": 0
+        },
+        "love juice": {
+          "id": "love juice",
+          "resource": "love juice",
+          "quantity": 0
+        },
+        "monster hide": {
+          "id": "monster hide",
+          "resource": "monster hide",
+          "quantity": 0
+        },
+        "monster organ": {
+          "id": "monster organ",
+          "resource": "monster organ",
+          "quantity": 0
+        },
+        "broken lantern": {
+          "id": "broken lantern",
+          "resource": "broken lantern",
+          "quantity": 0
+        },
+        "whishbone": {
+          "id": "whishbone",
+          "resource": "whishbone",
+          "quantity": 0
+        },
+        "tail feathers": {
+          "id": "tail feathers",
+          "resource": "tail feathers",
+          "quantity": 0
+        },
+        "shimmering halo": {
+          "id": "shimmering halo",
+          "resource": "shimmering halo",
+          "quantity": 0
+        },
+        "small hand parasites": {
+          "id": "small hand parasites",
+          "resource": "small hand parasites",
+          "quantity": 0
+        },
+        "small feathers": {
+          "id": "small feathers",
+          "resource": "small feathers",
+          "quantity": 0
+        },
+        "rainbow droppings": {
+          "id": "rainbow droppings",
+          "resource": "rainbow droppings",
+          "quantity": 0
+        },
+        "bird beak": {
+          "id": "bird beak",
+          "resource": "bird beak",
+          "quantity": 0
+        },
+        "black skull": {
+          "id": "black skull",
+          "resource": "black skull",
+          "quantity": 0
+        },
+        "hollow wing bone": {
+          "id": "hollow wing bone",
+          "resource": "hollow wing bone",
+          "quantity": 0
+        },
+        "muculent droppings": {
+          "id": "muculent droppings",
+          "resource": "muculent droppings",
+          "quantity": 0
+        },
+        "phoenix eye": {
+          "id": "phoenix eye",
+          "resource": "phoenix eye",
+          "quantity": 0
+        },
+        "phoenix finger": {
+          "id": "phoenix finger",
+          "resource": "phoenix finger",
+          "quantity": 0
+        },
+        "phoenix whisker": {
+          "id": "phoenix whisker",
+          "resource": "phoenix whisker",
+          "quantity": 0
+        },
+        "pustules": {
+          "id": "pustules",
+          "resource": "pustules",
+          "quantity": 0
+        },
+        "bladder": {
+          "id": "bladder",
+          "resource": "bladder",
+          "quantity": 0
+        },
+        "large flat tooth": {
+          "id": "large flat tooth",
+          "resource": "large flat tooth",
+          "quantity": 0
+        },
+        "muscly gums": {
+          "id": "muscly gums",
+          "resource": "muscly gums",
+          "quantity": 0
+        },
+        "spiral horn": {
+          "id": "spiral horn",
+          "resource": "spiral horn",
+          "quantity": 0
+        },
+        "shank bone": {
+          "id": "shank bone",
+          "resource": "shank bone",
+          "quantity": 0
+        },
+        "screaming brain": {
+          "id": "screaming brain",
+          "resource": "screaming brain",
+          "quantity": 0
+        },
+        "pelt": {
+          "id": "pelt",
+          "resource": "pelt",
+          "quantity": 0
+        },
+        "elder cat teeth": {
+          "id": "elder cat teeth",
+          "resource": "elder cat teeth",
+          "quantity": 0
+        },
+        "second heart": {
+          "id": "second heart",
+          "resource": "second heart",
+          "quantity": 0
+        },
+        "phoenix crest": {
+          "id": "phoenix crest",
+          "resource": "phoenix crest",
+          "quantity": 0
+        },
+        "perfect crucible": {
+          "id": "perfect crucible",
+          "resource": "perfect crucible",
+          "quantity": 0
+        },
+        "legendary horns": {
+          "id": "legendary horns",
+          "resource": "legendary horns",
+          "quantity": 0
+        },
+        "leather": {
+          "id": "leather",
+          "resource": "leather",
+          "quantity": 0
+        },
+        "iron": {
+          "id": "iron",
+          "resource": "iron",
+          "quantity": 0
+        },
+        "fresh acanthus": {
+          "id": "fresh acanthus",
+          "resource": "fresh acanthus",
+          "quantity": 0
+        },
+        "nightmare tick": {
+          "id": "nightmare tick",
+          "resource": "nightmare tick",
+          "quantity": 0
+        },
+        "hissing cockroach": {
+          "id": "hissing cockroach",
+          "resource": "hissing cockroach",
+          "quantity": 1
+        },
+        "crab spider": {
+          "id": "crab spider",
+          "resource": "crab spider",
+          "quantity": 0
+        },
+        "sword beetle": {
+          "id": "sword beetle",
+          "resource": "sword beetle",
+          "quantity": 0
+        },
+        "cyclops fly": {
+          "id": "cyclops fly",
+          "resource": "cyclops fly",
+          "quantity": 0
+        },
+        "lonely ant": {
+          "id": "lonely ant",
+          "resource": "lonely ant",
+          "quantity": 0
+        },
+        "sinew": {
+          "id": "sinew",
+          "resource": "sinew",
+          "quantity": 0
+        },
+        "white fur": {
+          "id": "white fur",
+          "resource": "white fur",
+          "quantity": 0
+        },
+        "great cat bone": {
+          "id": "great cat bone",
+          "resource": "great cat bone",
+          "quantity": 0
+        },
+        "lion claw": {
+          "id": "lion claw",
+          "resource": "lion claw",
+          "quantity": 0
+        },
+        "eye of cat": {
+          "id": "eye of cat",
+          "resource": "eye of cat",
+          "quantity": 0
+        },
+        "golden whiskers": {
+          "id": "golden whiskers",
+          "resource": "golden whiskers",
+          "quantity": 1
+        },
+        "shimmering mane": {
+          "id": "shimmering mane",
+          "resource": "shimmering mane",
+          "quantity": 0
+        },
+        "lion testes": {
+          "id": "lion testes",
+          "resource": "lion testes",
+          "quantity": 0
+        },
+        "lion tail": {
+          "id": "lion tail",
+          "resource": "lion tail",
+          "quantity": 0
+        },
+        "curious hand": {
+          "id": "curious hand",
+          "resource": "curious hand",
+          "quantity": 0
+        },
+        "preserved caustic dung": {
+          "id": "preserved caustic dung",
+          "resource": "preserved caustic dung",
+          "quantity": 1
+        },
+        "scell": {
+          "id": "scell",
+          "resource": "scell",
+          "quantity": 0
+        },
+        "sarcophagus": {
+          "id": "sarcophagus",
+          "resource": "sarcophagus",
+          "quantity": 0
+        },
+        "triptych": {
+          "id": "triptych",
+          "resource": "triptych",
+          "quantity": 0
+        },
+        "canopic jar": {
+          "id": "canopic jar",
+          "resource": "canopic jar",
+          "quantity": 0
+        },
+        "silver urn": {
+          "id": "silver urn",
+          "resource": "silver urn",
+          "quantity": 0
+        },
+        "old blue box": {
+          "id": "old blue box",
+          "resource": "old blue box",
+          "quantity": 0
+        },
+        "radiant heart": {
+          "id": "radiant heart",
+          "resource": "radiant heart",
+          "quantity": 0
+        },
+        "pituitary gland": {
+          "id": "pituitary gland",
+          "resource": "pituitary gland",
+          "quantity": 0
+        },
+        "shining liver": {
+          "id": "shining liver",
+          "resource": "shining liver",
+          "quantity": 0
+        },
+        "mammoth hand": {
+          "id": "mammoth hand",
+          "resource": "mammoth hand",
+          "quantity": 0
+        },
+        "jiggling lard": {
+          "id": "jiggling lard",
+          "resource": "jiggling lard",
+          "quantity": 1
+        },
+        "stout kidney": {
+          "id": "stout kidney",
+          "resource": "stout kidney",
+          "quantity": 0
+        },
+        "stout heart": {
+          "id": "stout heart",
+          "resource": "stout heart",
+          "quantity": 0
+        },
+        "milky eye": {
+          "id": "milky eye",
+          "resource": "milky eye",
+          "quantity": 0
+        },
+        "acid gland": {
+          "id": "acid gland",
+          "resource": "acid gland",
+          "quantity": 0
+        },
+        "gorm brain": {
+          "id": "gorm brain",
+          "resource": "gorm brain",
+          "quantity": 0
+        },
+        "stout hide": {
+          "id": "stout hide",
+          "resource": "stout hide",
+          "quantity": 0
+        },
+        "meaty rib": {
+          "id": "meaty rib",
+          "resource": "meaty rib",
+          "quantity": 0
+        },
+        "stout vertebrae": {
+          "id": "stout vertebrae",
+          "resource": "stout vertebrae",
+          "quantity": 0
+        },
+        "handed skull": {
+          "id": "handed skull",
+          "resource": "handed skull",
+          "quantity": 0
+        },
+        "dense bone": {
+          "id": "dense bone",
+          "resource": "dense bone",
+          "quantity": 1
+        },
+        "drifting dream fruit": {
+          "id": "drifting dream fruit",
+          "resource": "drifting dream fruit",
+          "quantity": 0
+        },
+        "blistering plasma fruit": {
+          "id": "blistering plasma fruit",
+          "resource": "blistering plasma fruit",
+          "quantity": 0
+        },
+        "jagged marrow fruit": {
+          "id": "jagged marrow fruit",
+          "resource": "jagged marrow fruit",
+          "quantity": 0
+        },
+        "porous flesh fruit": {
+          "id": "porous flesh fruit",
+          "resource": "porous flesh fruit",
+          "quantity": 0
+        },
+        "lonely fruit": {
+          "id": "lonely fruit",
+          "resource": "lonely fruit",
+          "quantity": 0
+        },
+        "pure bulb": {
+          "id": "pure bulb",
+          "resource": "pure bulb",
+          "quantity": 0
+        },
+        "underplate fungus": {
+          "id": "underplate fungus",
+          "resource": "underplate fungus",
+          "quantity": 1
+        },
+        "century shell": {
+          "id": "century shell",
+          "resource": "century shell",
+          "quantity": 1
+        },
+        "scarab wing": {
+          "id": "scarab wing",
+          "resource": "scarab wing",
+          "quantity": 1
+        },
+        "scarab shell": {
+          "id": "scarab shell",
+          "resource": "scarab shell",
+          "quantity": 1
+        },
+        "beetle horn": {
+          "id": "beetle horn",
+          "resource": "beetle horn",
+          "quantity": 1
+        }
+      },
+      "expansions": {
+        "core": "core",
+        "dk": "dk",
+        "dbk": "dbk",
+        "gorm": "gorm",
+        "lg": "lg",
+        "lt": "lt",
+        "fk": "fk"
+      },
+      "hunting": {
+        "monster": "dbk",
+        "level": "1"
+      },
+      "showdown": {
+        "monster": "dbk",
+        "level": "1"
+      },
+      "notes": "Harvest lvl2",
+      "type": "pots"
+    },
+    {
+      "id": "b861a66c-1678-47e0-b535-bb14b350bfa2",
+      "settlement": {
+        "name": "Test",
+        "survivalLimit": 1,
+        "departing": {
+          "survival": 0,
+          "accuracy": 0,
+          "strength": 0,
+          "evasion": 0,
+          "insanity": 0,
+          "courage": 0,
+          "understanding": 0,
+          "hunt xp": 0,
+          "description": []
+        },
+        "newborn": {
+          "survival": 1,
+          "accuracy": 0,
+          "strength": 0,
+          "evasion": 0,
+          "insanity": 0,
+          "courage": 0,
+          "understanding": 0,
+          "hunt xp": 0,
+          "description": []
+        },
+        "showdown": {
+          "survival": 0,
+          "accuracy": 0,
+          "strength": 0,
+          "evasion": 0,
+          "insanity": 0,
+          "courage": 0,
+          "understanding": 0,
+          "hunt xp": 0,
+          "description": []
+        },
+        "survivors": {
+          "24b2b2e9-5e79-472c-986c-5c8bcf5ffd1f": {
+            "id": "24b2b2e9-5e79-472c-986c-5c8bcf5ffd1f",
+            "name": "Unnamed",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "survival": 1,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 0,
+            "evasion": 0,
+            "luck": 0,
+            "speed": 0,
+            "courage": 0,
+            "understanding": 0,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          },
+          "4db7439e-63d3-4539-b8ce-1374caa08f94": {
+            "id": "4db7439e-63d3-4539-b8ce-1374caa08f94",
+            "name": "Unnamed",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": ["Suppressed Shadow", "Defender"],
+            "disorders": [],
+            "abilities": [],
+            "survival": 1,
+            "insanity": 0,
+            "hunt xp": 0,
+            "movement": 5,
+            "accuracy": 0,
+            "strength": 0,
+            "evasion": 0,
+            "luck": 0,
+            "speed": 0,
+            "courage": 0,
+            "understanding": 0,
+            "notes": "",
+            "weaponProficiencyLevel": 0,
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": false,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            }
+          }
+        },
+        "activeSurvivorsList": [
+          "24b2b2e9-5e79-472c-986c-5c8bcf5ffd1f",
+          "4db7439e-63d3-4539-b8ce-1374caa08f94"
+        ]
+      },
+      "locations": {},
+      "innovations": {},
+      "principles": {
+        "death": null,
+        "newlife": null,
+        "society": null,
+        "conviction": null
+      },
+      "bonuses": {},
+      "endeavors": {},
+      "stored_resources": {},
+      "expansions": {
+        "core": "core",
+        "dk": "dk",
+        "lk": "lk",
+        "lt": "lt",
+        "sunstalker": "sunstalker"
+      },
+      "hunting": null,
+      "showdown": null,
+      "notes": "",
+      "type": "pots"
+    }
+  ],
+  "selectedCampaign": "4ffb66cf-05ce-4c11-9cd7-00eb43636520",
+  "version": 4,
+  "subscription": {
+    "productId": "",
+    "response": "",
+    "purchasedAt": 0,
+    "autoRenewing": false,
+    "checkedAt": 1545436821417,
+    "appLastActiveAt": 1545596960275
+  }
+}

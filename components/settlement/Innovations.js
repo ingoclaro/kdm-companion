@@ -1,6 +1,6 @@
 import React from 'react'
 import { Screen, View, Text, Image, Row, Caption } from '@shoutem/ui'
-import MultiSelectList from '../components/common/MultiSelectList'
+import MultiSelectList from '../common/MultiSelectList'
 import PropTypes from 'prop-types'
 import { observer, inject } from 'mobx-react/native'
 

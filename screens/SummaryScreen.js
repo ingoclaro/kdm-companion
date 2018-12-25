@@ -2,7 +2,7 @@ import React from 'react'
 import { Screen } from '@shoutem/ui'
 import { ScrollView } from 'react-native'
 
-import SettlementSummary from '../components/SettlementSummary'
+import SettlementSummary from '../components/settlement/SettlementSummary'
 
 export default class SummaryScreen extends React.Component {
   static navigationOptions = {
