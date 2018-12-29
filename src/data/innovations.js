@@ -68,13 +68,7 @@ export default {
     name: 'Cooking',
     expansion: 'core',
     keywords: ['science', 'lantern oven consequence'],
-    providesBonuses: [
-      {
-        id: 'cooking',
-        name: 'Cooking',
-        description: ['At the start of the Settlement phase gain +1 endeavor'],
-      },
-    ],
+    bonus: 'At the start of the Settlement phase gain +1 endeavor',
     settlement: {
       survivalLimit: 1,
     },
@@ -190,15 +184,8 @@ export default {
     name: 'Forbidden Dance',
     expansion: 'core',
     keywords: ['music', 'drums consequence'],
-    providesBonuses: [
-      {
-        id: 'forbidden dance',
-        name: 'Forbidden Dance',
-        description: [
-          'When a survivor uses the Synchronized Strike SFA, reroll missed attack rolls once',
-        ],
-      },
-    ],
+    bonus:
+      'When a survivor uses the Synchronized Strike SFA, reroll missed attack rolls once',
     endeavors: [
       {
         id: 'forbidden dance',
@@ -238,15 +225,8 @@ export default {
     name: 'Heart Flute',
     expansion: 'core',
     keywords: ['music', 'forbidden dance consequence'],
-    providesBonuses: [
-      {
-        id: 'heart_flute',
-        name: 'Heart Flute',
-        description: [
-          "When using Synchronized Strike FA, the attack assist may spend 1 survival to change a monster's R to R Failure before any wound attempts",
-        ],
-      },
-    ],
+    bonus:
+      "When using Synchronized Strike FA, the attack assist may spend 1 survival to change a monster's R to R Failure before any wound attempts",
     endeavors: [
       {
         id: 'heart_flute',
@@ -285,16 +265,9 @@ export default {
     settlement: {
       survivalLimit: 1,
     },
-    providesBonuses: [
-      {
-        id: 'encourage',
-        name: 'Encourage',
-        description: [
-          'All  survivors gain **Encourage** survival action.',
-          '**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
-        ],
-      },
-    ],
+
+    bonus:
+      'All  survivors gain **Encourage** survival action.\n**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
   },
   lantern_oven: {
     id: 'lantern_oven',
@@ -447,16 +420,9 @@ export default {
     name: 'Pictograph',
     expansion: 'core',
     keywords: ['art', 'paint consequence'],
-    providesBonuses: [
-      {
-        id: 'pictograph',
-        name: 'Pictograph',
-        description: [
-          "At the start of a survivor's act, they may decide to skip their act and Run Away",
-          'After a hunt event is resolved, a survivor may Run Away',
-        ],
-      },
-    ],
+
+    bonus:
+      "At the start of a survivor's act, they may decide to skip their act and Run Away.\nAfter a hunt event is resolved, a survivor may Run Away",
   },
   pottery: {
     id: 'pottery',
@@ -683,19 +649,14 @@ export default {
     name: 'Symposium',
     expansion: 'core',
     keywords: ['education', 'language consequence'],
-    providesBonuses: [
-      {
-        id: 'symposium',
-        name: 'Symposium',
-        description: [
-          'When a survivor innovates, draw an additional 2 innovation cards to choose from',
-        ],
-      },
-    ],
+
+    bonus:
+      'When a survivor innovates, draw an additional 2 innovation cards to choose from',
     settlement: {
       survivalLimit: 1,
     },
   },
+
   ultimate_weapon: {
     id: 'ultimate_weapon',
     name: 'Ultimate Weapon',
@@ -1022,15 +983,9 @@ export default {
     name: 'The Knowledge Worm',
     expansion: 'lg',
     keywords: ['other'],
-    providesBonuses: [
-      {
-        id: 'the knowledge worm',
-        name: 'The Knowledge Worm',
-        description: [
-          'At the start of each settlement phase add 1 scrap resource to storage',
-        ],
-      },
-    ],
+
+    bonus:
+      'At the start of each settlement phase add 1 scrap resource to storage',
     settlement: {
       departing: {
         survival: 3,
@@ -1158,16 +1113,9 @@ export default {
     settlement: {
       survivalLimit: 1,
     },
-    providesBonuses: [
-      {
-        id: 'embolden',
-        name: 'Embolden',
-        description: [
-          'All Surivors gain the **Embolden** survival action.',
-          "**Embolden**: Once per round, if you haven't any +1 Str tokens, spend 1 survival to gain +1 Str token. When you are knocked down loose all Str tokens.",
-        ],
-      },
-    ],
+
+    bonus:
+      "All Surivors gain the **Embolden** survival action.\n**Embolden**: Once per round, if you haven't any +1 Str tokens, spend 1 survival to gain +1 Str token. When you are knocked down loose all Str tokens.",
   },
   'umbilical bank': {
     id: 'umbilical bank',
@@ -1255,15 +1203,9 @@ export default {
     name: 'Filleting Table',
     expansion: 'sunstalker',
     keywords: ['science'],
-    providesBonuses: [
-      {
-        id: 'filleting table',
-        name: 'Filleting Table',
-        description: [
-          'Once per settlement phase, if the survivors return victorious, gain 1 random basic resource.',
-        ],
-      },
-    ],
+
+    bonus:
+      'Once per settlement phase, if the survivors return victorious, gain 1 random basic resource.',
     endeavors: [
       {
         id: 'advance cutting',
@@ -1281,16 +1223,9 @@ export default {
     name: 'Hands of the Sun',
     expansion: 'sunstalker',
     keywords: ['faith'],
-    providesBonuses: [
-      {
-        id: 'overcharge',
-        name: 'Overcharge',
-        description: [
-          'All Surivors gain the **Overcharge** survival action.',
-          '**Overcharge**: If you have any +1 Str token, you may spend 1 survival to remove of them and gain devastating 1 to your next attack this round.',
-        ],
-      },
-    ],
+
+    bonus:
+      'All Surivors gain the **Overcharge** survival action.\n**Overcharge**: If you have any +1 Str token, you may spend 1 survival to remove of them and gain devastating 1 to your next attack this round.',
   },
   aquarobics: {
     id: 'aquarobics',
@@ -1320,16 +1255,9 @@ export default {
     settlement: {
       survivalLimit: 1,
     },
-    providesBonuses: [
-      {
-        id: 'encourage',
-        name: 'Encourage',
-        description: [
-          'All survivors gain **Encourage** survival action.',
-          '**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
-        ],
-      },
-    ],
+
+    bonus:
+      'All survivors gain **Encourage** survival action.\n**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
   },
   'radiating orb': {
     id: 'radiating orb', // TODO: handle consecuence (this card has add lantern oven consecuence :S)

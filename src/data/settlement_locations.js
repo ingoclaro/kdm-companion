@@ -46,7 +46,6 @@ export default {
         name: 'Harvest Ritual',
         expansion: 'core',
         recipe: {
-          location: 'stone_circle',
           innovation: 'forbidden dance',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
@@ -74,7 +73,6 @@ export default {
         name: 'Scrap Scavenge',
         expansion: 'core',
         recipe: {
-          location: 'weapon_crafter',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
       },
@@ -83,7 +81,6 @@ export default {
         name: 'Innovate Scrap Smelting',
         expansion: 'core',
         recipe: {
-          location: 'weapon_crafter',
           not_innovation: 'scrap_smelting',
           items: [
             { resource: 'endeavor', quantity: 1 },
@@ -115,7 +112,6 @@ export default {
         name: 'Leather Making',
         expansion: 'core',
         recipe: {
-          location: 'leather_worker',
           innovation: 'ammonia',
           items: [
             { resource: 'endeavor', quantity: 1 },
@@ -186,7 +182,6 @@ export default {
         name: 'Build - Weapon Crafter',
         expansion: 'core',
         recipe: {
-          location: 'bone_smith',
           not_location: 'weapon_crafter',
           items: [
             { resource: 'endeavor', quantity: 1 },
@@ -217,7 +212,6 @@ export default {
         name: 'Trepanning',
         expansion: 'core',
         recipe: {
-          location: 'barber_surgeon',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
       },
@@ -243,7 +237,6 @@ export default {
         name: 'Build - Leather Worker',
         expansion: 'core',
         recipe: {
-          location: 'skinnery',
           not_location: 'leather_worker',
           items: [
             { resource: 'endeavor', quantity: 1 },
@@ -271,7 +264,6 @@ export default {
         name: 'Augury',
         expansion: 'core',
         recipe: {
-          location: 'organ_grinder',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
       },
@@ -280,7 +272,6 @@ export default {
         name: 'Stone Noses',
         expansion: 'core',
         recipe: {
-          location: 'organ_grinder',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
       },
@@ -289,7 +280,6 @@ export default {
         name: 'Build - Stone Circle',
         expansion: 'core',
         recipe: {
-          location: 'organ_grinder',
           not_location: 'stone_circle',
           items: [
             { resource: 'endeavor', quantity: 1 },
@@ -318,7 +308,6 @@ export default {
         name: 'Hunt the Great Golden Cat',
         expansion: 'core',
         recipe: {
-          location: 'mask_maker',
           items: [
             { resource: 'endeavor', quantity: 1 },
             { gear: 'white_lion_mask', quantity: 1 },
@@ -330,7 +319,6 @@ export default {
         name: 'Hunt the Mad Streed',
         expansion: 'core',
         recipe: {
-          location: 'mask_maker',
           items: [
             { resource: 'endeavor', quantity: 1 },
             { gear: 'antelope_mask', quantity: 1 },
@@ -342,7 +330,6 @@ export default {
         name: 'Hunt the Golden Eyed King',
         expansion: 'core',
         recipe: {
-          location: 'mask_maker',
           items: [
             { resource: 'endeavor', quantity: 1 },
             { gear: 'phoenix_mask', quantity: 1 },
@@ -361,7 +348,6 @@ export default {
         name: 'Lantern Research - Pulse Discoveries',
         expansion: 'core',
         recipe: {
-          location: 'exhausted_lantern_hoard',
           items: [
             { resource: 'endeavor', quantity: 2 },
             { gear: 'final_lantern', quantity: 1 },
@@ -373,7 +359,6 @@ export default {
         name: 'Oxidation',
         expansion: 'core',
         recipe: {
-          location: 'exhausted_lantern_hoard',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
       },
@@ -382,7 +367,6 @@ export default {
         name: "Survivor's Lantern",
         expansion: 'core',
         recipe: {
-          location: 'exhausted_lantern_hoard',
           items: [
             { resource: 'endeavor', quantity: 1 },
             { gear: 'final_lantern', quantity: 1 },
@@ -394,7 +378,6 @@ export default {
         name: 'Investigate',
         expansion: 'core',
         recipe: {
-          location: 'exhausted_lantern_hoard',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
       },
@@ -410,7 +393,6 @@ export default {
         name: 'Innovate',
         expansion: 'core',
         recipe: {
-          location: 'lantern_hoard',
           items: [
             { resource: 'endeavor', quantity: 1 },
             { keyword: 'bone', quantity: 1 },
@@ -424,7 +406,6 @@ export default {
         name: 'Shared Experience',
         expansion: 'core',
         recipe: {
-          location: 'lantern_hoard',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
       },
@@ -433,7 +414,6 @@ export default {
         name: 'Build - Bone Smith',
         expansion: 'core',
         recipe: {
-          location: 'lantern_hoard',
           not_location: 'bone_smith',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
@@ -443,7 +423,6 @@ export default {
         name: 'Build - Skinnery',
         expansion: 'core',
         recipe: {
-          location: 'lantern_hoard',
           not_location: 'skinnery',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
@@ -453,7 +432,6 @@ export default {
         name: 'Build - Organ Grinder',
         expansion: 'core',
         recipe: {
-          location: 'lantern_hoard',
           not_location: 'organ_grinder',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
@@ -470,7 +448,6 @@ export default {
         name: 'Get Gormchymy innovation',
         expansion: 'gorm',
         recipe: {
-          location: 'gormchymist',
           items: [
             { resource: 'endeavor', quantity: 1 },
             { resource: 'gorm brain', quantity: 1 },
@@ -550,7 +527,6 @@ export default {
         name: 'Innovate',
         expansion: 'sunstalker',
         recipe: {
-          location: 'the sun',
           items: [
             { resource: 'endeavor', quantity: 1 },
             { keyword: 'organ', quantity: 1 },
@@ -564,7 +540,6 @@ export default {
         name: 'Build - Bone Smith',
         expansion: 'sunstalker',
         recipe: {
-          location: 'the sun',
           not_location: 'bone_smith',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
@@ -574,7 +549,6 @@ export default {
         name: 'Build - Skinnery',
         expansion: 'sunstalker',
         recipe: {
-          location: 'the sun',
           not_location: 'skinnery',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
@@ -584,7 +558,6 @@ export default {
         name: 'Build - Organ Grinder',
         expansion: 'sunstalker',
         recipe: {
-          location: 'the sun',
           not_location: 'organ_grinder',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
@@ -626,7 +599,6 @@ export default {
         name: 'Sacred Water',
         expansion: 'sunstalker',
         recipe: {
-          location: 'sacred pool',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
       },
@@ -635,7 +607,6 @@ export default {
         name: 'Purification Ceremony',
         expansion: 'sunstalker',
         recipe: {
-          location: 'sacred pool',
           items: [{ resource: 'endeavor', quantity: 2 }],
         },
       },
@@ -644,7 +615,6 @@ export default {
         name: 'Sun Sealing',
         expansion: 'sunstalker',
         recipe: {
-          location: 'sacred pool',
           innovation: 'sauna shrine',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
@@ -661,7 +631,6 @@ export default {
         name: 'Innovate',
         expansion: 'dk',
         recipe: {
-          location: 'throne',
           items: [
             { resource: 'endeavor', quantity: 1 },
             { keyword: 'bone', quantity: 1 },
@@ -675,7 +644,6 @@ export default {
         name: 'Fear and Trembling',
         expansion: 'dk',
         recipe: {
-          location: 'throne',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
       },
@@ -684,7 +652,6 @@ export default {
         name: 'Build - Bone Smith',
         expansion: 'dk',
         recipe: {
-          location: 'throne',
           not_location: 'bone_smith',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
@@ -694,7 +661,6 @@ export default {
         name: 'Build - Skinnery',
         expansion: 'dk',
         recipe: {
-          location: 'throne',
           not_location: 'skinnery',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
@@ -704,7 +670,6 @@ export default {
         name: 'Build - Organ Grinder',
         expansion: 'dk',
         recipe: {
-          location: 'throne',
           not_location: 'organ_grinder',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },

@@ -20,11 +20,11 @@ function newbornStats(newborn) {
     'understanding',
     'hunt xp',
   ]
-  let description = R.filter(stat => newborn[stat], stats).map(
-    stat => `${capitalize(stat)}: +${newborn[stat]}`
-  )
-  if (description.length > 0) {
-    return { id: 'attributes', name: 'Newborn Attributes', description }
+  let description = R.filter(stat => newborn[stat], stats)
+    .map(stat => `${capitalize(stat)}: +${newborn[stat]}`)
+    .join('\n')
+  if (description) {
+    return { source: { name: 'Newborn Attributes' }, description }
   }
   return []
 }
@@ -33,8 +33,9 @@ function newbornBonuses(newborn) {
   if (newborn.description) {
     return [
       {
-        id: 'newborn',
-        name: 'Newborn Bonus',
+        source: {
+          name: 'Newborn Bonus',
+        },
         description: newborn.description,
       },
     ]
@@ -43,7 +44,7 @@ function newbornBonuses(newborn) {
 }
 
 @inject(({ store }) => ({
-  data: values(store.selectedCampaign.bonuses).concat(
+  data: store.selectedCampaign.bonuses.concat(
     newbornStats(store.selectedCampaign.settlement.newborn || {}),
     newbornBonuses(store.selectedCampaign.settlement.newborn || {})
   ),
@@ -51,17 +52,12 @@ function newbornBonuses(newborn) {
 }))
 @observer
 export default class Bonuses extends React.Component {
-  _row(item) {
-    let text = item.description.map((e, idx) => (
-      <RichText key={item.id + idx}>{e}</RichText>
-    ))
-    return (
-      <View style={styles.bonus}>
-        <Subtitle>{item.name}</Subtitle>
-        {text}
-      </View>
-    )
-  }
+  _row = item => (
+    <View style={styles.bonus}>
+      <Subtitle>{item.source.name}</Subtitle>
+      <RichText>{item.description}</RichText>
+    </View>
+  )
 
   empty() {
     return <Text>Add some Innovations to see Bonuses.</Text>

@@ -6,49 +6,20 @@ import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 import R from 'ramda'
 
-const filter_locations = locations => {
-  return R.filter(el => {
-    let loc = R.path(['recipe', 'not_location'], el)
-    return !locations[loc]
-  })
-}
-
 @inject(({ store }) => ({
-  data: R.filter(endeavor => {
-    if (endeavor.recipe.not_location) {
-      return !store.selectedCampaign.locations.has(endeavor.recipe.not_location)
-    }
-    if (endeavor.recipe.not_innovation) {
-      return !store.selectedCampaign.innovations.has(
-        endeavor.recipe.not_innovation.id
-      )
-    }
-    return true
-  }, values(store.selectedCampaign.endeavors)),
-  locations: store.locations,
+  endeavors: store.selectedCampaign.endeavors,
 }))
 @observer
 export default class Endeavors extends React.Component {
-  constructor(props) {
-    super(props)
-    this._row = this._row.bind(this)
-  }
-
-  _header() {
+  _header = () => {
     return <Title>Endeavors</Title>
   }
 
-  _row(item) {
-    let source
-    if (item.recipe.location) {
-      source = `(${this.props.locations.get(item.recipe.location).name})`
-    } else if (item.recipe.innovation) {
-      source = `(${item.recipe.innovation.name})`
-    }
+  _row = item => {
     return (
       <View style={styles.endeavor}>
         <Subtitle>
-          {item.name} {source}
+          {item.name} ({item.source.name})
         </Subtitle>
         <Text style={styles.recipe}>
           {item.recipe.items
@@ -61,7 +32,7 @@ export default class Endeavors extends React.Component {
     )
   }
 
-  empty() {
+  empty = () => {
     return (
       <View>
         <Title>Endeavors</Title>
@@ -71,13 +42,13 @@ export default class Endeavors extends React.Component {
   }
 
   render() {
-    if (this.props.data.length === 0) {
+    if (this.props.endeavors.length === 0) {
       return this.empty()
     }
 
     return (
       <ListView
-        data={this.props.data}
+        data={this.props.endeavors}
         renderRow={this._row}
         renderHeader={this._header}
         autoHideHeader={false}

@@ -2,8 +2,6 @@ import { types, getSnapshot, getRoot, resolveIdentifier } from 'mobx-state-tree'
 import { keys, values } from 'mobx'
 import { SettlementLocation } from './SettlementLocation'
 import { Innovation } from './Innovation'
-import { Bonus } from './Bonus'
-import { Endeavor } from './Endeavor'
 import { Resource } from './Resource'
 import { Settlement, init as newSettlementData } from './Settlement'
 import { Expansion } from './Expansion'
@@ -41,8 +39,6 @@ export const Campaign = types
       }),
       {}
     ),
-    bonuses: types.map(Bonus),
-    endeavors: types.map(Endeavor),
     stored_resources: types.map(StoredResource),
     expansions: types.optional(types.map(types.reference(Expansion)), {
       core: 'core',
@@ -55,31 +51,15 @@ export const Campaign = types
   .actions(self => ({
     selectLocation(location) {
       if (self.locations.has(location.id)) {
-        // process extensions
-        let loc = self.locations.get(location.id)
-        loc.endeavors.forEach(endeavor => {
-          self.removeEndeavor(getSnapshot(endeavor))
-        })
         self.locations.delete(location.id)
       } else {
         self.locations.set(location.id, location.id)
-        // process extensions
-        let loc = self.locations.get(location.id)
-        loc.endeavors.forEach(endeavor => {
-          self.addEndeavor(getSnapshot(endeavor))
-        })
       }
     },
     selectInnovation(innovation) {
       if (self.innovations.has(innovation.id)) {
         // process extensions
         let inno = self.innovations.get(innovation.id)
-        inno.providesBonuses.forEach(bonus => {
-          self.removeBonus(getSnapshot(bonus))
-        })
-        inno.endeavors.forEach(endeavor => {
-          self.removeEndeavor(getSnapshot(endeavor))
-        })
         if (inno.settlement) {
           self.settlement.remove(getSnapshot(inno.settlement))
         }
@@ -90,12 +70,6 @@ export const Campaign = types
 
         // process extensions
         let inno = self.innovations.get(innovation.id)
-        inno.providesBonuses.forEach(bonus => {
-          self.addBonus(getSnapshot(bonus))
-        })
-        inno.endeavors.forEach(endeavor => {
-          self.addEndeavor(getSnapshot(endeavor))
-        })
         if (inno.settlement) {
           self.settlement.add(getSnapshot(inno.settlement))
         }
@@ -150,9 +124,6 @@ export const Campaign = types
     selectPrinciple(type, principle) {
       if (self.principles[type]) {
         let principle = self.principles[type]
-        principle.providesBonuses.forEach(bonus => {
-          self.removeBonus(getSnapshot(bonus))
-        })
         if (principle.settlement) {
           self.settlement.remove(getSnapshot(principle.settlement))
         }
@@ -165,25 +136,10 @@ export const Campaign = types
       let prin = self.principles[type]
       if (prin) {
         //handle unselected principle
-        prin.providesBonuses.forEach(bonus => {
-          self.addBonus(getSnapshot(bonus))
-        })
         if (prin.settlement) {
           self.settlement.add(getSnapshot(prin.settlement))
         }
       }
-    },
-    addBonus(bonus) {
-      self.bonuses.put(bonus)
-    },
-    removeBonus(bonus) {
-      self.bonuses.delete(bonus.id)
-    },
-    addEndeavor(endeavor) {
-      self.endeavors.put(endeavor)
-    },
-    removeEndeavor(endeavor) {
-      self.endeavors.delete(endeavor.id)
     },
     setResourceCount(resource, count) {
       if (self.stored_resources.get(resource.id)) {
@@ -322,5 +278,60 @@ export const Campaign = types
     },
     get data() {
       return getSnapshot(self)
+    },
+    get bonuses() {
+      let bonuses = []
+      // get innovation bonuses
+      for (let [key, inno] of self.innovations) {
+        if (inno.bonus !== '') {
+          bonuses.push({ source: inno, description: inno.bonus })
+        }
+      }
+      // get principles bonuses
+      for (let principle of ['death', 'newlife', 'society', 'conviction']) {
+        if (self.principles[principle] && self.principles[principle].bonus) {
+          bonuses.push({
+            source: self.principles[principle],
+            description: self.principles[principle].bonus,
+          })
+        }
+      }
+
+      return bonuses
+    },
+    get endeavors() {
+      let concatArrays = R.reduce((acc, item) => {
+        let endeavors = item.endeavors.map(
+          e => Object.assign({}, e, { source: item }) // add source reference for the UI.
+        )
+        return acc.concat(endeavors)
+      }, [])
+
+      let endeavors = concatArrays(self.innovations.values()).concat(
+        concatArrays(self.locations.values())
+      )
+
+      return endeavors.filter(item => {
+        if (
+          item.recipe.not_location &&
+          self.locations.has(item.recipe.not_location)
+        ) {
+          return false
+        }
+        if (
+          item.recipe.not_innovation &&
+          self.innovations.has(item.recipe.not_innovation.id) // innovations is a reference, locations are strings :(
+        ) {
+          return false
+        }
+        if (
+          item.recipe.innovation &&
+          !self.innovations.has(item.recipe.innovation.id) // innovations is a reference, locations are strings :(
+        ) {
+          return false
+        }
+
+        return true
+      })
     },
   }))

@@ -2,8 +2,6 @@
 
 exports[`.create creates a barebones campaign 1`] = `
 Object {
-  "bonuses": Object {},
-  "endeavors": Object {},
   "expansions": Object {
     "core": "core",
   },
@@ -67,6 +65,7 @@ exports[`with RootStore .expansionContent gets all content 1`] = `
 Object {
   "innovations": Array [
     Object {
+      "bonus": "",
       "endeavors": Array [],
       "expansion": "dk",
       "id": "radiating orb",
@@ -74,7 +73,6 @@ Object {
         "science",
       ],
       "name": "Radiating Orb",
-      "providesBonuses": Array [],
       "settlement": Object {
         "activeSurvivorsList": Array [],
         "departing": Object {
@@ -154,7 +152,6 @@ Object {
                 "resource": null,
               },
             ],
-            "location": "throne",
             "not_innovation": null,
             "not_location": null,
           },
@@ -173,7 +170,6 @@ Object {
                 "resource": "endeavor",
               },
             ],
-            "location": "throne",
             "not_innovation": null,
             "not_location": null,
           },
@@ -192,7 +188,6 @@ Object {
                 "resource": "endeavor",
               },
             ],
-            "location": "throne",
             "not_innovation": null,
             "not_location": "bone_smith",
           },
@@ -211,7 +206,6 @@ Object {
                 "resource": "endeavor",
               },
             ],
-            "location": "throne",
             "not_innovation": null,
             "not_location": "skinnery",
           },
@@ -230,7 +224,6 @@ Object {
                 "resource": "endeavor",
               },
             ],
-            "location": "throne",
             "not_innovation": null,
             "not_location": "organ_grinder",
           },
@@ -286,8 +279,6 @@ Object {
 
 exports[`with RootStore .selectExpansion resets expansion related data when removing expansion 1`] = `
 Object {
-  "bonuses": Object {},
-  "endeavors": Object {},
   "expansions": Object {
     "core": "core",
   },
@@ -360,67 +351,6 @@ Object {
 
 exports[`with RootStore .selectInnovation adds innovation with bonuses 1`] = `
 Object {
-  "bonuses": Object {
-    "cooking": Object {
-      "description": Array [
-        "At the start of the Settlement phase gain +1 endeavor",
-      ],
-      "id": "cooking",
-      "name": "Cooking",
-    },
-  },
-  "endeavors": Object {
-    "cooking": Object {
-      "expansion": "core",
-      "id": "cooking",
-      "name": "Cooking",
-      "recipe": Object {
-        "innovation": "cooking",
-        "items": Array [
-          Object {
-            "gear": null,
-            "keyword": null,
-            "quantity": 1,
-            "resource": "endeavor",
-          },
-        ],
-        "location": null,
-        "not_innovation": null,
-        "not_location": null,
-      },
-    },
-    "cooking_meal": Object {
-      "expansion": "core",
-      "id": "cooking_meal",
-      "name": "Cook stone nose gruel",
-      "recipe": Object {
-        "innovation": "cooking",
-        "items": Array [
-          Object {
-            "gear": null,
-            "keyword": null,
-            "quantity": 1,
-            "resource": "endeavor",
-          },
-          Object {
-            "gear": null,
-            "keyword": "organ",
-            "quantity": 1,
-            "resource": null,
-          },
-          Object {
-            "gear": null,
-            "keyword": "bone",
-            "quantity": 1,
-            "resource": null,
-          },
-        ],
-        "location": null,
-        "not_innovation": null,
-        "not_location": null,
-      },
-    },
-  },
   "expansions": Object {
     "core": "core",
   },
@@ -482,75 +412,8 @@ Object {
 }
 `;
 
-exports[`with RootStore .selectInnovation adds innovation without bonuses 1`] = `
-Object {
-  "bonuses": Object {},
-  "endeavors": Object {},
-  "expansions": Object {
-    "core": "core",
-  },
-  "hunting": null,
-  "id": "960aa7ae-598a-49eb-888b-c6baa0006751",
-  "innovations": Object {
-    "inner_lantern": "inner_lantern",
-  },
-  "locations": Object {},
-  "notes": "",
-  "principles": Object {
-    "conviction": null,
-    "death": null,
-    "newlife": null,
-    "society": null,
-  },
-  "settlement": Object {
-    "activeSurvivorsList": Array [],
-    "departing": Object {
-      "accuracy": 0,
-      "courage": 0,
-      "description": Array [],
-      "evasion": 0,
-      "hunt xp": 0,
-      "insanity": 0,
-      "strength": 0,
-      "survival": 0,
-      "understanding": 0,
-    },
-    "name": "New Settlement",
-    "newborn": Object {
-      "accuracy": 0,
-      "courage": 0,
-      "description": Array [],
-      "evasion": 0,
-      "hunt xp": 0,
-      "insanity": 0,
-      "strength": 0,
-      "survival": 1,
-      "understanding": 0,
-    },
-    "showdown": Object {
-      "accuracy": 0,
-      "courage": 0,
-      "description": Array [],
-      "evasion": 0,
-      "hunt xp": 0,
-      "insanity": 0,
-      "strength": 0,
-      "survival": 0,
-      "understanding": 0,
-    },
-    "survivalLimit": 1,
-    "survivors": Object {},
-  },
-  "showdown": null,
-  "stored_resources": Object {},
-  "type": "potl",
-}
-`;
-
 exports[`with RootStore .selectInnovation removes innovation with bonuses 1`] = `
 Object {
-  "bonuses": Object {},
-  "endeavors": Object {},
   "expansions": Object {
     "core": "core",
   },
@@ -558,154 +421,6 @@ Object {
   "id": "960aa7ae-598a-49eb-888b-c6baa0006751",
   "innovations": Object {},
   "locations": Object {},
-  "notes": "",
-  "principles": Object {
-    "conviction": null,
-    "death": null,
-    "newlife": null,
-    "society": null,
-  },
-  "settlement": Object {
-    "activeSurvivorsList": Array [],
-    "departing": Object {
-      "accuracy": 0,
-      "courage": 0,
-      "description": Array [],
-      "evasion": 0,
-      "hunt xp": 0,
-      "insanity": 0,
-      "strength": 0,
-      "survival": 0,
-      "understanding": 0,
-    },
-    "name": "New Settlement",
-    "newborn": Object {
-      "accuracy": 0,
-      "courage": 0,
-      "description": Array [],
-      "evasion": 0,
-      "hunt xp": 0,
-      "insanity": 0,
-      "strength": 0,
-      "survival": 1,
-      "understanding": 0,
-    },
-    "showdown": Object {
-      "accuracy": 0,
-      "courage": 0,
-      "description": Array [],
-      "evasion": 0,
-      "hunt xp": 0,
-      "insanity": 0,
-      "strength": 0,
-      "survival": 0,
-      "understanding": 0,
-    },
-    "survivalLimit": 1,
-    "survivors": Object {},
-  },
-  "showdown": null,
-  "stored_resources": Object {},
-  "type": "potl",
-}
-`;
-
-exports[`with RootStore .selectInnovation removes innovation without bonuses 1`] = `
-Object {
-  "bonuses": Object {},
-  "endeavors": Object {},
-  "expansions": Object {
-    "core": "core",
-  },
-  "hunting": null,
-  "id": "960aa7ae-598a-49eb-888b-c6baa0006751",
-  "innovations": Object {},
-  "locations": Object {},
-  "notes": "",
-  "principles": Object {
-    "conviction": null,
-    "death": null,
-    "newlife": null,
-    "society": null,
-  },
-  "settlement": Object {
-    "activeSurvivorsList": Array [],
-    "departing": Object {
-      "accuracy": 0,
-      "courage": 0,
-      "description": Array [],
-      "evasion": 0,
-      "hunt xp": 0,
-      "insanity": 0,
-      "strength": 0,
-      "survival": 0,
-      "understanding": 0,
-    },
-    "name": "New Settlement",
-    "newborn": Object {
-      "accuracy": 0,
-      "courage": 0,
-      "description": Array [],
-      "evasion": 0,
-      "hunt xp": 0,
-      "insanity": 0,
-      "strength": 0,
-      "survival": 1,
-      "understanding": 0,
-    },
-    "showdown": Object {
-      "accuracy": 0,
-      "courage": 0,
-      "description": Array [],
-      "evasion": 0,
-      "hunt xp": 0,
-      "insanity": 0,
-      "strength": 0,
-      "survival": 0,
-      "understanding": 0,
-    },
-    "survivalLimit": 1,
-    "survivors": Object {},
-  },
-  "showdown": null,
-  "stored_resources": Object {},
-  "type": "potl",
-}
-`;
-
-exports[`with RootStore .selectLocation adds location with endeavors 1`] = `
-Object {
-  "bonuses": Object {},
-  "endeavors": Object {
-    "harvest_ritual": Object {
-      "expansion": "core",
-      "id": "harvest_ritual",
-      "name": "Harvest Ritual",
-      "recipe": Object {
-        "innovation": "forbidden dance",
-        "items": Array [
-          Object {
-            "gear": null,
-            "keyword": null,
-            "quantity": 1,
-            "resource": "endeavor",
-          },
-        ],
-        "location": "stone_circle",
-        "not_innovation": null,
-        "not_location": null,
-      },
-    },
-  },
-  "expansions": Object {
-    "core": "core",
-  },
-  "hunting": null,
-  "id": "960aa7ae-598a-49eb-888b-c6baa0006751",
-  "innovations": Object {},
-  "locations": Object {
-    "stone_circle": "stone_circle",
-  },
   "notes": "",
   "principles": Object {
     "conviction": null,
@@ -760,8 +475,6 @@ Object {
 
 exports[`with RootStore .selectLocation adds location without endeavors 1`] = `
 Object {
-  "bonuses": Object {},
-  "endeavors": Object {},
   "expansions": Object {
     "core": "core",
   },
@@ -823,73 +536,8 @@ Object {
 }
 `;
 
-exports[`with RootStore .selectLocation removes location with endeavors 1`] = `
-Object {
-  "bonuses": Object {},
-  "endeavors": Object {},
-  "expansions": Object {
-    "core": "core",
-  },
-  "hunting": null,
-  "id": "960aa7ae-598a-49eb-888b-c6baa0006751",
-  "innovations": Object {},
-  "locations": Object {},
-  "notes": "",
-  "principles": Object {
-    "conviction": null,
-    "death": null,
-    "newlife": null,
-    "society": null,
-  },
-  "settlement": Object {
-    "activeSurvivorsList": Array [],
-    "departing": Object {
-      "accuracy": 0,
-      "courage": 0,
-      "description": Array [],
-      "evasion": 0,
-      "hunt xp": 0,
-      "insanity": 0,
-      "strength": 0,
-      "survival": 0,
-      "understanding": 0,
-    },
-    "name": "New Settlement",
-    "newborn": Object {
-      "accuracy": 0,
-      "courage": 0,
-      "description": Array [],
-      "evasion": 0,
-      "hunt xp": 0,
-      "insanity": 0,
-      "strength": 0,
-      "survival": 1,
-      "understanding": 0,
-    },
-    "showdown": Object {
-      "accuracy": 0,
-      "courage": 0,
-      "description": Array [],
-      "evasion": 0,
-      "hunt xp": 0,
-      "insanity": 0,
-      "strength": 0,
-      "survival": 0,
-      "understanding": 0,
-    },
-    "survivalLimit": 1,
-    "survivors": Object {},
-  },
-  "showdown": null,
-  "stored_resources": Object {},
-  "type": "potl",
-}
-`;
-
 exports[`with RootStore .selectLocation removes location without endeavors 1`] = `
 Object {
-  "bonuses": Object {},
-  "endeavors": Object {},
   "expansions": Object {
     "core": "core",
   },
@@ -951,16 +599,6 @@ Object {
 
 exports[`with RootStore .selectPrinciple adds a principle 1`] = `
 Object {
-  "bonuses": Object {
-    "death": Object {
-      "description": Array [
-        "Whenever a survivor dies, gain 1 random basic resource",
-      ],
-      "id": "death",
-      "name": "Cannibalize",
-    },
-  },
-  "endeavors": Object {},
   "expansions": Object {
     "core": "core",
   },
@@ -1022,8 +660,6 @@ Object {
 
 exports[`with RootStore .selectPrinciple removes a principle with it's bonus 1`] = `
 Object {
-  "bonuses": Object {},
-  "endeavors": Object {},
   "expansions": Object {
     "core": "core",
   },

@@ -1,5 +1,5 @@
 import { getSnapshot } from 'mobx-state-tree'
-import { observable } from 'mobx'
+import { keys, values, observable } from 'mobx'
 import { Campaign } from './Campaign'
 import RootStore from './RootStore'
 import * as utils from '../utils'
@@ -47,39 +47,60 @@ describe('with RootStore', () => {
     })
 
     it('adds location with endeavors', () => {
-      let location = { id: 'stone_circle' }
+      let location = { id: 'lantern_hoard' }
       store.selectedCampaign.selectLocation(location)
 
-      expect(getSnapshot(store.selectedCampaign)).toMatchSnapshot()
+      expect(store.selectedCampaign.endeavors).toHaveLength(5)
+      expect(store.selectedCampaign.endeavors).toMatchObject([
+        { id: 'innovate' },
+        { id: 'shared_experience' },
+        { id: 'build_bone_smith' },
+        { id: 'build_skinnery' },
+        { id: 'build_organ_grinder' },
+      ])
     })
     it('removes location with endeavors', () => {
       let location = { id: 'stone_circle' }
       store.selectedCampaign.selectLocation(location)
       store.selectedCampaign.selectLocation(location) // this removes the location.
 
-      expect(getSnapshot(store.selectedCampaign)).toMatchSnapshot()
+      expect(store.selectedCampaign.endeavors).toHaveLength(0)
+    })
+    it('can add locations with multiple endeavors', () => {
+      let location = { id: 'weapon_crafter' }
+      store.selectedCampaign.selectLocation(location)
+
+      expect(store.selectedCampaign.endeavors).toHaveLength(2)
     })
   })
 
   describe('.selectInnovation', () => {
-    it('adds innovation without bonuses', () => {
+    it('can add an innovation', () => {
       let innovation = { id: 'inner_lantern' }
       store.selectedCampaign.selectInnovation(innovation)
 
-      expect(getSnapshot(store.selectedCampaign)).toMatchSnapshot()
+      expect(store.selectedCampaign.innovations.size).toEqual(1)
+      expect(
+        store.selectedCampaign.innovations.has('inner_lantern')
+      ).toBeTruthy()
     })
-    it('removes innovation without bonuses', () => {
+    it('can remove an innovation', () => {
       let innovation = { id: 'inner_lantern' }
       store.selectedCampaign.selectInnovation(innovation)
       store.selectedCampaign.selectInnovation(innovation) // this removes the innovation
 
-      expect(getSnapshot(store.selectedCampaign)).toMatchSnapshot()
+      expect(store.selectedCampaign.innovations.size).toEqual(0)
     })
 
     it('adds innovation with bonuses', () => {
       let innovation = { id: 'cooking' }
       store.selectedCampaign.selectInnovation(innovation)
 
+      expect(store.selectedCampaign.bonuses).toHaveLength(1)
+
+      expect(store.selectedCampaign.bonuses[0]).toMatchObject({
+        description: 'At the start of the Settlement phase gain +1 endeavor',
+      })
       expect(getSnapshot(store.selectedCampaign)).toMatchSnapshot()
     })
     it('removes innovation with bonuses', () => {
@@ -87,7 +108,27 @@ describe('with RootStore', () => {
       store.selectedCampaign.selectInnovation(innovation)
       store.selectedCampaign.selectInnovation(innovation) // this removes the innovation
 
+      expect(store.selectedCampaign.bonuses).toHaveLength(0)
+
       expect(getSnapshot(store.selectedCampaign)).toMatchSnapshot()
+    })
+
+    it('handles innovation with endeavors', () => {
+      let innovation = { id: 'partnership' }
+      store.selectedCampaign.selectInnovation(innovation)
+
+      expect(store.selectedCampaign.endeavors).toHaveLength(1)
+      expect(store.selectedCampaign.endeavors).toMatchObject([
+        { id: 'partnership' },
+      ])
+    })
+
+    it('handles removing innovation with endeavors', () => {
+      let innovation = { id: 'partnership' }
+      store.selectedCampaign.selectInnovation(innovation)
+      store.selectedCampaign.selectInnovation(innovation)
+
+      expect(store.selectedCampaign.endeavors).toHaveLength(0)
     })
   })
 
@@ -190,10 +231,20 @@ describe('with RootStore', () => {
       expect(getSnapshot(store.selectedCampaign)).toMatchSnapshot()
     })
 
+    it("accounts for principle's bonus", () => {
+      store.selectedCampaign.selectPrinciple('death', { id: 'cannibalize' })
+
+      expect(store.selectedCampaign.bonuses).toHaveLength(1)
+      expect(store.selectedCampaign.bonuses[0]).toMatchObject({
+        description: 'Whenever a survivor dies, gain 1 random basic resource',
+      })
+    })
+
     it("removes a principle with it's bonus", () => {
       store.selectedCampaign.selectPrinciple('death', { id: 'cannibalize' })
       store.selectedCampaign.selectPrinciple('death', { id: null })
 
+      expect(store.selectedCampaign.bonuses).toHaveLength(0)
       expect(getSnapshot(store.selectedCampaign)).toMatchSnapshot()
     })
   })
@@ -348,6 +399,55 @@ describe('with RootStore', () => {
     it('has sotf', () => {
       store.selectedCampaign.selectPrinciple('newlife', { id: 'sotf' })
       expect(store.selectedCampaign.hasSOTF).toBeTruthy()
+    })
+  })
+
+  describe('.endeavors', () => {
+    it('filters endeavors that match the not_location recipe', () => {
+      let innovation = { id: 'scrap_smelting' }
+      store.selectedCampaign.selectInnovation(innovation)
+
+      expect(store.selectedCampaign.endeavors).toHaveLength(2)
+
+      let location = { id: 'blacksmith' }
+      store.selectedCampaign.selectLocation(location)
+
+      expect(store.selectedCampaign.endeavors).toHaveLength(1)
+      expect(store.selectedCampaign.endeavors).toMatchObject([
+        { id: 'purification' },
+      ])
+    })
+
+    it('filters endeavors that do not match the innovation recipe', () => {
+      let location = { id: 'leather_worker' }
+      store.selectedCampaign.selectLocation(location)
+
+      expect(store.selectedCampaign.endeavors).toHaveLength(0) // leather_making requires ammonia
+
+      let innovation = { id: 'ammonia' }
+      store.selectedCampaign.selectInnovation(innovation)
+
+      expect(store.selectedCampaign.endeavors).toHaveLength(1)
+      expect(store.selectedCampaign.endeavors).toMatchObject([
+        { id: 'leather_making' },
+      ])
+    })
+
+    it('filters endeavors that match the not_innovation recipe', () => {
+      let location = { id: 'weapon_crafter' }
+      store.selectedCampaign.selectLocation(location)
+
+      expect(store.selectedCampaign.endeavors).toHaveLength(2)
+
+      let innovation = { id: 'scrap_smelting' }
+      store.selectedCampaign.selectInnovation(innovation)
+
+      expect(store.selectedCampaign.endeavors).toHaveLength(3) // 1 from weapon_crafter, 2 from scrap_smelting
+      expect(store.selectedCampaign.endeavors).toMatchObject([
+        { id: 'purification' },
+        { id: 'build_blacksmith' },
+        { id: 'scrap_scavenge' },
+      ])
     })
   })
 })
