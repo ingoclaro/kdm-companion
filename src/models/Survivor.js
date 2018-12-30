@@ -134,17 +134,17 @@ const Survivor = types
         // not attached to a settlement
       }
     },
-    afterAttach() {
-      let settlement = getParent(self, 2)
-      // apply newborn bonus
-      for (let key in SurvivorStats.create()) {
-        self[key] += settlement.newborn[key]
-      }
+    // afterAttach() { // This doesn't work because after loading a campaign from disc it triggers again :(
+    //   let settlement = getParent(self, 2)
+    //   // apply newborn bonus
+    //   for (let key in SurvivorStats.create()) {
+    //     self[key] += settlement.newborn[key]
+    //   }
 
-      self.survival = Math.min(self.survival, settlement.survivalLimit)
+    //   self.survival = Math.min(self.survival, settlement.survivalLimit)
 
-      self.applyNewbornMilestones()
-    },
+    //   self.applyNewbornMilestones()
+    // },
   }))
   .views(self => ({
     get weaponProficiencySpecialization() {

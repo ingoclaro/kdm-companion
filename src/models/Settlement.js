@@ -1,5 +1,6 @@
 import { types, getSnapshot, getParent } from 'mobx-state-tree'
 import { Survivor } from './Survivor'
+import { SurvivorStats } from './SurvivorStats'
 import R from 'ramda'
 import { values } from 'mobx'
 
@@ -20,6 +21,18 @@ export const Settlement = types
       if (name) {
         survivor.setAttribute('name', name)
       }
+
+      // apply newborn bonus
+      for (let key in SurvivorStats.create()) {
+        survivor.setAttribute(key, survivor[key] + self.newborn[key])
+      }
+
+      survivor.setAttribute(
+        'survival',
+        Math.min(survivor.survival, self.survivalLimit)
+      )
+      survivor.applyNewbornMilestones()
+
       self.survivors.put(survivor)
       self.activeSurvivorsList.push(survivor)
 

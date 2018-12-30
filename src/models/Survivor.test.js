@@ -89,6 +89,7 @@ describe('with RootStore', () => {
   })
 
   it('gives all bonus', () => {
+    store.selectedCampaign.setCampaignType('pots')
     store.selectedCampaign.selectInnovation({ id: 'saga' }) // courage: 2, understanding: 2, 'hunt xp': 2,
     store.selectedCampaign.selectInnovation({ id: 'clan_of_death' }) //  accuracy: 1, strength: 1, evasion: 1,
     store.selectedCampaign.selectInnovation({ id: 'radiating orb' }) //  survival: 1,
@@ -113,5 +114,8 @@ describe('with RootStore', () => {
       survival: 2,
       understanding: 3,
     })
+
+    expect(survivor2.dragonTraits).toHaveProperty('accuracy', true)
+    expect(survivor2.dragonTraits).toHaveProperty('strength', true)
   })
 })

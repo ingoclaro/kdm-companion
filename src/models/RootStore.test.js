@@ -206,11 +206,27 @@ describe('.load', () => {
       expect(store.data).toMatchSnapshot()
     })
 
-    it('loads real life data', () => {
-      const data = require('./__test_data__/real_example.json')
+    it('loads v5 save', () => {
+      const data = require('./__test_data__/save_v5.json')
       store.load(data)
       // expect(store.data).toEqual(data) // to compare upgrade
+      expect(store.data).toMatchSnapshot()
+    })
+
+    it('loads real life data v4', () => {
+      const data = require('./__test_data__/real_example_v4.json')
+      store.load(data)
+
       expect(store).toBeDefined()
+      expect(store.data).toMatchSnapshot() // not sure about this one...
+    })
+
+    it('loads real life data v5', () => {
+      const data = require('./__test_data__/real_example_v5.json')
+      store.load(data)
+
+      expect(store).toBeDefined()
+      expect(store.data).toEqual(data) // to compare upgrade
       expect(store.data).toMatchSnapshot() // not sure about this one...
     })
   })
