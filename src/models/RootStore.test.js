@@ -295,7 +295,7 @@ it('all in', done => {
   expect(store.data).toMatchSnapshot()
   done()
 
-  // fs.writeFile('save_v4.json', JSON.stringify(store.data), err => {
+  // fs.writeFile('save_v5.json', JSON.stringify(store.data), err => {
   //   if (err) throw err
   //   done()
   // })

@@ -52,7 +52,7 @@ export default types
       weaponProficiencyData
     ),
     // stuff stored to disc after this
-    version: 1,
+    version: 5,
     campaigns: types.optional(types.array(Campaign), [{}]),
     selectedCampaign: types.maybe(types.reference(Campaign)),
     subscription: types.optional(Subscription, {}),
@@ -117,7 +117,7 @@ export default types
           }
           break
       }
-      data.version = 4
+      data.version = 5
 
       self.campaigns = data.campaigns
 
