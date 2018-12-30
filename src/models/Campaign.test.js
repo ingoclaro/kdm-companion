@@ -450,4 +450,236 @@ describe('with RootStore', () => {
       ])
     })
   })
+
+  describe('.survivalLimit', () => {
+    it('is 1 for a new campaign', () => {
+      expect(store.selectedCampaign.survivalLimit).toEqual(1)
+    })
+
+    it('considers bonuses from innovations', () => {
+      store.selectedCampaign.selectInnovation({ id: 'pottery' }) // +1
+      store.selectedCampaign.selectInnovation({ id: 'storytelling' }) // +1
+      store.selectedCampaign.selectInnovation({ id: 'ammonia' }) // n/a
+
+      expect(store.selectedCampaign.survivalLimit).toEqual(3)
+    })
+
+    it('considers bonuses from principles', () => {
+      store.selectedCampaign.selectPrinciple('conviction', { id: 'romantic' }) // +1
+
+      expect(store.selectedCampaign.survivalLimit).toEqual(2)
+    })
+
+    it('considers combined bonuses', () => {
+      store.selectedCampaign.selectInnovation({ id: 'pottery' }) // +1
+      store.selectedCampaign.selectPrinciple('conviction', { id: 'romantic' }) // +1
+
+      expect(store.selectedCampaign.survivalLimit).toEqual(3)
+    })
+  })
+
+  describe('.newborn', () => {
+    it('returns initial newborn stats', () => {
+      expect(store.selectedCampaign.newbornBonus).toMatchObject({
+        accuracy: 0,
+        courage: 0,
+        description: '',
+        evasion: 0,
+        'hunt xp': 0,
+        insanity: 0,
+        luck: 0,
+        movement: 0,
+        speed: 0,
+        strength: 0,
+        survival: 0,
+        understanding: 0,
+        weaponProficiencyLevel: 0,
+      })
+    })
+
+    it('handles newborn bonueses from innovations', () => {
+      store.selectedCampaign.selectInnovation({ id: 'saga' }) // courage: 2, understanding: 2, 'hunt xp': 2,
+
+      expect(store.selectedCampaign.newbornBonus).toMatchObject({
+        courage: 2,
+        understanding: 2,
+        'hunt xp': 2,
+        accuracy: 0,
+        description: '',
+        evasion: 0,
+        insanity: 0,
+        luck: 0,
+        movement: 0,
+        speed: 0,
+        strength: 0,
+        survival: 0,
+        weaponProficiencyLevel: 0,
+      })
+    })
+
+    it('handles newborn bonuses from principles', () => {
+      store.selectedCampaign.selectPrinciple('newlife', { id: 'sotf' }) // strength: 1, evasion: 1,
+
+      expect(store.selectedCampaign.newbornBonus).toMatchObject({
+        strength: 1,
+        evasion: 1,
+        accuracy: 0,
+        courage: 0,
+        description: '',
+        'hunt xp': 0,
+        insanity: 0,
+        luck: 0,
+        movement: 0,
+        speed: 0,
+        survival: 0,
+        understanding: 0,
+        weaponProficiencyLevel: 0,
+      })
+    })
+
+    it('combines descriptions', () => {
+      store.selectedCampaign.selectExpansion({ id: 'sunstalker' })
+      store.selectedCampaign.selectInnovation({ id: 'family' }) // '**Family**: a newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency.'
+      store.selectedCampaign.selectInnovation({ id: 'umbilical bank' }) // '**Umbilical Bank**: You may add 1 Life String strange resource to the storage.',
+
+      expect(store.selectedCampaign.newbornBonus.description).toMatch(
+        '**Family**: a newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency.\n**Umbilical Bank**: You may add 1 Life String strange resource to the storage.'
+      )
+    })
+
+    it('adds bonuses properly', () => {
+      store.selectedCampaign.selectInnovation({ id: 'saga' }) // courage: 2, understanding: 2, 'hunt xp': 2,
+      store.selectedCampaign.selectPrinciple('newlife', { id: 'sotf' }) // strength: 1, evasion: 1,
+      store.selectedCampaign.selectInnovation({ id: 'clan_of_death' }) //  accuracy: 1, strength: 1, evasion: 1,
+
+      expect(store.selectedCampaign.newbornBonus).toMatchObject({
+        strength: 2,
+        evasion: 2,
+        accuracy: 1,
+        courage: 2,
+        description: '',
+        'hunt xp': 2,
+        insanity: 0,
+        luck: 0,
+        movement: 0,
+        speed: 0,
+        survival: 0,
+        understanding: 2,
+        weaponProficiencyLevel: 0,
+      })
+    })
+
+    it('all in', () => {
+      store.selectedCampaign.selectInnovation({ id: 'saga' }) // courage: 2, understanding: 2, 'hunt xp': 2,
+      store.selectedCampaign.selectInnovation({ id: 'clan_of_death' }) //  accuracy: 1, strength: 1, evasion: 1,
+      store.selectedCampaign.selectInnovation({ id: 'radiating orb' }) //  survival: 1,
+      store.selectedCampaign.selectInnovation({ id: 'empire' }) //  strength: 1,
+
+      store.selectedCampaign.selectPrinciple('newlife', { id: 'sotf' }) // strength: 1, evasion: 1,
+      store.selectedCampaign.selectPrinciple('death', { id: 'graves' }) // understanding: 1,
+      store.selectedCampaign.selectPrinciple('conviction', { id: 'barbaric' }) // strength: 1,
+
+      expect(store.selectedCampaign.newbornBonus).toMatchObject({
+        strength: 4,
+        evasion: 2,
+        accuracy: 1,
+        courage: 2,
+        description: '**Empire**: gain **Pristine** ability',
+        'hunt xp': 2,
+        insanity: 0,
+        luck: 0,
+        movement: 0,
+        speed: 0,
+        survival: 1,
+        understanding: 3,
+        weaponProficiencyLevel: 0,
+      })
+    })
+  })
+
+  describe('.departing', () => {
+    it('returns initial stats', () => {
+      expect(store.selectedCampaign.departingBonus).toMatchObject({
+        accuracy: 0,
+        courage: 0,
+        description: '',
+        evasion: 0,
+        'hunt xp': 0,
+        insanity: 0,
+        luck: 0,
+        movement: 0,
+        speed: 0,
+        strength: 0,
+        survival: 0,
+        understanding: 0,
+        weaponProficiencyLevel: 0,
+      })
+    })
+
+    it('handles departing bonueses from innovations', () => {
+      store.selectedCampaign.selectExpansion({ id: 'lg' })
+      store.selectedCampaign.selectExpansion({ id: 'dk' })
+      store.selectedCampaign.selectInnovation({ id: 'the knowledge worm' })
+      store.selectedCampaign.selectInnovation({ id: 'radiating orb' })
+
+      expect(store.selectedCampaign.departingBonus).toMatchObject({
+        accuracy: 0,
+        courage: 0,
+        description:
+          '**The Knowledge Worm**: survivors with 10+ insanity, ![book](book) "A Gracious Host"\n**Radiating Orb**: Survivors with a constellation gain +1 survival',
+        evasion: 0,
+        'hunt xp': 0,
+        insanity: 3,
+        luck: 0,
+        movement: 0,
+        speed: 0,
+        strength: 0,
+        survival: 4,
+        understanding: 0,
+        weaponProficiencyLevel: 0,
+      })
+    })
+  })
+
+  describe('.showdown', () => {
+    it('returns initial stats', () => {
+      expect(store.selectedCampaign.showdownBonus).toMatchObject({
+        accuracy: 0,
+        courage: 0,
+        description: '',
+        evasion: 0,
+        'hunt xp': 0,
+        insanity: 0,
+        luck: 0,
+        movement: 0,
+        speed: 0,
+        strength: 0,
+        survival: 0,
+        understanding: 0,
+        weaponProficiencyLevel: 0,
+      })
+    })
+
+    it('handles bonueses from innovations', () => {
+      store.selectedCampaign.selectInnovation({ id: 'song_of_the_brave' })
+      store.selectedCampaign.selectInnovation({ id: 'ultimate_weapon' })
+
+      expect(store.selectedCampaign.showdownBonus).toMatchObject({
+        accuracy: 0,
+        courage: 0,
+        description:
+          '**Song of the Brave**: On arrival each non-deaf survivor may remove 1 negative attribute token\n**Ultimate Weapon**: When you defeat a monster, gain 1 monster resource of your choice',
+        evasion: 0,
+        'hunt xp': 0,
+        insanity: 0,
+        luck: 0,
+        movement: 0,
+        speed: 0,
+        strength: 0,
+        survival: 0,
+        understanding: 0,
+        weaponProficiencyLevel: 0,
+      })
+    })
+  })
 })

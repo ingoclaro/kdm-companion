@@ -10,7 +10,11 @@ import R from 'ramda'
   settlement: store.selectedCampaign.settlement,
 }))
 @observer
-export default class HuntBonuses extends React.Component {
+export default class SettlementBonuses extends React.Component {
+  static defaultProps = {
+    type: 'departing',
+  }
+
   stats() {
     let stats = [
       'survival',
@@ -23,48 +27,37 @@ export default class HuntBonuses extends React.Component {
       'hunt xp',
     ]
 
-    let departing = this.props.settlement.departing || {}
+    let bonus = this.props.settlement[this.props.type] || {}
     let survivalLimit = this.props.settlement.survivalLimit
 
-    let text = R.filter(stat => departing[stat] > 0, stats).map((stat, idx) => (
+    let text = R.filter(stat => bonus[stat] > 0, stats).map((stat, idx) => (
       <View key={idx} style={styles.statRow}>
         <Subtitle style={styles.statName}>{capitalize(stat)}:</Subtitle>
-        <Text style={styles.statValue}> +{departing[stat]}</Text>
+        <Text style={styles.statValue}> +{bonus[stat]}</Text>
         {stat === 'survival' ? (
           <Text style={styles.statValue}> (Limit: {survivalLimit})</Text>
         ) : null}
       </View>
     ))
 
-    if (text.length === 0) {
-      text = [
-        <Text key="none" style={styles.statValue}>
-          none
-        </Text>,
-      ]
-    }
-
     return text
   }
 
   render() {
-    const departing = this.props.settlement.departing || {}
-    let description = departing.description
-    if (!description || description.length === 0) {
-      description = ['none']
+    const bonus = this.props.settlement[this.props.type] || {}
+    let description = bonus.description
+    let stats = this.stats()
+
+    if (description === '' && stats.length === 0) {
+      return null
     }
 
     return (
       <View>
-        <Title>Attributes Bonus</Title>
-        {this.stats()}
+        <Title>{capitalize(this.props.type)} Bonus</Title>
+        <RichText>{description}</RichText>
+        {stats}
         <Divider />
-        <Title>Hunt Bonus</Title>
-        <View>
-          {description.map((item, idx) => (
-            <RichText key={idx}>{item}</RichText>
-          ))}
-        </View>
       </View>
     )
   }

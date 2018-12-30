@@ -1,4 +1,5 @@
 import { types, getParent } from 'mobx-state-tree'
+import { SurvivorStats } from './SurvivorStats'
 import { FightingArt, SecretFightingArt } from './FightingArt'
 import { Disorder } from './Disorder'
 import { Ability } from './Ability'
@@ -9,47 +10,39 @@ import { uuid } from '../utils'
 const statusList = ['alive', 'dead', 'retired']
 
 const Survivor = types
-  .model('Survivor', {
-    id: types.identifier,
-    name: 'Unnamed',
-    gender: types.optional(types.enumeration(['male', 'female']), 'male'),
-    status: types.optional(types.enumeration(statusList), statusList[0]),
+  .compose(
+    'Survivor',
+    SurvivorStats,
+    types.model({
+      id: types.optional(types.identifier, () => uuid()),
+      name: 'Unnamed',
+      gender: types.optional(types.enumeration(['male', 'female']), 'male'),
+      status: types.optional(types.enumeration(statusList), statusList[0]),
 
-    fightingArts: types.array(
-      types.reference(types.union(FightingArt, SecretFightingArt))
-    ),
-    disorders: types.array(types.reference(Disorder)),
-    abilities: types.array(types.reference(Ability)),
+      fightingArts: types.array(
+        types.reference(types.union(FightingArt, SecretFightingArt))
+      ),
+      disorders: types.array(types.reference(Disorder)),
+      abilities: types.array(types.reference(Ability)),
 
-    survival: 1,
-    insanity: 0,
-    'hunt xp': 0,
+      survival: 1,
+      movement: 5,
 
-    movement: 5,
-    accuracy: 0,
-    strength: 0,
-    evasion: 0,
-    luck: 0,
-    speed: 0,
+      notes: '',
 
-    courage: 0,
-    understanding: 0,
+      weaponProficiency: types.maybe(types.reference(WeaponProficiency)),
 
-    notes: '',
+      cannotUseSurvival: false,
+      cannotUseFightingArts: false,
+      cannotUseAbilities: false,
+      rerollUsed: false, // was the reroll of survival of the fittest used?
+      skipNextHunt: false, // should the survivor skip the next hunt?
 
-    weaponProficiency: types.maybe(types.reference(WeaponProficiency)),
-    weaponProficiencyLevel: 0,
-
-    cannotUseSurvival: false,
-    cannotUseFightingArts: false,
-    cannotUseAbilities: false,
-    rerollUsed: false, // was the reroll of survival of the fittest used?
-    skipNextHunt: false, // should the survivor skip the next hunt?
-
-    // People of the Stars Campaign
-    dragonTraits: types.optional(DragonTraits, {}),
-    // End People of the Stars Campaign
-  })
+      // People of the Stars Campaign
+      dragonTraits: types.optional(DragonTraits, {}),
+      // End People of the Stars Campaign
+    })
+  )
   .actions(self => ({
     addFA(fa) {
       let found = self.fightingArts.find(item => item.id === fa.id)
@@ -141,6 +134,17 @@ const Survivor = types
         // not attached to a settlement
       }
     },
+    afterAttach() {
+      let settlement = getParent(self, 2)
+      // apply newborn bonus
+      for (let key in SurvivorStats.create()) {
+        self[key] += settlement.newborn[key]
+      }
+
+      self.survival = Math.min(self.survival, settlement.survivalLimit)
+
+      self.applyNewbornMilestones()
+    },
   }))
   .views(self => ({
     get weaponProficiencySpecialization() {
@@ -158,9 +162,5 @@ const Survivor = types
       }
     },
   }))
-const init = () => ({
-  id: uuid(),
-  name: 'Unnamed',
-})
 
-export { Survivor, init }
+export { Survivor }

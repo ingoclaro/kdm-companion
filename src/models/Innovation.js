@@ -1,7 +1,7 @@
 import { types } from 'mobx-state-tree'
 import { Expansion } from './Expansion'
 import { lateEndeavor } from './Endeavor'
-import { Settlement } from './Settlement'
+import { SettlementBonus } from './SettlementBonus'
 
 const Innovation = types.model('Innovation', {
   id: types.identifier,
@@ -9,7 +9,7 @@ const Innovation = types.model('Innovation', {
   expansion: types.reference(Expansion),
   keywords: types.array(types.string),
   bonus: '',
-  settlement: types.optional(Settlement, {}),
+  settlement: types.optional(SettlementBonus, {}),
   endeavors: types.array(types.late(lateEndeavor)),
 })
 

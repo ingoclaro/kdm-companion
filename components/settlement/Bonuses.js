@@ -7,48 +7,8 @@ import RichText from '../common/RichText'
 import colors from '../../src/colors'
 import { capitalize } from '../../src/utils'
 
-import R from 'ramda'
-
-function newbornStats(newborn) {
-  let stats = [
-    'survival',
-    'accuracy',
-    'strength',
-    'evasion',
-    'insanity',
-    'courage',
-    'understanding',
-    'hunt xp',
-  ]
-  let description = R.filter(stat => newborn[stat], stats)
-    .map(stat => `${capitalize(stat)}: +${newborn[stat]}`)
-    .join('\n')
-  if (description) {
-    return { source: { name: 'Newborn Attributes' }, description }
-  }
-  return []
-}
-
-function newbornBonuses(newborn) {
-  if (newborn.description) {
-    return [
-      {
-        source: {
-          name: 'Newborn Bonus',
-        },
-        description: newborn.description,
-      },
-    ]
-  }
-  return []
-}
-
 @inject(({ store }) => ({
-  data: store.selectedCampaign.bonuses.concat(
-    newbornStats(store.selectedCampaign.settlement.newborn || {}),
-    newbornBonuses(store.selectedCampaign.settlement.newborn || {})
-  ),
-  newborn: store.selectedCampaign.settlement.newborn || {},
+  data: store.selectedCampaign.bonuses,
 }))
 @observer
 export default class Bonuses extends React.Component {
@@ -65,7 +25,7 @@ export default class Bonuses extends React.Component {
 
   render() {
     if (this.props.data.length === 0) {
-      return this.empty()
+      // return this.empty()
     }
 
     return (

@@ -34,7 +34,7 @@ export default {
     id: 'cannibalize',
     name: 'Cannibalize',
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
 
     bonus: 'Whenever a survivor dies, gain 1 random basic resource',
@@ -56,7 +56,7 @@ export default {
     id: 'barbaric',
     name: 'Barbaric',
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
       newborn: {
         strength: 1,
       },
@@ -66,7 +66,7 @@ export default {
     id: 'romantic',
     name: 'Romantic',
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
 
     bonus: 'When you gain a random FA, draw 3 cards and select one',

@@ -11,7 +11,7 @@ import {
 import { ScrollView } from 'react-native'
 
 import Hunt from '../components/Hunt'
-import HuntBonuses from '../components/HuntBonuses'
+import SettlementBonuses from '../components/SettlementBonuses'
 import { HuntMonsterSelector } from '../components/MonsterSelector'
 
 export default class HuntScreen extends React.Component {
@@ -26,8 +26,7 @@ export default class HuntScreen extends React.Component {
         }}
       >
         <ScrollView>
-          <HuntBonuses />
-          <Divider />
+          <SettlementBonuses type="departing" />
           <Title>Hunt Board</Title>
           <View styleName="horizontal v-center">
             <Text>Monster:</Text>

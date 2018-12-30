@@ -1,6 +1,7 @@
 import React from 'react'
-import { Screen, View } from '@shoutem/ui'
+import { Screen, View, Divider, ScrollView } from '@shoutem/ui'
 import Bonuses from '../components/settlement/Bonuses'
+import SettlementBonuses from '../components/SettlementBonuses'
 
 export default class BonusesScreen extends React.Component {
   static navigationOptions = {
@@ -16,9 +17,15 @@ export default class BonusesScreen extends React.Component {
           paddingHorizontal: 5,
         }}
       >
-        <View>
+        <ScrollView>
           <Bonuses />
-        </View>
+
+          <Divider />
+
+          <SettlementBonuses type="newborn" />
+          <SettlementBonuses type="departing" />
+          <SettlementBonuses type="showdown" />
+        </ScrollView>
       </Screen>
     )
   }

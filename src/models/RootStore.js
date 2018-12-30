@@ -77,7 +77,7 @@ export default types
     deleteCampaign(id) {
       self.campaigns = R.reject(c => c.id === id, self.campaigns)
       if (self.campaigns.length === 0) {
-        self.createCampaign('New Settlement')
+        self.createCampaign()
       }
 
       self.selectCampaign(self.campaigns[0].id)
@@ -95,17 +95,6 @@ export default types
           if (data.campaigns) {
             data.campaigns = data.campaigns.map(campaign => {
               let newCampaign = Object.assign({}, campaign)
-
-              // upgrade null data to empty objects
-              if (newCampaign.settlement.departing === null) {
-                newCampaign.settlement.departing = {}
-              }
-              if (newCampaign.settlement.newborn === null) {
-                newCampaign.settlement.newborn = { survival: 1 }
-              }
-              if (newCampaign.settlement.showdown === null) {
-                newCampaign.settlement.showdown = {}
-              }
 
               // change 'new' id into a uuid
               if (newCampaign.id === 'new') {

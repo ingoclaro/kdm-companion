@@ -3,7 +3,8 @@ import { keys, values } from 'mobx'
 import { SettlementLocation } from './SettlementLocation'
 import { Innovation } from './Innovation'
 import { Resource } from './Resource'
-import { Settlement, init as newSettlementData } from './Settlement'
+import { Settlement } from './Settlement'
+import { SettlementStat } from './SettlementBonus'
 import { Expansion } from './Expansion'
 import { Principle } from './Principle'
 import { Monster } from './Monster'
@@ -27,7 +28,7 @@ const SelectedMonsterLevel = types.model('SelectedMonsterLevel', {
 export const Campaign = types
   .model('Campaign', {
     id: types.optional(types.identifier, () => uuid()),
-    settlement: types.optional(Settlement, newSettlementData),
+    settlement: types.optional(Settlement, {}),
     locations: types.map(types.reference(SettlementLocation)),
     innovations: types.map(types.reference(Innovation)),
     principles: types.optional(
@@ -58,21 +59,9 @@ export const Campaign = types
     },
     selectInnovation(innovation) {
       if (self.innovations.has(innovation.id)) {
-        // process extensions
-        let inno = self.innovations.get(innovation.id)
-        if (inno.settlement) {
-          self.settlement.remove(getSnapshot(inno.settlement))
-        }
-
         self.innovations.delete(innovation.id)
       } else {
         self.innovations.set(innovation.id, innovation.id)
-
-        // process extensions
-        let inno = self.innovations.get(innovation.id)
-        if (inno.settlement) {
-          self.settlement.add(getSnapshot(inno.settlement))
-        }
       }
     },
     selectExpansion(expansion) {
@@ -82,7 +71,7 @@ export const Campaign = types
       }
       if (self.expansions.has(expansion.id)) {
         // reset some stuff when expansions are removed
-        self.hunting = null
+        self.hunting = null //TODO: use safeReference instead.
         self.showdown = null
 
         // remove all expansion locations
@@ -122,24 +111,7 @@ export const Campaign = types
       }
     },
     selectPrinciple(type, principle) {
-      if (self.principles[type]) {
-        let principle = self.principles[type]
-        if (principle.settlement) {
-          self.settlement.remove(getSnapshot(principle.settlement))
-        }
-      }
-
-      // selecting
       self.principles[type] = principle.id
-
-      // process extensions
-      let prin = self.principles[type]
-      if (prin) {
-        //handle unselected principle
-        if (prin.settlement) {
-          self.settlement.add(getSnapshot(prin.settlement))
-        }
-      }
     },
     setResourceCount(resource, count) {
       if (self.stored_resources.get(resource.id)) {
@@ -307,8 +279,8 @@ export const Campaign = types
         return acc.concat(endeavors)
       }, [])
 
-      let endeavors = concatArrays(self.innovations.values()).concat(
-        concatArrays(self.locations.values())
+      let endeavors = concatArrays(values(self.innovations)).concat(
+        concatArrays(values(self.locations))
       )
 
       return endeavors.filter(item => {
@@ -333,5 +305,138 @@ export const Campaign = types
 
         return true
       })
+    },
+    get survivalLimit() {
+      let innovationSurvival = values(self.innovations).reduce((acc, inno) => {
+        if (inno.settlement && inno.settlement.survival) {
+          return acc + inno.settlement.survival
+        } else {
+          return acc
+        }
+      }, 0)
+
+      let principlesSurvival = [
+        'death',
+        'newlife',
+        'society',
+        'conviction',
+      ].reduce((acc, principle) => {
+        if (
+          self.principles[principle] &&
+          self.principles[principle].settlement &&
+          self.principles[principle].settlement.survival
+        ) {
+          return acc + self.principles[principle].settlement.survival
+        } else {
+          return acc
+        }
+      }, 0)
+      return 1 + innovationSurvival + principlesSurvival
+    },
+    get newbornBonus() {
+      let bonus = getSnapshot(SettlementStat.create())
+      let keys = Object.keys(bonus)
+      // get bonuses from Innovations
+      bonus = values(self.innovations).reduce((bonusAcc, inno) => {
+        if (inno.settlement && inno.settlement.newborn) {
+          // combine the 2 objects: current accumulated bonus and the one from the innovation.
+          return keys.reduce((keysAcc, key) => {
+            return {
+              ...keysAcc,
+              [key]:
+                typeof bonusAcc[key] === 'string'
+                  ? (bonusAcc[key] + '\n' + inno.settlement.newborn[key]).trim()
+                  : bonusAcc[key] + inno.settlement.newborn[key],
+            }
+          }, {})
+        } else {
+          return bonusAcc
+        }
+      }, bonus)
+
+      // get bonuses from principles
+      bonus = ['death', 'newlife', 'society', 'conviction'].reduce(
+        (bonusAcc, principle) => {
+          if (
+            self.principles[principle] &&
+            self.principles[principle].settlement &&
+            self.principles[principle].settlement.newborn
+          ) {
+            return keys.reduce((keysAcc, key) => {
+              return {
+                ...keysAcc,
+                [key]:
+                  typeof bonusAcc[key] === 'string'
+                    ? (
+                        bonusAcc[key] +
+                        '\n' +
+                        self.principles[principle].settlement.newborn[key]
+                      ).trim()
+                    : bonusAcc[key] +
+                      self.principles[principle].settlement.newborn[key],
+              }
+            }, {})
+          } else {
+            return bonusAcc
+          }
+        },
+        bonus
+      )
+
+      return bonus
+    },
+    get departingBonus() {
+      let bonus = getSnapshot(SettlementStat.create()) // note that this doesn't have { survival: 1 }
+      let keys = Object.keys(bonus)
+      // get bonuses from Innovations
+      bonus = values(self.innovations).reduce((bonusAcc, inno) => {
+        if (inno.settlement && inno.settlement.departing) {
+          return keys.reduce((keysAcc, key) => {
+            return {
+              ...keysAcc,
+              [key]:
+                typeof bonusAcc[key] === 'string'
+                  ? (
+                      bonusAcc[key] +
+                      '\n' +
+                      inno.settlement.departing[key]
+                    ).trim()
+                  : bonusAcc[key] + inno.settlement.departing[key],
+            }
+          }, {})
+        } else {
+          return bonusAcc
+        }
+      }, bonus)
+
+      // principles don't have departing bonuses, but this can still be refactored since nothing would be added.
+
+      return bonus
+    },
+    get showdownBonus() {
+      let bonus = getSnapshot(SettlementStat.create()) // note that this doesn't have { survival: 1 }
+      let keys = Object.keys(bonus)
+      // get bonuses from Innovations
+      bonus = values(self.innovations).reduce((bonusAcc, inno) => {
+        if (inno.settlement && inno.settlement.showdown) {
+          return keys.reduce((keysAcc, key) => {
+            return {
+              ...keysAcc,
+              [key]:
+                typeof bonusAcc[key] === 'string'
+                  ? (
+                      bonusAcc[key] +
+                      '\n' +
+                      inno.settlement.showdown[key]
+                    ).trim()
+                  : bonusAcc[key] + inno.settlement.showdown[key],
+            }
+          }, {})
+        } else {
+          return bonusAcc
+        }
+      }, bonus)
+
+      return bonus
     },
   }))

@@ -9,6 +9,14 @@ it('creates a survivor', () => {
   expect(getSnapshot(survivor)).toMatchSnapshot()
 })
 
+it('handles passed in properties', () => {
+  const survivor = Survivor.create({ name: 'test', survival: 3, strength: 1 })
+
+  expect(survivor).toHaveProperty('name', 'test')
+  expect(survivor).toHaveProperty('survival', 3)
+  expect(survivor).toHaveProperty('strength', 1)
+})
+
 it('.changeGender', () => {
   const survivor = Survivor.create({ id: 'test' })
 
@@ -40,6 +48,9 @@ describe('with RootStore', () => {
     survivor = store.selectedCampaign.settlement.createSurvivor('survivor')
   })
 
+  it('has a name', () => {
+    expect(survivor.name).toMatch('survivor')
+  })
   it('handles fighting arts', () => {
     survivor.addFA({ id: 'Acrobatics' })
     survivor.addFA({ id: 'Clutch Fighter' })
@@ -73,7 +84,34 @@ describe('with RootStore', () => {
     expect(survivor.weaponProficiency.id).toBe('fist & tooth')
   })
 
-  it('has 1 survival', () => {
+  it('has initial survival', () => {
     expect(survivor.survival).toBe(1)
+  })
+
+  it('gives all bonus', () => {
+    store.selectedCampaign.selectInnovation({ id: 'saga' }) // courage: 2, understanding: 2, 'hunt xp': 2,
+    store.selectedCampaign.selectInnovation({ id: 'clan_of_death' }) //  accuracy: 1, strength: 1, evasion: 1,
+    store.selectedCampaign.selectInnovation({ id: 'radiating orb' }) //  survival: 1,
+    store.selectedCampaign.selectInnovation({ id: 'empire' }) //  strength: 1,
+
+    store.selectedCampaign.selectPrinciple('newlife', { id: 'sotf' }) // strength: 1, evasion: 1,
+    store.selectedCampaign.selectPrinciple('death', { id: 'graves' }) // understanding: 1,
+    store.selectedCampaign.selectPrinciple('conviction', { id: 'barbaric' }) // strength: 1,
+
+    survivor2 = store.selectedCampaign.settlement.createSurvivor('survivor2')
+
+    expect(survivor2).toMatchObject({
+      strength: 4,
+      evasion: 2,
+      accuracy: 1,
+      courage: 2,
+      'hunt xp': 2,
+      insanity: 0,
+      luck: 0,
+      movement: 5,
+      speed: 0,
+      survival: 2,
+      understanding: 3,
+    })
   })
 })

@@ -27,7 +27,6 @@ it('initializes', () => {
   expect(store).toBeDefined()
   expect(store.selectedCampaign).toBeDefined()
   expect(store.selectedCampaign.settlement.survivalLimit).toBe(1)
-  expect(store.selectedCampaign.settlement.newborn.survival).toBe(1)
 })
 
 it('creates random id for default campaign', () => {
@@ -243,7 +242,7 @@ it('all in', done => {
     innovationsData
   )
 
-  // add all principles (note that priciples override each other because some have the same id)
+  // add all principles
   store.selectedCampaign.selectPrinciple('death', { id: 'cannibalize' })
   store.selectedCampaign.selectPrinciple('newlife', { id: 'pty' })
   store.selectedCampaign.selectPrinciple('society', { id: 'accept_darkness' })
@@ -257,7 +256,22 @@ it('all in', done => {
 
   // add a couple of survivors
   uuidMock.mockImplementation(() => '3352353f-f7df-44ab-8c13-a350c7e35a7b')
-  store.selectedCampaign.settlement.createSurvivor('survivor 1')
+  let survivor1 = store.selectedCampaign.settlement.createSurvivor('survivor 1')
+
+  expect(store.selectedCampaign.newbornBonus).toHaveProperty('survival', 1)
+  expect(survivor1).toMatchObject({
+    strength: 2,
+    evasion: 1,
+    accuracy: 1,
+    courage: 2,
+    'hunt xp': 2,
+    insanity: 0,
+    luck: 0,
+    movement: 5,
+    speed: 0,
+    survival: 2,
+    understanding: 2,
+  })
 
   uuidMock.mockImplementation(() => '3792b21e-fc96-4a5e-a2cd-6cccff3747a8')
   let survivor2 = store.selectedCampaign.settlement.createSurvivor('survivor 2')
@@ -278,7 +292,6 @@ it('all in', done => {
   uuidMock.mockImplementation(() => '4452353f-f7df-44ab-8c13-a350c7e35a7b')
   let survivor3 = store.selectedCampaign.settlement.createSurvivor('survivor 3')
   survivor3.cycleStatus()
-
   expect(store.data).toMatchSnapshot()
   done()
 

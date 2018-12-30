@@ -16,7 +16,7 @@ export default {
     expansion: 'core',
     keywords: ['home', 'hovel consequence'],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
     endeavors: [
       {
@@ -70,7 +70,7 @@ export default {
     keywords: ['science', 'lantern oven consequence'],
     bonus: 'At the start of the Settlement phase gain +1 endeavor',
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
     endeavors: [
       {
@@ -120,7 +120,7 @@ export default {
     expansion: 'core',
     keywords: ['faith'],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
   },
   face_painting: {
@@ -159,9 +159,8 @@ export default {
         survival: 1,
       },
       newborn: {
-        description: [
+        description:
           '**Family**: a newborn survivor inherits the surname of one of the parents, their weapon type and 1/2 their weapon proficiency.',
-        ],
       },
     },
   },
@@ -171,11 +170,10 @@ export default {
     expansion: 'core',
     keywords: ['education'],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
       showdown: {
-        description: [
+        description:
           '**Final Fighting Art**: Once per showdown you may select an AI card from the discard or wound pile and put it on top of AI deck',
-        ],
       },
     },
   },
@@ -245,7 +243,7 @@ export default {
     expansion: 'core',
     keywords: ['home', 'language consequence'],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
       departing: {
         survival: 1,
       },
@@ -263,7 +261,7 @@ export default {
     expansion: 'core',
     keywords: ['starting innovation'],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
 
     bonus:
@@ -430,7 +428,7 @@ export default {
     expansion: 'core',
     keywords: ['art', 'sculpture consequence'],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
     endeavors: [
       {
@@ -613,14 +611,12 @@ export default {
     keywords: ['music', 'drums consequence'],
     settlement: {
       departing: {
-        description: [
+        description:
           '**Song of the Brave**: During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave',
-        ],
       },
       showdown: {
-        description: [
+        description:
           '**Song of the Brave**: On arrival each non-deaf survivor may remove 1 negative attribute token',
-        ],
       },
     },
   },
@@ -630,7 +626,7 @@ export default {
     expansion: 'core',
     keywords: ['education', 'symposium consequence'],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
     endeavors: [
       {
@@ -653,7 +649,7 @@ export default {
     bonus:
       'When a survivor innovates, draw an additional 2 innovation cards to choose from',
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
   },
 
@@ -663,11 +659,10 @@ export default {
     expansion: 'core',
     keywords: ['science'],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
       showdown: {
-        description: [
+        description:
           '**Ultimate Weapon**: When you defeat a monster, gain 1 monster resource of your choice',
-        ],
       },
     },
   },
@@ -705,7 +700,7 @@ export default {
       },
     ],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
   },
   citrinitas: {
@@ -725,7 +720,7 @@ export default {
       },
     ],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
   },
   albedo: {
@@ -990,9 +985,8 @@ export default {
       departing: {
         survival: 3,
         insanity: 3,
-        description: [
+        description:
           '**The Knowledge Worm**: survivors with 10+ insanity, ![book](book) "A Gracious Host"',
-        ],
       },
     },
   },
@@ -1003,9 +997,8 @@ export default {
     keywords: ['science'],
     settlement: {
       showdown: {
-        description: [
+        description:
           '**Crimson Candy**: At the start of the showdown each survivor gains * survival',
-        ],
       },
     },
     endeavors: [
@@ -1026,11 +1019,10 @@ export default {
     expansion: 'manhunter',
     keywords: ['education', 'storytelling consequence'],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
       departing: {
-        description: [
+        description:
           "**War room**: Quarries can't move off the hunt board. If survivors would need to move backwards roll 1d10, on 4+ they don't.",
-        ],
       },
     },
     endeavors: [
@@ -1051,11 +1043,10 @@ export default {
     expansion: 'manhunter',
     keywords: ['home', 'hovel consequence'],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
       departing: {
-        description: [
+        description:
           '**Settlement Watch**: Survivors gain +2 survival when they depart for a Nemesis encounter or Special Showdown',
-        ],
       },
     },
     endeavors: [
@@ -1111,7 +1102,7 @@ export default {
     expansion: 'sunstalker',
     keywords: ['starting innovation'],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
 
     bonus:
@@ -1124,9 +1115,8 @@ export default {
     keywords: ['science'],
     settlement: {
       newborn: {
-        description: [
+        description:
           '**Umbilical Bank**: You may add 1 Life String strange resource to the storage.',
-        ],
       },
     },
     endeavors: [
@@ -1161,9 +1151,8 @@ export default {
     keywords: ['faith', 'hands of the sun consequence'],
     settlement: {
       departing: {
-        description: [
+        description:
           '**Sauna Shrine**: When departing for a nemesis encounter or special showdown, gain +10 survival.',
-        ],
       },
     },
     endeavors: [
@@ -1233,7 +1222,7 @@ export default {
     expansion: 'sunstalker',
     keywords: ['faith', 'hands of the sun consequence'],
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
     endeavors: [
       {
@@ -1253,7 +1242,7 @@ export default {
     expansion: 'dk', // TODO: this should be people of the stars, do the same for expansions that provide campaigns so that their cards don't get mixed into the core campaign.
     keywords: ['starting innovation', 'language'], // TODO: should we do this, or add dragon speech consecuence to all language innovations? Or have a new field with 'add xxx consecuense (like the text at the bottom of the card, but in a programatic way)'
     settlement: {
-      survivalLimit: 1,
+      survival: 1,
     },
 
     bonus:
@@ -1267,9 +1256,8 @@ export default {
     settlement: {
       departing: {
         survival: 1,
-        description: [
+        description:
           '**Radiating Orb**: Survivors with a constellation gain +1 survival',
-        ],
       },
       newborn: {
         survival: 1,
@@ -1303,12 +1291,11 @@ export default {
     keywords: ['home', 'hovel consecuence'],
     settlement: {
       newborn: {
-        description: [
+        description:
           '**Bloodline**: inherit the following from parents:\n\n' +
-            "* The Oracle's Eye, Iridescent Hide or Pristine ability.\n" +
-            '* 1 Surname.\n' +
-            "* Half of the parent's weapon proficiency levels, rounded up.",
-        ],
+          "* The Oracle's Eye, Iridescent Hide or Pristine ability.\n" +
+          '* 1 Surname.\n' +
+          "* Half of the parent's weapon proficiency levels, rounded up.",
       },
     },
   },
@@ -1320,7 +1307,7 @@ export default {
     settlement: {
       newborn: {
         strength: 1,
-        description: ['**Empire**: gain **Pristine** ability'],
+        description: '**Empire**: gain **Pristine** ability',
       },
     },
   },
