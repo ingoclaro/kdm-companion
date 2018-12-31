@@ -3,12 +3,12 @@ export default {
     id: 'sotf',
     name: 'Survival of the Fittests',
     settlement: {
+      survival: 1,
       newborn: {
         strength: 1,
         evasion: 1,
       },
     },
-
     bonus:
       'When rolling on intimacy table, roll twice and keep lowest result.\nOnce per lifetime, a survivor may reroll a single roll result',
   },
