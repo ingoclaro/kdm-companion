@@ -225,7 +225,7 @@ export const Campaign = types
       return self.principles.newlife && self.principles.newlife.id === 'sotf'
     },
     get courageMilestones() {
-      if (self.type === 'pots') {
+      if (self.type.id === 'pots') {
         return {
           3: { description: '![book](book) Awake (DK p.11)' },
           9: { description: '![book](book) See the Truth (p.167)' },
@@ -237,7 +237,7 @@ export const Campaign = types
       }
     },
     get understandingMilestones() {
-      if (self.type === 'pots') {
+      if (self.type.id === 'pots') {
         return {
           3: { description: '![book](book) Awake (DK p.11)' },
           9: { description: '![book](book) White Secret (p.181)' },
