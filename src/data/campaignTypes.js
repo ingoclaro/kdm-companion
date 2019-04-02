@@ -6,5 +6,7 @@ export default {
   pots: {
     id: 'pots',
     name: 'People of the Stars',
+    hasBoldEvent: false,
+    hasInsightEvent: false,
   },
 }

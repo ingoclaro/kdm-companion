@@ -1,4 +1,5 @@
 import { types } from 'mobx-state-tree'
+import { Constants } from 'expo'
 
 const toDays = 1000 * 60 * 60 * 24
 
@@ -58,6 +59,14 @@ const Subscription = types
       }
     },
     hasActiveSubscription() {
+      if (
+        Constants &&
+        Constants.manifest &&
+        (Constants.manifest.releaseChannel === undefined ||
+          Constants.manifest.releaseChannel === 'default')
+      ) {
+        return true
+      }
       if (self.purchasedAt && Date.now() - self.checkedAt < activeGracePeriod) {
         return true
       }

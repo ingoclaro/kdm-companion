@@ -112,12 +112,17 @@ const Survivor = types
       self.skipNextHunt = !self.skipNextHunt
     },
     applyNewbornMilestones() {
-      // handle newborn milestones derived by bonuses
-      if (self.understanding >= 3) {
-        self.abilities.push('Tinker')
-      }
-      if (self.courage >= 3) {
-        self.abilities.push('Matchmaker')
+      try {
+        let campaign = getParent(self, 3)
+        // handle newborn milestones derived by bonuses
+        if (campaign.type.hasInsightEvent && self.understanding >= 3) {
+          self.abilities.push('Tinker')
+        }
+        if (campaign.type.hasBoldEvent && self.courage >= 3) {
+          self.abilities.push('Matchmaker')
+        }
+      } catch (e) {
+        // not attached to a settlement
       }
     },
     setWeaponProficiency(prof) {

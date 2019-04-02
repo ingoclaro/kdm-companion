@@ -41,9 +41,10 @@ export const Settlement = types
         'survival',
         Math.min(survivor.survival, self.survivalLimit)
       )
-      survivor.applyNewbornMilestones()
 
       self.survivors.put(survivor)
+      survivor.applyNewbornMilestones()
+
       self.activeSurvivorsList.push(survivor)
 
       return survivor
