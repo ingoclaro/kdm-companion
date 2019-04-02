@@ -8,7 +8,17 @@ import { values } from 'mobx'
 export const Settlement = types
   .model({
     name: 'New Settlement',
-    survivors: types.map(Survivor),
+    survivors: types.map(
+      types.compose(
+        'SorterSurvivor',
+        Survivor,
+        types.model({ order: 0 }).actions(self => ({
+          setOrder(_order) {
+            self.order = _order
+          },
+        }))
+      )
+    ),
     activeSurvivorsList: types.array(types.reference(Survivor)), // this was initially a view, but it was constantly being re-calculated
     // for any survivor stat change (not only their status), adding high latency to the UI. So this keeps a more stable cache.
   })
@@ -63,28 +73,43 @@ export const Settlement = types
       }
     },
     reorderSurvivor(survivor, position) {
-      let idx = self.activeSurvivorsList.findIndex(
-        item => item.id === survivor.id
-      )
-      if (idx >= 0) {
-        // remove from array
-        self.activeSurvivorsList = self.activeSurvivorsList
-          .slice(0, idx)
-          .concat(self.activeSurvivorsList.slice(idx + 1))
-        // add in new position
-        self.activeSurvivorsList.splice(position, 0, survivor.id)
-      }
+      // let idx = self.activeSurvivorsList.findIndex(
+      //   item => item.id === survivor.id
+      // )
+      // if (idx >= 0) {
+      //   // remove from array
+      //   self.activeSurvivorsList = self.activeSurvivorsList
+      //     .slice(0, idx)
+      //     .concat(self.activeSurvivorsList.slice(idx + 1))
+      //   // add in new position
+      //   self.activeSurvivorsList.splice(position, 0, survivor.id)
+      // }
+      self.survivors.forEach(surv => {
+        if (surv.order >= position) {
+          surv.setOrder(surv.order + 1)
+        }
+      })
+      survivor.setOrder(position)
     },
   }))
   .views(self => ({
     filterSurvivors(status = 'alive') {
-      if (status === 'alive') {
-        return self.activeSurvivorsList
-      } else {
-        return R.filter(item => {
-          return item.status === status
-        }, values(self.survivors))
-      }
+      console.log('filterSurvivors')
+      const sorter = R.sortWith([
+        R.ascend(R.prop('order')),
+        R.descend(R.prop('weaponProficiencyLevel')),
+        R.descend(R.prop('strength')),
+        R.ascend(R.prop('hunt xp')),
+      ])
+
+      const filter = R.filter(item => {
+        return item.status === status
+      })
+
+      return R.compose(
+        filter,
+        sorter
+      )(values(self.survivors))
     },
     get hasSOTF() {
       return getParent(self).hasSOTF
