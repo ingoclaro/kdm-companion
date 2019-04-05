@@ -8,17 +8,7 @@ import { values } from 'mobx'
 export const Settlement = types
   .model({
     name: 'New Settlement',
-    survivors: types.map(
-      types.compose(
-        'SorterSurvivor',
-        Survivor,
-        types.model({ order: 0 }).actions(self => ({
-          setOrder(_order) {
-            self.order = _order
-          },
-        }))
-      )
-    ),
+    survivors: types.map(Survivor),
     activeSurvivorsList: types.array(types.reference(Survivor)), // this was initially a view, but it was constantly being re-calculated
     // for any survivor stat change (not only their status), adding high latency to the UI. So this keeps a more stable cache.
   })
@@ -62,45 +52,41 @@ export const Settlement = types
       }
     },
     deactivateSurvivor(survivor) {
-      let idx
-      if (
-        (idx = self.activeSurvivorsList.findIndex(
-          item => item.id === survivor.id
-        ))
-      ) {
+      let idx = self.activeSurvivorsList.findIndex(
+        item => item.id === survivor.id
+      )
+      if (idx >= 0) {
+        // remove from array
         self.activeSurvivorsList = self.activeSurvivorsList
           .slice(0, idx)
           .concat(self.activeSurvivorsList.slice(idx + 1))
       }
     },
     reorderSurvivor(survivor, position) {
-      // let idx = self.activeSurvivorsList.findIndex(
-      //   item => item.id === survivor.id
-      // )
-      // if (idx >= 0) {
-      //   // remove from array
-      //   self.activeSurvivorsList = self.activeSurvivorsList
-      //     .slice(0, idx)
-      //     .concat(self.activeSurvivorsList.slice(idx + 1))
-      //   // add in new position
-      //   self.activeSurvivorsList.splice(position, 0, survivor.id)
-      // }
-      self.survivors.forEach(surv => {
-        if (surv.order >= position) {
-          surv.setOrder(surv.order + 1)
-        }
-      })
-      survivor.setOrder(position)
+      let idx = self.activeSurvivorsList.findIndex(
+        item => item.id === survivor.id
+      )
+      if (idx >= 0) {
+        // remove from array
+        self.activeSurvivorsList = self.activeSurvivorsList
+          .slice(0, idx)
+          .concat(self.activeSurvivorsList.slice(idx + 1))
+        // add in new position
+        self.activeSurvivorsList = self.activeSurvivorsList
+          .slice(0, position)
+          .concat(survivor.id)
+          .concat(self.activeSurvivorsList.slice(position))
+      }
+
+      self.activeSurvivorsList = Array.from(new Set(self.activeSurvivorsList))
     },
   }))
   .views(self => ({
     filterSurvivors(status = 'alive') {
-      console.log('filterSurvivors')
       const sorter = R.sortWith([
-        R.ascend(R.prop('order')),
         R.descend(R.prop('weaponProficiencyLevel')),
         R.descend(R.prop('strength')),
-        R.ascend(R.prop('hunt xp')),
+        R.descend(R.prop('hunt xp')),
       ])
 
       const filter = R.filter(item => {

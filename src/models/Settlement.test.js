@@ -122,6 +122,27 @@ describe('with RootStore', () => {
       expect(survivorList[2].id).toBe(surv4.id)
       expect(survivorList[3].id).toBe(surv1.id)
     })
+
+    it('moves survivor to the same position', () => {
+      let surv1 = settlement.createSurvivor()
+      let surv2 = settlement.createSurvivor()
+      let surv3 = settlement.createSurvivor()
+      let surv4 = settlement.createSurvivor()
+
+      expect(settlement.activeSurvivorsList).toHaveLength(4)
+      settlement.reorderSurvivor(surv1, 0)
+      settlement.reorderSurvivor(surv2, 1)
+      settlement.reorderSurvivor(surv3, 2)
+      settlement.reorderSurvivor(surv4, 3)
+      expect(settlement.activeSurvivorsList).toHaveLength(4)
+
+      let survivorList = settlement.activeSurvivorsList
+
+      expect(survivorList[0].id).toBe(surv1.id)
+      expect(survivorList[1].id).toBe(surv2.id)
+      expect(survivorList[2].id).toBe(surv3.id)
+      expect(survivorList[3].id).toBe(surv4.id)
+    })
   })
 
   describe('.hasSOTF', () => {

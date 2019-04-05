@@ -33,7 +33,7 @@ const ico_skip_hunt = require('../../images/icon_skip_hunt.png')
 
 @inject(({ store }) => ({
   deadSurvivors: store.selectedCampaign.settlement.filterSurvivors('dead'),
-  aliveSurvivors: store.selectedCampaign.settlement.filterSurvivors('alive'),
+  aliveSurvivors: store.selectedCampaign.settlement.activeSurvivorsList,
   reorderSurvivor: store.selectedCampaign.settlement.reorderSurvivor,
 }))
 @observer
@@ -45,7 +45,6 @@ export default class SurvivorList extends React.Component {
 
   touchableRow = ({ item, index, move, moveEnd, isActive }) => {
     let survivor = item
-    console.log('touchableRow, survivor:', survivor.id)
     if (survivor.status === 'dead') {
       return this.survivorRow(survivor, index)
     } else {
@@ -67,7 +66,6 @@ export default class SurvivorList extends React.Component {
     return (
       <Observer>
         {() => {
-          console.log('survivorRow, survivor:', survivor.id)
           return (
             <View style={rowStyle}>
               <Button
