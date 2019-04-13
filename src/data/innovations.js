@@ -182,8 +182,12 @@ export default {
     name: 'Forbidden Dance',
     expansion: 'core',
     keywords: ['music', 'drums consequence'],
-    bonus:
-      'When a survivor uses the Synchronized Strike SFA, reroll missed attack rolls once',
+    settlement: {
+      showdown: {
+        description:
+          '**Forbidden Dance**: When a survivor uses the Synchronized Strike SFA, reroll missed attack rolls once',
+      },
+    },
     endeavors: [
       {
         id: 'forbidden dance',
@@ -223,8 +227,12 @@ export default {
     name: 'Heart Flute',
     expansion: 'core',
     keywords: ['music', 'forbidden dance consequence'],
-    bonus:
-      "When using Synchronized Strike FA, the attack assist may spend 1 survival to change a monster's R to R Failure before any wound attempts",
+    settlement: {
+      showdown: {
+        description:
+          "**Heart Flute**: When using Synchronized Strike FA, the attack assist may spend 1 survival to change a monster's R to R Failure before any wound attempts",
+      },
+    },
     endeavors: [
       {
         id: 'heart_flute',
@@ -262,10 +270,11 @@ export default {
     keywords: ['starting innovation'],
     settlement: {
       survival: 1,
+      showdown: {
+        description:
+          '**Language**: All  survivors gain **Encourage** survival action.\n  **Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
+      },
     },
-
-    bonus:
-      'All  survivors gain **Encourage** survival action.\n**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
   },
   lantern_oven: {
     id: 'lantern_oven',
@@ -418,9 +427,16 @@ export default {
     name: 'Pictograph',
     expansion: 'core',
     keywords: ['art', 'paint consequence'],
-
-    bonus:
-      "At the start of a survivor's act, they may decide to skip their act and Run Away.\nAfter a hunt event is resolved, a survivor may Run Away",
+    settlement: {
+      showdown: {
+        description:
+          "**Pictograph**: At the start of a survivor's act, they may decide to skip their act and **Run Away**.",
+      },
+      departing: {
+        description:
+          '**Pictograph**: After a hunt event is resolved, a survivor may **Run Away**.',
+      },
+    },
   },
   pottery: {
     id: 'pottery',
@@ -612,11 +628,11 @@ export default {
     settlement: {
       departing: {
         description:
-          '**Song of the Brave**: During Overwhelming Darkness story event each non-deaf survivor may select the Path of the Brave',
+          '**Song of the Brave**: During Overwhelming Darkness story event each non-deaf survivor may select the **Path of the Brave**.',
       },
       showdown: {
         description:
-          '**Song of the Brave**: On arrival each non-deaf survivor may remove 1 negative attribute token',
+          '**Song of the Brave**: On arrival each non-deaf survivor may remove 1 negative attribute token.',
       },
     },
   },
@@ -645,9 +661,8 @@ export default {
     name: 'Symposium',
     expansion: 'core',
     keywords: ['education', 'language consequence'],
-
     bonus:
-      'When a survivor innovates, draw an additional 2 innovation cards to choose from',
+      'When a survivor innovates, draw an additional 2 innovation cards to choose from.',
     settlement: {
       survival: 1,
     },
@@ -662,7 +677,7 @@ export default {
       survival: 1,
       showdown: {
         description:
-          '**Ultimate Weapon**: When you defeat a monster, gain 1 monster resource of your choice',
+          '**Ultimate Weapon**: When you defeat a monster, gain 1 monster resource of your choice.',
       },
     },
   },
@@ -978,15 +993,14 @@ export default {
     name: 'The Knowledge Worm',
     expansion: 'lg',
     keywords: ['other'],
-
     bonus:
-      'At the start of each settlement phase add 1 scrap resource to storage',
+      'At the start of each settlement phase add 1 scrap resource to storage.',
     settlement: {
       departing: {
         survival: 3,
         insanity: 3,
         description:
-          '**The Knowledge Worm**: survivors with 10+ insanity, ![book](book) "A Gracious Host"',
+          '**The Knowledge Worm**: survivors with 10+ insanity, ![book](book) "A Gracious Host".',
       },
     },
   },
@@ -998,7 +1012,7 @@ export default {
     settlement: {
       showdown: {
         description:
-          '**Crimson Candy**: At the start of the showdown each survivor gains * survival',
+          '**Crimson Candy**: At the start of the showdown each survivor gains * survival.',
       },
     },
     endeavors: [
@@ -1046,7 +1060,7 @@ export default {
       survival: 1,
       departing: {
         description:
-          '**Settlement Watch**: Survivors gain +2 survival when they depart for a Nemesis encounter or Special Showdown',
+          '**Settlement Watch**: Survivors gain +2 survival when they depart for a Nemesis encounter or Special Showdown.',
       },
     },
     endeavors: [
@@ -1103,10 +1117,11 @@ export default {
     keywords: ['starting innovation'],
     settlement: {
       survival: 1,
+      showdown: {
+        description:
+          "**Sun Language**: All Surivors gain the **Embolden** survival action.\n  **Embolden**: Once per round, if you haven't any +1 Str tokens, spend 1 survival to gain +1 Str token. When you are knocked down loose all Str tokens.",
+      },
     },
-
-    bonus:
-      "All Surivors gain the **Embolden** survival action.\n**Embolden**: Once per round, if you haven't any +1 Str tokens, spend 1 survival to gain +1 Str token. When you are knocked down loose all Str tokens.",
   },
   'umbilical bank': {
     id: 'umbilical bank',
@@ -1192,7 +1207,6 @@ export default {
     name: 'Filleting Table',
     expansion: 'sunstalker',
     keywords: ['science'],
-
     bonus:
       'Once per settlement phase, if the survivors return victorious, gain 1 random basic resource.',
     endeavors: [
@@ -1212,9 +1226,12 @@ export default {
     name: 'Hands of the Sun',
     expansion: 'sunstalker',
     keywords: ['faith'],
-
-    bonus:
-      'All Surivors gain the **Overcharge** survival action.\n**Overcharge**: If you have any +1 Str token, you may spend 1 survival to remove of them and gain devastating 1 to your next attack this round.',
+    settlement: {
+      showdown: {
+        description:
+          '**Hands of the Sun**: All Surivors gain the **Overcharge** survival action.\n  **Overcharge**: If you have any +1 Str token, you may spend 1 survival to remove of them and gain devastating 1 to your next attack this round.',
+      },
+    },
   },
   aquarobics: {
     id: 'aquarobics',
@@ -1244,9 +1261,12 @@ export default {
     settlement: {
       survival: 1,
     },
-
-    bonus:
-      'All survivors gain **Encourage** survival action.\n**Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
+    settlement: {
+      showdown: {
+        description:
+          '**Dragon Speech**: All survivors gain **Encourage** survival action.\n  **Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
+      },
+    },
   },
   'radiating orb': {
     id: 'radiating orb', // TODO: handle consecuence (this card has add lantern oven consecuence :S)
@@ -1257,7 +1277,7 @@ export default {
       departing: {
         survival: 1,
         description:
-          '**Radiating Orb**: Survivors with a constellation gain +1 survival',
+          '**Radiating Orb**: Survivors with a constellation gain +1 survival.',
       },
       newborn: {
         survival: 1,
@@ -1295,7 +1315,7 @@ export default {
           '**Bloodline**: inherit the following from parents:\n\n' +
           "* The Oracle's Eye, Iridescent Hide or Pristine ability.\n" +
           '* 1 Surname.\n' +
-          "* Half of the parent's weapon proficiency levels, rounded up.",
+          "* Half of the parent's weapon proficiency levels, rounded up.\n\n",
       },
     },
   },
@@ -1307,7 +1327,7 @@ export default {
     settlement: {
       newborn: {
         strength: 1,
-        description: '**Empire**: gain **Pristine** ability',
+        description: '**Empire**: gain **Pristine** ability.',
       },
     },
   },

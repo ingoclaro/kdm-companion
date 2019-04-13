@@ -43,7 +43,7 @@ Object {
         "departing": Object {
           "accuracy": 0,
           "courage": 0,
-          "description": "**Radiating Orb**: Survivors with a constellation gain +1 survival",
+          "description": "**Radiating Orb**: Survivors with a constellation gain +1 survival.",
           "evasion": 0,
           "hunt xp": 0,
           "insanity": 0,

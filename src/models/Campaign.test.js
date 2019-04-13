@@ -236,7 +236,7 @@ describe('with RootStore', () => {
 
       expect(store.selectedCampaign.bonuses).toHaveLength(1)
       expect(store.selectedCampaign.bonuses[0]).toMatchObject({
-        description: 'Whenever a survivor dies, gain 1 random basic resource',
+        description: 'Whenever a survivor dies, gain 1 random basic resource.',
       })
     })
 
@@ -584,7 +584,7 @@ describe('with RootStore', () => {
         evasion: 2,
         accuracy: 1,
         courage: 2,
-        description: '**Empire**: gain **Pristine** ability',
+        description: '**Empire**: gain **Pristine** ability.\n',
         'hunt xp': 2,
         insanity: 0,
         luck: 0,
@@ -626,7 +626,7 @@ describe('with RootStore', () => {
         accuracy: 0,
         courage: 0,
         description:
-          '**The Knowledge Worm**: survivors with 10+ insanity, ![book](book) "A Gracious Host"\n**Radiating Orb**: Survivors with a constellation gain +1 survival',
+          '**The Knowledge Worm**: survivors with 10+ insanity, ![book](book) "A Gracious Host".\n**Radiating Orb**: Survivors with a constellation gain +1 survival.\n',
         evasion: 0,
         'hunt xp': 0,
         insanity: 3,
@@ -668,7 +668,7 @@ describe('with RootStore', () => {
         accuracy: 0,
         courage: 0,
         description:
-          '**Song of the Brave**: On arrival each non-deaf survivor may remove 1 negative attribute token\n**Ultimate Weapon**: When you defeat a monster, gain 1 monster resource of your choice',
+          '**Song of the Brave**: On arrival each non-deaf survivor may remove 1 negative attribute token.\n**Ultimate Weapon**: When you defeat a monster, gain 1 monster resource of your choice.\n',
         evasion: 0,
         'hunt xp': 0,
         insanity: 0,

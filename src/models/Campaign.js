@@ -12,7 +12,7 @@ import { CampaignType } from './CampaignType'
 
 import R from 'ramda'
 
-import { expansionFilter, uuid } from '../utils'
+import { expansionFilter, uuid, objectMerge } from '../utils'
 
 const StoredResource = types.model('StoredResource', {
   id: types.identifier,
@@ -334,108 +334,42 @@ export const Campaign = types
       return 1 + innovationSurvival + principlesSurvival
     },
     get newbornBonus() {
-      let bonus = getSnapshot(SettlementStat.create())
-      let keys = Object.keys(bonus)
-      // get bonuses from Innovations
-      bonus = values(self.innovations).reduce((bonusAcc, inno) => {
-        if (inno.settlement && inno.settlement.newborn) {
-          // combine the 2 objects: current accumulated bonus and the one from the innovation.
-          return keys.reduce((keysAcc, key) => {
-            return {
-              ...keysAcc,
-              [key]:
-                typeof bonusAcc[key] === 'string'
-                  ? (bonusAcc[key] + '\n' + inno.settlement.newborn[key]).trim()
-                  : bonusAcc[key] + inno.settlement.newborn[key],
-            }
-          }, {})
-        } else {
-          return bonusAcc
-        }
-      }, bonus)
-
-      // get bonuses from principles
-      bonus = ['death', 'newlife', 'society', 'conviction'].reduce(
-        (bonusAcc, principle) => {
-          if (
-            self.principles[principle] &&
-            self.principles[principle].settlement &&
-            self.principles[principle].settlement.newborn
-          ) {
-            return keys.reduce((keysAcc, key) => {
-              return {
-                ...keysAcc,
-                [key]:
-                  typeof bonusAcc[key] === 'string'
-                    ? (
-                        bonusAcc[key] +
-                        '\n' +
-                        self.principles[principle].settlement.newborn[key]
-                      ).trim()
-                    : bonusAcc[key] +
-                      self.principles[principle].settlement.newborn[key],
-              }
-            }, {})
-          } else {
-            return bonusAcc
-          }
-        },
-        bonus
+      let bonus = objectMerge(
+        getSnapshot(SettlementStat.create()),
+        values(self.innovations),
+        ['settlement', 'newborn']
       )
+
+      bonus = objectMerge(bonus, values(self.principles), [
+        'settlement',
+        'newborn',
+      ])
 
       return bonus
     },
     get departingBonus() {
-      let bonus = getSnapshot(SettlementStat.create()) // note that this doesn't have { survival: 1 }
-      let keys = Object.keys(bonus)
-      // get bonuses from Innovations
-      bonus = values(self.innovations).reduce((bonusAcc, inno) => {
-        if (inno.settlement && inno.settlement.departing) {
-          return keys.reduce((keysAcc, key) => {
-            return {
-              ...keysAcc,
-              [key]:
-                typeof bonusAcc[key] === 'string'
-                  ? (
-                      bonusAcc[key] +
-                      '\n' +
-                      inno.settlement.departing[key]
-                    ).trim()
-                  : bonusAcc[key] + inno.settlement.departing[key],
-            }
-          }, {})
-        } else {
-          return bonusAcc
-        }
-      }, bonus)
-
-      // principles don't have departing bonuses, but this can still be refactored since nothing would be added.
+      let bonus = objectMerge(
+        getSnapshot(SettlementStat.create()),
+        values(self.innovations),
+        ['settlement', 'departing']
+      )
+      bonus = objectMerge(bonus, values(self.principles), [
+        'settlement',
+        'departing',
+      ])
 
       return bonus
     },
     get showdownBonus() {
-      let bonus = getSnapshot(SettlementStat.create()) // note that this doesn't have { survival: 1 }
-      let keys = Object.keys(bonus)
-      // get bonuses from Innovations
-      bonus = values(self.innovations).reduce((bonusAcc, inno) => {
-        if (inno.settlement && inno.settlement.showdown) {
-          return keys.reduce((keysAcc, key) => {
-            return {
-              ...keysAcc,
-              [key]:
-                typeof bonusAcc[key] === 'string'
-                  ? (
-                      bonusAcc[key] +
-                      '\n' +
-                      inno.settlement.showdown[key]
-                    ).trim()
-                  : bonusAcc[key] + inno.settlement.showdown[key],
-            }
-          }, {})
-        } else {
-          return bonusAcc
-        }
-      }, bonus)
+      let bonus = objectMerge(
+        getSnapshot(SettlementStat.create()),
+        values(self.innovations),
+        ['settlement', 'showdown']
+      )
+      bonus = objectMerge(bonus, values(self.principles), [
+        'settlement',
+        'showdown',
+      ])
 
       return bonus
     },
