@@ -5,6 +5,7 @@ import { Disorder } from './Disorder'
 import { Ability } from './Ability'
 import { WeaponProficiency } from './WeaponProficiency'
 import { DragonTraits } from './DragonTraits'
+import { PotSun } from './PotSun'
 import { uuid } from '../utils'
 
 const statusList = ['alive', 'dead', 'retired']
@@ -41,6 +42,10 @@ const Survivor = types
       // People of the Stars Campaign
       dragonTraits: types.optional(DragonTraits, {}),
       // End People of the Stars Campaign
+
+      // People of the Sun Campaign
+      potSun: types.optional(PotSun, {}),
+      // End People of the Sun Campaign
     })
   )
   .actions(self => ({

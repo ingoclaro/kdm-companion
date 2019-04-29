@@ -24,6 +24,7 @@ import Note from '../common/Note'
 import WeaponProficiency from './WeaponProficiency'
 import Tooltip from '../common/Tooltip'
 import DragonTraits from './DragonTraits'
+import PotSun from './PotSun'
 import colors from '../../src/colors'
 
 const ico_accuracy = require('../../images/icon_accuracy-24.png')
@@ -46,6 +47,7 @@ const ico_skip_hunt = require('../../images/icon_skip_hunt.png')
   showTooltip: store.selectedCampaign.settlement.survivors.size === 1,
   hasReroll: store.selectedCampaign.settlement.hasSOTF,
   showConstellation: store.selectedCampaign.type.id === 'pots',
+  showPotSun: store.selectedCampaign.type.id === 'potsun',
   courageMilestones: store.selectedCampaign.courageMilestones,
   understandingMilestones: store.selectedCampaign.understandingMilestones,
 }))
@@ -251,6 +253,13 @@ export default class Survivor extends React.Component {
         {this.props.showConstellation && (
           <View>
             <DragonTraits survivor={this.props.survivor} />
+            <Divider />
+          </View>
+        )}
+
+        {this.props.showPotSun && (
+          <View>
+            <PotSun survivor={this.props.survivor} />
             <Divider />
           </View>
         )}
