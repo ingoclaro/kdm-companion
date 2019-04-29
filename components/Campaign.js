@@ -48,6 +48,13 @@ export default class Expansions extends React.Component {
           id="pots"
           selected={this.props.campaign.type.id === 'pots'}
         />
+        <Checkbox
+          styleName="title"
+          onPressItem={() => this.selectCampaign('potsun')}
+          title="People of the Sun (Sunstalker)"
+          id="potsun"
+          selected={this.props.campaign.type.id === 'potsun'}
+        />
       </View>
     )
   }

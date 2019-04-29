@@ -151,6 +151,11 @@ export const Campaign = types
             self.expansions.set('dk', 'dk')
           }
           break
+        case 'potsun':
+          if (!self.expansions.get('sunstalker')) {
+            self.expansions.set('sunstalker', 'sunstalker')
+          }
+          break
       }
     },
     updateName(name) {
@@ -185,7 +190,11 @@ export const Campaign = types
             include = true
           }
           if (include && item.campaign) {
+            // this should be deprecated in favor the the campaign map below
             include = item.campaign.id === self.type.id
+          }
+          if (include && item.campaigns) {
+            include = item.campaigns.has(self.type.id)
           }
           return include
         },

@@ -10,5 +10,6 @@ export function lateEndeavor() {
     name: types.string,
     expansion: types.reference(Expansion),
     recipe: types.late(lateRecipe),
+    description: '',
   })
 }
