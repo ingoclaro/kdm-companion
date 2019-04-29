@@ -49,6 +49,8 @@ export default {
           innovation: 'forbidden dance',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Spend any number of monster resources to draw an equal number of basic resources.',
       },
     ],
   },
@@ -75,6 +77,8 @@ export default {
         recipe: {
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Roll 1d10: 1-5: Spend 1 survival or die; 6-9: Gain 1 broken lantern resource; 10+: Gain 1 courage.',
       },
       {
         id: 'innovate_scrap_smelting',
@@ -118,6 +122,8 @@ export default {
             { keyword: 'hide', quantity: 1 },
           ],
         },
+        description:
+          'Spend any number of hide to gain equal number of leather strange resources.',
       },
     ],
   },
@@ -214,6 +220,8 @@ export default {
         recipe: {
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Roll 1d10: 1-2: Suffer **intracranial hemorrhage** severe head injury; 3-6: Cure 1 disorder; 7-9: Cure **intracranial hemorrhage**; 10+: Gain 1 random disorder and 1 random fighting art.',
       },
     ],
   },
@@ -266,6 +274,8 @@ export default {
         recipe: {
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Roll 1d10, +1 if 3+Und: 1-3: Lose 1 resource, +1 Und; 4-7: +1 Surv.; 8+ ![book](book) Intimacy.',
       },
       {
         id: 'stone_noses',
@@ -353,6 +363,8 @@ export default {
             { gear: 'final_lantern', quantity: 1 },
           ],
         },
+        description:
+          '![book](book)(p. 139) Lantern Research - Pulse Discoveries.',
       },
       {
         id: 'oxidation',
@@ -361,6 +373,7 @@ export default {
         recipe: {
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description: '![book](book)(p. 149) Oxidation.',
       },
       {
         id: 'survivors_lantern',
@@ -380,6 +393,8 @@ export default {
         recipe: {
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Roll 1d10: 1-2: Unless you have **Legendary Lungs**, you die; 3: Gain 1 random disorder; 4-6: Gain your roll result **Broken Lantern** basic resources; 7-8: Gain 2 **Cocoon Membrane** strange resources; 9+: Gain 1 **Lantern Tube** strange resource.',
       },
     ],
   },
@@ -387,6 +402,7 @@ export default {
     id: 'lantern_hoard',
     name: 'Lantern Hoard',
     expansion: 'core',
+    campaigns: { potl: 'potl' },
     endeavors: [
       {
         id: 'innovate',
@@ -406,8 +422,11 @@ export default {
         name: 'Shared Experience',
         expansion: 'core',
         recipe: {
+          innovation: 'language',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Nominate a survivor with +2 Hunt XP than yourself. If you are not deaf, gain +1 Hunt XP. If nominated survivor has **shattered jaw**, instead gain +1 insanity.',
       },
       {
         id: 'build_bone_smith',
@@ -521,6 +540,9 @@ export default {
     id: 'the sun',
     name: 'The Sun',
     expansion: 'sunstalker',
+    campaigns: {
+      potsun: 'potsun',
+    },
     endeavors: [
       {
         id: 'innovate',
@@ -592,6 +614,9 @@ export default {
     id: 'sacred pool',
     name: 'Sacred Pool',
     expansion: 'sunstalker',
+    campaigns: {
+      potsun: 'potsun',
+    },
     gear: ['sun vestments', 'sunring bow', 'apostle crown', 'prism mace'],
     endeavors: [
       {
@@ -601,6 +626,8 @@ export default {
         recipe: {
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Once per settlement phase: ![book](book)(SUN p.17) **Intimacy**.',
       },
       {
         id: 'purification ceremony',
@@ -609,6 +636,8 @@ export default {
         recipe: {
           items: [{ resource: 'endeavor', quantity: 2 }],
         },
+        description:
+          'You may endeavor here once per lifetime. Gain **Purified** and **Protective** disorder. Roll 1d10: 1-7: +1 Str or Accu, 8+: +1 any attr. Cannot **depart** this year.',
       },
       {
         id: 'sun sealing',
@@ -618,6 +647,8 @@ export default {
           innovation: 'sauna shrine',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Gain **Hellfire** secret fighting art. Cannot **depart** this year.',
       },
     ],
   },
@@ -625,6 +656,9 @@ export default {
     id: 'throne',
     name: 'Throne',
     expansion: 'dk',
+    campaigns: {
+      pots: 'pots',
+    },
     endeavors: [
       {
         id: 'innovate',
@@ -646,6 +680,8 @@ export default {
         recipe: {
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Once per settlement phase a survivor rolls 1d10: 1-2: Dead; 3-6: Suffer **blind** severe head injury and gain **Scar**; 7-9: Remove all permanent waist injuries; 10+: Dead, gain top card of innovation deck.',
       },
       {
         id: 'build_bone_smith',

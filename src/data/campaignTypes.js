@@ -9,4 +9,8 @@ export default {
     hasBoldEvent: false,
     hasInsightEvent: false,
   },
+  potsun: {
+    id: 'potsun',
+    name: 'People of the Sun',
+  },
 }

@@ -27,6 +27,8 @@ export default {
           innovation: 'bed',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Roll 1d10: 1-3: Gain +3 Ins; 4+: You cannot endeavor again this phase, skip next hunt, may remove one of: all **Broken Arm**, all **Broken Hip**, all **Broken Rib** or **Ruptured Muscle**.',
       },
     ],
   },
@@ -47,6 +49,8 @@ export default {
             { keyword: 'resource', quantity: 1 },
           ],
         },
+        description:
+          'Roll 1d10: 1-3: Gain +1 Und, loose all survival and cannot gain survival this settlement phase; 4-7: Gain +3 Ins; 8+: Gain +6 Ins, you may remove one of: Disorder, **Warped Pelvis** or **Intestinal Prolapse**.',
       },
     ],
   },
@@ -54,6 +58,7 @@ export default {
     id: 'clan_of_death',
     name: 'Clan of Death',
     expansion: 'core',
+    campaigns: { potl: 'potl', potsun: 'potsun' },
     keywords: ['home', 'family consequence'],
     settlement: {
       newborn: {
@@ -94,6 +99,7 @@ export default {
             { keyword: 'bone', quantity: 1 },
           ],
         },
+        description: 'During next hunt, ignore **Starvation**.',
       },
     ],
   },
@@ -111,6 +117,8 @@ export default {
           innovation: 'drums',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Select one: Gain +2 Ins, gain +2 survival, gain **Rythm Chaser** FA or gain **Synchronized Strike** SFA.',
       },
     ],
   },
@@ -121,6 +129,10 @@ export default {
     keywords: ['faith'],
     settlement: {
       survival: 1,
+      showdown: {
+        description:
+          '**Destiny**: Gain **Endure** survival action.\n  **Endure**: You may spend 7 survival - Luck to ignore a severe injury (before rolling result).',
+      },
     },
   },
   face_painting: {
@@ -137,6 +149,8 @@ export default {
           innovation: 'face_painting',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Roll 1d10: 4+: Departing survivors gain +2 survival and +1 Ins.',
       },
       {
         id: 'founders_eye',
@@ -146,6 +160,7 @@ export default {
           innovation: 'face_painting',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description: 'Roll 1d10: 4+: Gain +1 to all rolls on **Intimacy**.',
       },
     ],
   },
@@ -153,6 +168,7 @@ export default {
     id: 'family',
     name: 'Family',
     expansion: 'core',
+    campaigns: { potl: 'potl', potsun: 'potsun' },
     keywords: ['home', 'hovel consequence'],
     settlement: {
       departing: {
@@ -197,6 +213,8 @@ export default {
           innovation: 'forbidden dance',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          "Once per lifetime. Roll 1d10: 1-5: -1 Mov; 6-9: +1 Eva; 10+: Gain **King's Step** SFA.",
       },
     ],
   },
@@ -219,6 +237,8 @@ export default {
           innovation: 'guidepost',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Roll 1d10 +Str: 12+: Gain **Lantern Halberd** rare gear, loose this innovation.',
       },
     ],
   },
@@ -242,6 +262,8 @@ export default {
           innovation: 'heart_flute',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Roll 1d10: 1-5: Die; 6+: Select any Nemesis monster, add a Special Showdown with them at the highest level you have not yet faced.',
       },
     ],
   },
@@ -262,17 +284,24 @@ export default {
     name: 'Inner Lantern',
     expansion: 'core',
     keywords: ['faith', 'language consequence'],
+    settlement: {
+      showdown: {
+        description:
+          '**Inner Lantern**: Gain **Surge** survival action.\n  **Surge**: Spend 1 survival to gain +1[action](action) and use it immediatly.',
+      },
+    },
   },
   language: {
     id: 'language',
     name: 'Language',
     expansion: 'core',
+    campaigns: { potl: 'potl' },
     keywords: ['starting innovation'],
     settlement: {
       survival: 1,
       showdown: {
         description:
-          '**Language**: All  survivors gain **Encourage** survival action.\n  **Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
+          '**Language**: Gain **Encourage** survival action.\n  **Encourage**: Once per round, if standing spend 1 survival to call out a non-deaf survivor. They stand if knocked down.',
       },
     },
   },
@@ -280,6 +309,7 @@ export default {
     id: 'lantern_oven',
     name: 'Lantern Oven',
     expansion: 'core',
+    campaigns: { potl: 'potl', potsun: 'potsun' },
     keywords: ['science', 'heat', 'ammonia consequence'],
     settlement: {
       departing: {
@@ -379,6 +409,8 @@ export default {
           innovation: 'momento_mori',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Once per year. Nominate a survivor that died last showdown, roll 1d10: 2-3: Gain Ins of dead survivor; 4-8: Gain Cou and Und of dead survivor; 9-10: Gain Hunt XP of dead survivor.',
       },
     ],
   },
@@ -396,6 +428,8 @@ export default {
           innovation: 'nightmare training',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Lose 3 survival, roll 1d10: 1: Spend 1 survival or die; 2-7: You may spend 1 survival to roll again; 8-9: Gain +1 weapon proficiency level; 10+: Gain +1 Accu or +1 Str.',
       },
     ],
   },
@@ -404,6 +438,12 @@ export default {
     name: 'Paint',
     expansion: 'core',
     keywords: ['art', 'language consequence'],
+    settlement: {
+      showdown: {
+        description:
+          '**Paint**: Gain **Dash** survival action.\n  **Dash**: Spend 1 survival to gain +1[movement](movement) and use it immediatly.',
+      },
+    },
   },
   partnership: {
     id: 'partnership',
@@ -419,6 +459,8 @@ export default {
           innovation: 'partnership',
           items: [{ resource: 'endeavor', quantity: 2 }],
         },
+        description:
+          'Once per lifetime. 2 survivors gain **Partner** ability.\nPartner: When you both **Arrive**, gain survival up to survival limit. Can Intimacy only with each other.',
       },
     ],
   },
@@ -458,6 +500,8 @@ export default {
             { keyword: 'organ', quantity: 1 },
           ],
         },
+        description:
+          'Spend 1 organ resource and gain 1 love juice resource. Once per year.',
       },
       {
         id: 'ret',
@@ -470,6 +514,8 @@ export default {
             { keyword: 'herb', quantity: 1 },
           ],
         },
+        description:
+          'Spend 1 herb resource and gain 1 hide resource. Once per year.',
       },
     ],
   },
@@ -496,6 +542,8 @@ export default {
           innovation: 'records',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Create a volume about a monster you have defeated. Add "{Monster name} Vol. {level}" to Settlement sheet. You retire.',
       },
     ],
   },
@@ -513,6 +561,8 @@ export default {
           innovation: 'sacrifice',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Roll 1d10: 1: -2 population; 2-3: -1 population, Departing survivors gain +1 Ins; 4-5: -1 population, Departing survivors gain +3 Ins; 6+: -1 population, loose all instanity and may remove 1 Disorder, you can depart this year.',
       },
     ],
   },
@@ -530,6 +580,8 @@ export default {
           innovation: 'sacrification',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Once per lifetime. Gain +1 Courage, roll 1 hit location die: head: suffer **blinded** severe head injury; body: gain **Though** fighting art; waist: suffer **Destroyed Genitals** severe injury; hands: +1 luck; foot: roll 1d10, 6+: -1 movement.',
       },
     ],
   },
@@ -560,6 +612,8 @@ export default {
           innovation: 'scrap_smelting',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Roll 1d10: 3-9: Spend 3 scrap to gain 1 Iron; 10+: Spend 3 scrap to gain 1 Iron any number of times.',
       },
       {
         id: 'build_blacksmith',
@@ -591,6 +645,8 @@ export default {
           innovation: 'sculpture',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Skip next hunt and lose a fighting art, record this in Settlement sheet.',
       },
       {
         id: 'sculpture_study_statue',
@@ -600,6 +656,7 @@ export default {
           innovation: 'sculpture',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description: 'Roll 1d10: 6+: Gain recorded fighting art.',
       },
     ],
   },
@@ -617,6 +674,8 @@ export default {
           innovation: 'shrine',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Once per year. Roll 1d10: 1-3: Departing survivors gain +1 Ins; 4+: Departing survivors add +![1](shield) to all hit locations.',
       },
     ],
   },
@@ -653,6 +712,8 @@ export default {
           innovation: 'storytelling',
           items: [{ resource: 'endeavor', quantity: 2 }],
         },
+        description:
+          'Roll 1d10: 1-3: Gain +1 Und; 4-7: Departing survivor gain +3 Ins; 8+: ![book](book) White Speaker.',
       },
     ],
   },
@@ -695,6 +756,8 @@ export default {
           innovation: 'rubedo',
           items: [{ resource: 'endeavor', quantity: 4 }],
         },
+        description:
+          'Once per year, roll 1d10: 1-2: Returning survivors gain **Hemophobia** disorder; 3-8: Returning survivors gain +1 Cou and skip next hunt; 9+: Returning survivors invert attribute modifiers.',
       },
     ],
   },
@@ -712,6 +775,8 @@ export default {
           innovation: 'nigredo',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Once per year, roll 1d10: 1-2: Archive 1 bone resource; 3-10: Spend 3 bone to gain 1 Dense Bone Gorm resource.',
       },
     ],
     settlement: {
@@ -732,6 +797,8 @@ export default {
           innovation: 'citrinitas',
           items: [{ resource: 'endeavor', quantity: 3 }],
         },
+        description:
+          'Once per year roll 1d10: 1-2: Returning survivors suffer -1 Eva; 3-10: Returning survivors may remove 1 broken severe injury.',
       },
     ],
     settlement: {
@@ -752,6 +819,8 @@ export default {
           innovation: 'albedo',
           items: [{ resource: 'endeavor', quantity: 2 }],
         },
+        description:
+          'Once per year, roll 1d10: 1-2: Returning survivors lose 1 level of weapon proficiency; 3-9: Spend 4 organs to gain 1 Gorm Brain Gorm resource; 10+: Returning survivors change 1 negative attribute to 0.',
       },
     ],
   },
@@ -1024,6 +1093,8 @@ export default {
           innovation: 'crimson candy',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Roll 1d10: 1: -1 Accu; 2-6: Skip next hunt; 7+: Heal **Intracranial Hemorrhage** and **Gaping Chest Wound**.',
       },
     ],
   },
@@ -1048,6 +1119,8 @@ export default {
           innovation: 'war room',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Departing survivors may reroll 1 Hunt Event Table result (d100) before performing the event.',
       },
     ],
   },
@@ -1072,6 +1145,8 @@ export default {
           innovation: 'settlement watch',
           items: [{ resource: 'endeavor', quantity: 1 }],
         },
+        description:
+          'Roll 1d10: 1-7: If you have no FA, gain 1 random FA; 8+: If you have 0 or less Str, gain +1 Str, once per lifetime.',
       },
     ],
   },
@@ -1114,6 +1189,7 @@ export default {
     id: 'sun language',
     name: 'Sun Language',
     expansion: 'sunstalker',
+    campaigns: { potsun: 'potsun' },
     keywords: ['starting innovation'],
     settlement: {
       survival: 1,
@@ -1256,7 +1332,8 @@ export default {
   'dragon speech': {
     id: 'dragon speech',
     name: 'Dragon Speech',
-    expansion: 'dk', // TODO: this should be people of the stars, do the same for expansions that provide campaigns so that their cards don't get mixed into the core campaign.
+    expansion: 'dk',
+    campaigns: { pots: 'pots' },
     keywords: ['starting innovation', 'language'], // TODO: should we do this, or add dragon speech consecuence to all language innovations? Or have a new field with 'add xxx consecuense (like the text at the bottom of the card, but in a programatic way)'
     settlement: {
       survival: 1,
@@ -1271,7 +1348,8 @@ export default {
   'radiating orb': {
     id: 'radiating orb', // TODO: handle consecuence (this card has add lantern oven consecuence :S)
     name: 'Radiating Orb',
-    expansion: 'dk', // TODO: handle campaigns
+    expansion: 'dk',
+    campaigns: { pots: 'pots' },
     keywords: ['science'],
     settlement: {
       departing: {
@@ -1287,7 +1365,8 @@ export default {
   arena: {
     id: 'arena',
     name: 'Arena',
-    expansion: 'dk', // TODO: handle campaigns
+    expansion: 'dk',
+    campaigns: { pots: 'pots' },
     keywords: ['education', 'nightmare training consequence'],
     endeavors: [
       {
@@ -1301,13 +1380,16 @@ export default {
             { keyword: 'iron', quantity: 1 },
           ],
         },
+        description:
+          'Roll 1d10: 1-2: You are dead; 3-4: Gain a **Scar**, +1 Str, skip next hunt, if you already have a **Scar** you die; 5-9: +1 Accu; 10+: Gain **Frozen Star** SFA.',
       },
     ],
   },
   bloodline: {
     id: 'bloodline',
     name: 'Bloodline',
-    expansion: 'dk', // TODO: handle campaigns
+    expansion: 'dk',
+    campaigns: { pots: 'pots' },
     keywords: ['home', 'hovel consecuence'],
     settlement: {
       newborn: {
@@ -1322,7 +1404,8 @@ export default {
   empire: {
     id: 'empire',
     name: 'Empire',
-    expansion: 'dk', // TODO: handle campaigns
+    expansion: 'dk',
+    campaigns: { pots: 'pots' },
     keywords: ['home', 'bloodline consecuence'],
     settlement: {
       newborn: {

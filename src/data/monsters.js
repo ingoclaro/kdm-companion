@@ -274,7 +274,7 @@ export default {
         name: '2',
         huntboard: 'MMBBMOXBMMBS',
         huntExtra:
-          'If you depart to hunt the level 2 Gorm, ![book](book)**Fetid Grotto**',
+          'If you depart to hunt the level 2 Gorm, ![book](book) **Fetid Grotto**',
         movement: 9,
         toughness: 11,
         speed: 1,
@@ -291,7 +291,7 @@ export default {
         name: '3',
         huntboard: 'MMBBMOBBMMXS',
         huntExtra:
-          'If you depart to hunt the level 3 Gorm, ![book](book)**Final March**',
+          'If you depart to hunt the level 3 Gorm, ![book](book) **Final March**',
         movement: 8,
         toughness: 15,
         speed: 2,
