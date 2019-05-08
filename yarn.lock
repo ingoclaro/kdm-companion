@@ -2999,7 +2999,7 @@ domutils@^1.5.1:
     dom-serializer "0"
     domelementtype "1"
 
-dooboolab-welcome@^1.0.5:
+dooboolab-welcome@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/dooboolab-welcome/-/dooboolab-welcome-1.1.0.tgz#4a0aa9d2cbc4e2b1008bf7683bc056b41caa3d0d"
   integrity sha512-K9TKEeefzDXZiUyLZG+bIr8cy9UoYIfFMseowp/o3czVl7TfkVm3gQpeB85w+TO8xeqzWHiIcEelZbBgt5WUwQ==
@@ -7956,12 +7956,12 @@ react-native-gesture-responder@0.1.1:
   dependencies:
     react-timer-mixin "^0.13.3"
 
-react-native-iap@^2.3.19:
-  version "2.3.19"
-  resolved "https://registry.yarnpkg.com/react-native-iap/-/react-native-iap-2.3.19.tgz#43ff96c655c3542b7972b384102886c52f508663"
-  integrity sha512-ecIdqQ9KqHjPPy8TFDD55ruULQSWKXXltt5tH0eNVUHcmekf8r8edEjHOLvIGUUKuJnYhLN+2AdTn+lJWeFMvA==
+react-native-iap@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-iap/-/react-native-iap-2.5.0.tgz#00f6c83c07e1ffe520027f7ff8b8855cc7bb7516"
+  integrity sha512-YM2YZzAPPR4MvcLaNYlQS+6EPEYX8QYeBKBqK/7G3MJp7olD/hAvI00SUMCpwXVa3V0rMSNU5aYIAzBkEYQsNA==
   dependencies:
-    dooboolab-welcome "^1.0.5"
+    dooboolab-welcome "^1.1.0"
 
 react-native-lightbox@shoutem/react-native-lightbox#v0.7.2:
   version "0.7.2"
@@ -7979,7 +7979,7 @@ react-native-linear-gradient@~2.2.0:
   dependencies:
     prop-types "^15.5.10"
 
-"react-native-maps@github:expo/react-native-maps#v0.22.1-exp.0":
+react-native-maps@expo/react-native-maps#v0.22.1-exp.0:
   version "0.22.1"
   resolved "https://codeload.github.com/expo/react-native-maps/tar.gz/e6f98ff7272e5d0a7fe974a41f28593af2d77bb2"
 
