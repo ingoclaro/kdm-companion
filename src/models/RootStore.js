@@ -117,7 +117,7 @@ export default types
           }
           break
       }
-      data.version = 5
+      data.version = 6
 
       self.campaigns = data.campaigns
 

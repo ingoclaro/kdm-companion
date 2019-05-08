@@ -32,6 +32,9 @@ Object {
   "innovations": Array [
     Object {
       "bonus": "",
+      "campaigns": Object {
+        "pots": "pots",
+      },
       "endeavors": Array [],
       "expansion": "dk",
       "id": "radiating orb",
@@ -92,8 +95,12 @@ Object {
   "length": 4,
   "locations": Array [
     Object {
+      "campaigns": Object {
+        "pots": "pots",
+      },
       "endeavors": Array [
         Object {
+          "description": "",
           "expansion": "dk",
           "id": "innovate",
           "name": "Innovate",
@@ -130,6 +137,7 @@ Object {
           },
         },
         Object {
+          "description": "Once per settlement phase a survivor rolls 1d10: 1-2: Dead; 3-6: Suffer **blind** severe head injury and gain **Scar**; 7-9: Remove all permanent waist injuries; 10+: Dead, gain top card of innovation deck.",
           "expansion": "dk",
           "id": "fear and trembling",
           "name": "Fear and Trembling",
@@ -148,6 +156,7 @@ Object {
           },
         },
         Object {
+          "description": "",
           "expansion": "dk",
           "id": "build_bone_smith",
           "name": "Build - Bone Smith",
@@ -166,6 +175,7 @@ Object {
           },
         },
         Object {
+          "description": "",
           "expansion": "dk",
           "id": "build_skinnery",
           "name": "Build - Skinnery",
@@ -184,6 +194,7 @@ Object {
           },
         },
         Object {
+          "description": "",
           "expansion": "dk",
           "id": "build_organ_grinder",
           "name": "Build - Organ Grinder",

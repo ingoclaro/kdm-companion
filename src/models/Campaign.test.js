@@ -50,10 +50,10 @@ describe('with RootStore', () => {
       let location = { id: 'lantern_hoard' }
       store.selectedCampaign.selectLocation(location)
 
-      expect(store.selectedCampaign.endeavors).toHaveLength(5)
+      expect(store.selectedCampaign.endeavors).toHaveLength(4)
       expect(store.selectedCampaign.endeavors).toMatchObject([
         { id: 'innovate' },
-        { id: 'shared_experience' },
+        // { id: 'shared_experience' }, // this one isn't returned because we haven't selected language.
         { id: 'build_bone_smith' },
         { id: 'build_skinnery' },
         { id: 'build_organ_grinder' },

@@ -37,6 +37,9 @@ Object {
   "movement": 5,
   "name": "Unnamed",
   "notes": "",
+  "potSun": Object {
+    "attributes": Object {},
+  },
   "rerollUsed": false,
   "skipNextHunt": false,
   "speed": 0,

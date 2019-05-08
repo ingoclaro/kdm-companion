@@ -1,0 +1,1079 @@
+{
+  "campaigns": [
+    {
+      "id": "11111111-598a-49eb-888b-c6baa0006751",
+      "settlement": {
+        "name": "New Settlement",
+        "survivors": {},
+        "activeSurvivorsList": []
+      },
+      "locations": {},
+      "innovations": {},
+      "principles": {
+        "death": null,
+        "newlife": null,
+        "society": null,
+        "conviction": null
+      },
+      "stored_resources": {},
+      "expansions": {
+        "core": "core"
+      },
+      "hunting": null,
+      "showdown": null,
+      "notes": "",
+      "type": "potl"
+    },
+    {
+      "id": "960aa7ae-598a-49eb-888b-c6baa0006751",
+      "settlement": {
+        "name": "test",
+        "survivors": {
+          "3352353f-f7df-44ab-8c13-a350c7e35a7b": {
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 2,
+            "movement": 5,
+            "accuracy": 1,
+            "strength": 2,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 2,
+            "understanding": 2,
+            "weaponProficiencyLevel": 0,
+            "id": "3352353f-f7df-44ab-8c13-a350c7e35a7b",
+            "name": "survivor 1",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "notes": "",
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": true,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            },
+            "potSun": {
+              "attributes": {}
+            }
+          },
+          "3792b21e-fc96-4a5e-a2cd-6cccff3747a8": {
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 2,
+            "movement": 5,
+            "accuracy": 1,
+            "strength": 2,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 2,
+            "understanding": 2,
+            "weaponProficiencyLevel": 0,
+            "id": "3792b21e-fc96-4a5e-a2cd-6cccff3747a8",
+            "name": "survivor 2",
+            "gender": "male",
+            "status": "alive",
+            "fightingArts": [
+              "Acrobatics",
+              "Clutch Fighter",
+              "Clarity of Darkness"
+            ],
+            "disorders": ["Absent Seizures", "Fear of the Dark", "Indecision"],
+            "abilities": [
+              "Acid Palms",
+              "Homing Instinct",
+              "Metal Maw",
+              "Way of the Rust"
+            ],
+            "notes": "",
+            "weaponProficiency": "fist & tooth",
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": true,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            },
+            "potSun": {
+              "attributes": {}
+            }
+          },
+          "4452353f-f7df-44ab-8c13-a350c7e35a7b": {
+            "survival": 2,
+            "insanity": 0,
+            "hunt xp": 2,
+            "movement": 5,
+            "accuracy": 1,
+            "strength": 2,
+            "evasion": 1,
+            "luck": 0,
+            "speed": 0,
+            "courage": 2,
+            "understanding": 2,
+            "weaponProficiencyLevel": 0,
+            "id": "4452353f-f7df-44ab-8c13-a350c7e35a7b",
+            "name": "survivor 3",
+            "gender": "male",
+            "status": "dead",
+            "fightingArts": [],
+            "disorders": [],
+            "abilities": [],
+            "notes": "",
+            "cannotUseSurvival": false,
+            "cannotUseFightingArts": false,
+            "cannotUseAbilities": false,
+            "rerollUsed": false,
+            "skipNextHunt": false,
+            "dragonTraits": {
+              "understanding": false,
+              "destined": false,
+              "fatedBlow": false,
+              "pristine": false,
+              "reincarnated": false,
+              "frozenStar": false,
+              "iridescentHide": false,
+              "championsRite": false,
+              "scar": false,
+              "noble": false,
+              "weaponMaster": false,
+              "accuracy": true,
+              "oraclesEye": false,
+              "unbreakable": false,
+              "strength": false,
+              "courage": false
+            },
+            "potSun": {
+              "attributes": {}
+            }
+          }
+        },
+        "activeSurvivorsList": [
+          "3352353f-f7df-44ab-8c13-a350c7e35a7b",
+          "3792b21e-fc96-4a5e-a2cd-6cccff3747a8"
+        ]
+      },
+      "locations": {
+        "catarium": "catarium",
+        "stone_circle": "stone_circle",
+        "weapon_crafter": "weapon_crafter",
+        "leather_worker": "leather_worker",
+        "plumery": "plumery",
+        "blacksmith": "blacksmith",
+        "bone_smith": "bone_smith",
+        "barber_surgeon": "barber_surgeon",
+        "skinnery": "skinnery",
+        "organ_grinder": "organ_grinder",
+        "mask_maker": "mask_maker",
+        "exhausted_lantern_hoard": "exhausted_lantern_hoard",
+        "lantern_hoard": "lantern_hoard",
+        "gormchymist": "gormchymist",
+        "gormery": "gormery",
+        "wet_resin_crafter": "wet_resin_crafter",
+        "silk mill": "silk mill",
+        "the sun": "the sun",
+        "skyreef sanctuary": "skyreef sanctuary",
+        "sacred pool": "sacred pool",
+        "throne": "throne",
+        "dragon armory": "dragon armory"
+      },
+      "innovations": {
+        "ammonia": "ammonia",
+        "bed": "bed",
+        "bloodletting": "bloodletting",
+        "clan_of_death": "clan_of_death",
+        "cooking": "cooking",
+        "drums": "drums",
+        "destiny": "destiny",
+        "face_painting": "face_painting",
+        "family": "family",
+        "final_fighting_art": "final_fighting_art",
+        "forbidden dance": "forbidden dance",
+        "guidepost": "guidepost",
+        "heart_flute": "heart_flute",
+        "hovel": "hovel",
+        "inner_lantern": "inner_lantern",
+        "language": "language",
+        "lantern_oven": "lantern_oven",
+        "mastery_axe": "mastery_axe",
+        "mastery_bow": "mastery_bow",
+        "mastery_club": "mastery_club",
+        "mastery_dagger": "mastery_dagger",
+        "mastery_fist_and_tooth": "mastery_fist_and_tooth",
+        "mastery_grand_weapon": "mastery_grand_weapon",
+        "mastery_katar": "mastery_katar",
+        "mastery_scythe": "mastery_scythe",
+        "mastery_shield": "mastery_shield",
+        "mastery_spear": "mastery_spear",
+        "mastery_sword": "mastery_sword",
+        "mastery_twilight_sword": "mastery_twilight_sword",
+        "mastery_whip": "mastery_whip",
+        "momento_mori": "momento_mori",
+        "nightmare training": "nightmare training",
+        "paint": "paint",
+        "partnership": "partnership",
+        "pictograph": "pictograph",
+        "pottery": "pottery",
+        "records": "records",
+        "sacrifice": "sacrifice",
+        "sacrification": "sacrification",
+        "saga": "saga",
+        "scrap_smelting": "scrap_smelting",
+        "sculpture": "sculpture",
+        "shrine": "shrine",
+        "song_of_the_brave": "song_of_the_brave",
+        "storytelling": "storytelling",
+        "symposium": "symposium",
+        "ultimate_weapon": "ultimate_weapon",
+        "rubedo": "rubedo",
+        "nigredo": "nigredo",
+        "citrinitas": "citrinitas",
+        "albedo": "albedo",
+        "subterranean agriculture": "subterranean agriculture",
+        "round stone training": "round stone training",
+        "petal spiral": "petal spiral",
+        "black mask": "black mask",
+        "white mask": "white mask",
+        "stoic statue": "stoic statue",
+        "legless ball": "legless ball",
+        "silk refining": "silk refining",
+        "choreia": "choreia",
+        "the knowledge worm": "the knowledge worm",
+        "crimson candy": "crimson candy",
+        "war room": "war room",
+        "settlement watch": "settlement watch",
+        "darkwater research": "darkwater research",
+        "sun language": "sun language",
+        "umbilical bank": "umbilical bank",
+        "sauna shrine": "sauna shrine",
+        "shadow dancing": "shadow dancing",
+        "filleting table": "filleting table",
+        "hands of the sun": "hands of the sun",
+        "aquarobics": "aquarobics",
+        "dragon speech": "dragon speech",
+        "radiating orb": "radiating orb",
+        "arena": "arena",
+        "bloodline": "bloodline",
+        "empire": "empire"
+      },
+      "principles": {
+        "death": "cannibalize",
+        "newlife": "pty",
+        "society": "accept_darkness",
+        "conviction": "romantic"
+      },
+      "stored_resources": {
+        "endeavor": {
+          "id": "endeavor",
+          "resource": "endeavor",
+          "quantity": 1
+        },
+        "sinew": {
+          "id": "sinew",
+          "resource": "sinew",
+          "quantity": 1
+        },
+        "white fur": {
+          "id": "white fur",
+          "resource": "white fur",
+          "quantity": 1
+        },
+        "great cat bone": {
+          "id": "great cat bone",
+          "resource": "great cat bone",
+          "quantity": 1
+        },
+        "lion claw": {
+          "id": "lion claw",
+          "resource": "lion claw",
+          "quantity": 1
+        },
+        "elder cat teeth": {
+          "id": "elder cat teeth",
+          "resource": "elder cat teeth",
+          "quantity": 1
+        },
+        "eye of cat": {
+          "id": "eye of cat",
+          "resource": "eye of cat",
+          "quantity": 1
+        },
+        "golden whiskers": {
+          "id": "golden whiskers",
+          "resource": "golden whiskers",
+          "quantity": 1
+        },
+        "shimmering mane": {
+          "id": "shimmering mane",
+          "resource": "shimmering mane",
+          "quantity": 1
+        },
+        "lion testes": {
+          "id": "lion testes",
+          "resource": "lion testes",
+          "quantity": 1
+        },
+        "lion tail": {
+          "id": "lion tail",
+          "resource": "lion tail",
+          "quantity": 1
+        },
+        "curious hand": {
+          "id": "curious hand",
+          "resource": "curious hand",
+          "quantity": 1
+        },
+        "whishbone": {
+          "id": "whishbone",
+          "resource": "whishbone",
+          "quantity": 1
+        },
+        "tail feathers": {
+          "id": "tail feathers",
+          "resource": "tail feathers",
+          "quantity": 1
+        },
+        "shimmering halo": {
+          "id": "shimmering halo",
+          "resource": "shimmering halo",
+          "quantity": 1
+        },
+        "small hand parasites": {
+          "id": "small hand parasites",
+          "resource": "small hand parasites",
+          "quantity": 1
+        },
+        "small feathers": {
+          "id": "small feathers",
+          "resource": "small feathers",
+          "quantity": 1
+        },
+        "rainbow droppings": {
+          "id": "rainbow droppings",
+          "resource": "rainbow droppings",
+          "quantity": 1
+        },
+        "bladder": {
+          "id": "bladder",
+          "resource": "bladder",
+          "quantity": 1
+        },
+        "bird beak": {
+          "id": "bird beak",
+          "resource": "bird beak",
+          "quantity": 1
+        },
+        "black skull": {
+          "id": "black skull",
+          "resource": "black skull",
+          "quantity": 1
+        },
+        "skull": {
+          "id": "skull",
+          "resource": "skull",
+          "quantity": 1
+        },
+        "monster bone": {
+          "id": "monster bone",
+          "resource": "monster bone",
+          "quantity": 1
+        },
+        "???": {
+          "id": "???",
+          "resource": "???",
+          "quantity": 1
+        },
+        "love juice": {
+          "id": "love juice",
+          "resource": "love juice",
+          "quantity": 1
+        },
+        "monster hide": {
+          "id": "monster hide",
+          "resource": "monster hide",
+          "quantity": 1
+        },
+        "monster organ": {
+          "id": "monster organ",
+          "resource": "monster organ",
+          "quantity": 1
+        },
+        "hollow wing bone": {
+          "id": "hollow wing bone",
+          "resource": "hollow wing bone",
+          "quantity": 1
+        },
+        "muculent droppings": {
+          "id": "muculent droppings",
+          "resource": "muculent droppings",
+          "quantity": 1
+        },
+        "phoenix eye": {
+          "id": "phoenix eye",
+          "resource": "phoenix eye",
+          "quantity": 1
+        },
+        "phoenix finger": {
+          "id": "phoenix finger",
+          "resource": "phoenix finger",
+          "quantity": 1
+        },
+        "phoenix whisker": {
+          "id": "phoenix whisker",
+          "resource": "phoenix whisker",
+          "quantity": 1
+        },
+        "pustules": {
+          "id": "pustules",
+          "resource": "pustules",
+          "quantity": 1
+        },
+        "large flat tooth": {
+          "id": "large flat tooth",
+          "resource": "large flat tooth",
+          "quantity": 1
+        },
+        "muscly gums": {
+          "id": "muscly gums",
+          "resource": "muscly gums",
+          "quantity": 1
+        },
+        "spiral horn": {
+          "id": "spiral horn",
+          "resource": "spiral horn",
+          "quantity": 1
+        },
+        "shank bone": {
+          "id": "shank bone",
+          "resource": "shank bone",
+          "quantity": 1
+        },
+        "screaming brain": {
+          "id": "screaming brain",
+          "resource": "screaming brain",
+          "quantity": 1
+        },
+        "pelt": {
+          "id": "pelt",
+          "resource": "pelt",
+          "quantity": 1
+        },
+        "second heart": {
+          "id": "second heart",
+          "resource": "second heart",
+          "quantity": 1
+        },
+        "phoenix crest": {
+          "id": "phoenix crest",
+          "resource": "phoenix crest",
+          "quantity": 1
+        },
+        "perfect crucible": {
+          "id": "perfect crucible",
+          "resource": "perfect crucible",
+          "quantity": 1
+        },
+        "black lichen": {
+          "id": "black lichen",
+          "resource": "black lichen",
+          "quantity": 1
+        },
+        "cocoon membrane": {
+          "id": "cocoon membrane",
+          "resource": "cocoon membrane",
+          "quantity": 1
+        },
+        "lantern tube": {
+          "id": "lantern tube",
+          "resource": "lantern tube",
+          "quantity": 1
+        },
+        "legendary horns": {
+          "id": "legendary horns",
+          "resource": "legendary horns",
+          "quantity": 1
+        },
+        "leather": {
+          "id": "leather",
+          "resource": "leather",
+          "quantity": 1
+        },
+        "iron": {
+          "id": "iron",
+          "resource": "iron",
+          "quantity": 1
+        },
+        "fresh acanthus": {
+          "id": "fresh acanthus",
+          "resource": "fresh acanthus",
+          "quantity": 1
+        },
+        "broken lantern": {
+          "id": "broken lantern",
+          "resource": "broken lantern",
+          "quantity": 1
+        },
+        "nightmare tick": {
+          "id": "nightmare tick",
+          "resource": "nightmare tick",
+          "quantity": 1
+        },
+        "hissing cockroach": {
+          "id": "hissing cockroach",
+          "resource": "hissing cockroach",
+          "quantity": 1
+        },
+        "crab spider": {
+          "id": "crab spider",
+          "resource": "crab spider",
+          "quantity": 1
+        },
+        "sword beetle": {
+          "id": "sword beetle",
+          "resource": "sword beetle",
+          "quantity": 1
+        },
+        "cyclops fly": {
+          "id": "cyclops fly",
+          "resource": "cyclops fly",
+          "quantity": 1
+        },
+        "lonely ant": {
+          "id": "lonely ant",
+          "resource": "lonely ant",
+          "quantity": 1
+        },
+        "mammoth hand": {
+          "id": "mammoth hand",
+          "resource": "mammoth hand",
+          "quantity": 1
+        },
+        "jiggling lard": {
+          "id": "jiggling lard",
+          "resource": "jiggling lard",
+          "quantity": 1
+        },
+        "stout kidney": {
+          "id": "stout kidney",
+          "resource": "stout kidney",
+          "quantity": 1
+        },
+        "stout heart": {
+          "id": "stout heart",
+          "resource": "stout heart",
+          "quantity": 1
+        },
+        "milky eye": {
+          "id": "milky eye",
+          "resource": "milky eye",
+          "quantity": 1
+        },
+        "acid gland": {
+          "id": "acid gland",
+          "resource": "acid gland",
+          "quantity": 1
+        },
+        "gorm brain": {
+          "id": "gorm brain",
+          "resource": "gorm brain",
+          "quantity": 1
+        },
+        "stout hide": {
+          "id": "stout hide",
+          "resource": "stout hide",
+          "quantity": 1
+        },
+        "meaty rib": {
+          "id": "meaty rib",
+          "resource": "meaty rib",
+          "quantity": 1
+        },
+        "stout vertebrae": {
+          "id": "stout vertebrae",
+          "resource": "stout vertebrae",
+          "quantity": 1
+        },
+        "handed skull": {
+          "id": "handed skull",
+          "resource": "handed skull",
+          "quantity": 1
+        },
+        "dense bone": {
+          "id": "dense bone",
+          "resource": "dense bone",
+          "quantity": 1
+        },
+        "pure bulb": {
+          "id": "pure bulb",
+          "resource": "pure bulb",
+          "quantity": 1
+        },
+        "stomach lining": {
+          "id": "stomach lining",
+          "resource": "stomach lining",
+          "quantity": 1
+        },
+        "active thyroid": {
+          "id": "active thyroid",
+          "resource": "active thyroid",
+          "quantity": 1
+        },
+        "gormite": {
+          "id": "gormite",
+          "resource": "gormite",
+          "quantity": 1
+        },
+        "drifting dream fruit": {
+          "id": "drifting dream fruit",
+          "resource": "drifting dream fruit",
+          "quantity": 1
+        },
+        "blistering plasma fruit": {
+          "id": "blistering plasma fruit",
+          "resource": "blistering plasma fruit",
+          "quantity": 1
+        },
+        "jagged marrow fruit": {
+          "id": "jagged marrow fruit",
+          "resource": "jagged marrow fruit",
+          "quantity": 1
+        },
+        "porous flesh fruit": {
+          "id": "porous flesh fruit",
+          "resource": "porous flesh fruit",
+          "quantity": 1
+        },
+        "lonely fruit": {
+          "id": "lonely fruit",
+          "resource": "lonely fruit",
+          "quantity": 1
+        },
+        "century fingernails": {
+          "id": "century fingernails",
+          "resource": "century fingernails",
+          "quantity": 1
+        },
+        "beetle horn": {
+          "id": "beetle horn",
+          "resource": "beetle horn",
+          "quantity": 1
+        },
+        "elytra": {
+          "id": "elytra",
+          "resource": "elytra",
+          "quantity": 1
+        },
+        "compound eye": {
+          "id": "compound eye",
+          "resource": "compound eye",
+          "quantity": 1
+        },
+        "century shell": {
+          "id": "century shell",
+          "resource": "century shell",
+          "quantity": 1
+        },
+        "scarab wing": {
+          "id": "scarab wing",
+          "resource": "scarab wing",
+          "quantity": 1
+        },
+        "underplate fungus": {
+          "id": "underplate fungus",
+          "resource": "underplate fungus",
+          "quantity": 1
+        },
+        "scarab shell": {
+          "id": "scarab shell",
+          "resource": "scarab shell",
+          "quantity": 1
+        },
+        "preserved caustic dung": {
+          "id": "preserved caustic dung",
+          "resource": "preserved caustic dung",
+          "quantity": 1
+        },
+        "scell": {
+          "id": "scell",
+          "resource": "scell",
+          "quantity": 1
+        },
+        "warbling bloom": {
+          "id": "warbling bloom",
+          "resource": "warbling bloom",
+          "quantity": 1
+        },
+        "lantern bud": {
+          "id": "lantern bud",
+          "resource": "lantern bud",
+          "quantity": 1
+        },
+        "lantern bloom": {
+          "id": "lantern bloom",
+          "resource": "lantern bloom",
+          "quantity": 1
+        },
+        "osseous bloom": {
+          "id": "osseous bloom",
+          "resource": "osseous bloom",
+          "quantity": 1
+        },
+        "sighing bloom": {
+          "id": "sighing bloom",
+          "resource": "sighing bloom",
+          "quantity": 1
+        },
+        "small apendages": {
+          "id": "small apendages",
+          "resource": "small apendages",
+          "quantity": 1
+        },
+        "venom sac": {
+          "id": "venom sac",
+          "resource": "venom sac",
+          "quantity": 1
+        },
+        "aracnid heart": {
+          "id": "aracnid heart",
+          "resource": "aracnid heart",
+          "quantity": 1
+        },
+        "unlaid eggs": {
+          "id": "unlaid eggs",
+          "resource": "unlaid eggs",
+          "quantity": 1
+        },
+        "thick web silk": {
+          "id": "thick web silk",
+          "resource": "thick web silk",
+          "quantity": 1
+        },
+        "stomach": {
+          "id": "stomach",
+          "resource": "stomach",
+          "quantity": 1
+        },
+        "spinnerets": {
+          "id": "spinnerets",
+          "resource": "spinnerets",
+          "quantity": 1
+        },
+        "exoskeleton": {
+          "id": "exoskeleton",
+          "resource": "exoskeleton",
+          "quantity": 1
+        },
+        "chitin": {
+          "id": "chitin",
+          "resource": "chitin",
+          "quantity": 1
+        },
+        "eyeballs": {
+          "id": "eyeballs",
+          "resource": "eyeballs",
+          "quantity": 1
+        },
+        "serrated fangs": {
+          "id": "serrated fangs",
+          "resource": "serrated fangs",
+          "quantity": 1
+        },
+        "large appendage": {
+          "id": "large appendage",
+          "resource": "large appendage",
+          "quantity": 1
+        },
+        "web silk": {
+          "id": "web silk",
+          "resource": "web silk",
+          "quantity": 1
+        },
+        "silken nervous system": {
+          "id": "silken nervous system",
+          "resource": "silken nervous system",
+          "quantity": 1
+        },
+        "sarcophagus": {
+          "id": "sarcophagus",
+          "resource": "sarcophagus",
+          "quantity": 1
+        },
+        "triptych": {
+          "id": "triptych",
+          "resource": "triptych",
+          "quantity": 1
+        },
+        "canopic jar": {
+          "id": "canopic jar",
+          "resource": "canopic jar",
+          "quantity": 1
+        },
+        "silver urn": {
+          "id": "silver urn",
+          "resource": "silver urn",
+          "quantity": 1
+        },
+        "old blue box": {
+          "id": "old blue box",
+          "resource": "old blue box",
+          "quantity": 1
+        },
+        "crimson vial": {
+          "id": "crimson vial",
+          "resource": "crimson vial",
+          "quantity": 1
+        },
+        "red vial": {
+          "id": "red vial",
+          "resource": "red vial",
+          "quantity": 1
+        },
+        "dark water": {
+          "id": "dark water",
+          "resource": "dark water",
+          "quantity": 1
+        },
+        "crystal sword mold": {
+          "id": "crystal sword mold",
+          "resource": "crystal sword mold",
+          "quantity": 1
+        },
+        "salt": {
+          "id": "salt",
+          "resource": "salt",
+          "quantity": 1
+        },
+        "bugfish": {
+          "id": "bugfish",
+          "resource": "bugfish",
+          "quantity": 1
+        },
+        "hagfish": {
+          "id": "hagfish",
+          "resource": "hagfish",
+          "quantity": 1
+        },
+        "sunstones": {
+          "id": "sunstones",
+          "resource": "sunstones",
+          "quantity": 1
+        },
+        "jowls": {
+          "id": "jowls",
+          "resource": "jowls",
+          "quantity": 1
+        },
+        "1,000 year sunspot": {
+          "id": "1,000 year sunspot",
+          "resource": "1,000 year sunspot",
+          "quantity": 1
+        },
+        "3,000 year sunspot": {
+          "id": "3,000 year sunspot",
+          "resource": "3,000 year sunspot",
+          "quantity": 1
+        },
+        "shadow tentacles": {
+          "id": "shadow tentacles",
+          "resource": "shadow tentacles",
+          "quantity": 1
+        },
+        "sunshark fin": {
+          "id": "sunshark fin",
+          "resource": "sunshark fin",
+          "quantity": 1
+        },
+        "prismatic gills": {
+          "id": "prismatic gills",
+          "resource": "prismatic gills",
+          "quantity": 1
+        },
+        "shadow ink gland": {
+          "id": "shadow ink gland",
+          "resource": "shadow ink gland",
+          "quantity": 1
+        },
+        "shark tongue": {
+          "id": "shark tongue",
+          "resource": "shark tongue",
+          "quantity": 1
+        },
+        "stink gland": {
+          "id": "stink gland",
+          "resource": "stink gland",
+          "quantity": 1
+        },
+        "sunshark blubber": {
+          "id": "sunshark blubber",
+          "resource": "sunshark blubber",
+          "quantity": 1
+        },
+        "sunshark bone": {
+          "id": "sunshark bone",
+          "resource": "sunshark bone",
+          "quantity": 1
+        },
+        "inner shadow skin": {
+          "id": "inner shadow skin",
+          "resource": "inner shadow skin",
+          "quantity": 1
+        },
+        "brain root": {
+          "id": "brain root",
+          "resource": "brain root",
+          "quantity": 1
+        },
+        "fertility tentacle": {
+          "id": "fertility tentacle",
+          "resource": "fertility tentacle",
+          "quantity": 1
+        },
+        "black lens": {
+          "id": "black lens",
+          "resource": "black lens",
+          "quantity": 1
+        },
+        "small sunteeth": {
+          "id": "small sunteeth",
+          "resource": "small sunteeth",
+          "quantity": 1
+        },
+        "huge sunteeth": {
+          "id": "huge sunteeth",
+          "resource": "huge sunteeth",
+          "quantity": 1
+        },
+        "cycloid scales": {
+          "id": "cycloid scales",
+          "resource": "cycloid scales",
+          "quantity": 1
+        },
+        "radiant heart": {
+          "id": "radiant heart",
+          "resource": "radiant heart",
+          "quantity": 1
+        },
+        "pituitary gland": {
+          "id": "pituitary gland",
+          "resource": "pituitary gland",
+          "quantity": 1
+        },
+        "shining liver": {
+          "id": "shining liver",
+          "resource": "shining liver",
+          "quantity": 1
+        },
+        "radioactive dung": {
+          "id": "radioactive dung",
+          "resource": "radioactive dung",
+          "quantity": 1
+        },
+        "king's tongue": {
+          "id": "king's tongue",
+          "resource": "king's tongue",
+          "quantity": 1
+        },
+        "hardened ribs": {
+          "id": "hardened ribs",
+          "resource": "hardened ribs",
+          "quantity": 1
+        },
+        "dragon iron": {
+          "id": "dragon iron",
+          "resource": "dragon iron",
+          "quantity": 1
+        },
+        "husk": {
+          "id": "husk",
+          "resource": "husk",
+          "quantity": 1
+        },
+        "veined wing": {
+          "id": "veined wing",
+          "resource": "veined wing",
+          "quantity": 1
+        },
+        "king's claws": {
+          "id": "king's claws",
+          "resource": "king's claws",
+          "quantity": 1
+        },
+        "horn fragment": {
+          "id": "horn fragment",
+          "resource": "horn fragment",
+          "quantity": 1
+        },
+        "cabled vein": {
+          "id": "cabled vein",
+          "resource": "cabled vein",
+          "quantity": 1
+        }
+      },
+      "expansions": {
+        "core": "core",
+        "dbk": "dbk",
+        "dk": "dk",
+        "fk": "fk",
+        "gka": "gka",
+        "gorm": "gorm",
+        "lg": "lg",
+        "lk": "lk",
+        "lt": "lt",
+        "manhunter": "manhunter",
+        "slenderman": "slenderman",
+        "spidicules": "spidicules",
+        "sunstalker": "sunstalker"
+      },
+      "hunting": null,
+      "showdown": null,
+      "notes": "",
+      "type": "potl"
+    }
+  ],
+  "selectedCampaign": "960aa7ae-598a-49eb-888b-c6baa0006751",
+  "version": 5,
+  "subscription": {
+    "productId": "",
+    "response": "",
+    "purchasedAt": 0,
+    "autoRenewing": false,
+    "checkedAt": 0,
+    "appLastActiveAt": 0
+  }
+}
