@@ -7,6 +7,9 @@ import { onSnapshot, setLivelynessChecking } from 'mobx-state-tree'
 import { save } from '../src/filesystem'
 import Navigator from './Navigator'
 import { SubscriptionUpdater } from '../components/Subscription'
+import { useScreens } from 'react-native-screens'
+
+useScreens()
 
 class ThemedApp extends React.Component {
   constructor(props) {
