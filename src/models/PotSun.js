@@ -14,7 +14,9 @@ export const PotSun = types
   })
   .actions(self => ({
     change(property) {
-      if (self.attributes.has(property)) {
+      if (property === 'purified') {
+        self.cyclePurified()
+      } else if (self.attributes.has(property)) {
         self.attributes.delete(property)
       } else {
         self.attributes.set(property, property)

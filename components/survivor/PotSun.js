@@ -80,7 +80,7 @@ export default class PotSun extends React.Component {
               [<Text>[X]</Text>, <Text>Purified w/P. Ceremony</Text>],
             ]}
             idx={purifiedIdx}
-            setIdx={this.props.survivor.potSun.cyclePurified}
+            setIdx={() => this.props.survivor.potSun.change('purified')}
           />
 
           <MultiStateCheckbox
