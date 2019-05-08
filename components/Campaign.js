@@ -1,7 +1,6 @@
 import React from 'react'
 import { View } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react/native'
-import { values } from 'mobx'
 import CheckboxListItem from './common/CheckboxListItem'
 import LockedCheckboxListItem from './common/LockedCheckboxListItem'
 

@@ -1,4 +1,4 @@
-import { types, getParent, onAction } from 'mobx-state-tree'
+import { types } from 'mobx-state-tree'
 
 const values = [
   'purified',

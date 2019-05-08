@@ -1,16 +1,5 @@
 import React from 'react'
-import {
-  View,
-  Text,
-  Title,
-  Subtitle,
-  Image,
-  Icon,
-  Button,
-  Caption,
-  DropDownMenu,
-  Divider,
-} from '@shoutem/ui'
+import { View, Text, Title, Button } from '@shoutem/ui'
 import { observer } from 'mobx-react/native'
 import colors from '../../src/colors'
 
