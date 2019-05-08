@@ -95,17 +95,16 @@ expo-cli publish
 expo-cli fetch:android:keystore
 ```
 
-Replace data
+export env variables:
 
 ```
-keyAlias 'XXX'
-keyPassword 'XXX'
-storePassword 'XXX'
+export ANDROID_KEYSTORE_PATH=../kdm-companion.jks
+export ANDROID_KEYSTORE_PASSWORD=$storePassword
+export ANDROID_KEY_ALIAS=$keyAlias
+export ANDROID_KEY_PASSWORD=$keyPassword
 ```
 
-in `android/app/build.gradle` with the stuff shown in the `exp fetch:android:keystore` command.
-dunno if storeFile can be a relative path, I just tried with an absolute one.
-In the same file also check that `versionCode` and `versionName` match app.json.
+In `android/app/build.gradle` check that `versionCode` and `versionName` match app.json.
 
 Note that `versionCode` with **odd** numbers are for internal release, and the ones with **even** numbers are intended for production release. The only difference is the release-channel they have. Internal release uses **default** and the production release uses **production**.
 
@@ -114,7 +113,7 @@ cd android
 ./gradlew assembleRelease
 ```
 
-The apk is in `android/app/build/outputs/apk/prodMinSdkProdKernel/release/app-prodMinSdk-prodKernel-release.apk`, upload it to the play store.
+The apk is in `android/app/build/outputs/apk/prodKernel/release/app-prodKernel-release.apk`, upload it to the play store.
 
 **NOTE**: this apk points to the default release channel of expo, which I'm using for development purposes, a different apk should be build to submit to the production release in the play store.
 
@@ -137,45 +136,9 @@ To create the detached branch I followed these steps:
 
 Check manual setup instructions of react-native-iap project and make sure everything was correctly applied (for me the BILLING permission wasn't added)
 
-edit `android/app/build.gradle` and configure for auto signing:
+edit `android/app/build.gradle`:
 
 ```
-diff --git a/android/app/build.gradle b/android/app/build.gradle
-index 3fbefe9..0e88d38 100644
---- a/android/app/build.gradle
-+++ b/android/app/build.gradle
-@@ -58,6 +58,17 @@ android {
-       minSdkVersion 19
-     }
-   }
-+  signingConfigs {
-+    debug {
-+      storeFile file('../debug.keystore')
-+    }
-+    release {
-+      keyAlias 'XXX'
-+      keyPassword 'XXX'
-+      storePassword 'XXX'
-+      storeFile file('../../kdm-companion.jks')
-+    }
-+  }
-   buildTypes {
-     debug {
-       debuggable true
-@@ -67,11 +78,7 @@ android {
-       /*minifyEnabled true
-       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'*/
-       zipAlignEnabled true
--    }
--  }
--  signingConfigs {
--    debug {
--      storeFile file('../debug.keystore')
-+      signingConfig signingConfigs.release
-     }
-   }
-   lintOptions {
-
 diff --git a/android/gradle.properties b/android/gradle.properties
 index 509ba88..999381c 100644
 --- a/android/gradle.properties
