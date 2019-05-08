@@ -7,9 +7,8 @@ import { onSnapshot, setLivelynessChecking } from 'mobx-state-tree'
 import { save } from '../src/filesystem'
 import Navigator from './Navigator'
 import { SubscriptionUpdater } from '../components/Subscription'
-import { useScreens } from 'react-native-screens'
-
-useScreens()
+// import { useScreens } from 'react-native-screens'
+// useScreens() // commented out because campaign menu shows blank
 
 class ThemedApp extends React.Component {
   constructor(props) {
