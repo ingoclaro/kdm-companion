@@ -8,7 +8,7 @@
     "expo-cli": "^2.6.0",
     "husky": "^1.2.0",
     "jest-date-mock": "^1.0.6",
-    "jest-expo": "^31.0.0",
+    "jest-expo": "^32.0.0",
     "lint-staged": "^8.1.0",
     "node-fetch": "^2.3.0",
     "prettier": "^1.15.2",
@@ -51,14 +51,14 @@
   "dependencies": {
     "@shoutem/theme": "^0.11.0",
     "@shoutem/ui": "ingoclaro/ui#set-statusbar-color-optional",
-    "expo": "^31.0.4",
+    "expo": "^32.0.0",
     "mobx": "5.x.x",
     "mobx-react": "5.x.x",
     "mobx-state-tree": "^3.8.1",
     "prop-types": "^15.6.2",
     "ramda": "^0.26.0",
     "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.1.tar.gz",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-draggable-flatlist": "^1.1.5",
     "react-native-fit-image": "^1.5.4",
     "react-native-iap": "^2.3.19",
@@ -66,7 +66,7 @@
     "react-native-modal": "^7.0.0",
     "react-native-simple-stepper": "^2.0.0",
     "react-native-swipe-list-view": "^1.5.0",
-    "react-navigation": "^3.0.0",
-    "sentry-expo": "^1.10.0"
+    "react-navigation": "^3.0.9",
+    "sentry-expo": "~1.11.2"
   }
 }
