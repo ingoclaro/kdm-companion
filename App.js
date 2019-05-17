@@ -1,13 +1,13 @@
 import React from 'react'
 import { View, Platform, StatusBar, YellowBox } from 'react-native'
-import { AppLoading, Segment, Font, Image, Asset } from 'expo'
+import { AppLoading, Font, Image, Asset } from 'expo'
 import Sentry from 'sentry-expo'
 import Application from './screens/App'
 import colors from './src/colors'
 import RootStore from './src/models/RootStore'
 import { load } from './src/filesystem'
 import env from './env.js'
-const { SEGMENT_ANDROID_KEY, SEGMENT_IOS_KEY, SENTRY_DSN } = env
+const { SENTRY_DSN } = env
 
 // ignore showing warnings of things we can't do anything about.
 YellowBox.ignoreWarnings(['Require cycle:', 'Warning: "Provider":'])
@@ -22,11 +22,6 @@ export default class App extends React.Component {
     if (Platform.OS === 'android') {
       StatusBar.setBackgroundColor(colors.grey900)
     }
-
-    Segment.initialize({
-      androidWriteKey: SEGMENT_ANDROID_KEY,
-      iosWriteKey: SEGMENT_IOS_KEY,
-    })
 
     this._cacheResourcesAsync = this._cacheResourcesAsync.bind(this)
   }

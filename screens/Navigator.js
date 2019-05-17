@@ -8,7 +8,6 @@ import {
 } from 'react-navigation'
 import TabBar from './TabBar'
 import { View, Text, Image } from '@shoutem/ui'
-import { Segment } from 'expo'
 import { observer, inject } from 'mobx-react/native'
 import colors from '../src/colors'
 import CampaignHeader from './CampaignHeader'
@@ -387,16 +386,4 @@ function getCurrentRouteName(navigationState) {
 const NavigatorApp = createAppContainer(MainNavigatorHeader)
 
 // export default MainNavigatorHeader
-export default () => (
-  <NavigatorApp
-    onNavigationStateChange={(prevState, currentState) => {
-      const currentScreen = getCurrentRouteName(currentState)
-      const prevScreen = getCurrentRouteName(prevState)
-
-      if (prevScreen !== currentScreen) {
-        let eventName = `Pageview.${currentScreen}`
-        Segment.screen(currentScreen)
-      }
-    }}
-  />
-)
+export default () => <NavigatorApp />
