@@ -73,7 +73,7 @@ export default class App extends React.Component {
       cacheImages(images),
     ])
 
-    load(this.state.store)
+    await load(this.state.store)
   }
 }
 

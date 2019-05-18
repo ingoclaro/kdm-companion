@@ -180,6 +180,25 @@ describe('.load', () => {
     expect(store.data).toMatchSnapshot()
   })
 
+  it('throws with corrupt data', () => {
+    let data = {
+      campaigns: [
+        {
+          id: '11111111-598a-49eb-888b-c6baa0006751',
+          innovations: 'bad',
+          settlement: {
+            name: 'Bad Settlement',
+            departing: 'bad',
+          },
+        },
+      ],
+      selectedCampaign: 'bad',
+    }
+    expect(() => store.load(data)).toThrowError('Error while converting')
+    // will create empty data
+    expect(store.selectedCampaign.name).toEqual('New Settlement')
+  })
+
   describe('loading previous versions', () => {
     beforeEach(() => {
       uuidMock.mockImplementation(() => '11111111-598a-49eb-888b-c6baa0006751')
