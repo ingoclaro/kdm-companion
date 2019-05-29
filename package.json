@@ -6,14 +6,14 @@
     "@babel/core": "^7.4.4",
     "babel-preset-expo": "^5.1.1",
     "expo-cli": "^2.18.0",
-    "husky": "^2.2.0",
+    "husky": "^2.3.0",
     "jest-date-mock": "^1.0.7",
     "jest-expo": "^32.0.0",
-    "lint-staged": "^8.1.6",
-    "node-fetch": "^2.5.0",
-    "prettier": "^1.17.0",
-    "react-dom": "16.5.0",
-    "react-test-renderer": "16.5.0"
+    "lint-staged": "^8.1.7",
+    "node-fetch": "^2.6.0",
+    "prettier": "^1.17.1",
+    "react-dom": "16.8.6",
+    "react-test-renderer": "16.8.6"
   },
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -49,25 +49,25 @@
     ]
   },
   "dependencies": {
-    "@shoutem/theme": "^0.11.0",
+    "@shoutem/theme": "^0.11.3",
     "@shoutem/ui": "ingoclaro/ui#set-statusbar-color-optional",
     "expo": "^32.0.3",
-    "mobx": "5.x.x",
-    "mobx-react": "5.x.x",
-    "mobx-state-tree": "^3.8.1",
+    "mobx": "5.9.4",
+    "mobx-react": "5.4.4",
+    "mobx-state-tree": "^3.14.0",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.0",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-draggable-flatlist": "^1.1.5",
-    "react-native-fit-image": "^1.5.4",
+    "@ingoclaro/react-native-fit-image": "^1.5.4",
     "react-native-iap": "^2.5.0",
     "react-native-markdown-renderer": "^3.2.8",
-    "react-native-modal": "^7.0.0",
+    "react-native-modal": "^11.0.1",
     "react-native-screens": "^1.0.0-alpha.22",
-    "react-native-simple-stepper": "^2.0.0",
-    "react-native-swipe-list-view": "^1.5.0",
-    "react-navigation": "^3.0.9",
-    "sentry-expo": "~1.11.2"
+    "react-native-simple-stepper": "^2.1.3",
+    "react-native-swipe-list-view": "^1.5.3",
+    "react-navigation": "^3.10.2",
+    "sentry-expo": "~1.12.0"
   }
 }

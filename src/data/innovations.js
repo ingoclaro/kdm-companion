@@ -287,7 +287,7 @@ export default {
     settlement: {
       showdown: {
         description:
-          '**Inner Lantern**: Gain **Surge** survival action.\n  **Surge**: Spend 1 survival to gain +1[action](action) and use it immediatly.',
+          '**Inner Lantern**: Gain **Surge** survival action.\n  **Surge**: Spend 1 survival to gain +1![action](action) and use it immediatly.',
       },
     },
   },
