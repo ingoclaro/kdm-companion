@@ -1,6 +1,6 @@
 {
   "name": "kdm-gear-companion",
-  "version": "4.7.0",
+  "version": "4.8.0",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -8,7 +8,7 @@
     "expo-cli": "^2.18.5",
     "husky": "^2.3.0",
     "jest-date-mock": "^1.0.7",
-    "jest-expo": "^32.0.1",
+    "jest-expo": "^33.0.0",
     "lint-staged": "^8.1.7",
     "node-fetch": "^2.6.0",
     "prettier": "^1.17.1",
@@ -52,14 +52,14 @@
     "@ingoclaro/react-native-fit-image": "^1.5.4",
     "@shoutem/theme": "^0.11.3",
     "@shoutem/ui": "ingoclaro/ui#set-statusbar-color-optional",
-    "expo": "^32.0.3",
+    "expo": "^33.0.0",
     "mobx": "5.9.4",
     "mobx-react": "5.4.4",
     "mobx-state-tree": "^3.14.0",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.0",
-    "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react": "16.8.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "react-native-draggable-flatlist": "^1.1.5",
     "react-native-iap": "^2.5.0",
     "react-native-markdown-renderer": "^3.2.8",
@@ -68,6 +68,6 @@
     "react-native-simple-stepper": "^2.1.3",
     "react-native-swipe-list-view": "^1.5.5",
     "react-navigation": "^3.11.0",
-    "sentry-expo": "~1.12.0"
+    "sentry-expo": "~1.13.0"
   }
 }
