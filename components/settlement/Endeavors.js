@@ -1,61 +1,60 @@
 import React from 'react'
-import { View, Text, Row, Title, Subtitle, ListView } from '@shoutem/ui'
-import { values } from 'mobx'
-import { observer, inject } from 'mobx-react/native'
-import PropTypes from 'prop-types'
+import { View, Text, Title, Subtitle, ListView } from '@shoutem/ui'
+import { observer, inject } from 'mobx-react'
 import colors from '../../src/colors'
-import R from 'ramda'
 
-@inject(({ store }) => ({
+export default inject(({ store }) => ({
   endeavors: store.selectedCampaign.endeavors,
-}))
-@observer
-export default class Endeavors extends React.Component {
-  _header = () => {
-    return <Title>Endeavors</Title>
-  }
+}))(
+  observer(
+    class Endeavors extends React.Component {
+      _header = () => {
+        return <Title>Endeavors</Title>
+      }
 
-  _row = item => {
-    return (
-      <View style={styles.endeavor}>
-        <Subtitle>
-          {item.name} ({item.source.name})
-        </Subtitle>
-        <Text style={styles.recipe}>
-          {item.recipe.items
-            .map(item => {
-              return `${item.quantity} x ${item.name}`
-            })
-            .join(', ')}
-        </Text>
-      </View>
-    )
-  }
+      _row = item => {
+        return (
+          <View style={styles.endeavor}>
+            <Subtitle>
+              {item.name} ({item.source.name})
+            </Subtitle>
+            <Text style={styles.recipe}>
+              {item.recipe.items
+                .map(item => {
+                  return `${item.quantity} x ${item.name}`
+                })
+                .join(', ')}
+            </Text>
+          </View>
+        )
+      }
 
-  empty = () => {
-    return (
-      <View>
-        <Title>Endeavors</Title>
-        <Text>Add some Locations or Innovations to see Endeavors.</Text>
-      </View>
-    )
-  }
+      empty = () => {
+        return (
+          <View>
+            <Title>Endeavors</Title>
+            <Text>Add some Locations or Innovations to see Endeavors.</Text>
+          </View>
+        )
+      }
 
-  render() {
-    if (this.props.endeavors.length === 0) {
-      return this.empty()
+      render() {
+        if (this.props.endeavors.length === 0) {
+          return this.empty()
+        }
+
+        return (
+          <ListView
+            data={this.props.endeavors}
+            renderRow={this._row}
+            renderHeader={this._header}
+            autoHideHeader={false}
+          />
+        )
+      }
     }
-
-    return (
-      <ListView
-        data={this.props.endeavors}
-        renderRow={this._row}
-        renderHeader={this._header}
-        autoHideHeader={false}
-      />
-    )
-  }
-}
+  )
+)
 
 const styles = {
   recipe: {

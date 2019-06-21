@@ -1,18 +1,5 @@
 import React from 'react'
-import {
-  Screen,
-  View,
-  Text,
-  Title,
-  Subtitle,
-  Image,
-  Icon,
-  Button,
-  Row,
-  Caption,
-  Divider,
-} from '@shoutem/ui'
-import { ScrollView } from 'react-native'
+import { Screen } from '@shoutem/ui'
 
 import SurvivorList from '../components/survivor/SurvivorList'
 import CreateButton from '../components/survivor/CreateButton'

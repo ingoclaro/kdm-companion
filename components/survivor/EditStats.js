@@ -2,34 +2,22 @@ import React from 'react'
 import {
   View,
   Text,
-  Title,
-  Subtitle,
-  Image,
-  Icon,
   Button,
-  Caption,
   Divider,
   DropDownMenu,
   TextInput,
 } from '@shoutem/ui'
 import { Keyboard } from 'react-native'
-import { observer, inject } from 'mobx-react/native'
+import { observer, inject } from 'mobx-react'
 import { SimpleStepper } from 'react-native-simple-stepper'
 import CheckboxListItem from '../common/CheckboxListItem'
 import GenderButton from './GenderButton'
 import Tooltip from '../common/Tooltip'
-import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 import R from 'ramda'
 
-@inject(({ store }, props) => ({
-  survivor: store.selectedCampaign.settlement.survivors.get(props.survivorId),
-  survivalLimit: store.selectedCampaign.settlement.survivalLimit,
-  availableWeaponProficiencies: store.availableWeaponProficiencies,
-  hasReroll: store.selectedCampaign.settlement.hasSOTF,
-}))
 @observer
-export default class EditStats extends React.Component {
+class EditStats extends React.Component {
   constructor(props) {
     super(props)
 
@@ -323,6 +311,13 @@ export default class EditStats extends React.Component {
     )
   }
 }
+
+export default inject(({ store }, props) => ({
+  survivor: store.selectedCampaign.settlement.survivors.get(props.survivorId),
+  survivalLimit: store.selectedCampaign.settlement.survivalLimit,
+  availableWeaponProficiencies: store.availableWeaponProficiencies,
+  hasReroll: store.selectedCampaign.settlement.hasSOTF,
+}))(EditStats)
 
 const styles = {
   textInput: {

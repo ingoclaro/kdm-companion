@@ -1,5 +1,5 @@
 import React from 'react'
-import { Screen, View, Divider, ScrollView } from '@shoutem/ui'
+import { Screen, Divider, ScrollView } from '@shoutem/ui'
 import Bonuses from '../components/settlement/Bonuses'
 import SettlementBonuses from '../components/SettlementBonuses'
 

@@ -1,27 +1,13 @@
 import React from 'react'
-import {
-  View,
-  Text,
-  Title,
-  Subtitle,
-  Image,
-  Icon,
-  Button,
-  Caption,
-  DropDownMenu,
-} from '@shoutem/ui'
-import { observer, inject } from 'mobx-react/native'
+import { View } from '@shoutem/ui'
+import { observer, inject } from 'mobx-react'
 import { values } from 'mobx'
 import RichText from '../common/RichText'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-@inject(({ store }) => ({
-  innovations: values(store.selectedCampaign.innovations), // to check for wp mastery innovations
-  weaponProficiencies: store.weaponProficiencies,
-}))
 @observer
-export default class WeaponProficiency extends React.Component {
+class WeaponProficiency extends React.Component {
   constructor(props) {
     super(props)
     this.weaponProficienciesInnovations = this.weaponProficienciesInnovations.bind(
@@ -77,3 +63,8 @@ export default class WeaponProficiency extends React.Component {
     )
   }
 }
+
+export default inject(({ store }) => ({
+  innovations: values(store.selectedCampaign.innovations), // to check for wp mastery innovations
+  weaponProficiencies: store.weaponProficiencies,
+}))(WeaponProficiency)

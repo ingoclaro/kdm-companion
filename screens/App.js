@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppState, View } from 'react-native'
+import { AppState } from 'react-native'
 import { StyleProvider } from '@shoutem/theme'
 import theme from '../src/theme'
 import { Provider } from 'mobx-react'

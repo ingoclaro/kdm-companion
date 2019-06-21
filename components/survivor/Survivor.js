@@ -1,17 +1,6 @@
 import React from 'react'
-import {
-  View,
-  Text,
-  Title,
-  Subtitle,
-  Image,
-  Icon,
-  Button,
-  Row,
-  Caption,
-  Divider,
-} from '@shoutem/ui'
-import { observer, inject } from 'mobx-react/native'
+import { View, Text, Subtitle, Image, Divider } from '@shoutem/ui'
+import { observer, inject } from 'mobx-react'
 import PropTypes from 'prop-types'
 
 import { ageMilestones } from './AgeMilestone'
@@ -41,18 +30,8 @@ const ico_death = require('../../images/icon_death.png')
 const ico_skip_hunt = require('../../images/icon_skip_hunt.png')
 
 // This is the individual survivor screen
-@inject(({ store }, props) => ({
-  survivor: store.selectedCampaign.settlement.survivors.get(props.survivorId),
-  survivalLimit: store.selectedCampaign.settlement.survivalLimit,
-  showTooltip: store.selectedCampaign.settlement.survivors.size === 1,
-  hasReroll: store.selectedCampaign.settlement.hasSOTF,
-  showConstellation: store.selectedCampaign.type.id === 'pots',
-  showPotSun: store.selectedCampaign.type.id === 'potsun',
-  courageMilestones: store.selectedCampaign.courageMilestones,
-  understandingMilestones: store.selectedCampaign.understandingMilestones,
-}))
 @observer
-export default class Survivor extends React.Component {
+class Survivor extends React.Component {
   static propTypes = {
     survivorId: PropTypes.string.isRequired, // ID of the survivor to show
   }
@@ -299,6 +278,17 @@ export default class Survivor extends React.Component {
     )
   }
 }
+
+export default inject(({ store }, props) => ({
+  survivor: store.selectedCampaign.settlement.survivors.get(props.survivorId),
+  survivalLimit: store.selectedCampaign.settlement.survivalLimit,
+  showTooltip: store.selectedCampaign.settlement.survivors.size === 1,
+  hasReroll: store.selectedCampaign.settlement.hasSOTF,
+  showConstellation: store.selectedCampaign.type.id === 'pots',
+  showPotSun: store.selectedCampaign.type.id === 'potsun',
+  courageMilestones: store.selectedCampaign.courageMilestones,
+  understandingMilestones: store.selectedCampaign.understandingMilestones,
+}))(Survivor)
 
 const styles = {
   tooltipText: {

@@ -1,8 +1,7 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
-import { Screen, Divider, Title, Text } from '@shoutem/ui'
+import { Screen } from '@shoutem/ui'
 import Expansions from '../components/Expansions'
-import PropTypes from 'prop-types'
 
 export default class ExpansionsScreen extends React.Component {
   render() {

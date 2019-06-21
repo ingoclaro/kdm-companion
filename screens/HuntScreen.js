@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-  Screen,
-  View,
-  Text,
-  Title,
-  Caption,
-  Subtitle,
-  Divider,
-} from '@shoutem/ui'
+import { Screen, View, Text, Title } from '@shoutem/ui'
 import { ScrollView } from 'react-native'
 
 import Hunt from '../components/Hunt'

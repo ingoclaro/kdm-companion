@@ -11,7 +11,7 @@ import {
   DropDownMenu,
   Divider,
 } from '@shoutem/ui'
-import { inject } from 'mobx-react/native'
+import { inject } from 'mobx-react'
 import PropTypes from 'prop-types'
 import colors from '../../src/colors'
 
@@ -20,28 +20,29 @@ import colors from '../../src/colors'
 // (survivor to be stored in the component's state). Similar to edit, a clone can be used and a save to commit the changes
 // save = () => applySnapshot(survivor, getSnapshot(this.state.survivor))
 // see https://egghead.io/lessons/react-create-an-entry-form-to-add-models-to-the-state-tree
-@inject(({ store }) => ({
+export default inject(({ store }) => ({
   createSurvivor: store.selectedCampaign.settlement.createSurvivor,
-}))
-export default class CreateButton extends React.Component {
-  constructor(props) {
-    super(props)
+}))(
+  class CreateButton extends React.Component {
+    constructor(props) {
+      super(props)
 
-    this.create = this.create.bind(this)
-  }
+      this.create = this.create.bind(this)
+    }
 
-  create() {
-    let survivor = this.props.createSurvivor()
-    this.props.navigate(survivor.id, true)
-  }
+    create() {
+      let survivor = this.props.createSurvivor()
+      this.props.navigate(survivor.id, true)
+    }
 
-  render() {
-    return (
-      <Button onPress={this.create}>
-        <Text>Create</Text>
-      </Button>
-    )
+    render() {
+      return (
+        <Button onPress={this.create}>
+          <Text>Create</Text>
+        </Button>
+      )
+    }
   }
-}
+)
 
 const styles = {}

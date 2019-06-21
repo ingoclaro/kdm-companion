@@ -1,7 +1,7 @@
 import React from 'react'
 import { Screen, View, Title, Text } from '@shoutem/ui'
 import RichText from './common/RichText'
-import { observer, inject } from 'mobx-react/native'
+import { observer, inject } from 'mobx-react'
 
 @inject(({ store }) => ({
   instinct: store.selectedCampaign.showdown

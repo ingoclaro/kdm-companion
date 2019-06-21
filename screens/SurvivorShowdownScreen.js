@@ -13,7 +13,7 @@ import {
   Divider,
 } from '@shoutem/ui'
 import { ScrollView } from 'react-native'
-import { observer, inject } from 'mobx-react/native'
+import { observer, inject } from 'mobx-react'
 
 import Modal from 'react-native-modal'
 import colors from '../src/colors'
@@ -23,11 +23,8 @@ import EditStats from '../components/survivor/EditStats'
 
 // TODO: show severe injury buttons (brain, body icons?)
 // TODO: change severe tables to be able to select the injury + confirmation? + auto apply effects to survivor.
-@inject(({ store }, props) => ({
-  survivorList: store.selectedCampaign.settlement.activeSurvivorsList,
-}))
 @observer
-export default class SurvivorShowdownScreen extends React.Component {
+class SurvivorShowdownScreen extends React.Component {
   state = {
     visible: false,
   }
@@ -93,6 +90,10 @@ export default class SurvivorShowdownScreen extends React.Component {
     )
   }
 }
+
+export default inject(({ store }, props) => ({
+  survivorList: store.selectedCampaign.settlement.activeSurvivorsList,
+}))(SurvivorShowdownScreen)
 
 const styles = {
   screen: {

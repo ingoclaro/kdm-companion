@@ -1,23 +1,9 @@
 import React from 'react'
-import {
-  View,
-  Text,
-  Title,
-  Subtitle,
-  Image,
-  Icon,
-  Button,
-  Caption,
-  DropDownMenu,
-} from '@shoutem/ui'
-import { observer, inject } from 'mobx-react/native'
+import { observer, inject } from 'mobx-react'
 import AbilitySection from './AbilitySection'
 
-@inject(({ store }) => ({
-  availableAbilities: store.availableAbilities,
-}))
 @observer
-export default class Abilities extends React.Component {
+class Abilities extends React.Component {
   render() {
     return (
       <AbilitySection
@@ -33,3 +19,7 @@ export default class Abilities extends React.Component {
     )
   }
 }
+
+export default inject(({ store }) => ({
+  availableAbilities: store.availableAbilities,
+}))(Abilities)

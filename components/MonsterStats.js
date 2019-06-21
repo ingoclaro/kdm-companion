@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text } from '@shoutem/ui'
-import { observer, inject } from 'mobx-react/native'
+import { observer, inject } from 'mobx-react'
 
 import StatItem from './StatItem'
 

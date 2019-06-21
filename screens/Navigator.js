@@ -1,14 +1,11 @@
 import React from 'react'
-import { Platform } from 'react-native'
 import {
   createBottomTabNavigator,
   createMaterialTopTabNavigator,
   createStackNavigator,
   createAppContainer,
 } from 'react-navigation'
-import TabBar from './TabBar'
-import { View, Text, Image } from '@shoutem/ui'
-import { observer, inject } from 'mobx-react/native'
+import { Image } from '@shoutem/ui'
 import colors from '../src/colors'
 import CampaignHeader from './CampaignHeader'
 import SurvivorHeader from './SurvivorHeader'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Platform, StatusBar, YellowBox } from 'react-native'
+import { Platform, StatusBar, YellowBox } from 'react-native'
 import { AppLoading, Font, Image, Asset } from 'expo'
 import Sentry from 'sentry-expo'
 import Application from './screens/App'

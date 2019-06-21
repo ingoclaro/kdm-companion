@@ -1,18 +1,8 @@
 import React from 'react'
-import {
-  Screen,
-  Button,
-  View,
-  Text,
-  Title,
-  Image,
-  DropDownMenu,
-  Row,
-  Icon,
-} from '@shoutem/ui'
+import { View, Text, Title, Row, Icon } from '@shoutem/ui'
 import Accordion from '../common/Accordion'
 import { SimpleStepper } from 'react-native-simple-stepper'
-import { observer, inject } from 'mobx-react/native'
+import { observer, inject } from 'mobx-react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
@@ -133,7 +123,7 @@ function resources_structure(global_resources, settlement_resources, filter) {
   return Object.values(data)
 }
 
-@inject(({ store }) => ({
+export default inject(({ store }) => ({
   resources: resources_structure(
     store.resources,
     store.selectedCampaign.stored_resources,
@@ -141,89 +131,91 @@ function resources_structure(global_resources, settlement_resources, filter) {
   ),
   stored_resources: store.selectedCampaign.stored_resources,
   setResourceCount: store.selectedCampaign.setResourceCount,
-}))
-@observer
-export default class Resources extends React.Component {
-  constructor(props) {
-    super(props)
-    this._renderContent = this._renderContent.bind(this) // so that we can access this.props from within the function
-    this._renderHeader = this._renderHeader.bind(this)
-  }
+}))(
+  observer(
+    class Resources extends React.Component {
+      constructor(props) {
+        super(props)
+        this._renderContent = this._renderContent.bind(this) // so that we can access this.props from within the function
+        this._renderHeader = this._renderHeader.bind(this)
+      }
 
-  static propTypes = {
-    resources: PropTypes.array.isRequired,
-    // Structure: (can't be changed because it's needed like that for a native component)
-    // [
-    //   {
-    //     id: 'basic', // id of section/type
-    //     title: 'Basic', // title of type
-    //     data: [ // array of items
-    //       {
-    //         id: 'skull', // id of resource
-    //         name: 'skull', // name of resource
-    //       }
-    //     ]
-    //   },
-    // ],
-    stored_resources: PropTypes.object.isRequired,
-    setResourceCount: PropTypes.func.isRequired, // (resource, count)
-  }
+      static propTypes = {
+        resources: PropTypes.array.isRequired,
+        // Structure: (can't be changed because it's needed like that for a native component)
+        // [
+        //   {
+        //     id: 'basic', // id of section/type
+        //     title: 'Basic', // title of type
+        //     data: [ // array of items
+        //       {
+        //         id: 'skull', // id of resource
+        //         name: 'skull', // name of resource
+        //       }
+        //     ]
+        //   },
+        // ],
+        stored_resources: PropTypes.object.isRequired,
+        setResourceCount: PropTypes.func.isRequired, // (resource, count)
+      }
 
-  _renderHeader(section, isActive) {
-    let icon = isActive ? (
-      <Icon name="up-arrow" style={styles.headerArrow} />
-    ) : (
-      <Icon name="down-arrow" style={styles.headerArrow} />
-    )
+      _renderHeader(section, isActive) {
+        let icon = isActive ? (
+          <Icon name="up-arrow" style={styles.headerArrow} />
+        ) : (
+          <Icon name="down-arrow" style={styles.headerArrow} />
+        )
 
-    let number_of_resources = section.count
+        let number_of_resources = section.count
 
-    return (
-      <Row>
-        <Title>
-          {number_of_resources} - {section.title}
-        </Title>
-        {icon}
-      </Row>
-    )
-  }
+        return (
+          <Row>
+            <Title>
+              {number_of_resources} - {section.title}
+            </Title>
+            {icon}
+          </Row>
+        )
+      }
 
-  _renderContent(data) {
-    let item = this.props.stored_resources.get(data.item.id)
-    const quantity = item ? item.quantity : 0
+      _renderContent(data) {
+        let item = this.props.stored_resources.get(data.item.id)
+        const quantity = item ? item.quantity : 0
 
-    return (
-      <View style={styles.resourceRow}>
-        <Text style={styles.resourceText}>
-          {quantity} - {data.item.name}
-        </Text>
+        return (
+          <View style={styles.resourceRow}>
+            <Text style={styles.resourceText}>
+              {quantity} - {data.item.name}
+            </Text>
 
-        <SimpleStepper
-          tintColor="white"
-          initialValue={quantity}
-          value={quantity}
-          imageHeight={24}
-          imageWidth={24}
-          padding={4}
-          valueChanged={value => {
-            this.props.setResourceCount(data.item, value)
-          }}
-          style={styles.stepper}
-        />
-      </View>
-    )
-  }
+            <SimpleStepper
+              tintColor="white"
+              initialValue={quantity}
+              value={quantity}
+              imageHeight={24}
+              imageWidth={24}
+              padding={4}
+              valueChanged={value => {
+                this.props.setResourceCount(data.item, value)
+              }}
+              style={styles.stepper}
+            />
+          </View>
+        )
+      }
 
-  render() {
-    return (
-      <Accordion
-        data={this.props.resources}
-        renderHeader={this._renderHeader}
-        renderContent={this._renderContent}
-      />
-    )
-  }
-}
+      render() {
+        return (
+          <Accordion
+            data={this.props.resources}
+            renderHeader={this._renderHeader}
+            renderContent={this._renderContent}
+          />
+        )
+      }
+    }
+  )
+)
 
 const styles = {
   header: {},

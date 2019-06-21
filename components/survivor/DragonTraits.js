@@ -13,7 +13,7 @@ import {
 } from '@shoutem/ui'
 import RichText from '../common/RichText'
 import PropTypes from 'prop-types'
-import { observer, inject } from 'mobx-react/native'
+import { observer, inject } from 'mobx-react'
 import colors from '../../src/colors'
 
 @observer

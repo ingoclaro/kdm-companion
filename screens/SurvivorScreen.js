@@ -1,17 +1,5 @@
 import React from 'react'
-import {
-  Screen,
-  View,
-  Text,
-  Title,
-  Subtitle,
-  Image,
-  Icon,
-  Button,
-  Row,
-  Caption,
-  Divider,
-} from '@shoutem/ui'
+import { Screen, View, Text, Button, Divider } from '@shoutem/ui'
 import { ScrollView } from 'react-native'
 
 import Modal from 'react-native-modal'

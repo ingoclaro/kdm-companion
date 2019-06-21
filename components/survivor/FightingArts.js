@@ -1,23 +1,9 @@
 import React from 'react'
-import {
-  View,
-  Text,
-  Title,
-  Subtitle,
-  Image,
-  Icon,
-  Button,
-  Caption,
-} from '@shoutem/ui'
-import { observer, inject } from 'mobx-react/native'
+import { observer, inject } from 'mobx-react'
 import AbilitySection from './AbilitySection'
 
-@inject(({ store }) => ({
-  availableFightingArts: store.availableFightingArts,
-  availableSecretFightingArts: store.availableSecretFightingArts,
-}))
 @observer
-export default class FightingArts extends React.Component {
+class FightingArts extends React.Component {
   render() {
     return (
       <AbilitySection
@@ -34,3 +20,8 @@ export default class FightingArts extends React.Component {
     )
   }
 }
+
+export default inject(({ store }) => ({
+  availableFightingArts: store.availableFightingArts,
+  availableSecretFightingArts: store.availableSecretFightingArts,
+}))(FightingArts)

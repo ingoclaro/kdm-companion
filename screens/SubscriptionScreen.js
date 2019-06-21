@@ -1,17 +1,5 @@
 import React from 'react'
-import {
-  Screen,
-  View,
-  Text,
-  Title,
-  Subtitle,
-  Image,
-  Icon,
-  Button,
-  Row,
-  Caption,
-  Divider,
-} from '@shoutem/ui'
+import { Screen } from '@shoutem/ui'
 import Subscription from '../components/Subscription'
 import colors from '../src/colors'
 import { ScrollView } from 'react-native'

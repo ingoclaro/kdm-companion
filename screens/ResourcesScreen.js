@@ -1,5 +1,5 @@
 import React from 'react'
-import { Screen, View, Text, Image, Button, Divider } from '@shoutem/ui'
+import { Screen, View } from '@shoutem/ui'
 
 import Resources from '../components/settlement/Resources'
 

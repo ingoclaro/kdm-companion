@@ -6,9 +6,14 @@ import { Provider } from 'mobx-react'
 
 it('renders without crashing', () => {
   const store = RootStore.create()
+  const survivor = store.selectedCampaign.settlement.createSurvivor('survivor')
   const navigation = {
     navigate: jest.fn(),
-    getParam: jest.fn(), //.mockImplementation(() => ''),
+    getParam: jest.fn().mockImplementation(param => {
+      if (param === 'survivorId') {
+        return survivor.id
+      }
+    }),
     setParams: jest.fn(),
   }
   const tree = renderer

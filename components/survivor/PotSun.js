@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Title, Button } from '@shoutem/ui'
-import { observer } from 'mobx-react/native'
+import { observer } from 'mobx-react'
 import colors from '../../src/colors'
 
 class MultiStateCheckbox extends React.Component {
