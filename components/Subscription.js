@@ -7,7 +7,7 @@ import RNIap, {
   acknowledgePurchaseAndroid,
 } from 'react-native-iap'
 import { observer, inject } from 'mobx-react'
-import { Constants } from 'expo'
+import Constants from 'expo-constants'
 
 import colors from '../src/colors'
 

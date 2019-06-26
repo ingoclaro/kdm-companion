@@ -1,5 +1,5 @@
 import { types } from 'mobx-state-tree'
-import { Constants } from 'expo'
+import Constants from 'expo-constants'
 
 const toDays = 1000 * 60 * 60 * 24
 

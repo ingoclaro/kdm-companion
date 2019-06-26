@@ -1,4 +1,4 @@
-import { FileSystem } from 'expo'
+import * as FileSystem from 'expo-file-system'
 
 const file = `file://${FileSystem.documentDirectory}/campaigns.json`
 

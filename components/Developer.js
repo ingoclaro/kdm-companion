@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, Button, Text, Subtitle, Divider } from '@shoutem/ui'
-import { Constants, MailComposer, FileSystem } from 'expo'
+import * as FileSystem from 'expo-file-system'
+import * as MailComposer from 'expo-mail-composer'
+import Constants from 'expo-constants'
 
 export default class Developer extends React.Component {
   sendStore = () => {

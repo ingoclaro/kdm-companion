@@ -12,7 +12,7 @@ import {
 } from '@shoutem/ui'
 import { ScrollView, Linking } from 'react-native'
 import Modal from 'react-native-modal'
-import { Constants } from 'expo'
+import Constants from 'expo-constants'
 import Developer from '../components/Developer'
 import colors from '../src/colors'
 
