@@ -4,6 +4,7 @@ import { Alert, Platform, NativeModules, Linking } from 'react-native'
 import RNIap, {
   purchaseUpdatedListener,
   purchaseErrorListener,
+  acknowledgePurchaseAndroid,
 } from 'react-native-iap'
 import { observer, inject } from 'mobx-react'
 import { Constants } from 'expo'
@@ -201,13 +202,30 @@ export default inject(({ store }) => ({
       purchaseListenerHandler = null
       purchaseListenerErrorHandler = null
       setupPurchaseListeners = async () => {
-        this.purchaseListenerHandler = purchaseUpdatedListener(purchase => {
-          this.setState({ error: false, waiting: false })
-          console.log('purchaseUpdatedListener', purchase)
-          if (purchase.transactionId) {
-            this.props.subscription.purchased(purchase)
+        this.purchaseListenerHandler = purchaseUpdatedListener(
+          async purchase => {
+            this.setState({ error: false, waiting: false })
+            console.log('purchaseUpdatedListener', purchase)
+            if (
+              purchase.purchaseStateAndroid === 1 &&
+              !purchase.isAcknowledgedAndroid
+            ) {
+              try {
+                const ackResult = await acknowledgePurchaseAndroid(
+                  purchase.purchaseToken
+                )
+                console.log('ackResult', ackResult)
+              } catch (ackErr) {
+                console.warn('ackErr', ackErr)
+                this.setState({ error: true, waiting: false })
+                return
+              }
+            }
+            if (purchase.transactionId) {
+              this.props.subscription.purchased(purchase)
+            }
           }
-        })
+        )
         this.purchaseListenerErrorHandler = purchaseErrorListener(error => {
           this.setState({ error: true, waiting: false })
           console.warn('purchaseErrorListener', error)
