@@ -59,7 +59,11 @@ const Subscription = types
       }
     },
     hasActiveSubscription() {
+      let test = process.env.npm_lifecycle_event
+        ? process.env.npm_lifecycle_event === 'test'
+        : false
       if (
+        !test &&
         Constants &&
         Constants.manifest &&
         (Constants.manifest.releaseChannel === undefined ||

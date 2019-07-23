@@ -37,10 +37,10 @@ describe('.shouldCheck', () => {
   })
 
   it('with old date and an inactive subscription', () => {
-    advanceBy(activeGracePeriod)
+    advanceBy(activeGracePeriod + 1)
 
-    expect(sub.shouldCheck()).toBeFalsy()
     expect(sub.hasActiveSubscription()).toBeFalsy()
+    expect(sub.shouldCheck()).toBeFalsy()
   })
 })
 
