@@ -1,6 +1,6 @@
 {
   "name": "kdm-gear-companion",
-  "version": "4.8.0",
+  "version": "5.0.0",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.4.5",
