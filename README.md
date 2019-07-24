@@ -102,6 +102,7 @@ export ANDROID_KEYSTORE_PATH=../kdm-companion.jks
 export ANDROID_KEYSTORE_PASSWORD=$storePassword
 export ANDROID_KEY_ALIAS=$keyAlias
 export ANDROID_KEY_PASSWORD=$keyPassword
+export ANDROID_NDK_HOME="/usr/local/share/android-ndk"
 ```
 
 In `android/app/build.gradle` check that `versionCode` and `versionName` match app.json.
@@ -110,10 +111,10 @@ Note that `versionCode` with **odd** numbers are for internal release, and the o
 
 ```
 cd android
-./gradlew assembleRelease
+./gradlew bundleRelease
 ```
 
-The apk is in `android/app/build/outputs/apk/prodKernel/release/app-prodKernel-release.apk`, upload it to the play store.
+The apk is in `android/app/build/outputs/bundle/release/app.aab`, upload it to the play store.
 
 **NOTE**: this apk points to the default release channel of expo, which I'm using for development purposes, a different apk should be build to submit to the production release in the play store.
 
@@ -129,26 +130,25 @@ so that I can acquire and keep the developer's license. Anything helps, ideally 
 
 To create the detached branch I followed these steps:
 
-- brew cask install android-sdk
+- brew cask install android-sdk android-ndk
 - yarn eject
-- expo-cli prepare-detached-build
+- npx expo-cli prepare-detached-build
 - react-native link react-native-iap
 
 Check manual setup instructions of react-native-iap project and make sure everything was correctly applied (for me the BILLING permission wasn't added)
 
-edit `android/app/build.gradle`:
+edit `android/app/src/main/AndroidManifest.xml` and add:
 
 ```
-diff --git a/android/gradle.properties b/android/gradle.properties
-index 509ba88..999381c 100644
---- a/android/gradle.properties
-+++ b/android/gradle.properties
-@@ -2,4 +2,4 @@ android.useDeprecatedNdk=true
- org.gradle.parallel=true
- org.gradle.daemon=true
- org.gradle.jvmargs=-Xmx9216M -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
--org.gradle.configureondemand=true
-+# org.gradle.configureondemand=true
+<uses-permission android:name="com.android.vending.BILLING" />
+```
+
+edit `android/app/build.gradle` and change this line to add 64 bit support:
+
+```
+ndk {
+    abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+}
 ```
 
 ## Making copies

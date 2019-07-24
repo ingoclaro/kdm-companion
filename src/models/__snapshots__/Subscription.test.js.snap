@@ -3,7 +3,6 @@
 exports[`.purchased handles the IAP response 1`] = `
 Object {
   "appLastActiveAt": 0,
-  "autoRenewing": true,
   "checkedAt": 1536939811199,
   "productId": "premium_subscription_1",
   "purchasedAt": 1536939811199,

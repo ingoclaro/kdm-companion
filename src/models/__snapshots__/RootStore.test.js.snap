@@ -31,7 +31,6 @@ Object {
   "selectedCampaign": "11111111-598a-49eb-888b-c6baa0006751",
   "subscription": Object {
     "appLastActiveAt": 0,
-    "autoRenewing": false,
     "checkedAt": 0,
     "productId": "",
     "purchasedAt": 0,
@@ -73,7 +72,6 @@ Object {
   "selectedCampaign": "960aa7ae-598a-49eb-888b-c6baa0006751",
   "subscription": Object {
     "appLastActiveAt": 0,
-    "autoRenewing": false,
     "checkedAt": 0,
     "productId": "",
     "purchasedAt": 0,
@@ -2642,7 +2640,6 @@ Object {
   "selectedCampaign": "4ffb66cf-05ce-4c11-9cd7-00eb43636520",
   "subscription": Object {
     "appLastActiveAt": 1545596960275,
-    "autoRenewing": false,
     "checkedAt": 1545436821417,
     "productId": "",
     "purchasedAt": 0,
@@ -5211,7 +5208,6 @@ Object {
   "selectedCampaign": "4ffb66cf-05ce-4c11-9cd7-00eb43636520",
   "subscription": Object {
     "appLastActiveAt": 1545596960275,
-    "autoRenewing": false,
     "checkedAt": 1545436821417,
     "productId": "",
     "purchasedAt": 0,
@@ -6095,7 +6091,6 @@ Object {
   "selectedCampaign": "ca2f6efa-88a7-4de7-8ef1-40ec9cc447cb",
   "subscription": Object {
     "appLastActiveAt": 0,
-    "autoRenewing": false,
     "checkedAt": 0,
     "productId": "",
     "purchasedAt": 0,
@@ -7144,7 +7139,6 @@ Object {
   "selectedCampaign": "960aa7ae-598a-49eb-888b-c6baa0006751",
   "subscription": Object {
     "appLastActiveAt": 0,
-    "autoRenewing": false,
     "checkedAt": 0,
     "productId": "",
     "purchasedAt": 0,
@@ -8193,7 +8187,6 @@ Object {
   "selectedCampaign": "960aa7ae-598a-49eb-888b-c6baa0006751",
   "subscription": Object {
     "appLastActiveAt": 0,
-    "autoRenewing": false,
     "checkedAt": 0,
     "productId": "",
     "purchasedAt": 0,
@@ -9282,7 +9275,6 @@ Object {
   "selectedCampaign": "960aa7ae-598a-49eb-888b-c6baa0006751",
   "subscription": Object {
     "appLastActiveAt": 0,
-    "autoRenewing": false,
     "checkedAt": 0,
     "productId": "",
     "purchasedAt": 0,
@@ -10371,7 +10363,6 @@ Object {
   "selectedCampaign": "960aa7ae-598a-49eb-888b-c6baa0006751",
   "subscription": Object {
     "appLastActiveAt": 0,
-    "autoRenewing": false,
     "checkedAt": 0,
     "productId": "",
     "purchasedAt": 0,
@@ -10413,7 +10404,6 @@ Object {
   "selectedCampaign": "11111111-598a-49eb-888b-c6baa0006751",
   "subscription": Object {
     "appLastActiveAt": 0,
-    "autoRenewing": false,
     "checkedAt": 0,
     "productId": "",
     "purchasedAt": 0,
@@ -11502,7 +11492,6 @@ Object {
   "selectedCampaign": "960aa7ae-598a-49eb-888b-c6baa0006751",
   "subscription": Object {
     "appLastActiveAt": 0,
-    "autoRenewing": false,
     "checkedAt": 0,
     "productId": "",
     "purchasedAt": 0,

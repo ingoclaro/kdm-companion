@@ -38,7 +38,7 @@ export const SubscriptionUpdater = inject(({ store }) => ({
       }
 
       checkPurchases = async () => {
-        if (!this.state.connected) {
+        if (!this.props.subscription.shouldCheck()) {
           return
         }
 
@@ -87,7 +87,7 @@ export const SubscriptionUpdater = inject(({ store }) => ({
 
       async componentDidMount() {
         if (hasIAP()) {
-          this.connectIAP()
+          await this.connectIAP()
           this.checkPurchases() // check right away.
         }
       }
@@ -106,7 +106,7 @@ export const SubscriptionUpdater = inject(({ store }) => ({
       }
 
       async componentDidUpdate(prevProps, prevState, snapshot) {
-        if (hasIAP() && this.props.subscription.shouldCheck()) {
+        if (hasIAP()) {
           await this.connectIAP()
           this.checkPurchases()
         }
@@ -143,7 +143,6 @@ export default inject(({ store }) => ({
         // }],
         products: [],
         error: false,
-        showSubscriptionButton: false,
         connected: false,
       }
 
@@ -152,25 +151,25 @@ export default inject(({ store }) => ({
           return true
         }
 
-        let status = true
+        let connected = false
 
         try {
           await RNIap.initConnection()
-          this.setState({ connected: true })
+          connected = true
         } catch (err) {
           if (err.code === 'E_NOT_ENDED') {
             // already connected, ignore.
-            this.setState({ connected: true })
+            connected = true
           } else {
             // 'E_SERVICE_ERROR' => store is not available.
-            console.warn(err.code, err.message)
             if (isDevMode()) {
-              Alert.alert(err.code, err.message)
+              Alert.alert('connectIAP error', JSON.stringify(err))
             }
-            status = false
+            connected = false
           }
         }
-        return status
+        this.setState({ connected })
+        return connected
       }
 
       getSubscriptions = async () => {
@@ -190,9 +189,8 @@ export default inject(({ store }) => ({
             // lost connection, try to re-connect the next time.
             this.setState({ connected: false, error: true })
           } else {
-            console.warn(err.code, err.message)
             if (isDevMode()) {
-              Alert.alert(err.code, err.message)
+              Alert.alert('getSubscriptions error', JSON.stringify(err))
             }
           }
         }
@@ -201,92 +199,80 @@ export default inject(({ store }) => ({
 
       purchaseListenerHandler = null
       purchaseListenerErrorHandler = null
-      setupPurchaseListeners = async () => {
-        this.purchaseListenerHandler = purchaseUpdatedListener(
-          async purchase => {
+      setupPurchaseListeners = () => {
+        this.purchaseListenerHandler = purchaseUpdatedListener(purchase => {
+          // if (isDevMode()) {
+          //   Alert.alert('purchaseUpdatedListener', JSON.stringify(purchase))
+          // }
+          if (purchase.transactionId) {
+            this.props.subscription.purchased(purchase)
             this.setState({ error: false, waiting: false })
-            console.log('purchaseUpdatedListener', purchase)
+
             if (
-              purchase.purchaseStateAndroid === 1 &&
-              !purchase.isAcknowledgedAndroid
+              Platform.OS === 'android' &&
+              purchase.isAcknowledgedAndroid === false
             ) {
-              try {
-                const ackResult = await acknowledgePurchaseAndroid(
-                  purchase.purchaseToken
-                )
-                console.log('ackResult', ackResult)
-              } catch (ackErr) {
-                console.warn('ackErr', ackErr)
-                this.setState({ error: true, waiting: false })
-                return
-              }
-            }
-            if (purchase.transactionId) {
-              this.props.subscription.purchased(purchase)
+              acknowledgePurchaseAndroid(purchase.purchaseToken)
             }
           }
-        )
+        })
         this.purchaseListenerErrorHandler = purchaseErrorListener(error => {
-          this.setState({ error: true, waiting: false })
-          console.warn('purchaseErrorListener', error)
-          if (isDevMode()) {
-            Alert.alert('purchase error', JSON.stringify(error))
+          switch (error.responseCode) {
+            case 7: // 7 -> already purchased?
+              this.checkPurchases()
+              this.setState({ error: false })
+              break
+            case 1:
+              this.setState({ error: false })
+              break
+            default:
+              // 1 -> user cancelled (back button)
+              // 6 -> CC failure.
+              this.setState({ error: true })
+              if (isDevMode()) {
+                Alert.alert('purchaseErrorListener', JSON.stringify(error))
+              }
           }
+          this.setState({ waiting: false })
         })
       }
 
-      buySubscribeItem = async sku => {
+      buySubscribeItem = sku => {
         if (!this.state.connected) {
           return true
         }
 
-        try {
-          this.setState({ error: false, waiting: true })
-          const request = RNIap.requestSubscription(sku)
-        } catch (err) {
-          if (err.code === 'E_USER_CANCELLED') {
-            // 'E_USER_CANCELLED' => user closed the window without completing purchase
-          } else if (err.code === 'E_NOT_PREPARED') {
-            // lost connection, try to re-connect the next time.
-            this.setState({ connected: false, error: true })
-          } else if (err.code === 'E_ALREADY_OWNED') {
-            // user already has the subscription, but we don't have it in our side :/, let's synch the purchases.
-            await this.checkPurchases()
-          } else {
-            console.warn(err.code, err.message)
-            if (isDevMode()) {
-              Alert.alert(err.code, err.message)
-            }
-            // 'E_UNKNOWN' => CC fails ?
-            this.setState({ error: true })
-          }
-          this.setState({ waiting: false })
-        }
+        this.setState({ error: false, waiting: true })
+        RNIap.requestSubscription(sku)
       }
 
       checkPurchases = async () => {
-        if (!this.state.connected) {
-          return
-        }
-
         try {
+          this.setState({ error: false, waiting: true })
           const purchases = await RNIap.getAvailablePurchases()
-          console.log('purchases', purchases)
+          // if (isDevMode()) {
+          //   Alert.alert('purchases', JSON.stringify(purchases))
+          // }
           if (purchases.length === 0) {
             // no active subscriptions
             this.props.subscription.purchased({})
+            if (this.state.products.length === 0) {
+              let products = await this.getSubscriptions()
+              let error = products.length === 0
+              this.setState({ products, error })
+            }
           }
           purchases.forEach(purchase => {
             this.props.subscription.purchased(purchase)
           })
+          this.setState({ waiting: false })
         } catch (err) {
           if (err.code === 'E_NOT_PREPARED') {
             // lost connection, try to re-connect the next time.
-            this.setState({ connected: false })
+            this.setState({ connected: false, error: true, waiting: false })
           } else if (isDevMode()) {
-            Alert.alert(err.code, err.message)
+            Alert.alert('checkPurchases error', JSON.stringify(err))
           }
-          console.warn(err.code, err.message)
         }
       }
 
@@ -297,7 +283,6 @@ export default inject(({ store }) => ({
             this.setState({ waiting: false, error: true })
           } else {
             let products = await this.getSubscriptions()
-            console.log('products', products)
             let error = products.length === 0
             this.setState({ products, waiting: false, error })
             this.setupPurchaseListeners()
@@ -306,11 +291,7 @@ export default inject(({ store }) => ({
       }
 
       async componentDidUpdate(prevProps, prevState, snapshot) {
-        if (
-          hasIAP() &&
-          !this.props.subscription.hasActiveSubscription() &&
-          !this.state.connected
-        ) {
+        if (hasIAP() && !this.state.connected) {
           this.connectIAP()
         }
       }
@@ -331,9 +312,8 @@ export default inject(({ store }) => ({
             if (err.code === 'endConnection') {
               // already ended, ignore.
             } else {
-              console.warn(err.code, err.message)
               if (isDevMode()) {
-                Alert.alert(err.code, err.message)
+                Alert.alert('componentWillUnmount error', JSON.stringify(err))
               }
             }
           }
@@ -354,6 +334,14 @@ export default inject(({ store }) => ({
             <Button onPress={() => Linking.openURL(url)}>
               <Text>Manage Subscription</Text>
             </Button>
+            {isDevMode() && (
+              <View>
+                <Divider />
+                <Button onPress={this.checkPurchases}>
+                  <Text>Force Subscription Check</Text>
+                </Button>
+              </View>
+            )}
           </View>
         )
       }

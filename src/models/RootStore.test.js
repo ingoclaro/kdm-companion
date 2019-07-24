@@ -235,7 +235,7 @@ describe('.load', () => {
     it('loads v6 save', () => {
       const data = require('./__test_data__/save_v6.json')
       store.load(data)
-      expect(store.data).toEqual(data) // to compare upgrade
+      // expect(store.data).toEqual(data) // to compare upgrade
       expect(store.data).toMatchSnapshot()
     })
 

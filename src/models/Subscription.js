@@ -5,6 +5,7 @@ const toDays = 1000 * 60 * 60 * 24
 
 export const checkEvery = 1 * toDays // 1000 * 60 * 7
 export const activeGracePeriod = 31 * toDays // since last check
+// export const activeGracePeriod = 1000 * 60 * 5 // since last check
 
 const Subscription = types
   .model('Subscription', {
@@ -12,7 +13,6 @@ const Subscription = types
     productId: '', // product sku purchased.
     response: '', // full json response (in case we need somehting else)
     purchasedAt: 0, // timestamp the subscription was purchased
-    autoRenewing: false, // if the subscription is autoRenewing, false => is not going to review, but it might still be active.
     checkedAt: 0, // timestamp when was it last checked if the subscription is still active, this should trigger a re-check after some time to make sure we de-active folks that cancelled their subscription.
     appLastActiveAt: 0, // timestamp when the app was last active (eg: context switched or opened), this is used so that we can re-check if the app is never closed.
   })
@@ -21,13 +21,13 @@ const Subscription = types
     // when subscription is still active and not going to be renewed, the subscription is returned and autoRenewing = false. Ideally a warning should be displayed in the app and a button to renew the subscription.
     // when subscription already expired, an empty response is returned.
     purchased(response) {
+      self.checkedAt = Date.now()
+
       if (!response || !response.transactionId) {
         self.response = ''
         self.transactionId = undefined
         self.productId = ''
-        self.autoRenewing = false
         self.purchasedAt = 0
-        self.checkedAt = Date.now()
         return
       }
 
@@ -40,9 +40,7 @@ const Subscription = types
       self.response = JSON.stringify(response)
       self.transactionId = response.transactionId
       self.productId = response.productId
-      self.autoRenewing = response.autoRenewingAndroid
       self.purchasedAt = purchasedAt
-      self.checkedAt = Date.now()
     },
     updateAppLastActiveAt() {
       self.appLastActiveAt = Date.now()
@@ -71,7 +69,10 @@ const Subscription = types
       ) {
         return true
       }
-      if (self.purchasedAt && Date.now() - self.checkedAt < activeGracePeriod) {
+      if (
+        self.purchasedAt > 0 && // purchasedAt holds the initial purchase date or we get a new purchase after each renewal?
+        Date.now() - self.checkedAt < activeGracePeriod
+      ) {
         return true
       }
       return false
