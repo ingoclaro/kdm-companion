@@ -57,9 +57,10 @@ const Subscription = types
       }
     },
     hasActiveSubscription() {
-      let test = process.env.npm_lifecycle_event
-        ? process.env.npm_lifecycle_event === 'test'
-        : false
+      let test =
+        process.env.npm_lifecycle_event === 'test' || process.env.CI
+          ? true
+          : false
       if (
         !test &&
         Constants &&
