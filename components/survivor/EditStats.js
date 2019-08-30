@@ -82,7 +82,6 @@ class EditStats extends React.Component {
             onChangeText={text =>
               this.props.survivor.setAttribute('name', text)
             }
-            maxLength={35}
           />
         </View>
 
