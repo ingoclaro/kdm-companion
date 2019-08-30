@@ -441,7 +441,7 @@ export default {
     settlement: {
       showdown: {
         description:
-          '**Paint**: Gain **Dash** survival action.\n  **Dash**: Spend 1 survival to gain +1[movement](movement) and use it immediatly.',
+          '**Paint**: Gain **Dash** survival action.\n  **Dash**: Spend 1 survival to gain +1![movement](movement) and use it immediatly.',
       },
     },
   },
