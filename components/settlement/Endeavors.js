@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, Title, Subtitle, ListView } from '@shoutem/ui'
 import { observer, inject } from 'mobx-react'
 import colors from '../../src/colors'
+import RichText from '../common/RichText'
 
 export default inject(({ store }) => ({
   endeavors: store.selectedCampaign.endeavors,
@@ -25,6 +26,7 @@ export default inject(({ store }) => ({
                 })
                 .join(', ')}
             </Text>
+            <RichText>{item.description}</RichText>
           </View>
         )
       }
